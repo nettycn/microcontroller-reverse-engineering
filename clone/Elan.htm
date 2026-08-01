@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elan Microelectronics Reverse Engineering – MikaTech</title>
+      <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Elan Microelectronics Reverse Engineering</h1>
+                <p>Specialised services for Elan 8-bit and 32-bit microcontrollers and touch controllers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Brand Overview</h2>
+                <p>Elan Microelectronics is a Taiwanese fabless semiconductor company established in 1994, well‑known for their low‑cost 8‑bit microcontrollers often used in consumer electronics. Their EM78 series is compatible with Microchip’s PIC architecture but with variations, and they also produce ARM‑based 32‑bit MCUs and capacitive touch controllers. Elan chips are found in remote controls, small appliances, toys, computer peripherals, and smart home devices, and they have a strong presence in the Chinese and Southeast Asian markets.</p>
+                <p>Many Elan devices feature embedded EEPROM and flash memory with security bits, but the implementation is often basic, relying on simple lock bits, which makes them relatively easier to reverse engineer compared to high‑end counterparts. Nevertheless, we have encountered devices with proprietary encryption algorithms. Elan also offers OTP (one‑time‑programmable) versions for mass production, which require special techniques for reading since they cannot be reprogrammed. Our team has developed methods to extract code from Elan OTP chips using micro‑probing, and we have successfully cloned Elan microcontrollers for various industrial clients.</p>
+                <p>We are familiar with Elan’s proprietary programming interface and debug protocols, and we can bypass the security locks to read out the complete firmware. Our services cover both flash‑based and OTP‑based Elan devices, including firmware extraction, disassembly, functional analysis, and replacement solutions for obsolete chips. With over 100 successful Elan projects, we have the expertise to help you regain control of your Elan‑powered products.</p>
+
+                <h2>Microcontroller Series & Models</h2>
+                <h3>EM78 Series (8-bit, PIC-like)</h3>
+                <ul>
+                    <li>EM78P153</li>
+                    <li>EM78P156</li>
+                    <li>EM78P258</li>
+                    <li>EM78P259</li>
+                    <li>EM78P260</li>
+                    <li>EM78P417</li>
+                    <li>EM78P418</li>
+                    <li>EM78P447</li>
+                    <li>EM78P451</li>
+                    <li>EM78P468</li>
+                    <li>EM78P469</li>
+                    <li>EM78P508</li>
+                    <li>EM78P509</li>
+                    <li>EM78P520</li>
+                    <li>EM78P810</li>
+                </ul>
+                <h3>ePort Series (32-bit ARM Cortex-M)</h3>
+                <ul>
+                    <li>ePort-M0 (EM32M0)</li>
+                    <li>ePort-M3 (EM32M3)</li>
+                    <li>ePort-M4 (EM32M4)</li>
+                    <li>EM32F302</li>
+                    <li>EM32F303</li>
+                    <li>EM32F305</li>
+                    <li>EM32F307</li>
+                    <li>EM32F401</li>
+                    <li>EM32F405</li>
+                    <li>EM32F407</li>
+                    <li>EM32F411</li>
+                    <li>EM32F412</li>
+                    <li>EM32F413</li>
+                    <li>EM32F415</li>
+                    <li>EM32F417</li>
+                </ul>
+                <h3>Touch Controllers</h3>
+                <ul>
+                    <li>EMC1051</li>
+                    <li>EMC1052</li>
+                    <li>EMC1053</li>
+                    <li>EMC1055</li>
+                    <li>EMC1070</li>
+                    <li>EMC1080</li>
+                    <li>EMC1090</li>
+                    <li>EMC1100</li>
+                    <li>EMC1200</li>
+                    <li>EMC1300</li>
+                </ul>
+
+                <h2>Security Features & Reverse Engineering Insights</h2>
+                <p>Elan microcontrollers typically implement a simple security scheme based on configuration bits. The code protection lock prevents reading the program memory via the programming interface, but this lock can often be defeated by exploiting the power‑up timing. We can hack the device by glitching the power supply during the read sequence, which forces the chip to skip the security check and allows us to dump the entire memory. For OTP variants, the lock is permanent, but we can use invasive techniques to extract bits by decapsulating the die and using a scanning electron microscope to read the charge state of each memory cell. We have successfully recovered the complete code from Elan OTP chips this way.</p>
+                <p>For flash‑based devices, we can often use a debug interface (ICSP) to read back the contents; even when the interface is disabled, we can re‑enable it by manipulating the reset vector. We have developed a custom bootloader that exploits a buffer overflow to unlock the flash, allowing us to extract the firmware without altering the original chip. Elan’s 32‑bit ARM devices have more robust security, including read‑out protection (RDP), but we have found that RDP can be downgraded via a glitch attack on the option bytes, after which we can read the flash using standard SWD. We can also recover encryption keys stored in the unique ID area, which are often used for firmware authentication, and clone them with precision.</p>
+                <p>Our side‑channel analysis on Elan ARM MCUs has revealed leakage in the AES routine, allowing us to extract secret keys even when RDP is at the highest level. For touch controllers, security is minimal, and we can often read the configuration directly. We have cloned Elan touch firmware to replicate functions in counterfeit products, and our approach includes both non‑invasive and invasive methods depending on the client’s needs. We can recover the algorithm used for touch sensing to create compatible replacements. Overall, Elan’s security is generally weak compared to competitors, but we still apply rigorous techniques to ensure 100% success.</p>
+                <p>We have extracted firmware from Elan chips that were thought to be unbreakable, and our tools allow us to duplicate the entire chip behaviour, including timing and peripherals, to produce a functional clone that works seamlessly in the target system. We also offer decryption services for any encrypted data stored in Elan MCUs by reverse‑engineering the encryption scheme. Our team constantly researches new attacks and stays ahead of updates, providing detailed documentation of the extraction process for your records. With MikaTech, you can overcome any Elan security challenge.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p>
+        </div>
+    </footer>
+</body>
+</html>

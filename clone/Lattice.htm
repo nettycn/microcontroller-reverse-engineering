@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lattice MCU Reverse Engineering – MikaTech</title>
+      <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Lattice MCU Reverse Engineering</h1>
+                <p>Specialized in FPGA‑based MCU and mixed‑signal devices</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Lattice</h2>
+                <p>Lattice Semiconductor is famous for its low‑power FPGAs, but they also produce embedded microcontrollers and SoCs. Their MCUs often integrate programmable logic with ARM cores. Lattice’s MachXO and iCE40 families include hard‑wired MCU subsystems. They target industrial, automotive, and consumer markets. Lattice microcontrollers are known for their flexibility and small footprint. They offer both 8‑bit and 32‑bit options. Lattice’s devices support multiple I/O standards and voltage levels. They are used in motor control, sensor fusion, and human‑machine interfaces. Lattice provides a complete development ecosystem with drag‑and‑drop logic design. Their microcontrollers often include analog blocks like PLLs and oscillators. Lattice acquired SiliconBlue to enhance their low‑power FPGA/ MCU offerings. They are also a major supplier of USB‑C and power delivery controllers. Lattice’s CrossLink family is designed for video bridge applications. Their MCUs feature on‑chip flash and SRAM with error correction. Lattice emphasizes ease of use and rapid prototyping. They have a strong presence in the industrial automation sector. Lattice’s security solutions include secure boot and key storage. They also offer authentication ICs for IP protection. Lattice is a key partner for many OEMs in Asia. Their devices are used in drones, robotics, and smart home products. Lattice continues to innovate with low‑power and small‑form‑factor designs. They have a comprehensive online community and support. Lattice’s tools support both Verilog and C programming. They provide reference designs for common applications. Lattice’s focus on cost‑efficiency makes them competitive. Their microcontrollers are often paired with external memory. Lattice also produces configuration memory for FPGAs. Their products are characterized by high reliability and long availability. Lattice is a trusted name in programmable logic and embedded systems.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>MachXO (with embedded MCU)</h3>
+                <ul>
+                    <li>MachXO2‑1200</li><li>MachXO2‑2000</li><li>MachXO2‑4000</li><li>MachXO2‑7000</li><li>MachXO3‑9400</li>
+                    <li>MachXO3‑LFE5U</li><li>MachXO3‑LFE5UM</li><li>MachXO3‑LFE5UM‑25</li><li>MachXO3‑LFE5UM‑45</li>
+                </ul>
+                <h3>iCE40 (Ultra‑low‑power)</h3>
+                <ul>
+                    <li>iCE40UL1K</li><li>iCE40UL4K</li><li>iCE40UP5K</li><li>iCE40LP384</li><li>iCE40LP640</li>
+                    <li>iCE40LP1K</li><li>iCE40LP4K</li><li>iCE40LP8K</li><li>iCE40HX1K</li><li>iCE40HX4K</li>
+                    <li>iCE40HX8K</li><li>iCE40HX16K</li>
+                </ul>
+                <h3>CrossLink (Video bridging)</h3>
+                <ul>
+                    <li>CrossLink‑LIF‑MD6000</li><li>CrossLink‑LIF‑MD8000</li><li>CrossLink‑LIF‑MD12000</li>
+                </ul>
+
+                <h2>Lattice Security Features</h2>
+                <p>Lattice implements security features to protect bitstreams and firmware. Their FPGAs include a unique device DNA that can be used for authentication. This DNA prevents cloning as each chip has a distinct identifier. Lattice offers AES‑encrypted bitstream loading to prevent readback. The decryption key is stored in a battery‑backed SRAM or eFuse. Without the key, you cannot decrypt the configuration data. Lattice also provides a secure boot mode for MCU cores. This verifies the integrity of the software image before execution. Debug ports can be disabled via security fuses. However, physical attacks like probing can still reveal the bitstream. Lattice’s security is enhanced by tamper‑sensitive circuitry that erases keys upon intrusion. They also support zeroization of sensitive data. To hack a Lattice device, one might attempt to intercept the SPI flash during boot. Side‑channel attacks can be used to recover the encryption key. Our team has successfully extracted bitstreams from iCE40 chips using power analysis. We have also used FIB to read internal configuration memory. Lattice devices are less secure than some competitors, but still offer decent protection. For legacy designs, we can duplicate the entire configuration onto a new chip. We also provide firmware extraction from the embedded MCU. The process involves dumping the flash and EEPROM. Lattice’s security is sufficient for many commercial applications, but not for military‑grade. MikaTech offers comprehensive reverse engineering services for all Lattice products. We can recover design data even from locked devices. Our methods include invasive and non‑invasive approaches. We can unlock the JTAG interface through glitch attacks. We also use electromagnetic analysis to infer internal states. With our expertise, we can clone Lattice designs for legacy replacement. Contact us for a detailed evaluation of your Lattice device.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

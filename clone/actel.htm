@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actel Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Actel FPGA &amp; SoC Reverse Engineering</h1>
+                <p>Expertise in antifuse and flash-based Actel devices</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Actel</h2>
+                <p>Actel Corporation, now part of Microsemi (a Microchip company), is a pioneer in non-volatile FPGA technology. Unlike SRAM-based FPGAs, Actel devices use antifuse or flash configuration cells, making them inherently more resistant to soft errors and tampering. Actel's product portfolio spans low-power, high-reliability FPGAs and mixed-signal SoCs, widely used in aerospace, defense, medical, and industrial applications. The company introduced the first antifuse FPGA in the 1990s, revolutionizing the market with instant-on capability and radiation tolerance. Actel’s flash-based ProASIC and IGLOO families offer reconfigurability while maintaining non-volatility, bridging the gap between CPLDs and high-end FPGAs. Their SmartFusion devices integrate hard ARM Cortex-M3 cores with programmable logic, enabling true system-on-chip solutions. Actel also offers the RT (radiation-tolerant) series for space applications, which are tested for single-event upsets and total ionizing dose. The company’s development tools, like Libero SoC, provide a complete design flow from synthesis to programming. Actel devices are known for their low power consumption, with some IGLOO variants drawing as little as 5 µA in standby. They also feature advanced security mechanisms, including 128-bit AES encryption for bitstream protection and unique device identifiers. Actel’s antifuse technology is one-time programmable (OTP), which prevents readback or cloning of the design, making it popular for IP protection. However, this also makes reverse engineering more challenging, as the fuse states cannot be directly read out. Despite this, experienced labs can still extract netlists through physical failure analysis. Actel’s flash-based FPGAs allow in-system reprogramming, but they also incorporate security fuses to block external access. The company has a strong legacy in military and avionics, where reliability and security are paramount. Many Actel devices are qualified to MIL-STD-883 and operate over extended temperature ranges. Their mixed-signal Fusion family integrates analog peripherals like ADCs, DACs, and comparators with digital logic, enabling sensor interfaces. Actel also provides IP cores for cryptography, motor control, and communication protocols. The company’s acquisition by Microsemi expanded its footprint into timing, power, and RF products. Today, Actel FPGAs are found in satellite systems, pacemakers, and industrial drives. Their secure manufacturing flow ensures that no design data is exposed during fabrication. Actel’s commitment to zero-defect quality makes them a top choice for mission-critical systems. In recent years, the PolarFire family of mid-range FPGAs offers transceivers and DSP capabilities, competing with Altera and Xilinx. However, Actel’s distinct value lies in its hardened security and low power. For reverse engineers, Actel devices present a unique challenge due to the lack of direct readback. Nevertheless, with advanced techniques such as focused ion beam (FIB) editing and micro-probing, we can recover the configuration data. Our team has successfully extracted designs from both antifuse and flash Actel devices, even when encryption was enabled. We combine side-channel analysis with invasive methods to unlock the device’s secrets. Actel’s design security is robust, but no system is unbreakable with the right expertise and tools. We have invested significantly in developing custom attack vectors for these devices, including power glitching and electromagnetic analysis. Our success rate with Actel parts is among the highest in the industry, thanks to our extensive research and proprietary toolset.</p>
+
+                <h2>Device Families and Models</h2>
+                <ul>
+                    <li><strong>ProASIC3</strong> – A3P015, A3P030, A3P060, A3P125, A3P250, A3P400, A3P600, A3P1000, A3P1500, A3P2000</li>
+                    <li><strong>IGLOO</strong> – AGLN010, AGLN015, AGLN020, AGLN030, AGLN060, AGLN125, AGLN250, AGLN600, AGLN1000, AGLN1500</li>
+                    <li><strong>SmartFusion</strong> – A2F200, A2F500, A2F060, A2F125, A2F250, A2F150, A2F200M3, A2F500M3, A2F060M3, A2F125M3</li>
+                    <li><strong>Fusion</strong> – AFS090, AFS250, AFS600, AFS1500, AFS250E, AFS600E, AFS1500E, AFS090Q, AFS250Q, AFS600Q</li>
+                    <li><strong>ProASIC Plus</strong> – APA075, APA150, APA300, APA450, APA600, APA750, APA1000, APA1500, APA2000, APA3000</li>
+                    <li><strong>IGLOO2</strong> – M2GL005, M2GL010, M2GL025, M2GL050, M2GL100, M2GL150, M2GL200, M2GL300, M2GL400, M2GL500</li>
+                    <li><strong>SmartFusion2</strong> – M2S005, M2S010, M2S025, M2S050, M2S100, M2S150, M2S200, M2S300, M2S400, M2S500</li>
+                    <li><strong>RT ProASIC3</strong> – RT3P300, RT3P600, RT3P1000, RT3P1500, RT3P2000, RT3P3000, RT3P4000, RT3P5000, RT3P6000, RT3P7000</li>
+
+                </ul>
+
+                <h2>Security Features and Reverse Engineering Challenges</h2>
+                <p>Actel devices employ a multi-layered security architecture designed to protect the configuration bitstream and user design from unauthorized access. The primary mechanism is the use of either antifuse (permanently programmed) or flash memory with encryption. For flash-based families, a 128-bit AES key is stored in dedicated secure memory, and the bitstream is encrypted before loading. This prevents eavesdropping during programming and makes it nearly impossible to readback the design in plaintext. Additionally, Actel implements a secure erase function that can zeroize all configuration data and keys upon detection of tampering. The devices also feature a unique 64-bit device identifier that can be used for authentication and anti-cloning measures. Many Actel FPGAs have a security fuse that, once blown, disables all programming and verification interfaces, including JTAG and SPI. This effectively locks the device, preventing any readback or dump of the internal logic. However, experienced reverse engineers have developed methods to attack these protections. For example, we can use side-channel power analysis to extract the AES key during decryption, as the key is processed internally. By measuring power consumption fluctuations, we can correlate them with the cryptographic operations and recover the key bits. Another approach is fault injection, where we introduce voltage or clock glitches to disrupt the security logic and force the device to bypass the lock. This attack can unlock the JTAG port temporarily, allowing us to read the configuration data. For antifuse devices, there is no bitstream to read; the only way to recover the design is through physical reverse engineering. This involves removing the passivation layer, imaging the die with a scanning electron microscope (SEM), and reconstructing the interconnect graph based on fuse states. This process is extremely time-consuming and requires careful FIB edits to probe internal nodes. However, we have successfully duplicated designs from Actel antifuse FPGAs by cloning the fuse pattern onto a new device, effectively creating a functional clone. Additionally, we can use laser stimulation to induce faults and read the state of individual fuses, though this is a delicate procedure. Actel also includes a secure mode that prevents any external access to the flash memory after programming. Some devices offer a "readback disable" feature, which permanently blocks any attempt to read the configuration. Despite these measures, we have developed techniques to recover the bitstream by exploiting the power-up sequence, where the device loads the configuration from internal flash. By capturing the electromagnetic emissions during startup, we can reconstruct the data being transferred. Furthermore, we have engineered custom attacks that target the bootloader to extract the encrypted bitstream before it is decrypted. In some cases, we have been able to manipulate the clock to slow down the decryption process, allowing us to probe the data lines and capture the plaintext. Actel’s security is robust, but our team has dedicated years to understanding the silicon-level vulnerabilities. We have successfully hacked multiple Actel devices for clients, delivering both the extracted netlist and the recovered firmware. Our methods include non-invasive side-channel analysis and semi-invasive depackaging. We also offer services to recover designs from locked devices where the original source code is lost. With our expertise, we can decrypt, readback, and even clone Actel FPGAs, ensuring that you regain full access to your intellectual property. Our success stories include extracting AES keys from SmartFusion devices and reconstructing the entire logic from ProASIC3 antifuse arrays. We continuously update our attack toolkit to stay ahead of Actel’s countermeasures, making us your trusted partner for Actel reverse engineering.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Analog Devices</h2>
+                <p>Analog Devices, Inc. (ADI) is a global leader in high‑performance analog, mixed‑signal, and digital signal processing (DSP) integrated circuits. Their microcontroller portfolio focuses on precision measurement, sensor conditioning, and real‑time control. ADI’s ADuCM series integrates ARM Cortex‑M3/M4 cores with high‑resolution ADCs, DACs, and programmable gain amplifiers. These devices are widely used in industrial automation, medical instrumentation, and energy metering. ADI also produces the ADSP family of digital signal controllers for audio and communications. Their microcontrollers are known for exceptional accuracy, low drift, and low power consumption. ADI provides comprehensive software libraries for signal processing and control algorithms. They offer development tools like CrossCore Embedded Studio and IAR/Keil support. ADI’s chips often include on‑chip temperature sensors and reference voltage sources. They are used in smart grid, robotics, and automotive battery management. ADI has a strong focus on functional safety (IEC 61508) and security. Their devices support secure boot and cryptographic accelerators. ADI acquired Linear Technology, expanding their power and mixed‑signal portfolio. They also own the Maxim Integrated brand, further broadening their MCU offerings. ADI’s microcontrollers are designed for harsh environments with wide temperature ranges. They offer both flash‑based and ROM‑based variants. ADI’s development ecosystem includes evaluation boards and reference designs. They have a dedicated technical support team and extensive documentation. ADI’s products are used in critical applications like pacemakers and aircraft controls. They are a preferred supplier for many Fortune 500 companies. ADI continues to innovate with new ultra‑low‑power and secure devices. Their commitment to quality is reflected in ISO 9001 and AS9100 certifications. ADI also provides analog front‑end (AFE) solutions paired with MCUs. Their microcontrollers often integrate capacitive sensing and touch interfaces. ADI’s long‑term availability ensures product lifecycle stability. They are a trusted partner for mission‑critical embedded systems.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>ADuCM Series (ARM Cortex‑M3/M4)</h3>
+                <ul>
+                    <li>ADuCM3027</li><li>ADuCM3029</li><li>ADuCM331</li><li>ADuCM350</li><li>ADuCM355</li>
+                    <li>ADuCM360</li><li>ADuCM361</li><li>ADuCM362</li><li>ADuCM363</li><li>ADuCM410</li>
+                    <li>ADuCM420</li><li>ADuCM430</li><li>ADuCM440</li><li>ADuCM450</li><li>ADuCM460</li>
+                </ul>
+                <h3>ADSP‑21xx (16‑bit fixed‑point DSP)</h3>
+                <ul>
+                    <li>ADSP‑2101</li><li>ADSP‑2102</li><li>ADSP‑2103</li><li>ADSP‑2104</li><li>ADSP‑2105</li>
+                    <li>ADSP‑2106</li><li>ADSP‑2107</li><li>ADSP‑2111</li><li>ADSP‑2115</li><li>ADSP‑2181</li>
+                    <li>ADSP‑2184</li><li>ADSP‑2186</li><li>ADSP‑2189</li>
+                </ul>
+                <h3>ADSP‑SHARC (32‑bit floating‑point)</h3>
+                <ul>
+<li><strong>ADuC7060
+ADuC7061
+ADuC7062
+ADuC7064
+ADuC7066
+ADuC7121
+ADuC7122
+ADuC7123
+ADuC7124
+ADuC7222
+ADuC7224
+ADuC7226
+ADuC7227
+ADuC7228
+ADuC831
+ADuC832
+ADuC834
+ADuC836</li>
+                </ul>
+
+                <h2>Analog Devices Security Features</h2>
+                <p>Analog Devices incorporates robust security features to protect sensitive measurement data and firmware. Their ADuCM series includes a secure boot process that authenticates the firmware image using cryptographic signatures. If the signature fails, the device will not execute the code, preventing malicious hacks. The on‑chip flash can be locked with password protection to block readback of the program memory. However, skilled attackers may attempt glitch attacks to bypass these locks. ADI also provides a hardware encryption engine that can decrypt code on‑the‑fly, storing the firmware encrypted in flash. The decryption key is held in a tamper‑sensitive register that zeroes upon detection of physical intrusion. Some devices feature a unique 64‑bit device ID that can be used for cloning prevention. Despite these measures, we have successfully extracted firmware from ADuCM360 by exploiting a timing vulnerability in the bootloader. Another method involves using power analysis to recover the encryption key during the boot process. We have also used electromagnetic probing to read internal memory directly. ADI’s older ADSP‑21xx chips have minimal security, allowing easy read and dump of the program memory via JTAG. For those, we can duplicate the entire code onto a new device. For SHARC processors, the security fuses can be blown to disable debug access, but we have developed techniques to unlock them using focused ion beam (FIB) editing. Side‑channel attacks are effective against the AES engine when the key is used repeatedly. We have recovered keys from ADuCM350 devices using differential power analysis. Our team also uses fault injection to temporarily disable the secure boot check, allowing us to read the unprotected memory. Once we have the binary, we can recover the algorithms and calibration constants. ADI’s security is generally strong for industrial applications, but no system is perfect. We offer comprehensive reverse engineering services for all ADI MCUs and DSPs. Whether you need to recover lost firmware, duplicate a legacy controller, or analyse a competitor’s design, MikaTech can help. Our methods include non‑invasive side‑channel analysis and invasive decapsulation. We can also provide a full disassembly and functional analysis of the extracted code. Trust us for professional Analog Devices reverse engineering.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p>
+        </div>
+    </footer>
+</body>
+</html>

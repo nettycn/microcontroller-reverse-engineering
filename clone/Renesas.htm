@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renesas MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Renesas MCU Reverse Engineering</h1>
+                <p>Expertise in RX, RL78, RH850, and legacy H8 families</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Renesas</h2>
+                <p>Renesas Electronics is a leading global supplier of microcontrollers, formed from the merger of NEC Electronics and Renesas Technology. They offer a vast portfolio including the RX (32‑bit), RL78 (16‑bit), RH850 (automotive), and legacy H8 and M16C families. Renesas MCUs are widely used in automotive, industrial, consumer, and IoT applications. They are known for high performance, low power, and strong security features. Renesas has a dominant position in the automotive MCU market, with the RH850 series powering many engine control units and ADAS systems. Their RX series offers high computational efficiency for industrial drives and robotics. The RL78 is optimized for ultra‑low‑power applications like sensors and medical devices. Renesas also produces ASICs and SoCs for specific applications. They provide comprehensive development tools, including e² studio and compiler suites. Renesas is committed to functional safety (ISO 26262) and cybersecurity (ISO 21434). Their MCUs often integrate hardware encryption, random number generators, and tamper detection. Renesas has a strong heritage from NEC, Hitachi, and Mitsubishi’s semiconductor divisions. They offer extensive documentation and customer support. Renesas’ products are certified for automotive grade AEC‑Q100. They also offer radiation‑hardened devices for aerospace. Renesas is actively investing in AI‑ready MCUs with built‑in neural network accelerators. Their acquisition of Intersil added power management expertise. Renesas has a global manufacturing and supply chain. They are a key partner for many tier‑1 automotive suppliers. Renesas’ security solutions include secure boot, key management, and trusted execution environments. They also provide secure firmware update mechanisms. Their MCUs are used in critical infrastructure and medical devices. Renesas continues to innovate with new materials like silicon carbide. They have a strong focus on energy efficiency and sustainability. Renesas’ microcontrollers are supported by a rich ecosystem of middleware and libraries.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>RX (32‑bit)</h3>
+                <ul>
+                    <li>RX62N</li><li>RX63N</li><li>RX64M</li><li>RX65N</li><li>RX66T</li>
+                    <li>RX71M</li><li>RX72M</li><li>RX72T</li><li>RX72N</li><li>RX113</li>
+                    <li>RX130</li><li>RX231</li><li>RX261</li><li>RX651</li><li>RX671</li>
+                </ul>
+                <h3>RL78 (16‑bit)</h3>
+                <ul>
+                    <li>RL78/G13</li><li>RL78/G14</li><li>RL78/G1A</li><li>RL78/G1D</li><li>RL78/G1E</li>
+                    <li>RL78/F12</li><li>RL78/F13</li><li>RL78/F14</li><li>RL78/I1A</li><li>RL78/I1C</li>
+                    <li>RL78/L1A</li><li>RL78/D1A</li><li>RL78/H1A</li>
+                </ul>
+                <h3>RH850 (Automotive)</h3>
+                <ul>
+                    <li>RH850/E1H</li><li>RH850/E1M</li><li>RH850/E1L</li><li>RH850/P1H</li><li>RH850/P1M</li>
+                    <li>RH850/P1L</li><li>RH850/R1H</li><li>RH850/R1M</li><li>RH850/U2A</li><li>RH850/U2B</li>
+                    <li>RH850/C1M</li><li>RH850/C1H</li>
+                </ul>
+
+                <h2>Renesas Security Features</h2>
+                <p>Renesas implements advanced security features across its MCU families. Their devices often include a dedicated security engine for AES, RSA, ECC, and SHA. This allows firmware to be stored encrypted and decrypted on‑the‑fly during boot. The keys are kept in a tamper‑resistant memory that zeroes out on tamper detection. Renesas provides a secure boot mechanism that verifies the signature of the code before execution. Debug interfaces can be locked via a password or permanently disabled using OTP fuses. Some devices have a unique ID that can be used for authentication. To protect against cloning, they include active shielding on the die. However, determined attackers may still attempt to hack the chip using fault injection. Side‑channel power analysis can reveal keys during cryptographic operations. Our team has successfully extracted firmware from RX devices by exploiting voltage glitches. We have also used electromagnetic analysis to recover secrets from RL78. Invasive methods like decapsulation and micro‑probing are effective against older Renesas chips. We can read the flash memory directly by probing the bit lines. Renesas’ security is robust, but legacy H8 and M16C devices have weaker protections. We can easily dump their firmware using simple glitch attacks. For RH850, we have developed methods to unlock the secure boot flow. We can recover the encryption key from the bootloader. Our lab also offers to clone the entire chip for legacy replacement. We provide a comprehensive dump of flash, EEPROM, and configuration settings. Renesas’ security is constantly evolving, but we stay ahead with continuous research. MikaTech is your trusted partner for Renesas reverse engineering.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

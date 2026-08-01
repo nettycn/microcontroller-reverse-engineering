@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvoton MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Nuvoton MCU Reverse Engineering</h1>
+                <p>Expertise in ARM Cortex‑M and 8051‑based microcontrollers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Nuvoton</h2>
+                <p>Nuvoton Technology Corporation is a leading semiconductor company specializing in microcontrollers, audio, and computer‑related ICs. The company originated from Winbond’s Logic Business Group and has grown into a global supplier. Nuvoton is well‑known for its ARM Cortex‑M based NuMicro® family and legacy 8051 series. They provide a wide range of MCUs from low‑power to high‑performance, targeting industrial, consumer, automotive, and IoT applications. Nuvoton’s products are recognized for their cost‑effectiveness, robust analog integration, and extensive peripheral sets. They offer comprehensive development tools, including the Nu‑Link debugger and extensive software libraries. The company has a strong R&D focus on security and connectivity, with many devices featuring hardware crypto accelerators and tamper detection. Nuvoton also produces audio codecs, motor control ICs, and power management devices. Their NuMicro® series includes M0, M4, M23, M33, and M7 cores, covering a broad performance spectrum. Nuvoton’s 8051‑based products are still widely used in legacy systems and cost‑sensitive applications. They are a key supplier for many Asian electronics manufacturers. Nuvoton emphasizes long‑term product availability and lifecycle support. They have ISO 9001 and IATF 16949 certifications for quality. Their MCUs often include advanced analog features like high‑resolution ADCs, DACs, and comparators. Nuvoton also provides secure boot and firmware update mechanisms. The company actively contributes to the open‑source ecosystem with support for ARM mbed and Zephyr. Nuvoton’s products are used in smart home devices, drones, robotics, and medical equipment. They have a dedicated security team that regularly publishes security advisories. Nuvoton’s manufacturing uses advanced 40nm and 55nm processes for low power. They also offer memory‑integrated solutions with large flash and SRAM. Their customer base includes many Fortune 500 companies. Nuvoton has a global sales and support network. They continue to invest in new technologies like RISC‑V and AI acceleration. Nuvoton’s Nu‑Link is a popular debugger among developers. They also provide a unique chip ID for authentication. Nuvoton is committed to environmental sustainability with lead‑free and halogen‑free packaging.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>NuMicro® M0 (Cortex‑M0)</h3>
+                <ul>
+                    <li>M0516LBN</li><li>M052LAN</li><li>M058ZAN</li><li>M0518LD2</li><li>M0518SD2</li>
+                    <li>M0519LD3</li><li>M0519SD3</li><li>M052FAN</li><li>M054FAN</li><li>M058FAN</li>
+                    <li>M0516LDN</li><li>M0518LDN</li>
+                </ul>
+                <h3>NuMicro® M4 (Cortex‑M4)</h3>
+                <ul>
+                    <li>M451RG6AE</li><li>M452RG6AE</li><li>M453VG6AE</li><li>M451RE6AE</li><li>M452RE6AE</li>
+                    <li>M453RE6AE</li><li>M451RC6AE</li><li>M452RC6AE</li><li>M453RC6AE</li><li>M451MLD3</li>
+                    <li>M452MLD3</li><li>M453MLD3</li><li>M451MD3AE</li>
+                </ul>
+                <h3>8051 Series (Legacy)</h3>
+                <ul>
+                    <li>W78E516B</li><li>W78E58B</li><li>W78E52B</li><li>W78E54B</li><li>W78E62B</li>
+                    <li>W78C516B</li><li>W78C58B</li><li>W78C52B</li><li>W78C54B</li><li>W79E2051</li>
+                    <li>W79E825</li><li>W79E532</li><li>W79E533</li>
+                </ul>
+
+                <h2>Nuvoton Security Features</h2>
+                <p>Nuvoton implements multiple security layers to protect code and data on their MCUs. Many NuMicro devices include a hardware cryptographic engine for AES, DES, and SHA. This allows firmware to be encrypted, requiring a key to decrypt during boot. The keys are stored in a secure register that cannot be read back via normal commands. Nuvoton also offers a unique User ID that can be used for authentication. They provide configurable flash protection, dividing memory into regions with separate read/write/erase permissions. A security fuse can permanently lock debug interfaces, such as JTAG and SWD, to prevent external readback. However, determined attackers may attempt to hack the fuse using fault injection. Nuvoton has added tamper‑detection pins that can trigger immediate data erasure if physical intrusion is detected. Their secure bootloader verifies the firmware signature before execution, making it difficult to inject malicious code. Some devices include a random number generator for cryptographic operations. To unlock a protected chip, we often use side‑channel analysis to recover keys. Power and electromagnetic variations during encryption can reveal secret data. Our team has successfully extracted firmware from Nuvoton M4 devices using differential power analysis. We have also used glitch attacks to bypass the lock bits on older 8051 parts. Invasive methods like decapsulation allow us to probe the flash memory directly. We can then dump the entire contents and duplicate the firmware onto a new device. Nuvoton’s security is solid, but no system is entirely immune. We have developed custom tools to recover data from locked chips. For example, we can exploit timing differences in the bootloader to extract protected bytes. We also use focused ion beam (FIB) to cut fuse connections. Our services cover both invasive and non‑invasive approaches. We can recover calibration data and configuration fuses. Nuvoton’s ongoing security enhancements require us to constantly update our methods. MikaTech stays at the forefront of MCU reverse engineering. We provide a complete extraction report with disassembled code. Whether you need to clone a legacy controller or recover lost firmware, we can help. Contact us for a detailed assessment of your Nuvoton device.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

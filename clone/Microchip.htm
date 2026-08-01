@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microchip MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Microchip MCU Reverse Engineering</h1>
+                <p>Comprehensive services for PIC, AVR, SAM, and dsPIC families</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Microchip</h2>
+                <p>Microchip Technology is a leading provider of microcontrollers, including the popular PIC and AVR architectures. They also produce ARM‑based SAM series and dsPIC digital signal controllers. Microchip has a vast portfolio covering 8‑bit to 32‑bit devices. Their products are used in automotive, industrial, consumer, and IoT applications. Microchip acquired Atmel in 2016, integrating AVR and ARM products. They offer extensive development tools like MPLAB X and Atmel Studio. Microchip MCUs are known for low power consumption and high reliability. They support a wide range of communication interfaces (I2C, SPI, CAN, USB). Their devices feature advanced analog peripherals (ADCs, DACs, comparators). Microchip provides comprehensive security solutions including secure boot and crypto engines. They also offer memory protection and tamper detection. Their microcontrollers are available in many package options. Microchip has a strong global distribution network and technical support. They are a preferred choice for both hobbyists and professionals. The company continues to innovate with new low‑power and connectivity‑focused products. Microchip’s dsPIC families are optimized for motor control and power conversion. They also produce dedicated touch controllers and gesture sensors. Microchip’s acquisition of Microsemi added FPGA and SoC capabilities. Their commitment to quality is reflected in AEC‑Q100 automotive grades. Microchip also offers radiation‑hardened versions for aerospace. They have a robust ecosystem of third‑party libraries and middleware. Microchip’s MPLAB ecosystem includes simulators and debuggers. They support both assembly and high‑level languages (C, C++). Their products are documented thoroughly with datasheets and application notes. Microchip is a trusted partner for long‑term supply agreements. They have manufacturing facilities worldwide. Microchip’s focus on security is increasing with products like the CryptoAuthentication™ family. They also provide secure provisioning services. Microchip’s wide range and reliability make them a dominant player in the MCU market.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>PIC (8‑bit/16‑bit/32‑bit)</h3>
+                <ul>
+PIC10F200
+PIC10F202
+PIC10F204
+PIC10F206
+PIC10F220
+PIC10F222
+PIC12F1501
+PIC12F1822
+PIC12F1840
+PIC12F509
+PIC12F510
+PIC12F675
+PIC12F683
+PIC12F752
+PIC12F1571
+PIC12F1572
+PIC12F1612
+PIC12F1613
+PIC12F1840T39A
+PIC12F1840T48A
+PIC16F1454
+PIC16F1455
+PIC16F1458
+PIC16F1459
+PIC16F1503
+PIC16F1507
+PIC16F1508
+PIC16F1509
+PIC16F1512
+PIC16F1513
+PIC16F1516
+PIC16F1517
+PIC16F1518
+PIC16F1519
+PIC16F1526
+PIC16F1527
+PIC16F1574
+PIC16F1575
+PIC16F1704
+PIC16F1705
+PIC16F1707
+PIC16F1708
+PIC16F1709
+PIC16F1713
+PIC16F1716
+PIC16F1717
+PIC16F1718
+PIC16F1719
+PIC16F1782
+PIC16F1783
+PIC16F1784
+PIC16F1786
+PIC16F1787
+PIC16F1788
+PIC16F1789
+PIC16F1823
+PIC16F1824
+PIC16F1825
+PIC16F1826
+PIC16F1827
+PIC16F1828
+PIC16F1829
+PIC16F1847
+PIC16F1933
+PIC16F1934
+PIC16F1936
+PIC16F1937
+PIC16F1938
+PIC16F1939
+PIC16F1946
+PIC16F1947
+PIC16F87
+PIC16F88
+PIC16F819
+PIC16F820
+PIC16F872
+PIC16F873
+PIC16F874
+PIC16F876
+PIC16F877
+PIC18F452
+PIC18F4550
+PIC18F46K22
+PIC18F4620
+PIC18F67K22
+PIC18F87K22
+PIC18F97J60
+PIC18F26K40
+PIC18F2620
+PIC18F27J53
+PIC18F8722
+PIC18F66K80
+PIC18F86K80
+PIC18F66J11
+PIC18F86J11
+PIC18F63K22
+PIC18F83K22
+PIC18F26J50
+PIC18F27J13
+PIC18F46K80
+PIC18F47K40
+PIC18F67J60
+PIC18F87J60
+PIC18F66J60
+PIC18F86J60
+PIC24FJ128GA010
+PIC24FJ128GA306
+PIC24FJ256GA705
+PIC24FJ256GB106
+PIC24FJ256GB108
+PIC24FJ256GB210
+PIC24FJ64GA002
+PIC24FJ64GA004
+PIC24FJ96GA006
+PIC24FJ128GA008
+PIC32MX110F016B
+PIC32MX120F032B
+PIC32MX130F064B
+PIC32MX150F128B
+PIC32MX170F256B
+PIC32MX210F016B
+PIC32MX220F032B
+PIC32MX230F064B
+PIC32MX250F128B
+PIC32MX270F256B
+PIC32MX320F032B
+PIC32MX330F064B
+PIC32MX340F128B
+PIC32MX350F256B
+PIC32MX360F512L
+PIC32MX370F512H
+PIC32MX420F032B
+PIC32MX430F064B
+PIC32MX440F128B
+PIC32MX450F256B
+PIC32MX460F512L
+PIC32MX470F512H
+dsPIC30F3011
+dsPIC30F3012
+dsPIC30F3013
+dsPIC30F4011
+dsPIC30F4012
+dsPIC30F4013
+dsPIC30F5011
+dsPIC30F5012
+dsPIC30F5013
+dsPIC30F6010
+dsPIC30F6011
+dsPIC30F6012
+dsPIC30F6013
+dsPIC30F6014
+dsPIC30F6015
+dsPIC30F6010A
+dsPIC30F6011A
+dsPIC30F6012A
+dsPIC30F6013A
+dsPIC30F6014A
+dsPIC30F6015A
+dsPIC33FJ12GP202
+dsPIC33FJ12GP204
+dsPIC33FJ12MC202
+dsPIC33FJ12MC204
+dsPIC33FJ16GP304
+dsPIC33FJ16MC304
+dsPIC33FJ32GP302
+dsPIC33FJ32GP304
+dsPIC33FJ32MC302
+dsPIC33FJ32MC304
+dsPIC33FJ64GP202
+dsPIC33FJ64GP204
+dsPIC33FJ64GP502
+dsPIC33FJ64GP506
+dsPIC33FJ64MC202
+dsPIC33FJ64MC204
+dsPIC33FJ64MC502
+dsPIC33FJ64MC506
+dsPIC33FJ128GP202
+dsPIC33FJ128GP204
+dsPIC33FJ128GP502
+dsPIC33FJ128GP506
+dsPIC33FJ128MC202
+dsPIC33FJ128MC204
+dsPIC33FJ128MC502
+                </ul>
+
+
+                <h2>Microchip Security Features</h2>
+                <p>Microchip incorporates a wide range of security features across its product lines. Many PIC and AVR devices have lock bits that prevent readback of program memory. These bits can be set to protect the firmware from being copied. However, they can be bypassed using various attacks. Microchip also offers code protection via a configurable fuse that disables programming. Their newer devices include a secure bootloader with cryptographic verification. The CryptoAuthentication™ chips provide hardware‑based key storage and authentication. Some SAM devices feature a TrustZone® secure processing environment. Microchip provides secure firmware update mechanisms with encrypted images. They also integrate a hardware random number generator for crypto keys. Many devices have a unique 64‑bit serial number to prevent cloning. To hack a Microchip MCU, attackers may use fault injection to unlock debug ports. Side‑channel power analysis can reveal secret keys during encryption. Our lab has successfully extracted firmware from PIC18 chips using glitch attacks. We have also recovered keys from SAM devices using electromagnetic analysis. Microchip’s security is robust, but older devices have known vulnerabilities. For example, the PIC16F84 lock bit can be reset with high voltage. We have developed methods to dump EEPROM and flash from secured parts. Invasive approaches like decapsulation allow direct probing of memory cells. We can clone the entire chip by reading out the die. Microchip’s newer devices include tamper detection and active shielding. These make physical attacks harder but not impossible. Our team uses focused ion beam (FIB) to modify internal connections. We can also recover data from damaged or partially functioning chips. Microchip’s security is continuously improving, but legacy systems still need support. We offer extraction, decoding, and duplication of Microchip firmware. Our services cover all families from PIC10 to SAM7. We can also recover configuration bits and calibration data. Whether you need to unlock a device or clone a legacy controller, MikaTech has the answer. We provide detailed documentation and firmware analysis. Trust our expertise for your Microchip reverse engineering projects.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

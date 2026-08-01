@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STM MCU Reverse Engineering – MikaTech</title>
+     <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>STM MCU Reverse Engineering</h1>
+                <p>Full support for STM8 and STM32 families</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About STM</h2>
+                <p>STMicroelectronics is a global semiconductor leader, famous for its STM32 ARM Cortex‑M and STM8 proprietary cores. Their microcontrollers are among the most popular in the industry, used in everything from consumer gadgets to industrial automation. STM32 offers a wide range of performance levels, from the entry‑level Cortex‑M0 to the high‑performance Cortex‑M7 and M33. STM8 is an 8‑bit architecture known for its cost‑effectiveness and robust peripherals. STM products are widely adopted due to their extensive ecosystem, including free development tools like STM32CubeMX and STM32CubeIDE. STMicroelectronics also provides a large library of software examples and middleware. Their MCUs feature advanced analog, connectivity (USB, CAN, Ethernet), and security features. STM is a key supplier for automotive (via the SPC series), industrial, and IoT. They offer a comprehensive selection of packages and memory sizes. STM32 devices are supported by a vast community, making them easy to debug and reverse engineer. STMicroelectronics has manufacturing facilities worldwide, ensuring supply stability. They are committed to environmental sustainability. STM’s security roadmap includes the secure STM32Trust framework. They provide secure boot, cryptographic acceleration, and tamper protection. STM also offers unique device identifiers for authentication. Their products are qualified for AEC‑Q100 automotive grades. STM is continuously innovating with new process technologies. They also produce MEMS sensors and power devices. STM’s microcontrollers are used in medical devices, wearables, and smart homes. They have a strong focus on low‑power design. STM8 is still used in many legacy systems. STM’s customer base includes thousands of companies worldwide. They provide excellent technical support and documentation. STM is a reliable partner for long‑term product lifecycles.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>STM32 (ARM Cortex‑M)</h3>
+                <ul>
+STM32F205/215
+STM32F207/217
+STM32F401
+STM32F405/415
+STM32F407/417
+STM32F410
+STM32F411
+STM32F412
+STM32F413/423
+STM32F427/437
+STM32F429/439
+STM32F446
+STM32F469/479
+STM32F7x0
+STM32F7x2
+STM32F7x3
+STM32F7x5
+STM32F7x6
+STM32F7x7
+STM32F7x9
+STM32H503
+STM32H562
+STM32H563/573
+STM32H723/733
+STM32H725/735
+STM32H730
+STM32H742
+STM32H743/753
+STM32H745/755
+STM32H747/757
+STM32H750
+STM32H7A3/7B3
+STM32H7B0
+STM32C0x1
+STM32F0x0
+STM32F0x1
+STM32F0x2
+STM32F0x8
+STM32F100
+STM32F101
+STM32F102
+STM32F103
+STM32F105/107
+STM32F301
+STM32F302
+STM32F303
+STM32F334
+STM32F373
+STM32F3x8
+STM32G0x0
+STM32G0x1
+STM32G4x1
+STM32G4x3
+STM32G4x4
+STM32L0x0
+STM32L0x1
+STM32L0x2
+STM32L0x3
+STM32L100
+STM32L151/152
+STM32L162
+STM32L4x1
+STM32L4x2
+STM32L4x3
+STM32L4x5
+STM32L4x6
+STM32L4P5/Q5
+STM32L4R5/S5
+STM32L4R7/S7
+STM32L4R9/S9
+STM32U535/545
+STM32U575/585
+STM32U595/5A5
+STM32U599/5A9
+STM32U5F7/5G7
+STM32U5F9/5G9
+STM32MP131
+STM32MP133
+STM32MP135
+STM32MP151
+STM32MP153
+STM32MP157
+                </ul>
+                <h3>STM8 (8‑bit)</h3>
+                <ul> STM8AF52
+STM8AF62
+STM8AF63
+STM8AL31
+STM8AL3L
+STM8L
+STM8L101
+STM8L151/152
+STM8L162
+STM8S103/105
+STM8S207/208
+STM8TL52/L53
+
+ 
+                </ul>
+
+                <h2>STM Security Features</h2>
+                <p>STMicroelectronics implements multiple layers of security to protect firmware. Their STM32 Trust framework provides a comprehensive security solution. It includes secure boot, secure firmware update, and cryptography acceleration. The devices feature a unique 96‑bit UID for authentication. Flash memory can be read‑out protected using the RDP (Read Protection) mechanism. RDP levels 0, 1, and 2 offer increasing protection. Level 2 permanently disables debug access, making it impossible to read the memory via SWD. However, advanced attackers can attempt to hack this protection using fault injection. Side‑channel analysis can be used to recover keys during cryptographic operations. Our team has successfully extracted firmware from STM32F103 by exploiting a glitch attack. We have also bypassed RDP level 1 by manipulating the bootloader. Invasive decapsulation and micro‑probing allow reading the flash directly. For STM8, the protection is weaker, and we can easily read the memory using a simple glitch. We have developed methods to unlock STM32 devices by injecting a voltage glitch on the power supply. This can temporarily disable the RDP and allow dumping the memory. We also use electromagnetic analysis to infer secret data. STM’s security is robust, but no system is perfect. We offer to clone the entire firmware onto a new device for legacy replacement. We also provide disassembly and analysis of the extracted code. STM’s ongoing security updates mean we must stay current. MikaTech invests in research to overcome new protections. Our services are trusted by many clients worldwide. Contact us for a detailed assessment of your STM device.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

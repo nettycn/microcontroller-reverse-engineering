@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTK MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>NTK MCU Reverse Engineering</h1>
+                <p>Specializing in automotive, industrial, and security‑focused microcontrollers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About NTK</h2>
+                <p>NTK (Nippon Telegraph and Telephone Corporation – but in this context, a semiconductor brand) is a Japanese manufacturer known for high‑reliability microcontrollers. They produce MCUs for automotive, industrial, and aerospace applications. NTK devices are known for their robust design and long product lifecycles. They offer both 8‑bit and 32‑bit architectures, including ARM Cortex‑M cores. NTK’s microcontrollers often integrate CAN, LIN, and FlexRay for vehicle networking. They are used in engine control units, braking systems, and airbag controllers. NTK also produces secure MCUs for banking and identification. Their chips feature advanced security mechanisms like tamper detection and encryption. NTK has a strong presence in the Japanese automotive market. They provide comprehensive development tools and support. NTK’s products are designed for harsh environments with extreme temperatures. They offer radiation‑hardened versions for space missions. NTK’s microcontrollers are known for low power consumption. They include a variety of analog peripherals. NTK also produces system‑on‑chip (SoC) solutions for IoT. Their security‑by‑design philosophy ensures data integrity. NTK is a trusted supplier for many global OEMs. They have a reputation for quality and reliability. NTK’s documentation is thorough, aiding in reverse engineering. Their microcontrollers are often used in critical infrastructure. NTK continues to innovate with new low‑power and secure products. They collaborate with research institutions for cutting‑edge designs. NTK’s commitment to sustainability is reflected in their manufacturing. Their chips are available in multiple package options. NTK provides long‑term support for legacy products. Many NTK devices are subject to reverse engineering for maintenance and upgrades.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>NTK 8‑bit Series</h3>
+                <ul>
+                    <li>NTK‑8051‑A</li><li>NTK‑8051‑B</li><li>NTK‑8051‑C</li><li>NTK‑8051‑D</li><li>NTK‑8051‑E</li>
+                    <li>NTK‑8051‑F</li><li>NTK‑8051‑G</li><li>NTK‑8051‑H</li><li>NTK‑8051‑I</li><li>NTK‑8051‑J</li>
+                    <li>NTK‑8051‑K</li>
+                </ul>
+                <h3>NTK ARM Cortex‑M</h3>
+                <ul>
+                    <li>NTK‑CM0‑128</li><li>NTK‑CM0‑256</li><li>NTK‑CM3‑512</li><li>NTK‑CM3‑1024</li><li>NTK‑CM4‑2048</li>
+                    <li>NTK‑CM4‑4096</li><li>NTK‑CM7‑8192</li><li>NTK‑CM7‑16384</li><li>NTK‑CM23‑512</li><li>NTK‑CM23‑1024</li>
+                    <li>NTK‑CM33‑2048</li>
+                </ul>
+                <h3>NTK Secure MCUs</h3>
+                <ul>
+                    <li>NTK‑SEC‑M0</li><li>NTK‑SEC‑M3</li><li>NTK‑SEC‑M4</li><li>NTK‑SEC‑M7</li><li>NTK‑SEC‑M23</li>
+                    <li>NTK‑SEC‑M33</li><li>NTK‑SEC‑M55</li>
+                </ul>
+
+                <h2>NTK Security Features</h2>
+                <p>NTK places a high emphasis on security, especially in their automotive and secure MCU lines. They implement a hardware root of trust with secure key storage. The boot process uses cryptographic signatures to verify firmware authenticity. NTK’s devices have multiple security zones managed by a TrustZone‑like architecture. They feature active tamper‑detection meshes that trigger immediate zeroization. The debug interfaces are protected with dynamic passwords that change each session. NTK also encrypts the internal memory bus to prevent data sniffing. Their crypto engines are resistant to power analysis attacks. Despite these robust measures, some vulnerabilities have been found in early NTK parts. Fault injection attacks can bypass the secure boot sequence. Our team has successfully extracted firmware from NTK‑CM3 devices using voltage glitching. We have also recovered keys by exploiting a timing side‑channel. In some cases, we decapsulate the chip to directly probe the flash cells. NTK’s security is strong, but no system is infallible. We have developed advanced methods to unlock the debug port. Once unlocked, we can read the entire flash and EEPROM. We also offer cloning services for legacy NTK devices. The unique device ID can be duplicated for replacement units. Our non‑invasive techniques preserve the original chip. For high‑security models, we use focused ion beam to cut security fuses. We provide comprehensive documentation of the extracted data. NTK’s security continues to evolve, but our lab stays ahead. We can handle all NTK variants, from 8‑bit to 32‑bit. Trust MikaTech for reliable NTK reverse engineering.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

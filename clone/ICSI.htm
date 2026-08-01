@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICSI MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>ICSI MCU Reverse Engineering</h1>
+                <p>Expertise in memory‑centric and SoC microcontrollers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About ICSI</h2>
+                <p>ICSI (Integrated Circuit Solutions, Inc.) is a niche manufacturer of microcontrollers with a focus on memory integration. They produce MCUs that combine flash, EEPROM, and SRAM in high densities. ICSI devices are commonly used in smart cards, SIM cards, and secure identity tokens. They also offer SoC solutions with built‑in security coprocessors. ICSI’s product line includes both ARM and proprietary architectures. They are known for their low‑power designs suitable for battery‑powered devices. ICSI provides extensive cryptographic libraries for their secure MCUs. Their chips are often found in payment terminals and access control systems. ICSI also produces radiation‑hardened versions for aerospace applications. The company emphasizes on‑chip key storage and true random number generation. They have a strong IP portfolio in memory management and error correction. ICSI’s microcontrollers are designed for high reliability and long data retention. They support multiple communication interfaces like I2C, SPI, and UART. ICSI also offers custom silicon services for specialized requirements. Their development tools include debuggers and trace analyzers. ICSI MCUs are often used in medical implants and wearable health monitors. They incorporate advanced power gating and dynamic voltage scaling. ICSI’s security‑focused chips have received Common Criteria certifications. The company collaborates with major OEMs for secure IoT applications. ICSI’s products are also employed in automotive key fobs and immobilizers. They provide firmware update mechanisms with rollback protection. ICSI’s memory technologies include both NOR and NAND flash. Their MCUs can execute code directly from flash with zero‑wait states. ICSI also offers multi‑core solutions for parallel processing. They are an emerging player in the secure microcontroller market. Their devices are competitive with established brands like NXP and STMicroelectronics. ICSI’s roadmap includes post‑quantum cryptography support. They are actively researching hardware‑based security against side‑channel attacks. ICSI’s commitment to innovation makes them a key partner for security‑critical projects.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>Secure MCU Series (ARM Cortex‑M)</h3>
+                <ul>
+                    <li>ICSI‑SM32</li><li>ICSI‑SM64</li><li>ICSI‑SM128</li><li>ICSI‑SM256</li><li>ICSI‑SM512</li>
+                    <li>ICSI‑SM1K</li><li>ICSI‑SM2K</li><li>ICSI‑SM4K</li><li>ICSI‑SM8K</li><li>ICSI‑SM16K</li>
+                    <li>ICSI‑SM32P</li><li>ICSI‑SM64P</li><li>ICSI‑SM128P</li>
+                </ul>
+                <h3>Memory‑plus Series (with large EEPROM)</h3>
+                <ul>
+                    <li>ICSI‑M16E</li><li>ICSI‑M32E</li><li>ICSI‑M64E</li><li>ICSI‑M128E</li><li>ICSI‑M256E</li>
+                    <li>ICSI‑M512E</li><li>ICSI‑M1K</li><li>ICSI‑M2K</li><li>ICSI‑M4K</li>
+                </ul>
+                <h3>Rad‑Hard Series</h3>
+                <ul>
+                    <li>ICSI‑RH32</li><li>ICSI‑RH64</li><li>ICSI‑RH128</li><li>ICSI‑RH256</li><li>ICSI‑RH512</li>
+                </ul>
+
+                <h2>ICSI Security Features</h2>
+                <p>ICSI integrates robust security at the silicon level to protect sensitive data. Their secure MCUs feature a dedicated crypto engine that can decrypt code on‑the‑fly. This prevents unauthorized readback of firmware as it remains encrypted in flash. The key material is stored in a tamper‑sensitive memory that zeroes out upon detection of physical attack. ICSI also implements active shielding on the die to frustrate micro‑probing. They include a secure boot process that verifies digital signatures before execution. This ensures that only authenticated code runs, making it difficult to hack the system. ICSI’s devices have multiple security levels configurable via fuses. These fuses can permanently disable debug ports after production. To extract data, one might attempt fault injection to unlock these ports. However, ICSI has countermeasures like voltage and frequency monitors. They also incorporate a watchdog timer that resets the chip if anomalies occur. The company provides a secure update mechanism with encrypted binaries. This prevents attackers from injecting malicious payloads. ICSI’s TRNG (True Random Number Generator) adds entropy for cryptographic operations. They also support memory encryption to protect data at rest. Despite these measures, advanced adversaries can still clone the chip by removing the passivation layer and reading out the ROM. Side‑channel power analysis can reveal keys during encryption. Our team has developed techniques to recover keys from ICSI devices using differential electromagnetic analysis. We have also successfully dumped firmware by exploiting a vulnerability in the bootloader. ICSI’s security is strong, but no system is perfect. We offer professional extraction services for legitimate purposes like legacy recovery. Our methods include invasive probing and focused ion beam editing. We can read the contents of protected flash and EEPROM. For OTP variants, we use UV erasing and reprogramming to duplicate the content. ICSI’s chips are used in high‑security environments, so we exercise extreme caution. Our lab is equipped to handle even the most resistant devices. We provide comprehensive reports on extracted firmware and security analysis. Trust MikaTech for reliable ICSI reverse engineering.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXP MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>NXP MCU Reverse Engineering</h1>
+                <p>Comprehensive solutions for LPC, Kinetis, i.MX, and legacy 8051</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About NXP</h2>
+                <p>NXP Semiconductors is a global leader in secure connectivity and embedded processing. They offer a vast portfolio of microcontrollers, including the LPC (ARM), Kinetis (ARM), i.MX (application processors), and legacy 8051 families. NXP was formed through the merger of Philips Semiconductors and later acquired Freescale Semiconductor. Their MCUs are widely used in automotive, industrial, IoT, and consumer electronics. NXP is known for its strong security features, including EdgeLock® secure enclave and hardware cryptographic acceleration. They provide comprehensive development tools, such as MCUXpresso IDE and SDK. NXP’s product line covers 8‑bit, 16‑bit, and 32‑bit architectures. They are a leading supplier for automotive applications, with their S32 series. NXP’s i.MX processors power many embedded Linux and Android systems. They also produce NFC, RFID, and secure access chips. NXP’s microcontrollers feature advanced analog integration and low‑power modes. They have a strong focus on functional safety (ISO 26262) and cybersecurity. NXP offers extensive documentation and reference designs. They are a key partner for many OEMs worldwide. Their manufacturing uses 28nm and 40nm processes. NXP provides secure boot, encrypted firmware updates, and key storage. They have a dedicated security response team. NXP’s products are certified for Common Criteria and FIPS. They also offer custom silicon services. NXP’s acquisition of Freescale expanded their portfolio with Power Architecture. Their legacy 8‑bit 8051 microcontrollers are still in production. NXP supports multiple RTOS and Linux distributions. They have a strong ecosystem of third‑party software and hardware partners. NXP’s commitment to quality is reflected in their automotive grade ratings. They also offer radiation‑hardened devices for aerospace. NXP continues to innovate in the fields of AI and machine learning at the edge. Their EdgeVerse™ platform combines processing, security, and connectivity.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>LPC (ARM Cortex‑M)</h3>
+                <ul>
+                    <li>LPC1768</li><li>LPC1769</li><li>LPC1788</li><li>LPC4088</li><li>LPC4357</li>
+                    <li>LPC54608</li><li>LPC55S69</li><li>LPC824</li><li>LPC845</li><li>LPC1125</li>
+                    <li>LPC1227</li><li>LPC1347</li><li>LPC1549</li><li>LPC1837</li><li>LPC1857</li>
+                </ul>
+                <h3>Kinetis (ARM Cortex‑M)</h3>
+                <ul>
+                    <li>Kinetis K64</li><li>Kinetis K66</li><li>Kinetis K82</li><li>Kinetis KL02</li><li>Kinetis KL25</li>
+                    <li>Kinetis KL46</li><li>Kinetis KE02</li><li>Kinetis KE04</li><li>Kinetis KM34</li><li>Kinetis KW36</li>
+                    <li>Kinetis KW40</li><li>Kinetis KV30</li><li>Kinetis KV40</li>
+                </ul>
+                <h3>i.MX (Application Processors)</h3>
+                <ul>
+                    <li>i.MX6UL</li><li>i.MX7D</li><li>i.MX8M</li><li>i.MX8Q</li><li>i.MX8X</li>
+                    <li>i.MX6Solo</li><li>i.MX6Dual</li><li>i.MX6Quad</li><li>i.MX7ULP</li><li>i.MX8QuadMax</li>
+                </ul>
+
+                <h2>NXP Security Features</h2>
+                <p>NXP integrates robust security mechanisms across its MCU families. Their EdgeLock secure enclave provides a hardware root of trust for secure boot and key management. Many LPC and Kinetis devices feature a hardware crypto engine for AES, RSA, and ECC. This allows encrypted firmware to be decrypted during boot, preventing unauthorized readback. NXP also offers secure key storage in a protected memory region. They provide a unique serial number for device authentication. Flash memory can be partitioned into secure and non‑secure zones. Debug interfaces like JTAG can be locked with a password or permanently disabled via fuses. However, attackers may attempt to hack these protections through fault injection. Side‑channel power analysis can reveal cryptographic keys during computation. Our team has successfully recovered keys from LPC devices using differential power analysis. We have also exploited glitch attacks to unlock Kinetis chips. Invasive decapsulation allows direct probing of internal buses to extract code. NXP’s security is strong, but older devices like the LPC1768 have known vulnerabilities. We can bypass the lock bits by manipulating the boot sequence. We also use electromagnetic analysis to read data during memory access. For i.MX processors, we can recover bootloader from external SPI flash. NXP’s i.MX includes a TrustZone® secure environment. We have developed methods to attack the secure boot flow. Our lab can dump the entire firmware even when read protection is enabled. We also offer to clone the firmware onto a new device for legacy replacement. NXP’s security updates mean we must stay current. MikaTech invests in research to overcome new protections. We provide comprehensive extraction and analysis services. Contact us to discuss your NXP reverse engineering needs.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

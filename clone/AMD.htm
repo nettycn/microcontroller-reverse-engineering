@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMD Microcontroller Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>AMD (Advanced Micro Devices) Reverse Engineering</h1>
+                <p>Specializing in AMD's flash, embedded, and x86 microcontrollers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About AMD Microcontrollers</h2>
+                <p>Advanced Micro Devices (AMD) is predominantly known for its x86 processors and GPUs, but it also has a rich history in microcontroller and embedded solutions. In the 1980s and 1990s, AMD produced a range of microcontrollers, including the Am186 and Am386 series, which were x86-compatible embedded processors. These devices were used in industrial controls, telecommunications, and early PC peripherals. AMD also developed the Am29xx family of bit-slice processors and the Am25xx series of logic devices. More recently, AMD's embedded product line includes the G-series and R-series accelerated processing units (APUs) that integrate CPU and GPU cores for low-power applications. In addition, AMD has offered flash memory products, such as the Am29F series, which are widely used as boot flash for motherboards and embedded systems. These flash devices store the firmware (BIOS/UEFI) and are critical targets for reverse engineering. Although AMD does not currently produce standalone microcontrollers like ARM-based MCUs, their x86 embedded processors and flash memory chips are essential components in many systems. Our reverse engineering services cover AMD's embedded x86 processors, flash memory, and associated firmware. We have extensive experience extracting firmware from AMD flash chips, even when readback protection is enabled. For the Am186 and Am386, we can replicate the functionality and extract the internal ROM code through decapsulation and microprobing. AMD's processors often include security features such as Secure Boot, Trusted Platform Module (TPM), and encrypted memory. However, these can be bypassed using advanced side-channel attacks and fault injection. Our team has successfully recovered encryption keys from AMD's PSP (Platform Security Processor) and has extracted BIOS images from locked flash devices. We also provide cloning services to duplicate AMD flash contents for legacy system replacement. AMD's embedded APUs are used in medical imaging, industrial PCs, and automotive infotainment, making their firmware highly valuable. We have developed specialized tools to read the SPI flash connected to AMD processors, even when the readback is disabled. By using voltage glitching and clock manipulation, we can trick the flash into allowing reads. For the older Am29F series, we can use standard programmers, but if the device is locked, we apply UV erasure or decapsulation to access the memory cells directly. Our lab is equipped with high-precision soldering stations, logic analyzers, and custom flash programmers. We have also reverse-engineered the communication protocols between the AMD CPU and its peripheral devices to extract configuration data. AMD's security features have evolved with each generation, but our team stays up-to-date with the latest techniques. We have published several papers on attacking AMD's secure boot process, using side-channel analysis to recover the bootloader. Our methods are non-destructive where possible, but we also offer invasive decapsulation for deep analysis. Whether you need to recover a lost BIOS, clone a flash chip, or understand the security of an AMD embedded system, MikaTech provides comprehensive solutions. Our success with AMD products includes extracting encrypted UEFI payloads and reverse-engineering the initialization code for custom hardware.</p>
+
+                <h2>Device Families and Models</h2>
+                <ul>
+                    <li><strong>Am186 (16-bit x86)</strong> – Am186-16, Am186-20, Am186-25, Am186-33, Am186-40, Am186-50, Am186-66, Am186-80, Am186-100, Am186-120</li>
+                    <li><strong>Am386 (32-bit x86)</strong> – Am386-25, Am386-33, Am386-40, Am386-50, Am386-60, Am386-80, Am386-100, Am386-120, Am386-133, Am386-166</li>
+                    <li><strong>Am29F Flash Memory</strong> – Am29F010, Am29F020, Am29F040, Am29F080, Am29F016, Am29F032, Am29F064, Am29F128, Am29F256, Am29F512</li>
+                    <li><strong>Am29LV Flash</strong> – Am29LV010, Am29LV020, Am29LV040, Am29LV080, Am29LV016, Am29LV032, Am29LV064, Am29LV128, Am29LV256, Am29LV512</li>
+                    <li><strong>G-series APU (Embedded)</strong> – GX-210, GX-212, GX-415, GX-420, GX-210A, GX-212A, GX-415A, GX-420A, GX-222, GX-224</li>
+                    <li><strong>R-series APU (Embedded)</strong> – RX-216, RX-218, RX-220, RX-416, RX-418, RX-420, RX-421, RX-425, RX-427, RX-428</li>
+                    <li><strong>Geode LX (legacy x86)</strong> – LX 800, LX 900, LX 800@500, LX 900@600, LX 800@667, LX 900@800, LX 800@1GHz, LX 900@1.1GHz, LX 800@1.2GHz, LX 900@1.3GHz</li>
+                </ul>
+
+                <h2>Security Features and Reverse Engineering Techniques</h2>
+                <p>AMD’s embedded processors and flash devices incorporate multiple security mechanisms to protect firmware and configuration data. For flash memory, the most common protection is the use of block lock bits that prevent write and erase operations, as well as readback protection that restricts reading the memory contents. The flash device can also be set to a secure mode where the entire array is locked and can only be unlocked by a specific command sequence. Some AMD flash chips have a hardware write-protect pin that, when asserted, disables all programming functions. Additionally, many AMD APUs feature a secure boot process that validates each stage of the firmware using cryptographic signatures. The boot ROM checks the signature of the bootloader, and if verification fails, the system halts. This prevents loading of unauthorized firmware. The Platform Security Processor (PSP) inside AMD chips manages the secure boot and also provides a trusted execution environment. However, these protections are not infallible. Our reverse engineering team has developed multiple attack vectors. For instance, we can intercept the SPI communication between the CPU and the flash chip during boot, allowing us to capture the raw firmware as it is being loaded. This is effective even if readback is disabled, because the CPU still reads the data into memory. By using a logic analyzer, we can record the entire transaction and reconstruct the firmware image. We have also used glitching on the flash chip’s power supply to bypass the lock state, enabling us to perform a full dump of the memory. For devices with encrypted firmware, we apply side-channel power analysis to extract the encryption key from the CPU during the decryption process. By analyzing the power consumption while the CPU processes the encrypted data, we can recover the key and decrypt the firmware offline. For older Am186/Am386 devices, the internal ROM code is masked and cannot be read normally. We use decapsulation (removing the die) and then micro-probe the memory array to read out the bits directly. This is a time-consuming process but yields the complete ROM image. We have also employed fault injection to bypass security checks in the boot sequence, allowing us to execute custom code on the processor. Once we gain control, we can then read or modify the internal registers and memory. Our expertise extends to the Geode and other legacy x86 embedded devices, where we have successfully cloned the flash contents and recovered the BIOS. We also offer duplication of AMD flash chips for obsolete systems, ensuring you have a backup. Our lab is equipped with specialized tools for SPI sniffing, glitching, and microprobing. We have developed custom firmware for many common flash programmers to handle locked devices. Our team is experienced in recovering BIOS/UEFI images from motherboards and embedded systems, even when the manufacturer has intentionally locked the flash. We have also analyzed the security of AMD's PSP and have discovered vulnerabilities that allow extraction of confidential keys. With our services, you can decrypt, readback, hack, extract, dump, recover, read, duplicate, and clone AMD devices with confidence. We provide a full report of our methodology and deliver the recovered data in standard formats. Trust MikaTech to handle your AMD reverse engineering needs with professionalism and discretion.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p>
+        </div>
+    </footer>
+</body>
+</html>

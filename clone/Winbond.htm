@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winbond MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Winbond MCU Reverse Engineering</h1>
+                <p>Expertise in W79, W83, and W90 series embedded controllers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Winbond</h2>
+                <p>Winbond Electronics is a Taiwanese semiconductor company known for memory and microcontroller products. Their MCU portfolio includes 8‑bit, 16‑bit, and 32‑bit ARM‑based devices. Winbond microcontrollers are widely used in PC peripherals, consumer electronics, and industrial control. They are especially popular in keyboard controllers, fan speed control, and power management. Winbond’s W79 series are 8051‑compatible cores with enhanced peripherals. The W83 series adds more I/O and analog features for system management. Their W90 series are ARM9‑based SoCs for networking and multimedia applications. Winbond also produces flash memory, which is often integrated into their MCUs. They offer a range of packages from DIP to QFP and BGA. Winbond’s products are known for cost‑effectiveness and reliable operation. They have a strong presence in the Asian market, especially in China and Taiwan. Winbond provides development tools, including evaluation boards and programmers. Their chips support standard interfaces like UART, SPI, I2C, and USB. Winbond also offers secure microcontrollers for smart card and payment applications. They have been supplying components for PCs and laptops for decades. Winbond’s W90 series can run embedded Linux or RTOS. The company has invested in advanced manufacturing processes. Winbond’s memory products include DRAM, NOR Flash, and NAND Flash. Their MCUs often feature high‑speed PWM and timers for motor control. Winbond also produces audio codec and power ICs, complementing their MCU lines. They have a reputation for responsive technical support. Winbond’s products are AEC‑Q100 qualified for automotive use. They collaborate with major OEMs for custom chip development. Winbond’s security solutions include tamper‑resistant designs. The company is expanding into IoT and edge computing. Winbond’s legacy chips are still found in many existing products. Their long‑term supply commitment ensures availability. Winbond also offers integrated solutions with external memory interfaces. Their microcontrollers balance performance and power consumption effectively.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>W79 Series (8051‑compatible 8‑bit)</h3>
+                <ul>
+                    <li>W79E2051</li><li>W79E2251</li><li>W79E4051</li><li>W79E4251</li><li>W79E6051</li>
+                    <li>W79E6251</li><li>W79E8051</li><li>W79E8251</li><li>W79E9051</li><li>W79E9251</li>
+                    <li>W79E950</li><li>W79E960</li><li>W79E970</li><li>W79E980</li>
+                </ul>
+                <h3>W83 Series (System Management / I/O)</h3>
+                <ul>
+                    <li>W83L950D</li><li>W83L951D</li><li>W83L952D</li><li>W83L953D</li><li>W83L954D</li>
+                    <li>W83L955D</li><li>W83L956D</li><li>W83L957D</li><li>W83L958D</li><li>W83L959D</li>
+                    <li>W83G860</li><li>W83G861</li><li>W83G862</li>
+                </ul>
+                <h3>W90 Series (ARM9 32‑bit)</h3>
+                <ul>
+                    <li>W90P710</li><li>W90P720</li><li>W90P730</li><li>W90P740</li><li>W90P750</li>
+                    <li>W90P760</li><li>W90P770</li><li>W90P780</li><li>W90P790</li><li>W90N745</li>
+                    <li>W90N746</li><li>W90N747</li><li>W90N748</li>
+                </ul>
+
+                <h2>Winbond Security Features</h2>
+                <p>Winbond implements several security measures to protect firmware and data. Their W79 series offer lock bits to prevent readback of program memory. When these bits are set, the internal code cannot be read via the debug interface. However, experienced attackers can attempt fault injection to unlock these protections. Some Winbond devices include a security password for JTAG access, which adds an extra layer of defense. Without the correct password, you cannot access the on‑chip debug resources. The W83 series adds memory scrambling, making it harder to understand the code even if dumped. Winbond also provides OTP (One‑Time Programmable) regions for storing encryption keys. These keys can be used to decrypt the firmware stored in flash. The W90 ARM9 devices support secure boot, verifying the image signature before execution. This prevents unauthorized code from running. Despite these features, many Winbond chips have known vulnerabilities that can be exploited. For example, the bootloader can sometimes be tricked into entering a recovery mode that allows read of all internal memory. We have successfully dumped firmware from W79E2051 by glitching the supply voltage. Another method involves using a logic analyzer to capture data on the external bus. For OTP parts, we can read out the contents using ultraviolet light to erase the protection fuses. Winbond’s older devices lack strong cryptographic hardware, making them easier to clone. We can duplicate the entire firmware onto a new chip for legacy replacement. Side‑channel power analysis can also reveal secret keys during cryptographic operations. We have developed a custom tool to attack the password‑protected JTAG interface. By performing a differential power analysis, we can recover the 32‑bit password. Once the password is known, we can unlock full debug access and extract the binary. Our team has also used electromagnetic probing to read the memory contents directly from the die. Winbond’s security is adequate for many commercial products but not for high‑security applications. We offer comprehensive recovery services for Winbond MCUs, including non‑invasive and invasive techniques. Whether you need to recover lost firmware or duplicate an old controller, MikaTech can assist. We can also analyse the extracted binary to understand its functionality. Trust us for professional Winbond reverse engineering.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

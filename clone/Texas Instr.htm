@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Instruments MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Texas Instruments MCU Reverse Engineering</h1>
+                <p>Comprehensive solutions for MSP430, Tiva, and C2000 families</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Texas Instruments</h2>
+                <p>Texas Instruments (TI) is a global leader in semiconductor design and manufacturing, with a vast portfolio of microcontrollers. Their product lines include the ultra‑low‑power MSP430, the ARM‑based Tiva (formerly Stellaris), and the high‑performance C2000 real‑time controllers. TI also produces the Sitara ARM Cortex‑A processors for industrial and automotive applications. Their MCUs are used in a wide range of applications, from medical devices to automotive electronics. TI is known for its robust security features and extensive development ecosystem. They offer comprehensive software libraries, tools, and reference designs. TI's MSP430 is famous for its low power consumption, making it ideal for battery‑powered devices. The C2000 series is optimized for motor control and digital power conversion. Tiva MCUs provide high‑performance connectivity with integrated Ethernet and USB. TI also offers secure MCUs with integrated cryptography and tamper detection. They have a strong focus on functional safety and automotive qualification (ISO 26262). TI's products are supported by a vast community and extensive documentation. They provide both flash and ROM‑based variants. TI's manufacturing uses advanced process nodes for high performance. They offer a wide range of packages, including BGA and QFN. TI's microcontrollers are used in industrial automation, building automation, and medical equipment. They also supply chips for consumer electronics like wearables and IoT. TI's security solutions include secure boot, key storage, and encryption accelerators. They provide hardware and software solutions for protecting IP. TI is a trusted supplier for many Fortune 500 companies. They continuously invest in R&D for next‑gen MCUs. TI's strong supply chain ensures long‑term availability. They are a preferred partner for critical infrastructure projects.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>MSP430 (Ultra‑low‑power 16‑bit)</h3>
+                <ul>
+                    <li>MSP430G2553</li><li>MSP430F5529</li><li>MSP430FR5969</li><li>MSP430FR6989</li><li>MSP430FR4133</li>
+                    <li>MSP430F149</li><li>MSP430F2274</li><li>MSP430F2619</li><li>MSP430F5438</li><li>MSP430F5659</li>
+                    <li>MSP430G2452</li><li>MSP430G2231</li><li>MSP430F2013</li><li>MSP430F2122</li><li>MSP430F4152</li>
+                </ul>
+                <h3>Tiva C Series (ARM Cortex‑M)</h3>
+                <ul>
+                    <li>TM4C123GH6PM</li><li>TM4C1294NCPDT</li><li>TM4C123GE6PM</li><li>TM4C129XNCZAD</li><li>TM4C1233D5PM</li>
+                    <li>TM4C1236D5PM</li><li>TM4C1237D5PM</li><li>TM4C1290NCZAD</li><li>TM4C129ENCPDT</li><li>TM4C129EKCPDT</li>
+                </ul>
+                <h3>C2000 (Real‑time 32‑bit)</h3>
+                <ul>
+                    <li>TMS320F28027</li><li>TMS320F28035</li><li>TMS320F28069</li><li>TMS320F28335</li><li>TMS320F28377</li>
+                    <li>TMS320F280049</li><li>TMS320F28075</li><li>TMS320F2808</li><li>TMS320F2812</li><li>TMS320F240</li>
+                    <li>TMS320F2407</li><li>TMS320F241</li><li>TMS320F243</li>
+                </ul>
+
+                <h2>Texas Instruments Security Features</h2>
+                <p>Texas Instruments integrates comprehensive security features across its microcontroller families. The MSP430 series includes a built‑in hardware multiplier and a security fuse that permanently disables the JTAG interface. Once this fuse is blown, the debug access is lost, preventing readback of the code. However, some devices have a backup method to unlock via a password. TI also offers a 128‑bit AES encryption engine on select MSP430FRxx devices, allowing firmware to be stored encrypted. The decryption key is held in a secure area that is not externally accessible. The Tiva C series features a secure boot ROM that verifies the signature of the application firmware. This prevents unauthorised code from executing, making it difficult to hack the system. TI's C2000 devices include code security modules (CSM) that lock the flash and restrict read access. These can be unlocked using a 128‑bit password, but brute‑force attacks are impractical. TI also provides a unique die ID for authentication and anti‑cloning. Side‑channel attacks such as power analysis have been used to extract keys from MSP430 devices. Our team has successfully recovered keys from MSP430FR5969 using differential power analysis. We have also used fault injection via clock glitching to unlock the JTAG on some older MSP430s. For Tiva and C2000, we have developed techniques to dump the firmware by exploiting the bootloader. Invasive methods like decapsulation and FIB editing allow us to read the flash directly. TI's security is robust, but we have the expertise to bypass it for legitimate recovery. We can clone the firmware and duplicate it onto another device. Our services include both non‑invasive (side‑channel, glitching) and invasive (decapsulation, probing) extraction. We also recover configuration and calibration data. TI's newer devices include tamper‑sensitive memory that erases upon detection. Despite this, we can often extract data before the erasure triggers. Our success rate is high, and we maintain strict confidentiality. Trust MikaTech for your TI reverse engineering needs. We have extensive experience across all TI MCU families.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>

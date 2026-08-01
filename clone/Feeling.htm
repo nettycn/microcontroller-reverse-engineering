@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeling Technology Reverse Engineering – MikaTech</title>
+     <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Feeling Technology Reverse Engineering</h1>
+                <p>Specialised services for Feeling 8-bit MCUs and touch controllers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Brand Overview</h2>
+                <p>Feeling Technology is a Taiwanese fabless company known for its low‑cost 8‑bit microcontrollers, widely used in consumer electronics, toys, small home appliances, remote controls, timers, and LED drivers. They also produce capacitive touch sensors and human interface devices. Their microcontrollers are based on an 8051‑compatible core or a proprietary RISC architecture, offering both OTP and flash variants, some with embedded EEPROM.</p>
+                <p>Feeling devices are cost‑effective for high‑volume productions, but security is often minimal, with only basic lock bits, making them relatively easy to reverse engineer. We have extracted firmware from many Feeling MCUs using simple glitching methods. Many legacy products still use Feeling chips, so reverse engineering is vital for repairs and clone production. Our team is familiar with the programming protocols and memory maps, and we can unlock the chip and read the full code without damaging it.</p>
+                <p>For touch sensors, we can recover calibration data and sensitivity parameters to reproduce the exact touch behavior in a clone. We also offer custom IC design services for existing products. Our services include complete firmware extraction, disassembly, analysis, and identification of hidden features or backdoors. With our help, you can continue production of obsolete Feeling‑based devices at a cost‑effective price.</p>
+
+                <h2>Microcontroller Series & Models</h2>
+                <h3>FT Series (8-bit RISC)</h3>
+                <ul>
+                    <li>FT60F021</li>
+                    <li>FT60F022</li>
+                    <li>FT60F023</li>
+                    <li>FT60F024</li>
+                    <li>FT60F025</li>
+                    <li>FT60F026</li>
+                    <li>FT60F027</li>
+                    <li>FT60F028</li>
+                    <li>FT60F029</li>
+                    <li>FT61F021</li>
+                    <li>FT61F022</li>
+                    <li>FT61F023</li>
+                    <li>FT61F024</li>
+                    <li>FT61F025</li>
+                    <li>FT61F026</li>
+                </ul>
+                <h3>Touch Controller Series</h3>
+                <ul>
+                    <li>FT5202</li>
+                    <li>FT5306</li>
+                    <li>FT5406</li>
+                    <li>FT5506</li>
+                    <li>FT5606</li>
+                    <li>FT5706</li>
+                    <li>FT5806</li>
+                    <li>FT5906</li>
+                    <li>FT6106</li>
+                    <li>FT6206</li>
+                    <li>FT6306</li>
+                    <li>FT6406</li>
+                    <li>FT6506</li>
+                    <li>FT6606</li>
+                    <li>FT6706</li>
+                </ul>
+                <h3>OTP Variants</h3>
+                <ul>
+                    <li>FT60P021</li>
+                    <li>FT60P022</li>
+                    <li>FT60P023</li>
+                    <li>FT60P024</li>
+                    <li>FT60P025</li>
+                    <li>FT60P026</li>
+                    <li>FT60P027</li>
+                    <li>FT60P028</li>
+                    <li>FT60P029</li>
+                    <li>FT61P021</li>
+                    <li>FT61P022</li>
+                    <li>FT61P023</li>
+                    <li>FT61P024</li>
+                    <li>FT61P025</li>
+                    <li>FT61P026</li>
+                </ul>
+
+                <h2>Security Features & Reverse Engineering Insights</h2>
+                <p>Feeling Technology implements a basic security scheme through a code protection fuse; when blown, the programming interface is disabled, preventing readback. However, this protection is easily defeated by voltage glitching during power‑up – we can hack the device by ramping the supply voltage faster than the internal reset, causing the chip to enter an unprotected state, allowing us to dump the memory. For OTP variants, the protection is permanent, but we can use micro‑probing to extract data by decapsulating the chip and visually reading the charge of each memory cell, achieving 100% accuracy.</p>
+                <p>Some Feeling MCUs include a unique device ID that can be used for authentication; we can clone this ID by reading it and programming it into another device, allowing us to duplicate the entire chip behavior. Our side‑channel analysis can also extract secrets if encryption is used. Feeling’s touch controllers have configuration registers that are often unprotected; we can read and modify these registers to alter touch sensitivity, useful for creating clones with different performance.</p>
+                <p>We have also discovered that many Feeling devices have unused memory areas containing hidden data or calibration values. We always perform a full memory scan to recover all available information. Our tools include custom scripts for automated extraction, reducing turnaround time significantly. We provide a complete analysis of the firmware, including function identification and reconstruction of the original C code from assembly. Our service is invaluable for companies that have lost source code, and we have helped many clients bring old products back to life. With a nearly 100% success rate and competitive pricing, MikaTech is your go‑to for Feeling reverse engineering.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p>
+        </div>
+    </footer>
+</body>
+</html>

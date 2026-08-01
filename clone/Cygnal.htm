@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cygnal (Silicon Labs) Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Cygnal (Silicon Labs) Microcontroller Reverse Engineering</h1>
+                <p>Expert in C8051, EFM8, and 32-bit EFM32 families</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Cygnal (Silicon Labs)</h2>
+                <p>Cygnal Integrated Products, later acquired by Silicon Labs, was a pioneer in high-speed 8-bit microcontrollers based on the 8051 architecture. The company introduced the C8051F series, which broke the traditional 12-clocks-per-instruction barrier, achieving performance comparable to 16-bit MCUs. These devices integrated high-resolution ADCs, DACs, voltage references, and PWM modules, making them ideal for precision analog applications. In 2014, Silicon Labs continued the legacy with the EFM8 family, offering low-power, 8051-based MCUs for consumer and industrial use. Simultaneously, they launched the EFM32 32-bit ARM Cortex-M series, known for their ultra-low power consumption (down to 0.9 µA in sleep). Cygnal's original C8051F devices were widely used in sensor interfaces, motor control, and medical devices. The company was known for its innovative on-chip debugging and programming interfaces, which included a two-wire C2 protocol. This interface allowed for in-system programming and debugging, but also introduced vulnerabilities that we can exploit. Today, Silicon Labs offers a broad portfolio of microcontrollers, wireless SoCs, and clock generators. Their MCUs are found in IoT devices, smart meters, and home automation. Despite their advanced features, many legacy Cygnal devices are still in use, and their firmware often contains valuable intellectual property. Our reverse engineering services cover both the legacy C8051F series and the modern EFM8/EFM32 families. We have extensive experience in extracting firmware from these devices, even when the security lock bits are set. The C2 interface can be used for debugging, but if locked, we resort to other methods. We have successfully bypassed the read-out protection on many Cygnal devices using fault injection and power analysis. For the EFM32 ARM chips, we leverage the standard JTAG/SWD interfaces, but when secured, we apply similar attack techniques. Our team has developed custom tools to communicate with the C2 port, allowing us to attempt brute-force attacks on the lock mechanism. We have also decapsulated devices to read the flash memory directly. Cygnal's security features include flash lock bits that prevent read and write operations. Some devices also have a "bootloader" that can be used for firmware updates, but this can be exploited to extract the main firmware. We have successfully recovered firmware from numerous C8051F and EFM8 microcontrollers for our clients. Whether you need to recover a lost binary, clone a device, or analyze a competitor's product, MikaTech provides reliable and professional services. Our approach combines electrical probing, side-channel monitoring, and invasive decapsulation. We understand the intricacies of the 8051 architecture and can disassemble the extracted code to provide a functional description. With our expertise, you can decrypt, readback, hack, extract, dump, recover, read, duplicate, and clone Cygnal devices efficiently.</p>
+
+                <h2>Device Families and Models</h2>
+                <ul>
+                    <li><strong>C8051F (8-bit 8051)</strong> – C8051F020, C8051F021, C8051F022, C8051F023, C8051F040, C8051F041, C8051F042, C8051F043, C8051F120, C8051F121, C8051F122, C8051F123, C8051F124, C8051F125, C8051F126</li>
+                    <li><strong>C8051T (Touch)</strong> – C8051T600, C8051T601, C8051T602, C8051T603, C8051T604, C8051T605, C8051T606, C8051T607, C8051T608, C8051T609</li>
+                    <li><strong>EFM8 (8-bit 8051)</strong> – EFM8BB1, EFM8BB2, EFM8BB3, EFM8LB1, EFM8LB2, EFM8LB3, EFM8SB1, EFM8SB2, EFM8UB1, EFM8UB2</li>
+                    <li><strong>EFM32 (32-bit ARM Cortex-M)</strong> – EFM32G, EFM32GG, EFM32LG, EFM32WG, EFM32HG, EFM32ZG, EFM32JG, EFM32PG, EFM32FG, EFM32TG</li>
+                    <li><strong>EFM32 Series 0</strong> – EFM32G200, EFM32G210, EFM32G222, EFM32G230, EFM32G240, EFM32G280, EFM32G290, EFM32G300, EFM32G310, EFM32G320</li>
+                    <li><strong>EFM32 Series 1</strong> – EFM32JG1, EFM32PG1, EFM32JG12, EFM32PG12, EFM32JG13, EFM32PG13, EFM32JG14, EFM32PG14, EFM32JG22, EFM32PG22</li>
+                </ul>
+
+                <h2>Security Features and Attack Methods</h2>
+                <p>Cygnal (Silicon Labs) devices incorporate various security features to protect the firmware and configuration data. The most common is the use of flash security lock bits that prevent reading and writing to the flash memory through the debug interface (C2 or JTAG). Once these bits are set, the device cannot be read unless the lock is cleared, which typically requires a mass erase. However, mass erase also erases the user data, making it unusable. To prevent unauthorized access, the lock bits are usually stored in a separate area of flash that is automatically locked. Some devices also support a "secure boot" option where the bootloader verifies the signature of the application before executing it. Additionally, the EFM32 series includes a unique device ID that can be used for authentication and anti-cloning. Some devices have a tamper detection circuit that erases the keys upon detecting a physical intrusion. Despite these measures, we have developed effective attack strategies. For C2 interface, we can use voltage glitching to corrupt the lock check logic, allowing us to bypass the protection and read the flash. By carefully adjusting the clock or supply voltage, we can make the CPU skip the lock verification. We have successfully performed this on multiple C8051F devices. For EFM32 with SWD, we have used a combination of fault injection and side-channel analysis to extract the encryption keys stored in the secure area. We also use decapsulation to expose the die and then probe the flash memory directly. This approach is invasive but yields the full binary. For EFM8 devices, we have discovered that the bootloader can sometimes be tricked into entering a firmware update mode that allows reading the main flash. By sending specific commands, we can cause the bootloader to dump the contents. We have also found that some devices have a "backdoor" in the manufacturing test mode that can be activated via JTAG, granting full access. Our team maintains a database of known vulnerabilities for various Cygnal parts. We also perform power analysis to extract cryptographic keys during encryption/decryption operations. For example, we have recovered AES keys from EFM32 devices by measuring the power consumption during AES processing. This is a non-invasive method that leaves the device intact. In cases where the device is locked and no other method works, we resort to FIB (focused ion beam) to cut specific traces and gain control over the security logic. We have successfully used this technique to unlock several EFM32 microcontrollers. Our goal is to provide a reliable recovery service, ensuring that you can access your firmware even when all official means are blocked. We offer competitive pricing and fast turnaround times. With our expertise, you can trust us to decrypt, readback, hack, extract, dump, recover, read, duplicate, and clone Cygnal and Silicon Labs devices with high success rates.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p>
+        </div>
+    </footer>
+</body>
+</html>

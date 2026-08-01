@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim MCU Reverse Engineering – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Home</a></li>
+                    <li><a href="../about.htm">About</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU Hack</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB Clone</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contact</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Advanced MCU Lab
+                    </div>
+                    <h1>
+                        Microcontroller <br />
+                        <span class="highlight">Reverse Engineering</span>
+                    </h1>
+                    <p>
+                        Unlock, analyze, and repurpose embedded systems with precision.
+                        We provide expert firmware extraction, silicon analysis, and
+                        security evaluation for microcontrollers.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Why MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Contact Us
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Started from 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>MCU families analyzed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Firmware extractions</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Office" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="mcu dump">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Security Bypass</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Firmware Dump</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Maxim MCU Reverse Engineering</h1>
+                <p>Deep expertise in MAXQ, ARM‑based, and secure microcontrollers</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>About Maxim</h2>
+                <p>Maxim Integrated (now part of Analog Devices) is a leading manufacturer of analog and mixed‑signal ICs, including microcontrollers. Their MAXQ family offers high‑performance RISC cores with extensive peripheral sets. Maxim also produces ARM‑based microcontrollers for IoT and security applications. Their devices are known for ultra‑low power consumption and small form factors. Maxim MCUs are widely used in wearable devices, medical monitors, and industrial sensors. They integrate advanced analog blocks like high‑resolution ADCs and temperature sensors. Maxim’s secure microcontrollers are used in smart meters, banking cards, and authentication tokens. The company provides a comprehensive development ecosystem with debuggers and compilers. Maxim’s DeepCover® technology enhances security with advanced tamper detection. Their microcontrollers often include hardware encryption engines (AES, DES, SHA). Maxim also offers battery management MCUs for portable electronics. They have a strong presence in the automotive sector with AEC‑Q100 qualified parts. Maxim’s devices support multiple communication interfaces (I2C, SPI, USB, CAN). They are designed for both battery‑powered and line‑powered applications. Maxim’s analog expertise allows seamless integration of sensors and signal conditioning. They provide extensive technical support and application notes. Maxim acquired Dallas Semiconductor, inheriting the 1‑Wire® bus and iButton® products. Their secure authenticators are used for IP protection and device pairing. Maxim’s microcontrollers are often chosen for their high reliability and accuracy. They have a long history of innovation in mixed‑signal design. Maxim’s product portfolio includes both general‑purpose and application‑specific MCUs. They continue to develop new solutions for industrial 4.0 and edge computing. Maxim’s focus on security has made them a preferred choice for payment systems. Their devices are designed to resist side‑channel and fault injection attacks. Maxim also offers secure boot and encrypted firmware updates. Their chips are used in critical infrastructure like power grid controllers. Maxim’s commitment to quality is reflected in their ISO 9001 and 13485 certifications. They have manufacturing facilities in the US and Asia. Maxim’s legacy products are still supported for long‑life applications.</p>
+
+                <h2>Product Series & Device Models</h2>
+                <h3>MAXQ (16‑bit RISC)</h3>
+                <ul>
+                    <li>MAXQ610</li><li>MAXQ612</li><li>MAXQ613</li><li>MAXQ614</li><li>MAXQ615</li>
+                    <li>MAXQ618</li><li>MAXQ620</li><li>MAXQ622</li><li>MAXQ625</li><li>MAXQ628</li>
+                    <li>MAXQ630</li><li>MAXQ632</li><li>MAXQ635</li>
+                </ul>
+                <h3>ARM Cortex‑M (MAX32xxx)</h3>
+                <ul>
+                    <li>MAX32600</li><li>MAX32620</li><li>MAX32630</li><li>MAX32640</li><li>MAX32650</li>
+                    <li>MAX32660</li><li>MAX32670</li><li>MAX32680</li><li>MAX32690</li><li>MAX32625</li>
+                    <li>MAX32635</li><li>MAX32645</li><li>MAX32655</li>
+                </ul>
+                <h3>DeepCover Secure MCUs</h3>
+                <ul>
+                    <li>MAXQ1050</li><li>MAXQ1061</li><li>MAXQ1062</li><li>MAXQ1063</li><li>MAXQ1065</li>
+                    <li>MAXQ1080</li><li>MAXQ1081</li><li>MAXQ1082</li><li>MAXQ1085</li>
+                </ul>
+
+                <h2>Maxim Security Features</h2>
+                <p>Maxim places a strong emphasis on security, with multiple layers of protection. Their DeepCover devices incorporate active tamper‑detection meshes that trigger data erasure if violated. This makes it extremely difficult to physically attack the chip. Maxim also uses encrypted memory buses to prevent snooping of internal data transfers. The secure MCUs have a hardware random number generator and a unique device ID. Boot ROM verifies the signature of the firmware before execution, blocking any unauthorized code. Debug ports are secured with a password that can be permanently locked. Without the password, you cannot read or write to the memory. Maxim’s encryption engines support AES‑256 and RSA‑2048, allowing secure communication. They also implement side‑channel countermeasures to thwart power analysis attacks. Despite these robust features, some vulnerabilities have been found in older MAXQ parts, where glitch attacks can unlock the debug interface. Our team has successfully recovered firmware from MAXQ610 by exploiting a timing side‑channel. We have also extracted keys from DeepCover chips using electromagnetic analysis. The process involves monitoring the power consumption during crypto operations. To duplicate a Maxim device, one must clone the unique ID and the key material, which is challenging. However, for legacy systems where original firmware is lost, we offer readout of the flash and EEPROM. We use a combination of non‑invasive fault injection and advanced probing techniques. In some cases, decapsulation is required to access internal bond pads. Maxim’s security is continuously improving, but no system is foolproof. We have developed methods to hack the secure boot process by corrupting the signature check. Our lab can also recover data from partially damaged devices. We provide full extraction and analysis of Maxim firmware. Whether you need to recover a lost code or clone a unit for testing, MikaTech delivers. We stay up‑to‑date with the latest security patches. Contact us for a thorough assessment of your Maxim MCU.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. All rights reserved. | Excellence in Reverse Engineering.</p></div>
+    </footer>
+</body>
+</html>
