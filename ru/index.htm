@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Обратный инжиниринг микроконтроллеров</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="../style1.css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+
+    <!-- ===== ШАПКА ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.htm">Главная</a></li>
+                    <li><a href="about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="mcu_hack.htm">Взлом MCU</a>
+                        <ul class="dropdown-content">
+                            <li><a href="clone/atmel_reverse.htm">Atmel / Analog</a></li>
+<li><a href="clone/Actel.htm">Actel</a></li>
+<li><a href="clone/Altera.htm">Altera</a></li>
+<li><a href="clone/AMD.htm">AMD</a></li>
+<li><a href="clone/Cygnal.htm">Cygnal</a></li>
+<li><a href="clone/ChipON.htm">ChipON</a></li>
+<li><a href="clone/Geehy.htm">Geehy</a></li>
+<li><a href="clone/Cypress.htm">Cypress</a></li>
+<li><a href="clone/Dallas.htm">Dallas</a></li>
+<li><a href="clone/Elan.htm">Elan</a></li>
+<li><a href="clone/Freescale.htm">Freescale</a></li>
+<li><a href="clone/Feeling.htm">Feeling</a></li>
+<li><a href="clone/Giga Device.htm">Giga Device</a></li>
+<li><a href="clone/Hitachi.htm">Hitachi</a></li>
+<li><a href="clone/Holtek.htm">Holtek</a></li>
+<li><a href="clone/Infineon.htm">Infineon</a></li>
+<li><a href="clone/Intel.htm">Intel</a></li>
+<li><a href="clone/ICT.htm">ICT</a></li>
+<li><a href="clone/ICSI.htm">ICSI</a></li>
+<li><a href="clone/ISSI.htm">ISSI</a></li>
+<li><a href="clone/Lattice.htm">Lattice</a></li>
+<li><a href="clone/Microchip.htm">Microchip</a></li>
+<li><a href="clone/Motorola.htm">Motorola</a></li>
+<li><a href="clone/Maxim.htm">Maxim</a></li>
+<li><a href="clone/MDT.htm">MDT</a></li>
+<li><a href="clone/Megawin.htm">Megawin</a></li>
+<li><a href="clone/Myson.htm">Myson</a></li>
+<li><a href="clone/National Semi.htm">National Semi</a></li>
+<li><a href="clone/NTK.htm">NTK</a></li>
+<li><a href="clone/Nuvoton.htm">Nuvoton</a></li>
+<li><a href="clone/NXP.htm">NXP</a></li>
+<li><a href="clone/Philips.htm">Philips</a></li>
+<li><a href="clone/Renesas.htm">Renesas</a></li>
+<li><a href="clone/STM.htm">STM</a></li>
+<li><a href="clone/Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="clone/Samsung.htm">Samsung</a></li>
+<li><a href="clone/SST.htm">SST</a></li>
+<li><a href="clone/Sinowealth.htm">Sinowealth</a></li>
+<li><a href="clone/SyncMOS.htm">SyncMOS</a></li>
+<li><a href="clone/STC.htm">STC</a></li>
+<li><a href="clone/STK.htm">STK</a></li>
+<li><a href="clone/Texas Instr.htm">Texas Instr</a></li>
+<li><a href="clone/Winbond.htm">Winbond</a></li>
+<li><a href="clone/Xilinx.htm">Xilinx</a></li>
+<li><a href="clone/Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pcb_clone.htm">Клонирование PCB</a></li>
+                    <li><a href="faq.htm">ЧаВо</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/en.png" alt="EN" class="flag-icon"> EN ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../index.htm"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../pt/index.htm"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== ГЕРОЙ ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Передовая лаборатория MCU
+                    </div>
+                    <h1>
+                        Обратный инжиниринг <br />
+                        <span class="highlight">микроконтроллеров</span>
+                    </h1>
+                    <p>
+                        Вскрытие, анализ и перепрофилирование встраиваемых систем с высокой точностью.
+                        Мы предоставляем экспертную услугу по извлечению прошивок, анализу кристаллов и
+                        оценке безопасности для микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Свяжитесь с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Начало с 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Семейств MCU проанализировано</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечений прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== герой-чип ===== -->
+                    <div class="hero-chip">
+                        <!-- изображение -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- кнопка видео -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="дамп MCU">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- плавающие элементы -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- ===== УСЛУГИ ===== -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Что мы делаем</span>
+                <h2 class="section-title">
+                    Основные услуги <span class="highlight">обратного инжиниринга</span>
+                </h2>
+                <p class="section-sub mx-auto">
+                    От обхода защиты чтения до полной реконструкции системы —
+                    мы предоставляем глубокие технические знания для встраиваемых систем.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 6 карточек -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-unlock"></i></div>
+                    <h3>Обход защиты</h3>
+                    <p>
+                        Обход защиты чтения (RDP), блокировок JTAG/SWD и
+                        других механизмов безопасности на широком спектре MCU.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-file-code"></i></div>
+                    <h3>Извлечение прошивки</h3>
+                    <p>
+                        Дамп внутренней флэш-памяти, EEPROM и OTP-памяти с использованием
+                        глитчинга, побочных каналов или инвазивных методов.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-arrows-rotate"></i></div>
+                    <h3>Анализ бинарного кода</h3>
+                    <p>
+                        Дизассемблирование, декомпиляция и анализ машинного кода для
+                        понимания функциональности, алгоритмов и уязвимостей.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-sitemap"></i></div>
+                    <h3>Обратный инжиниринг кристалла</h3>
+                    <p>
+                        Послойное удаление, визуализация и извлечение списка соединений для
+                        понимания аппаратного уровня и обнаружения клонов.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-shield"></i></div>
+                    <h3>Аудиты безопасности</h3>
+                    <p>
+                        Комплексная оценка безопасности встраиваемых устройств,
+                        включая устойчивость к инжекции ошибок и побочным каналам.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-rotate-right"></i></div>
+                    <h3>Возрождение устаревших систем</h3>
+                    <p>
+                        Восстановление и реконструкция прошивок для устаревших или
+                        недокументированных микроконтроллеров для продления жизненного цикла изделий.
+                    </p>
+                </div>
+
+                <!-- ===== 2 дополнительные карточки ===== -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Декапсуляция MCU</h3>
+                    <p>
+                        Прецизионное удаление эпоксидного или керамического корпуса для
+                        обнажения кристалла для визуального контроля, анализа отказов
+                        и прямого зондирования внутренних узлов.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-id-card"></i></div>
+                    <h3>Идентификация чипов</h3>
+                    <p>
+                        Идентификация неизвестных, немаркированных или заказных чипов
+                        по маркировке кристалла, анализу выводов, электрическим характеристикам
+                        и сверке с известными базами данных.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PCB CLONE (новый стиль) ===== -->
+    <section class="section" id="pcb-clone">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Воспроизведение аппаратуры</span>
+                <h2 class="section-title">
+                    Клонирование и обратный <span class="highlight-pcb">инжиниринг PCB</span>
+                </h2>
+                <p class="section-sub mx-auto">
+                    Реконструкция, репликация и оптимизация печатных плат по
+                    физическим образцам — с полным захватом схем и генерацией спецификации.
+                </p>
+            </div>
+
+            <div class="pcb-grid">
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-microscope"></i></div>
+                    <h3>Обратный инжиниринг PCB</h3>
+                    <p>Извлечение списка соединений, размещения компонентов и структуры слоёв с голых плат или собранных PCB с высокой точностью.</p>
+                </div>
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-draw-polygon"></i></div>
+                    <h3>Восстановление схемы</h3>
+                    <p>Воссоздание полных электрических схем по физическим платам, включая цепи питания, трассировку сигналов и критичные шины.</p>
+                </div>
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-list-check"></i></div>
+                    <h3>Генерация спецификации</h3>
+                    <p>Идентификация и перечень всех компонентов с артикулами, производителями и альтернативами для обеспечения непрерывности поставок.</p>
+                </div>
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-copy"></i></div>
+                    <h3>Репродукция PCB</h3>
+                    <p>Создание готовых к производству Gerber-файлов, данных сверловки и сборочных чертежей для точного или улучшенного копирования плат.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== О НАС ===== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-label">О ReversIC</span>
+                    <h2 class="section-title">
+                        Глубокая экспертиза в <span class="highlight">встраиваемых</span> системах
+                    </h2>
+                    <p>
+                        Мы — команда инженеров по аппаратной безопасности и
+                        специалистов по обратному инжинирингу с суммарным опытом
+                        более десяти лет в анализе микроконтроллеров. Наши методы
+                        соединяют аппаратное и программное обеспечение,
+                        предоставляя полезную информацию для безопасности,
+                        соответствия требованиям и инноваций продуктов.
+                    </p>
+                    <p>
+                        От ARM Cortex до RISC-V, от 8-битных до 32-битных — мы
+                        говорим на языке кремния.
+                    </p>
+                    <ul class="features">
+                        <li><i class="fas fa-check-circle"></i> 180+ семейств MCU</li>
+                        <li><i class="fas fa-check-circle"></i> Собственная лаборатория и инструменты</li>
+                        <li><i class="fas fa-check-circle"></i> Конфиденциальность и NDA</li>
+                        <li><i class="fas fa-check-circle"></i> Глобальная клиентская база</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+<div class="hero2-chip">
+                        <div class="chip-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="chip-label">ARM Cortex-M · 32-бит</div>
+                        <div class="chip-dots">
+                            <span class="active"></span><span></span><span></span>
+                            <span></span><span class="active"></span><span></span>
+                            <span></span><span></span><span class="active"></span>
+                            <span></span><span></span><span></span>
+                            <span class="active"></span><span></span><span></span>
+                            <span></span><span></span><span class="active"></span>
+                        </div>
+                        <!-- плавающие значки -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Извлечение прошивки</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Взлом</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Атака</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРОЦЕСС ===== -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Как мы работаем</span>
+                <h2 class="section-title">
+                    Наш процесс <span class="highlight">обратного инжиниринга</span>
+                </h2>
+                <p class="section-sub mx-auto">
+                    Структурированный и прозрачный процесс от начального анализа до
+                    финального отчёта.
+                </p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <span class="num">01</span>
+                    <h4>Разведка</h4>
+                    <p>Определение MCU, типа корпуса и функций безопасности.</p>
+                </div>
+                <div class="step">
+                    <span class="num">02</span>
+                    <h4>Доступ</h4>
+                    <p>Обход защит и установка отладочных каналов.</p>
+                </div>
+                <div class="step">
+                    <span class="num">03</span>
+                    <h4>Извлечение</h4>
+                    <p>Дамп прошивки, конфигурации и OTP-данных.</p>
+                </div>
+                <div class="step">
+                    <span class="num">04</span>
+                    <h4>Анализ</h4>
+                    <p>Дизассемблирование, трассировка и документирование функциональности.</p>
+                </div>
+                <div class="step">
+                    <span class="num">05</span>
+                    <h4>Отчёт</h4>
+                    <p>Предоставление результатов, кода и рекомендаций.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КЕЙСЫ ===== -->
+    <section class="section" id="cases">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Истории успеха</span>
+                <h2 class="section-title">
+                    Избранные <span class="highlight">кейсы</span>
+                </h2>
+                <p class="section-sub mx-auto">
+                    Реальные проекты, в которых мы раскрыли критическую информацию.
+                </p>
+            </div>
+
+            <div class="cases-grid">
+                <div class="case-card">
+                    <p class="quote">
+                        «Сегодня я программировал процессор. Однако, записать прошивку с помощью программатора Chipprog-48 (российский программатор) не получилось. Но с помощью SAM-ICE всё сработало отлично! Как обычно, огромное спасибо!!!»
+                    </p>
+                    <div class="author">
+                        <div class="avatar">EG</div>
+                        <div class="info">
+                            <h5>Г. Егва</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <p class="quote">
+                        «hex-файл работает идеально. И данные EEPROM тоже включены.
+
+Огромное спасибо с моей стороны :-)»
+                    </p>
+                    <div class="author">
+                        <div class="avatar">AK</div>
+                        <div class="info">
+                            <h5>Анна К.</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <p class="quote">
+                        «Благодарю Вас, я протестирую hex и дам обратную связь в ваш офис,
+надеюсь, что он в оригинальном виде, спасибо за отличный сервис, до следующих
+проектов в ближайшее время.»
+                    </p>
+                    <div class="author">
+                        <div class="avatar">MR</div>
+                        <div class="info">
+                            <h5>Майкл Р.</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== СПИСОК MCU ДЛЯ ОБРАТНОГО ИНЖИНИРИНГА ===== -->
+    <section class="section" id="mcu-range">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">Поддерживаемые архитектуры</span>
+                <h2 class="section-title">
+                    Диапазон <span class="highlight">обратного инжиниринга</span> MCU
+                </h2>
+                <p class="section-sub mx-auto">
+                    Полный обзор семейств микроконтроллеров и защищённых запоминающих устройств,
+                    с которыми мы работаем.
+                </p>  <br><br>
+            </div>
+
+             <div class="container">
+                <div class="faq-item">
+      
+                    <h3>Взлом 8‑битных микроконтроллеров</h3>
+                    <p>- Ядро 8051
+STC: STC89C52, STC15W408AS, STC8A8K64S4A12
+Microchip (Atmel): AT89C51, AT89C52
+WCH: CH552, CH554, CH559
+- Ядро AVR (Microchip)
+ATmega: ATmega328P, ATmega8, ATmega128, ATmega2560
+ATTiny: ATTiny13A, ATTiny85, ATTiny1614
+- Microchip PIC 8-bit
+PIC12: PIC12F629, PIC12F675
+PIC16: PIC16F877A, PIC16F18345, PIC16LF1503
+- Renesas
+78K0, 78K0S
+- NXP (Freescale)
+HCS08: MC9S08AW60, MC9S08QE128</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Разблокировка 16‑битных микроконтроллеров</h3>
+                    <p>-Texas Instruments
+MSP430: MSP430F5529, MSP430FR5994, MSP430G2553
+- Microchip
+PIC24: PIC24FJ64GA310, PIC24FV32KA304
+dsPIC (с DSP): dsPIC33FJ128MC802, dsPIC33CK256MP508
+- Renesas
+RL78: RL78/G13, RL78/G22, RL78/G23
+- NXP
+S12: MC9S12XS128</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Атака на 32‑битные микроконтроллеры</h3>
+                    <p>- STMicroelectronics: STM32F103, STM32F407, STM32H743, STM32L476, STM32U585
+- GigaDevice: GD32F103, GD32F407, GD32L233
+- WCH: CH32F103, CH32F203
+- NXP: LPC1768, LPC55S69, Kinetis K60, KV58
+- Nordic Semiconductor: nRF51822, nRF52840, nRF5340
+- MindMotion: MM32F103, MM32L073</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Программируемая логика (PAL)</h3>
+                    <p>- Lattice Semiconductor
+PAL16L8, PAL16R4, PAL16R6, PAL16R8, PAL20L8, PAL20R8
+- AMD / Vantis
+PAL12H6, PAL14H4, PAL16C1, PAL18P8, PAL22V10
+- Microchip (Atmel)
+ATF16V8B, ATF22V10C
+- National Semiconductor
+NS PAL16 series</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Дамп зашифрованных ПЗУ</h3>
+                    <p>Atmel (Microchip) – AT88SC, ATSHA, ATECC
+NXP – MIFARE, SmartMX, SE050
+Infineon – SLE, OPTIGA
+ST – STSAFE
+Maxim – DS28 (DeepCover)
+Renesas – Secure MCU с криптографией
+Microchip – Secure EEPROM</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- ===== КОНТАКТ / ПРИЗЫВ ===== -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Готовы <span class="highlight">восстановить</span> ваш MCU?</h2>
+                <p>
+                    Свяжитесь с нами для конфиденциальной консультации. Мы работаем с
+                    NDA и адаптируем наш подход под ваши конкретные потребности.
+                </p>
+                <div class="btn-group">
+
+
+                        <a href="about.htm" class="btn btn-dark">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-primary">
+        <i class="fas fa-phone"></i> Свяжитесь с нами
+    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="font-size:1.1rem;">
+                        <span class="highlight"><i class="fas fa-microchip"></i>
+                       MikaTech</span>
+                    </a>
+                    <p>
+                        Специализированный обратный инжиниринг микроконтроллеров для
+                        безопасности, судебной экспертизы и восстановления устаревших систем.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>Компания</h5>
+
+                    <a href="about.htm">О нас</a>
+                    <a href="mcu_hack.htm">Взлом MCU</a>
+                    <a href="pcb_clone">Клонирование PCB</a>
+                    <a href="faq.htm">ЧаВо</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Официальный сайт</h5>
+ <a href="https://www.break-ic.com"><img src="../image/link.png" alt="Office" class="chip-image" /></a>
+                </div>
+
+
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 MikaTech — Обратный инжиниринг микроконтроллеров</span>
+                <div class="footer-socials">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Гамбургер для мобильных
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Закрыть навигацию по клику на ссылку (мобильные)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Переключатель языка (заглушка)
+        document.querySelectorAll('.lang-switch a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = link.getAttribute('data-lang');
+                if (lang === 'ru') {
+                    alert('Русская версия сайта в разработке. / Russian version is under development.');
+                } else {
+                    document.querySelectorAll('.lang-switch a').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Плавный скролл по якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Добавление активного класса для ссылок навигации при прокрутке
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-links > a').forEach(link => {
+                link.style.color = link.getAttribute('href') === '#' + current ? '#e8edf5' : '#a0aab8';
+            });
+        });
+
+        // Размытие шапки при скролле
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.background = 'rgba(11,13,16,0.92)';
+            } else {
+                header.style.background = 'rgba(11,13,16,0.85)';
+            }
+        });
+    </script>
+
+</body>
+</html>
