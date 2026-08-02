@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clonagem de PCB – Engenharia Reversa MikaTech</title>
+   <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="../style1.css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.htm">Início</a></li>
+                    <li><a href="about.htm">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="mcu_hack.htm">Hack de MCU</a>
+                        <ul class="dropdown-content">
+                            <li><a href="clone/atmel_reverse.htm">Atmel / Analog</a></li>
+<li><a href="clone/Actel.htm">Actel</a></li>
+<li><a href="clone/Altera.htm">Altera</a></li>
+<li><a href="clone/AMD.htm">AMD</a></li>
+<li><a href="clone/Cygnal.htm">Cygnal</a></li>
+<li><a href="clone/ChipON.htm">ChipON</a></li>
+<li><a href="clone/Geehy.htm">Geehy</a></li>
+<li><a href="clone/Cypress.htm">Cypress</a></li>
+<li><a href="clone/Dallas.htm">Dallas</a></li>
+<li><a href="clone/Elan.htm">Elan</a></li>
+<li><a href="clone/Freescale.htm">Freescale</a></li>
+<li><a href="clone/Feeling.htm">Feeling</a></li>
+<li><a href="clone/Giga Device.htm">Giga Device</a></li>
+<li><a href="clone/Hitachi.htm">Hitachi</a></li>
+<li><a href="clone/Holtek.htm">Holtek</a></li>
+<li><a href="clone/Infineon.htm">Infineon</a></li>
+<li><a href="clone/Intel.htm">Intel</a></li>
+<li><a href="clone/ICT.htm">ICT</a></li>
+<li><a href="clone/ICSI.htm">ICSI</a></li>
+<li><a href="clone/ISSI.htm">ISSI</a></li>
+<li><a href="clone/Lattice.htm">Lattice</a></li>
+<li><a href="clone/Microchip.htm">Microchip</a></li>
+<li><a href="clone/Motorola.htm">Motorola</a></li>
+<li><a href="clone/Maxim.htm">Maxim</a></li>
+<li><a href="clone/MDT.htm">MDT</a></li>
+<li><a href="clone/Megawin.htm">Megawin</a></li>
+<li><a href="clone/Myson.htm">Myson</a></li>
+<li><a href="clone/National Semi.htm">National Semi</a></li>
+<li><a href="clone/NTK.htm">NTK</a></li>
+<li><a href="clone/Nuvoton.htm">Nuvoton</a></li>
+<li><a href="clone/NXP.htm">NXP</a></li>
+<li><a href="clone/Philips.htm">Philips</a></li>
+<li><a href="clone/Renesas.htm">Renesas</a></li>
+<li><a href="clone/STM.htm">STM</a></li>
+<li><a href="clone/Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="clone/Samsung.htm">Samsung</a></li>
+<li><a href="clone/SST.htm">SST</a></li>
+<li><a href="clone/Sinowealth.htm">Sinowealth</a></li>
+<li><a href="clone/SyncMOS.htm">SyncMOS</a></li>
+<li><a href="clone/STC.htm">STC</a></li>
+<li><a href="clone/STK.htm">STK</a></li>
+<li><a href="clone/Texas Instr.htm">Texas Instr</a></li>
+<li><a href="clone/Winbond.htm">Winbond</a></li>
+<li><a href="clone/Xilinx.htm">Xilinx</a></li>
+<li><a href="clone/Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pcb_clone.htm">Clonagem de PCB</a></li>
+                    <li><a href="faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Contato</a></li>
+                    <li class="lang-dropdown">
+                        <a href="#"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="#"><img src="../image/pt.png" alt="PT" class="flag-icon"> PT</a></li>
+                            <li><a href="../index.htm"><img src="../image/en.png" alt="EN" class="flag-icon"> EN</a></li>
+                            <li><a href="../ru/index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Laboratório Avançado de MCU
+                    </div>
+                    <h1>
+                        Engenharia Reversa <br />
+                        <span class="highlight">de Microcontroladores</span>
+                    </h1>
+                    <p>
+                        Desbloqueio, análise e reaproveitamento de sistemas embarcados com precisão.
+                        Fornecemos extração especializada de firmware, análise de silício e
+                        avaliação de segurança para microcontroladores.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Por que a MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Fale Conosco
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 anos</h4>
+                            <p>Início em 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Famílias de MCU analisadas</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Extrações de firmware</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== chip-hero ===== -->
+                    <div class="hero-chip">
+                        <!-- imagem -->
+                        <img src="../image/office.jpg" alt="Escritório" class="chip-image" />
+
+                        <!-- botão de vídeo -->
+                        <div class="play-btn" onclick="window.open('video.htm', '_blank')" title="dump de MCU">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- elementos flutuantes -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Bypass de Segurança</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Dump de Firmware</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Hack</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Serviços de Clonagem de PCB</h1>
+                <p>Replicação precisa de placas de circuito impresso – desde simples 2 camadas até projetos HDI complexos</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>O que oferecemos</h2>
+                <p>Nosso serviço de engenharia reversa de PCB vai além da simples cópia. Fornecemos pacotes completos de documentação, incluindo esquemas elétricos, lista de materiais, arquivos Gerber e listas de conexões – tudo verificado por meio de testes rigorosos.</p>
+
+                <h3>Extração de multicamadas</h3>
+                <p>Utilizando técnicas avançadas de imageamento e delaminação, reconstruímos com precisão as trilhas internas e vias para placas com 4, 6, 8 ou mais camadas. Vias cegas e enterradas não são obstáculo para nosso processo.</p>
+
+                <h3>Captura de esquemático</h3>
+                <p>Convertemos o roteamento físico da placa em esquemas lógicos, com valores de componentes, designadores de referência e nomes de redes. Isso permite que você entenda a funcionalidade do circuito, modifique o projeto ou crie uma placa substituta.</p>
+
+                <h3>Identificação de componentes</h3>
+                <p>Identificamos e fazemos referência cruzada de todos os componentes, incluindo CI personalizados, passivos e conectores. Para peças obsoletas, sugerimos substituições compatíveis ou alternativas de projeto.</p>
+
+                <h3>Garantia de qualidade</h3>
+                <p>Cada clone é verificado em relação ao original por meio de testes em circuito e validação funcional. Garantimos que nossas entregas sejam elétrica e mecanicamente idênticas à placa original.</p>
+
+                <p>Seja para reproduzir uma placa de controle legada, fazer engenharia reversa de um produto concorrente ou criar um substituto direto para hardware em fim de vida – a MikaTech oferece rapidez e precisão.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. Todos os direitos reservados. | Excelência em Engenharia Reversa.</p>
+        </div>
+    </footer>
+</body>
+</html>
