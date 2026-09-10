@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Instruments MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        저희는 임베디드 시스템을 정밀하게 분해, 분석하고 재구성합니다.
+                        펌웨어 덤프, 칩 분석 및 MCU 보안 평가에 관한 고급 전문성을
+                        제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Texas Instruments MCU 리버스 엔지니어링</h1>
+                <p>MSP430, Tiva, C2000 제품군 통합 솔루션</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Texas Instruments 회사 소개</h2>
+                <p>Texas Instruments(TI)는 반도체 설계 및 제조 분야의 글로벌 선도 기업으로, 방대한 MCU 포트폴리오를 보유하고 있습니다. 제품 시리즈에는 초저전력 MSP430, ARM 기반 Tiva(구 Stellaris), 고성능 실시간 제어기 C2000이 포함됩니다. 또한 TI는 산업용 및 자동차 애플리케이션을 위한 Sitara ARM Cortex-A 프로세서를 생산합니다. TI의 MCU는 의료 기기부터 자동차 전장품까지 광범위한 작업에 사용되며, 신뢰성 있는 보호 수단과 풍부한 개발 생태계로 잘 알려져 있습니다. 회사는 통합 소프트웨어 라이브러리, 도구, 레퍼런스 프로젝트를 제공합니다. TI의 MSP430은 저전력으로 유명하여 배터리 구동 기기에 이상적이며, C2000 시리즈는 모션 제어와 디지털 전력 변환을 위해 설계되었습니다. Tiva MCU는 내장 Ethernet 및 USB 인터페이스를 통한 고성능 연결을 제공하고, TI는 내장 암호화와 변조 감지로 보호되는 MCU도 제공합니다. 기능 안전과 자동차 인증(ISO 26262)에 중점을 두고, TI 제품은 방대한 커뮤니티 지원과 폭넓은 문서를 갖추고 있습니다. 플래시 및 ROM 옵션이 제공되고, 생산에는 고성능 첨단 공정이 사용되며, BGA 및 QFN을 포함한 다양한 패키지를 제공합니다. TI MCU는 산업 자동화, 빌딩 자동화, 의료 장비에 사용되고, 소비자 전자제품, 웨어러블, 사물인터넷용 칩도 공급합니다. TI의 보안 솔루션에는 보안 부팅, 키 저장, 암호화 가속기가 포함되고, 지적 재산 보호를 위한 하드웨어 및 소프트웨어 솔루션을 제공합니다. TI는 많은 Fortune 500대 기업의 신뢰할 수 있는 공급업체이며, 차세대 MCU 연구개발에 지속 투자하고, 신뢰할 수 있는 공급망으로 장기 공급 가능성을 보장합니다. 핵심 인프라 프로젝트의 선호 파트너입니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>MSP430 (16비트 초저전력)</h3>
+                <ul>
+                    <li>MSP430G2553</li><li>MSP430F5529</li><li>MSP430FR5969</li><li>MSP430FR6989</li><li>MSP430FR4133</li>
+                    <li>MSP430F149</li><li>MSP430F2274</li><li>MSP430F2619</li><li>MSP430F5438</li><li>MSP430F5659</li>
+                    <li>MSP430G2452</li><li>MSP430G2231</li><li>MSP430F2013</li><li>MSP430F2122</li><li>MSP430F4152</li>
+                </ul>
+                <h3>Tiva C (ARM Cortex-M)</h3>
+                <ul>
+                    <li>TM4C123GH6PM</li><li>TM4C1294NCPDT</li><li>TM4C123GE6PM</li><li>TM4C129XNCZAD</li><li>TM4C1233D5PM</li>
+                    <li>TM4C1236D5PM</li><li>TM4C1237D5PM</li><li>TM4C1290NCZAD</li><li>TM4C129ENCPDT</li><li>TM4C129EKCPDT</li>
+                </ul>
+                <h3>C2000 (32비트 실시간 제어)</h3>
+                <ul>
+                    <li>TMS320F28027</li><li>TMS320F28035</li><li>TMS320F28069</li><li>TMS320F28335</li><li>TMS320F28377</li>
+                    <li>TMS320F280049</li><li>TMS320F28075</li><li>TMS320F2808</li><li>TMS320F2812</li><li>TMS320F240</li>
+                    <li>TMS320F2407</li><li>TMS320F241</li><li>TMS320F243</li>
+                </ul>
+
+                <h2>Texas Instruments 보안 기능</h2>
+                <p>Texas Instruments는 모든 MCU 제품군에 통합 보호 수단을 통합하고 있습니다. MSP430 시리즈에는 내장 하드웨어 배수기와 JTAG 인터페이스를 영구 비활성화하는 보호 퓨즈가 포함됩니다. 이 퓨즈를 태우면 디버그 접근이 사라져 코드 읽기를 차단하지만, 일부 장치에는 비밀번호로 잠금을 여는 백업 방식이 존재합니다. 또한 TI는 특정 MSP430FRxx 장치에 128비트 AES 암호화 엔진을 제공하여 펌웨어를 암호화 상태로 저장할 수 있게 하며, 복호화 키는 외부 주변장치가 접근할 수 없는 보호 영역에 저장됩니다. Tiva C 시리즈에는 보안 부팅 ROM이 탑재되어 애플리케이션 펌웨어 서명을 검증하며, 무단 코드 실행을 방지하여 해킹을 방해합니다. TI의 C2000 장치에는 코드 보호 모듈(CSM)이 포함되어 플래시를 잠그고 읽기를 제한하며, 128비트 비밀번호로 개방할 수 있지만 무차별 대입 공격은 무의미합니다. 또한 TI는 인증과 복제 방지를 위한 고유 칩 식별자를 제공합니다. 전력 분석과 같은 부채널 공격은 MSP430 장치에서 키를 추출하는 데 사용되었으며, 당사 팀은 전력 차분 분석으로 MSP430FR5969에서 키를 복원하는 데 성공했습니다. 일부 구형 MSP430 장치에서 주파수 글리치 결함 주입으로 JTAG를 개방했고, Tiva 및 C2000에 대해서는 부트로더를 이용하여 펌웨어 덤프를 확보하는 기법을 개발했습니다. 패키지 제거와 FIB 가공 같은 침습적 방식은 플래시를 직접 읽을 수 있게 합니다. TI의 보호는 신뢰할 수 있지만, 당사에는 정당한 복구 목적으로 이를 우회할 전문성이 있습니다. 펌웨어를 복제하여 다른 장치에 이식할 수 있으며, 서비스에는 비침습적(부채널 및 글리치) 및 침습적(패키지 제거 및 접촉) 방식이 포함됩니다. 설정 및 보정 데이터도 복원합니다. 신규 TI 장치에는 변조 감지 메모리가 포함되어 감지 시 삭제되지만, 당사는 삭제가 활성화되기 전에 데이터 추출에 성공하는 경우가 많습니다. 높은 성공률과 완전한 기밀 준수를 보장합니다. TI 리버스 엔지니어링 요구 사항은 MikaTech에 맡겨 주십시오. 당사는 TI의 모든 MCU 제품군에 대한 폭넓은 경험을 보유하고 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

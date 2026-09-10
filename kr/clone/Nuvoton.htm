@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvoton MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Nuvoton MCU 리버스 엔지니어링</h1>
+                <p>ARM Cortex-M 및 8051 기반 MCU 전문성</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Nuvoton 소개</h2>
+                <p>Nuvoton Technology Corporation은 MCU, 오디오 및 컴퓨팅 회로를 전문으로 하는 선도적인 반도체 기업입니다. 이 회사는 Winbond의 로직 사업부에서 분사하여 글로벌 공급업체로 성장했습니다. Nuvoton은 ARM Cortex-M 기반 NuMicro® 제품군과 레거시 8051 시리즈로 잘 알려져 있습니다. 저전력부터 고성능까지 산업, 소비, 자동차, IoT 응용을 겨냥한 광범위한 MCU를 제공합니다. Nuvoton 제품은 비용 효율성, 신뢰할 수 있는 아날로그 집적, 광범위한 주변기기로 잘 알려져 있습니다. Nu-Link 디버거와 폭넓은 소프트웨어 라이브러리를 포함한 포괄적인 개발 도구를 제공합니다. 이 회사는 보안 및 통신 분야 R&D에 강한 중점을 두며, 많은 기기에 하드웨어 암호화 가속기와 침입 감지기가 탑재됩니다. 또한 Nuvoton은 오디오 코덱, 모터 제어 회로, 전원 관리 장치를 생산합니다. 광범위한 성능 스펙트럼을 아우르며, 8051 기반 Nuvoton 제품은 레거시 시스템과 예산 제약 응용에 여전히 널리 사용됩니다. 많은 아시아 전자 제조업체의 주요 공급업체이며, Nuvoton은 장기 제품 공급과 수명 주기 지원에 중점을 둡니다. ISO 9001 및 IATF 16949 품질 인증을 보유하고 있으며, MCU에는 고정밀 ADC, DAC, 비교기 같은 고급 아날로그 기능이 자주 포함됩니다. 또한 Nuvoton은 보안 부팅 및 펌웨어 업데이트 메커니즘을 제공하며, ARM mbed와 Zephyr 지원으로 오픈소스 에코시스템에 적극 참여합니다. Nuvoton 제품은 스마트홈 제품, 드론, 로봇, 의료 장비에 사용됩니다. 정기 권고를 발행하는 전담 보안 팀을 보유하고 있으며, Nuvoton 생산은 저전력화를 위해 40nm 및 55nm 첨단 공정을 사용합니다. 또한 대용량 flash와 SRAM을 갖춘 온칩 메모리 솔루션을 제공합니다. 고객 기반에는 많은 Fortune 500대 기업이 포함되며, Nuvoton은 글로벌 판매 및 지원 네트워크를 갖추고 있습니다. RISC-V 및 AI 가속 같은 신기술에 지속 투자하고 있으며, Nu-Link은 개발자가 선호하는 디버그 도구입니다. 또한 인증용 고유 칩 식별자를 제공하며, Nuvoton은 무연 및 할로겐 프리 패키징으로 환경 지속가능성을 준수합니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>NuMicro® M0(Cortex-M0)</h3>
+                <ul>
+                    <li>M0516LBN</li><li>M052LAN</li><li>M058ZAN</li><li>M0518LD2</li><li>M0518SD2</li>
+                    <li>M0519LD3</li><li>M0519SD3</li><li>M052FAN</li><li>M054FAN</li><li>M058FAN</li>
+                    <li>M0516LDN</li><li>M0518LDN</li>
+                </ul>
+                <h3>NuMicro® M4(Cortex-M4)</h3>
+                <ul>
+                    <li>M451RG6AE</li><li>M452RG6AE</li><li>M453VG6AE</li><li>M451RE6AE</li><li>M452RE6AE</li>
+                    <li>M453RE6AE</li><li>M451RC6AE</li><li>M452RC6AE</li><li>M453RC6AE</li><li>M451MLD3</li>
+                    <li>M452MLD3</li><li>M453MLD3</li><li>M451MD3AE</li>
+                </ul>
+                <h3>8051 시리즈(레거시)</h3>
+                <ul>
+                    <li>W78E516B</li><li>W78E58B</li><li>W78E52B</li><li>W78E54B</li><li>W78E62B</li>
+                    <li>W78C516B</li><li>W78C58B</li><li>W78C52B</li><li>W78C54B</li><li>W79E2051</li>
+                    <li>W79E825</li><li>W79E532</li><li>W79E533</li>
+                </ul>
+
+                <h2>Nuvoton 보안 기능</h2>
+                <p>Nuvoton은 MCU의 명령 및 데이터에 다단계 보호 레벨을 적용합니다. 많은 NuMicro 기기에는 AES, DES, SHA 알고리즘용 하드웨어 암호화 엔진이 포함되어 펌웨어를 암호화할 수 있으며, 부팅 시 복호화에 키가 필요합니다. 키는 일반 명령으로 판독할 수 없는 보호 레지스터에 저장되며, Nuvoton은 인증용 고유 사용자 식별자도 제공합니다. 조정 가능한 flash 보호를 제공하여 메모리를 읽기/쓰기/소거 권한이 다른 영역으로 분할합니다. 보호 퓨즈는 JTAG, SWD 등 디버그 인터페이스를 외부 판독 방지를 위해 영구 잠글 수 있지만, 결단력 있는 공격자가 오류 주입으로 퓨즈를 우회하려 시도할 수 있습니다. Nuvoton은 물리적 간섭 감지 시 즉시 데이터를 소거하는 침입 감지 핀을 추가했습니다. 안전한 부트로더는 실행 전 펌웨어 서명을 검증하여 악성 명령 주입을 어렵게 만듭니다. 일부 기기에는 암호화 연산용 난수 생성기가 포함됩니다. 보호 칩을 개방하기 위해 부채널 분석으로 키를 복구하는 경우가 많으며, 암호화 중 전력 변동과 전자기 방사가 기밀 데이터를 노출할 수 있습니다. 당사 팀은 차동 전력 분석을 사용하여 Nuvoton M4 기기에서 펌웨어 추출에 성공했으며, 레거시 8051 제품의 록 비트를 우회하기 위해 글리치 공격을 적용했습니다. 개봉 같은 파괴적 방법으로 flash 메모리를 직접 검사할 수 있으며, 이후 전체 내용을 덤프하여 펌웨어를 새 기기에 복제할 수 있습니다. Nuvoton의 보호는 신뢰할 수지만 완벽히 요새화된 시스템은 존재하지 않습니다. 당사는 잠긴 칩에서 데이터를 복구하는 전용 도구를 개발했으며, 예를 들어 부트로더의 타이밍 차이를 이용하여 보호 바이트를 추출할 수 있습니다. 또한 FIB로 퓨즈 연결을 절단하며, 서비스는 파괴적 및 비파괴적 접근을 모두 아우릅니다. 보정 데이터와 설정 퓨즈를 복구할 수 있습니다. Nuvoton 보호의 지속적인 강화는 당사 방법의 끊임없는 갱신을 요구합니다. MikaTech는 MCU 리버스 엔지니어링의 최전선에 있으며, 디스어셈블리 코드와 함께 완전한 추출 보고서를 제공합니다. 레거시 제어 장치 복제가 필요하든 분실된 펌웨어 복구가 필요하든, 당사는 도움을 드릴 준비가 되어 있습니다. Nuvoton 기기의 상세 평가를 위해 문의해 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

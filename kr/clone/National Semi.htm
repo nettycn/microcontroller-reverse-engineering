@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Semiconductor MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>National Semiconductor MCU 리버스 엔지니어링</h1>
+                <p>COP8, SC/MP 및 ARM 기반 임베디드 MCU 전문성</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>National Semiconductor 소개</h2>
+                <p>National Semiconductor은 선도적인 반도체 기업으로 아날로그 제품과 MCU로 잘 알려져 있습니다. 8비트 COP8 MCU 제품군은 자동차 및 산업 응용에 널리 사용되었습니다. 또한 National은 1970년대에 SC/MP(Simple Cost-effective MicroProcessor) 프로세서를 생산했으며, 이후 임베디드 시스템용 ARM 기반 프로세서를 선보였습니다. National MCU는 저전력과 고신뢰성으로 잘 알려져 있으며, 모터 제어, 의료 모니터링, 소비자 전자제품에 사용되었습니다. National은 다양한 개발 도구와 응용 노트도 제공했으며, 제품은 첨단 CMOS 공정으로 제조되었습니다. COP8 시리즈는 내장 EEPROM과 아날로그 주변기기로 특징지어졌으며, SPI, I2C, UART 등 다중 통신 프로토콜을 지원했습니다. 2011년 Texas Instruments가 National을 인수했지만, 많은 레거시 칩이 여전히 서비스 중입니다. SC/MP 아키텍처는 내장 I/O 포트를 갖춘 초기 마이크로프로세서 중 하나였습니다. 또한 National은 32비트 마이크로프로세서인 32000 시리즈를 생산했으며, MCU에는 워치독 타이머와 전압 강하 검지기가 자주 포함되었습니다. National 기기는 가혹한 환경을 견디도록 설계되었고 자동차 산업에서 강한 입지를 보입니다. National은 폭넓은 기술 지원과 설계 레퍼런스를 제공했으며, COP8 기기는 여전히 산업 자동화에서 발견됩니다. 우주 응용을 위한 내방사선 버전도 제공했으며, 레거시 제품은 유지보수와 업그레이드를 위한 리버스 엔지니어링 대상이 되는 경우가 많습니다. National 문서는 정밀하고 가용하며, MCU는 잘 연구되어 추출이 가능합니다. 오늘날까지 산업에 대한 National의 영향력은 여전히 느껴지며, 많은 엔지니어가 National 플랫폼에서 교육을 받았습니다. 칩은 장기 공급으로 잘 알려져 있으며, 아날로그 집적에 대한 National의 지향은 독특한 회사로 만들었습니다. 주요 OEM의 주요 공급업체였으며, National 제품은 서드파티 공급업체의 지원을 계속 받고 있습니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>COP8(8비트)</h3>
+                <ul>
+                    <li>COP8SAA</li><li>COP8SAB</li><li>COP8SAC</li><li>COP8SAD</li><li>COP8SAE</li>
+                    <li>COP8SAF</li><li>COP8SAG</li><li>COP8SAH</li><li>COP8SAI</li><li>COP8SAJ</li>
+                    <li>COP8SAK</li><li>COP8SAL</li><li>COP8SAM</li>
+                </ul>
+                <h3>SC/MP(8비트, 레거시 모델)</h3>
+                <ul>
+                    <li>SC/MP I</li><li>SC/MP II</li><li>SC/MP III</li>
+                </ul>
+                <h3>ARM 기반(인수 후)</h3>
+                <ul>
+                    <li>NS‑ARM‑M0</li><li>NS‑ARM‑M3</li><li>NS‑ARM‑M4</li><li>NS‑ARM‑M7</li><li>NS‑ARM‑M23</li>
+                    <li>NS‑ARM‑M33</li>
+                </ul>
+
+                <h2>National Semiconductor 보안 기능</h2>
+                <p>National은 COP8 시리즈에 기본 보호 기능을 적용했습니다. ROM 및 EEPROM 판독을 방지하는 보호 비트가 포함되었으며, 설정 후 직렬 프로그래밍 인터페이스로 칩을 읽을 수 없습니다. 그러나 이 록은 테스트 핀에 고전압을 인가하여 우회할 수 있었으며, 클록 신호 글리치 공격으로도 기기를 개방할 수 있었습니다. 당사 연구소는 이러한 방법을 사용하여 COP8 펌웨어 덤프에 성공했습니다. SC/MP은 어떤 보호도 갖추고 있지 않아 판독이 간단했습니다. 후기 ARM 기반 제품은 보안 부팅과 암호화를 포함한 더 고급 보호를 채택했습니다. National의 보호는 당대에는 충분했지만 현대 기준으로는 약합니다. 많은 레거시 시스템이 이 칩에 의존하고 있으며 펌웨어를 분실하는 경우가 많습니다. 당사는 정기적으로 National 기기에서 데이터를 복구하며, 작업에는 전압 조작과 타이밍 분석이 조합됩니다. 개방 후 전체 메모리를 판독하여 최신 기기에 복제할 수 있습니다. National 기기는 복제가 쉬우며, 추출된 코드를 바이너리 및 어셈블리어 형식으로 제공합니다. 당사의 방법은 비파괴적이어서 원본 칩을 보존합니다. COP8 OTP 제품의 경우 개봉하여 퓨즈 상태를 판독하며, 부분 손상 칩에서도 데이터를 복구할 수 있습니다. National의 보호는 결단력 있는 공격자에 대응하도록 설계되지 않았습니다. 당사는 대량 추출을 위한 자동화 도구를 개발했으며, 당사 팀은 대형 프로젝트도 처리할 수 있습니다. 또한 복구된 코드의 논리를 이해하기 위한 분석을 제공하며, National 문서는 자동 코드 해석에 도움이 됩니다. National Semiconductor의 신뢰할 수 있는 리버스 엔지니어링은 MikaTech에 맡겨 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

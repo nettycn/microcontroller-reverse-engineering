@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTK MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>NTK MCU 리버스 엔지니어링</h1>
+                <p>자동차, 산업 및 보안 지향 MCU 전문</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>NTK 소개</h2>
+                <p>NTK는 높은 신뢰성의 MCU로 잘 알려진 일본 제조사입니다. 자동차, 산업, 우주 응용용 MCU를 생산하며, NTK 기기는 신뢰성 있는 설계와 긴 수명 주기로 잘 알려져 있습니다. ARM Cortex-M 코어를 포함한 8비트 및 32비트 아키텍처를 모두 제공하며, NTK MCU에는 자동차 네트워크용 CAN, LIN, FlexRay 인터페이스가 자주 통합됩니다. 엔진 제어 장치, 제동 시스템, 에어백 제어 장치에 사용됩니다. 또한 NTK는 은행 및 신원 확인용 보안 MCU를 생산하며, 칩에는 침입 감지와 암호화 같은 고급 보안 메커니즘이 탑재됩니다. NTK는 일본 자동차 시장에서 강한 입지를 보이며, 포괄적인 개발 도구와 지원을 제공합니다. NTK 제품은 가혹한 환경과 극한 온도를 견디도록 설계되었으며, 우주 임무용 내방사선 버전을 제공합니다. NTK MCU는 저전력으로 잘 알려져 있고, 광범위한 아날로그 주변기기 기능을 갖추고 있습니다. 또한 NTK는 IoT용 SoC(system-on-chip) 솔루션을 생산하며, "설계 시 보안" 철학은 데이터 무결성을 보장합니다. NTK는 많은 글로벌 OEM의 신뢰할 수 있는 공급업체이며, 품질과 신뢰성 평판을 얻고 있습니다. NTK 문서는 정밀하여 리버스 엔지니어링 작업에 도움이 되며, MCU는 중요 인프라에 자주 사용됩니다. NTK는 새로운 저전력 보안 제품으로 지속 혁신하고 있으며, 첨단 개발을 위해 연구 기관과 협력합니다. 내구성에 대한 NTK의 헌신은 생산 공정으로 드러나며, 칩은 다양한 패키지 옵션으로 제공됩니다. NTK는 레거시 제품에 대한 장기 지원을 제공하며, 많은 NTK 기기가 유지보수 및 업그레이드를 위한 리버스 엔지니어링 대상입니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>NTK 8비트 시리즈</h3>
+                <ul>
+                    <li>NTK‑8051‑A</li><li>NTK‑8051‑B</li><li>NTK‑8051‑C</li><li>NTK‑8051‑D</li><li>NTK‑8051‑E</li>
+                    <li>NTK‑8051‑F</li><li>NTK‑8051‑G</li><li>NTK‑8051‑H</li><li>NTK‑8051‑I</li><li>NTK‑8051‑J</li>
+                    <li>NTK‑8051‑K</li>
+                </ul>
+                <h3>NTK ARM Cortex-M</h3>
+                <ul>
+                    <li>NTK‑CM0‑128</li><li>NTK‑CM0‑256</li><li>NTK‑CM3‑512</li><li>NTK‑CM3‑1024</li><li>NTK‑CM4‑2048</li>
+                    <li>NTK‑CM4‑4096</li><li>NTK‑CM7‑8192</li><li>NTK‑CM7‑16384</li><li>NTK‑CM23‑512</li><li>NTK‑CM23‑1024</li>
+                    <li>NTK‑CM33‑2048</li>
+                </ul>
+                <h3>NTK 보안 MCU</h3>
+                <ul>
+                    <li>NTK‑SEC‑M0</li><li>NTK‑SEC‑M3</li><li>NTK‑SEC‑M4</li><li>NTK‑SEC‑M7</li><li>NTK‑SEC‑M23</li>
+                    <li>NTK‑SEC‑M33</li><li>NTK‑SEC‑M55</li>
+                </ul>
+
+                <h2>NTK 보안 기능</h2>
+                <p>NTK는 특히 자동차 및 보안 MCU 시리즈에서 보안에 높은 중점을 둡니다. 안전한 키 저장과 함께 하드웨어 신뢰 루트를 적용하며, 부팅 프로세스는 암호화 서명을 사용하여 펌웨어 진위를 검증합니다. NTK 기기는 TrustZone과 유사한 구조로 관리되는 다중 보안 영역을 갖추고 있으며, 즉시 리셋되는 효과적인 침입 감지 네트워크가 탑재되어 있습니다. 디버그 인터페이스는 세션마다 변경되는 동적 비밀번호로 보호되며, NTK는 데이터 가로채기를 방지하기 위해 내부 메모리 버스를 암호화합니다. 암호화 엔진은 전력 분석 공격에 내성이 있습니다. 이러한 신뢰할 수 있는 조치에도 불구하고 초기 NTK 제품에서 취약점이 발견되었습니다. 오류 주입 공격으로 보안 부팅 시퀀스를 우회할 수 있으며, 당사 팀은 전압 글리치를 사용하여 NTK-CM3 기기에서 펌웨어 추출에 성공했습니다. 또한 시간 부채널을 이용하여 키를 복구했으며, 일부 경우 flash 셀을 직접 검사하기 위해 칩을 개봉합니다. NTK 보호는 강력하지만 결점 없는 시스템은 존재하지 않습니다. 당사는 디버그 포트를 개방하는 고급 방법을 개발했으며, 개방 후 전체 flash 및 EEPROM을 판독할 수 있습니다. 레거시 NTK 기기의 복제 서비스도 제공하며, 대체 유닛용 고유 기기 식별자를 복제할 수 있습니다. 당사의 비파괴적 방법은 원본 칩을 보존하며, 고보호 모델의 경우 FIB로 보호 퓨즈를 절단합니다. 추출된 데이터에 대한 포괄적인 문서를 제공합니다. NTK 보호는 지속 발전 중이지만 당사 연구소는 한 발 앞서 있습니다. 당사는 8비트부터 32비트까지 모든 NTK 옵션을 다룰 수 있습니다. NTK의 신뢰할 수 있는 리버스 엔지니어링은 MikaTech에 맡겨 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

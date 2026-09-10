@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCB 복제 – MikaTech 리버스 엔지니어링</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="../style1.css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.htm">홈</a></li>
+                    <li><a href="about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="clone/atmel_reverse.htm">Atmel / Analog</a></li>
+<li><a href="clone/Actel.htm">Actel</a></li>
+<li><a href="clone/Altera.htm">Altera</a></li>
+<li><a href="clone/AMD.htm">AMD</a></li>
+<li><a href="clone/Cygnal.htm">Cygnal</a></li>
+<li><a href="clone/ChipON.htm">ChipON</a></li>
+<li><a href="clone/Geehy.htm">Geehy</a></li>
+<li><a href="clone/Cypress.htm">Cypress</a></li>
+<li><a href="clone/Dallas.htm">Dallas</a></li>
+<li><a href="clone/Elan.htm">Elan</a></li>
+<li><a href="clone/Freescale.htm">Freescale</a></li>
+<li><a href="clone/Feeling.htm">Feeling</a></li>
+<li><a href="clone/Giga Device.htm">Giga Device</a></li>
+<li><a href="clone/Hitachi.htm">Hitachi</a></li>
+<li><a href="clone/Holtek.htm">Holtek</a></li>
+<li><a href="clone/Infineon.htm">Infineon</a></li>
+<li><a href="clone/Intel.htm">Intel</a></li>
+<li><a href="clone/ICT.htm">ICT</a></li>
+<li><a href="clone/ICSI.htm">ICSI</a></li>
+<li><a href="clone/ISSI.htm">ISSI</a></li>
+<li><a href="clone/Lattice.htm">Lattice</a></li>
+<li><a href="clone/Microchip.htm">Microchip</a></li>
+<li><a href="clone/Motorola.htm">Motorola</a></li>
+<li><a href="clone/Maxim.htm">Maxim</a></li>
+<li><a href="clone/MDT.htm">MDT</a></li>
+<li><a href="clone/Megawin.htm">Megawin</a></li>
+<li><a href="clone/Myson.htm">Myson</a></li>
+<li><a href="clone/National Semi.htm">National Semi</a></li>
+<li><a href="clone/NTK.htm">NTK</a></li>
+<li><a href="clone/Nuvoton.htm">Nuvoton</a></li>
+<li><a href="clone/NXP.htm">NXP</a></li>
+<li><a href="clone/Philips.htm">Philips</a></li>
+<li><a href="clone/Renesas.htm">Renesas</a></li>
+<li><a href="clone/STM.htm">STM</a></li>
+<li><a href="clone/Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="clone/Samsung.htm">Samsung</a></li>
+<li><a href="clone/SST.htm">SST</a></li>
+<li><a href="clone/Sinowealth.htm">Sinowealth</a></li>
+<li><a href="clone/SyncMOS.htm">SyncMOS</a></li>
+<li><a href="clone/STC.htm">STC</a></li>
+<li><a href="clone/STK.htm">STK</a></li>
+<li><a href="clone/Texas Instr.htm">Texas Instr</a></li>
+<li><a href="clone/Winbond.htm">Winbond</a></li>
+<li><a href="clone/Xilinx.htm">Xilinx</a></li>
+<li><a href="clone/Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        임베디드 시스템의 잠금을 해제하고 분석하며 정밀하게 재활용합니다. 당사는
+                        전문적인 펌웨어 추출, 실리콘 분석 및 MCU 보안 평가를
+                        제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>PCB 복제 서비스</h1>
+                <p>인쇄회로기판 정밀 복제 – 간단한 2층 보드부터 복잡한 HDI 설계까지</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>서비스 내용</h2>
+                <p>당사의 PCB 리버스 엔지니어링 서비스는 단순 복제를 넘어섭니다. 전기 회로도, 부품 목록(BOM), Gerber 파일, netlist를 포함한 완전한 문서 패키지를 제공하며, 모든 결과는 엄격한 테스트를 통해 검증됩니다.</p>
+
+                <h3>다층 추출</h3>
+                <p>첨단 광학 기술 및 층별 분리 기법을 활용하여 4, 6, 8층 이상의 PCB에서 내부 배선과 비아를 정밀하게 재구성합니다. 블라인드 및 매립 비아도 당사 공정에 걸림돌이 되지 않습니다.</p>
+
+                <h3>회로도 추출</h3>
+                <p>실물 PCB의 배선을 부품 값, 기준 번호, 네트워크 이름이 포함된 논리 회로도로 변환합니다. 이를 통해 회로 기능을 이해하거나, 설계를 수정하거나, 대체 PCB를 제작할 수 있습니다.</p>
+
+                <h3>부품 식별</h3>
+                <p>맞춤형 IC, 수동 소자, 커넥터를 포함한 모든 부품을 식별하고 연결합니다. 단종 부품에 대해서는 설계 목적에 맞는 호환 대체품 또는 등가 부품을 제안합니다.</p>
+
+                <h3>품질 관리</h3>
+                <p>모든 복제품은 in-circuit 테스트와 기능 검증을 통해 원본과의 일치성을 확인합니다. 당사는 결과물이 원본 PCB와 전기적·기계적으로 동일함을 보장합니다.</p>
+
+                <p>구형 제어 보드 복제, 경쟁 제품 리버스 엔지니어링, 단종 장비의 직접 대체품 제작 등 어떤 작업이든 MikaTech가 빠르고 정확하게 수행합니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

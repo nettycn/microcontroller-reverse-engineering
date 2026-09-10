@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISSI MCU 리버스 엔지니어링 – MikaTech</title>
+     <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>ISSI MCU 리버스 엔지니어링</h1>
+                <p>온칩 메모리 및 SoC 솔루션 중심</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>ISSI 소개</h2>
+                <p>ISSI(Integrated Silicon Solution Inc.)는 고성능 메모리 및 MCU의 잘 알려진 제조사입니다. flash, SRAM, DRAM과 CPU 코어를 통합하여 SoC 솔루션을 구축하며, ISSI MCU는 자동차, 산업, 통신 분야에 널리 사용됩니다. 포트폴리오에는 8, 16, 32비트 아키텍처가 포함되며, ISSI는 고밀도 flash와 저누설 SRAM으로 잘 알려져 있습니다. BGA, QFN을 포함한 다양한 패키지 옵션을 제공하며, ISSI MCU는 ADC, DAC, 연산 증폭기 같은 아날로그 주변기기를 자주 통합합니다. 배터리 관리 시스템과 전력 인버터에 사용되며, 우주 응용을 위한 내방사선 칩도 생산합니다. 이 회사는 AEC-Q100 수준의 자동차 제품에 강한 중점을 두며, CAN, LIN, FlexRay 인터페이스를 지원합니다. 포괄적인 개발 도구와 소프트웨어 라이브러리를 제공하고, 자동차 분야의 티어-1 OEM에 주요 공급업체입니다. ISSI의 메모리 기술은 높은 내구성과 데이터 보존으로 잘 알려져 있으며, 직렬 및 병렬 flash 인터페이스를 모두 제공합니다. 또한 고객 요구에 맞춘 ASIC 회로를 개발하며, R&D 투자에는 첨단 패키징과 3D 집적이 포함됩니다. ISSI 제품은 가혹한 환경과 넓은 온도 범위를 견디도록 설계되었으며, 신뢰성 있는 품질과 긴 수명 주기로 평가받습니다. ISSI는 주요 파운드리와 협력하여 생산하며, 보안 솔루션에는 암호화와 인증이 포함됩니다. IoT용 보안 요소를 적극 개발하고 있으며, AI 및 머신러닝 가속 분야로 입지를 확장하고 있습니다. ISSI의 메모리 집적 지향은 범용 MCU 공급업체와 차별화되며, 중요 시스템의 신뢰할 수 있는 파트너입니다. 글로벌 입지는 안정적인 공급망을 보장하며, 메모리와 로직 양쪽 분야에서 지속 혁신하고 있습니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>ISSI 32비트 ARM Cortex-M</h3>
+                <ul>
+                    <li>IS32C‑M4</li><li>IS32C‑M3</li><li>IS32C‑M0</li><li>IS32C‑M7</li><li>IS32C‑M33</li>
+                    <li>IS32C‑M23</li><li>IS32C‑M4F</li><li>IS32C‑M7F</li><li>IS32C‑M4HD</li><li>IS32C‑M7HD</li>
+                    <li>IS32C‑M4T</li><li>IS32C‑M7T</li><li>IS32C‑M4S</li>
+                </ul>
+                <h3>ISSI 자동차 시리즈</h3>
+                <ul>
+                    <li>IS32A‑M4</li><li>IS32A‑M3</li><li>IS32A‑M0</li><li>IS32A‑M7</li><li>IS32A‑M33</li>
+                    <li>IS32A‑M23</li><li>IS32A‑M4F</li><li>IS32A‑M7F</li><li>IS32A‑M4T</li>
+                </ul>
+                <h3>ISSI 8비트 시리즈</h3>
+                <ul>
+                    <li>IS8‑51</li><li>IS8‑52</li><li>IS8‑54</li><li>IS8‑58</li><li>IS8‑60</li>
+                    <li>IS8‑61</li><li>IS8‑62</li><li>IS8‑63</li><li>IS8‑64</li>
+                </ul>
+
+                <h2>ISSI 보안 기능</h2>
+                <p>ISSI는 IP와 데이터를 보호하기 위한 다중 메커니즘을 갖추고 있습니다. MCU에는 AES, DES, RSA 알고리즘용 하드웨어 암호화 엔진이 탑재되어 있어 펌웨어를 암호화하여 저장하고, 부팅 시 키가 있어야 복호화됩니다. 키는 표준 인터페이스로 판독할 수 없는 보호 영역에 저장되며, 인증용 고유 기기 식별자를 제공합니다. 또한 서명 검증이 있는 보안 부팅을 적용하여 신뢰된 명령만 실행되도록 합니다. MPU는 중요 명령 및 데이터 섹션을 분리하며, OTP 퓨즈로 디버그 포트를 영구 잠글 수 있어 외부 판독을 방지합니다. 그러나 오류 주입 공격으로 이 포트가 열리는 경우가 있습니다. ISSI에는 침입 감지 시 즉시 데이터를 소거하는 침입 감지 핀이 포함되며, 기기는 리셋 가능한 안전한 키 저장소를 갖춥니다. 펌웨어 추출을 위해서는 칩 전체를 복제하거나 보호를 우회해야 할 수 있습니다. 부채널 분석(전력 및 전자기)은 암호화 연산 중 키를 노출할 수 있습니다. 당사 팀은 차동 전력 분석을 사용하여 ISSI 기기에서 키 복구에 성공했으며, 레이저 오류 주입으로 실행 흐름을 변경하고 메모리를 덤프했습니다. ISSI의 보호는 신뢰할 수 있지만 요새화된 시스템은 존재하지 않습니다. 당사는 부트로더를 공격하고 펌웨어를 추출하는 방법을 개발했습니다. 자동차 옵션의 경우 설정 및 보정 데이터를 판독할 수 있으며, ISSI의 메모리 통합 설계는 리버스 엔지니어링의 매력적인 대상입니다. 당사는 펌웨어를 복구하여 등가 기기에 복제할 수 있으며, 보호 수준에 따라 비파괴적 및 파괴적 방법을 모두 제공합니다. 완전한 디스어셈블리 코드와 분석도 제공할 수 있습니다. ISSI 보호의 지속적인 업데이트는 당사가 최신 대응 조치를 따라야 함을 의미합니다. MikaTech는 최신 보호 수단을 극복하기 위해 R&D에 투자하고 있으며, 많은 고객의 ISSI 리버스 엔지니어링 프로젝트에서 신뢰를 받고 있습니다. ISSI 기기와 요구 사항에 대해 논의하려면 당사에 문의해 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

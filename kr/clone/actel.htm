@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actel FPGA·SoC 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Actel FPGA 및 SoC 리버스 엔지니어링</h1>
+                <p>antifuse 및 flash 방식 Actel 디바이스 전문</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Actel 회사 개요</h2>
+                <p>현재 Microsemi(Microchip의 일부)의 일부가 된 Actel Corporation은 비휘발성 FPGA 기술 분야의 선도 기업입니다. SRAM-FPGA와 달리 Actel 디바이스는 antifuse 또는 flash 방식의 구성 셀을 사용하므로, 출발 단계부터 오류와 무단 개입에 더 강합니다. Actel의 제품군은 저전력·고신뢰성 FPGA와 하이브리드 SoC를 아우르며, 우주·국방·의료·산업 분야에서 널리 쓰입니다. Actel은 1990년대 최초의 antifuse FPGA를 선보여 즉시 기동과 내방사선성을 앞세워 시장을 혁신했습니다. flash 기반 ProASIC 및 IGLOO 제품군은 비휘발성을 유지하면서 재구성을 지원하여 고성능 CPLD와 FPGA 사이의 간격을 좁힙니다. SmartFusion 디바이스는 ARM Cortex-M3 하드웨어 코어와 프로그래머블 로직을 통합하여 완전한 온칩 시스템 솔루션을 제공합니다. 또한 Actel은 우주 응용을 위한 RT(내방사선) 시리즈를 제공하여 단일 사고 및 총흡수선량 시험을 통과했습니다. Libero SoC 등 자사 개발 도구는 합성부터 프로그래밍까지 전체 설계 주기를 지원합니다. Actel 디바이스는 저전력 소모로 유명하여 일부 IGLOO 모델은 대기 모드에서 단 5 µA만 소비합니다. 또한 128비트 AES bitstream 암호화와 고유 디바이스 ID 등 첨단 보안 메커니즘을 갖추고 있습니다. Actel의 antifuse 기술은 OTP(일회성 프로그래밍)이므로 설계를 읽거나 복제할 수 없어 지적재산 보호에 널리 쓰입니다. 하지만 이는 퓨즈 상태를 직접 읽을 수 없어 리버스 엔지니어링을 더욱 어렵게 만듭니다. 그럼에도 숙련된 연구실은 물리적 결함 분석을 통해 넷리스트(netlist)를 추출할 수 있습니다. Actel의 Flash-FPGA는 인시스템 재프로그래밍을 지원하지만, 외부 접근을 잠그는 보안 퓨즈도 포함합니다. 동사는 군사 및 항공 전자 분야에서 강력한 위치를 차지하며, 신뢰성과 보안이 최우선입니다. 다수의 Actel 디바이스는 MIL-STD-883 규격을 준수하고 확장된 온도 범위에서 동작합니다. Fusion 하이브리드 제품군은 아날로그 주변장치(ADC, DAC, 비교기)와 디지털 로직을 통합하여 센서 인터페이스를 제공합니다. Actel은 암호화·모터 제어·통신 프로토콜용 IP 코어도 공급합니다. Microsemi의 인수로 타이밍·전원·RF 제품 시장에서의 입지를 넓혔습니다. 오늘날 Actel FPGA는 위성 시스템, 심박 조율기, 산업용 모터에 사용됩니다. 보호된 제조 공정은 생산 중 설계 데이터가 노출되지 않도록 보장합니다. 불량 제로를 향한 Actel의 품질 경영은 핵심 시스템의 선도적 선택으로 만듭니다. 최근에는 미드레인지 PolarFire 제품군이 트랜시버와 DSP 성능을 제공하여 Altera 및 Xilinx와 경쟁합니다. 그럼에도 Actel의 핵심 가치는 강화된 보호와 저전력 소모에 있습니다. 리버스 엔지니어링 전문가에게 Actel 디바이스는 직접 판독이 불가능하다는 점에서 독특한 과제입니다. 하지만 FIB(집속이온빔) 및 정밀 현미경 검사 등 첨단 기법으로 구성 데이터를 복원합니다. 당사 팀은 암호화가 활성화된 상태에서도 antifuse 및 flash 방식 Actel 디바이스에서 설계를 추출하는 데 성공했습니다. 당사는 부채널 분석과 간섭적 기법을 결합하여 디바이스의 비밀을 밝혀냅니다. Actel 설계 보호는 신뢰할 수 있지만, 경험과 도구를 갖추면 뚫리지 않는 시스템은 존재하지 않습니다. 당사는 전원 노이즈 발생과 전자기 분석을 포함한 이 디바이스 고유의 공격 벡터 개발에 많은 투자를 했습니다. 풍부한 연구와 자체 도구를 바탕으로 Actel 제품에 대한 당사의 성공률은 업계 최고 수준입니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <ul>
+                    <li><strong>ProASIC3</strong> – A3P015, A3P030, A3P060, A3P125, A3P250, A3P400, A3P600, A3P1000, A3P1500, A3P2000</li>
+                    <li><strong>IGLOO</strong> – AGLN010, AGLN015, AGLN020, AGLN030, AGLN060, AGLN125, AGLN250, AGLN600, AGLN1000, AGLN1500</li>
+                    <li><strong>SmartFusion</strong> – A2F200, A2F500, A2F060, A2F125, A2F250, A2F150, A2F200M3, A2F500M3, A2F060M3, A2F125M3</li>
+                    <li><strong>Fusion</strong> – AFS090, AFS250, AFS600, AFS1500, AFS250E, AFS600E, AFS1500E, AFS090Q, AFS250Q, AFS600Q</li>
+                    <li><strong>ProASIC Plus</strong> – APA075, APA150, APA300, APA450, APA600, APA750, APA1000, APA1500, APA2000, APA3000</li>
+                    <li><strong>IGLOO2</strong> – M2GL005, M2GL010, M2GL025, M2GL050, M2GL100, M2GL150, M2GL200, M2GL300, M2GL400, M2GL500</li>
+                    <li><strong>SmartFusion2</strong> – M2S005, M2S010, M2S025, M2S050, M2S100, M2S150, M2S200, M2S300, M2S400, M2S500</li>
+                    <li><strong>RT ProASIC3</strong> – RT3P300, RT3P600, RT3P1000, RT3P1500, RT3P2000, RT3P3000, RT3P4000, RT3P5000, RT3P6000, RT3P7000</li>
+
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 과제</h2>
+                <p>Actel 디바이스는 구성 bitstream과 사용자 설계를 무단 접근으로부터 보호하도록 설계된 다계층 보안 구조를 사용합니다. 핵심 메커니즘은 antifuse(영구 프로그래밍) 또는 암호화된 flash 메모리 중 하나를 사용하는 것입니다. flash 기반 제품군의 경우 128비트 AES 키가 전용 보호 메모리에 저장되며, bitstream은 로드되기 전에 암호화됩니다. 이는 프로그래밍 중 도청을 차단하고 설계를 노출된 상태로 읽는 것을 사실상 불가능하게 만듭니다. 이에 더해 Actel은 간섭이 감지되면 모든 구성 데이터와 키를 초기화하는 보호 스캔 기능을 적용합니다. 디바이스에는 인증과 복제 방지에 쓰이는 64비트 고유 ID도 탑재됩니다. 다수의 Actel FPGA에는 일단 소손되면 JTAG와 SPI를 포함한 모든 프로그래밍·검증 인터페이스를 비활성화하는 보안 퓨즈가 있습니다. 이는 디바이스를 사실상 가둬 내부 로직의 판독이나 덤프를 차단합니다. 그러나 숙련된 리버스 엔지니어는 이 보호를 공격하는 방법을 개발했습니다. 예를 들어 디바이스가 키를 내부에서 처리하므로 복호화 중 부채널 전력 분석으로 AES 키를 추출할 수 있습니다. 전력 소비의 변동을 측정하여 암호 연관과 연결하면 키 비트를 복원할 수 있습니다. 또 다른 접근은 글리치 주입으로, 전압이나 클록 주파수를 낮춰 보안 로직을 마비시키고 잠금을 우회하도록 강제합니다. 이 공격은 JTAG 포트를 일시적으로 열어 구성 데이터를 읽게 할 수 있습니다. antifuse 디바이스에는 bitstream 자체가 없으므로 설계를 복원하는 유일한 방법은 물리적 리버스 엔지니어링입니다. 여기에는 패시베이션 층 제거, 주사전자현미경(SEM)을 이용한 칩 촬영, 퓨즈 상태에 따른 배선도 재구성이 포함됩니다. 이 과정은 매우 고되며 내부 노드 검사를 위한 정밀한 FIB 조정을 요합니다. 그럼에도 당사는 Actel antifuse-FPGA의 설계를 새 디바이스에 퓨즈 구조를 복제하여 기능적으로 완벽한 복제본을 만드는 데 성공했습니다. 또한 레이저 자극으로 오류를 발생시켜 개별 퓨즈 상태를 읽을 수 있으나, 정밀한 작업입니다. Actel은 프로그래밍 후 flash 메모리에 대한 외부 접근을 막는 보호 모드도 제공합니다. 일부 디바이스는 구성 읽기 시도를 영구적으로 잠그는 "읽기 방지" 기능을 지원합니다. 이러한 조치에도 불구하고 당사는 디바이스 부팅 시퀀스를 이용해 bitstream을 복원하는 방법을 개발했는데, 디바이스가 내부 flash에서 구성을 로드하기 때문입니다. 부팅 중 전자기 방사를 포착하면 전송 데이터를 재구성할 수 있습니다. 더 나아가 복호화 전에 암호화된 bitstream을 추출하도록 부트로더를 대상으로 한 특수 공격을 개발했습니다. 경우에 따라 클록 주파수를 조작해 복호화를 늦추고 데이터 라인을 검사하여 평문을 가로챌 수 있습니다. Actel 보호는 신뢰할 수 있지만 당사 팀은 실리콘 레벨 취약점 연구에 수년을 할애했습니다. 당사는 고객을 위해 다수의 Actel 디바이스 해킹에 성공하여 추출된 넷리스트와 복원된 펌웨어를 모두 제공합니다. 당사의 기법에는 비간섭적 부채널 분석과 반간섭적 디캡슐레이션이 포함됩니다. 또한 소스 코드를 분실한 잠금 디바이스에서 설계를 복원하는 서비스도 제공합니다. 당사의 전문성을 바탕으로 Actel FPGA의 암호 해독, 판독, 나아가 복제까지 가능하며 지적재산에 대한 완전한 접근 복원을 보장합니다. 주요 성과로는 SmartFusion 디바이스에서 AES 키를 추출하고 ProASIC3의 antifuse 어레이에서 로직 전체를 재구성한 사례가 있습니다. 당사는 Actel의 대응 조치보다 앞서기 위해 도구를 지속적으로 갱신하여 Actel 리버스 엔지니어링의 신뢰할 수 있는 파트너가 됩니다.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Analog Devices 회사 개요</h2>
+                <p>Analog Devices, Inc.(ADI)는 아날로그·혼합·고성능 디지털 신호처리(DSP) 분야의 세계적 선도 기업입니다. ADI의 MCU 포트폴리오는 정밀 측정, 센서 신호처리, 실시간 제어에 중점을 둡니다. ADI의 ADuCM 시리즈는 ARM Cortex-M3/M4 코어에 고정밀 ADC, DAC, 프로그래머블 증폭기를 통합합니다. 이 디바이스는 산업 자동화, 의료 기기, 전력 계량에 널리 쓰입니다. ADI는 음성·통신용 디지털 신호 제어기인 ADSP 제품군도 생산합니다. ADI의 MCU는 뛰어난 정밀도, 낮은 드리프트, 낮은 전력 소모로 유명합니다. ADI는 신호처리 및 제어 알고리즘을 위한 폭넓은 라이브러리를 제공합니다. CrossCore Embedded Studio 등 개발 도구와 IAR/Keil 지원을 제공합니다. ADI 칩에는 온칩 온도 센서와 기준 전압원이 내장되는 경우가 많습니다. 스마트 그리드, 로보틱스, 자동차 배터리 관리 시스템에 사용됩니다. ADI는 기능 안전(IEC 61508)과 보호에 큰 비중을 둡니다. 자사 디바이스는 시큐어 부팅과 암호화 가속기를 지원합니다. ADI는 Linear Technology를 인수하여 전원 및 혼합 솔루션 포트폴리오를 확장했습니다. 또한 Maxim Integrated 브랜드를 보유하여 MCU 라인업을 더욱 넓혔습니다. ADI MCU는 넓은 온도 범위의 혹독한 환경용으로 설계되었습니다. flash 및 ROM 옵션을 모두 제공합니다. ADI의 개발 생태계에는 평가 보드와 레퍼런스 디자인이 포함됩니다. 전담 기술 지원팀과 방대한 문서를 보유하고 있습니다. ADI 제품은 심박 조율기, 항공기 제어 시스템 등 핵심 응용에 쓰입니다. Fortune 500대 기업 다수가 선호하는 공급업체입니다. ADI는 초절전·보호형 디바이스 출시로 혁신을 이어갑니다. ISO 9001 및 AS9100 인증에서 품질에 대한 약속을 확인할 수 있습니다. ADI는 MCU와 함께 아날로그 프론트엔드(AFE) 솔루션도 제공합니다. ADI MCU에는 정전 센서와 터치 인터페이스가 통합되는 경우가 많습니다. ADI의 장기 공급성은 제품 수명 주기의 안정성을 보장합니다. 핵심 임베디드 시스템의 신뢰할 수 있는 파트너입니다.</p>
+
+                <h2>제품 시리즈 및 모델</h2>
+                <h3>ADuCM 시리즈 (ARM Cortex-M3/M4)</h3>
+                <ul>
+                    <li>ADuCM3027</li><li>ADuCM3029</li><li>ADuCM331</li><li>ADuCM350</li><li>ADuCM355</li>
+                    <li>ADuCM360</li><li>ADuCM361</li><li>ADuCM362</li><li>ADuCM363</li><li>ADuCM410</li>
+                    <li>ADuCM420</li><li>ADuCM430</li><li>ADuCM440</li><li>ADuCM450</li><li>ADuCM460</li>
+                </ul>
+                <h3>ADSP-21xx (16비트 고정소수점 DSP)</h3>
+                <ul>
+                    <li>ADSP-2101</li><li>ADSP-2102</li><li>ADSP-2103</li><li>ADSP-2104</li><li>ADSP-2105</li>
+                    <li>ADSP-2106</li><li>ADSP-2107</li><li>ADSP-2111</li><li>ADSP-2115</li><li>ADSP-2181</li>
+                    <li>ADSP-2184</li><li>ADSP-2186</li><li>ADSP-2189</li>
+                </ul>
+                <h3>ADSP-SHARC (32비트 부동소수점 프로세서)</h3>
+                <ul>
+<li><strong>ADuC7060
+ADuC7061
+ADuC7062
+ADuC7064
+ADuC7066
+ADuC7121
+ADuC7122
+ADuC7123
+ADuC7124
+ADuC7222
+ADuC7224
+ADuC7226
+ADuC7227
+ADuC7228
+ADuC831
+ADuC832
+ADuC834
+ADuC836</li>
+                </ul>
+
+                <h2>Analog Devices의 보안 기능</h2>
+                <p>Analog Devices는 민감한 측정 데이터와 펌웨어를 보호하기 위해 신뢰할 수 있는 보호 메커니즘을 적용합니다. ADuCM 시리즈에는 암호화 서명으로 펌웨어 이미지를 인증하는 시큐어 부팅 절차가 포함됩니다. 서명이 유효하지 않으면 디바이스가 코드를 실행하지 않아 악의적 개입을 차단합니다. 온칩 flash는 비밀번호로 잠겨 프로그램 메모리 판독을 방지할 수 있습니다. 하지만 숙련된 공격자는 글리치 공격으로 잠금을 우회할 수 있습니다. ADI는 또한 실행 중 코드를 복호화하는 하드웨어 암호화 모듈을 제공하며, 펌웨어는 flash에 암호화되어 저장됩니다. 복호화 키는 간섭에 민감한 레지스터에 저장되어 물리적 침입 감지 시 초기화됩니다. 일부 디바이스에는 복제 방지를 위한 64비트 고유 ID가 있습니다. 이러한 조치에도 불구하고 당사는 부트로더의 타이밍 취약점을 이용해 ADuCM360에서 펌웨어 추출에 성공했습니다. 다른 기법으로는 로딩 중 전력 분석으로 암호화 키를 복원합니다. 또한 전자기 검사로 내부 메모리를 직접 판독했습니다. ADI의 구형 ADSP-21xx 칩은 보호가 최소화되어 JTAG를 통해 프로그램 메모리를 쉽게 읽고 덤프할 수 있습니다. 이에 대해 코드 전체를 새 디바이스에 복제할 수 있습니다. SHARC 프로세서는 보안 퓨즈를 소손해 디버그 접근을 비활성화할 수 있지만, 당사는 FIB(집속이온빔)를 이용해 여는 방법을 개발했습니다. 부채널 공격은 AES 모듈이 키를 반복 사용할 때 효과적입니다. 당사는 차분 전력 분석으로 ADuCM350 디바이스에서 키를 복원했습니다. 또한 당사 팀은 오류 주입을 사용해 시큐어 부팅 검사를 일시적으로 마비시켜 보호되지 않은 메모리를 읽을 수 있게 합니다. 바이너리를 확보하면 알고리즘과 보정 상수를 복원합니다. ADI 보호는 산업용 응용에 대해 일반적으로 신뢰할 수 있지만 완벽한 시스템은 없습니다. 당사는 ADI의 모든 MCU와 DSP에 대한 종합적인 리버스 엔지니어링 서비스를 제공합니다. 분실된 펌웨어 복원, 구형 MCU 복제, 경쟁 설계 분석 등 어떤 요구든 MikaTech가 도와드립니다. 당사 기법에는 비간섭적 부채널 분석과 간섭적 디캡슐레이션이 포함됩니다. 또한 추출된 코드에 대한 완전한 역어셈블리 및 기능 분석을 제공할 수 있습니다. Analog Devices의 전문적인 리버스 엔지니어링은 당사를 믿으십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

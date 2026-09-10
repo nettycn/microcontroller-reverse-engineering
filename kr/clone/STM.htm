@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STM MCU 리버스 엔지니어링 – MikaTech</title>
+     <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        저희는 임베디드 시스템을 정밀하게 분해, 분석하고 재구성합니다.
+                        펌웨어 덤프, 칩 분석 및 MCU 보안 평가에 관한 고급 전문성을
+                        제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>STM MCU 리버스 엔지니어링</h1>
+                <p>STM8 및 STM32 제품군 완전 지원</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>STM 회사 소개</h2>
+                <p>STMicroelectronics는 반도체 분야의 글로벌 선도 기업으로, ARM Cortex-M 코어 기반의 STM32와 자체 STM8 코어 MCU로 잘 알려져 있습니다. STM의 MCU는 산업에서 가장 널리 쓰이는 제품 중 하나로, 소비자 기기부터 산업 자동화까지 다양한 분야에 사용됩니다. STM32는 엔트리 Cortex-M0부터 고성능 Cortex-M7 및 M33까지 폭넓은 성능 스펙트럼을 제공하며, STM8은 경제적 비용과 신뢰성 있는 주변장치로 알려진 8비트 아키텍처입니다. STM 제품은 무료 개발 환경인 STM32CubeMX와 STM32CubeIDE를 포함한 풍부한 생태계 덕분에 널리 사용되고, STMicroelectronics는 방대한 코드 예제와 미들웨어 라이브러리를 제공합니다. MCU에는 고급 아날로그, 통신 인터페이스(USB, CAN, Ethernet), 보호 기능이 탑재되며, STM은 SPC 시리즈를 통해 자동차 산업, 산업용 장비, 사물인터넷의 핵심 공급업체입니다. 완벽한 패키지 및 메모리 크기 구성을 제공하고, STM32 장치는 방대한 커뮤니티 지원을 받아 디버깅과 리버스 엔지니어링이 용이합니다. STMicroelectronics는 전 세계에 생산 거점을 갖추어 안정적인 공급을 보장하며, 환경 지속가능성에 헌신하고 있습니다. STM의 보안 로드맵에는 STM32Trust 보안 프레임워크가 포함되며, 보안 부팅, 암호화 가속, 변조 방지를 제공합니다. 또한 STM은 인증을 위한 고유 장치 식별자를 제공하고, 제품은 자동차 등급 AEC-Q100 인증을 받았습니다. 신규 공정 적용을 지속하고, MEMS 센서와 전력 반도체도 생산합니다. STM MCU는 의료, 웨어러블, 스마트홈에 사용되며 저전력 설계에 중점을 둡니다. STM8은 여전히 많은 레거시 시스템에서 사용되고, STM의 고객 기반은 전 세계 수천 개 기업에 달하며 우수한 기술 지원과 문서를 제공합니다. STM은 제품의 긴 수명 주기를 보장하는 신뢰할 수 있는 파트너입니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>STM32 (ARM Cortex-M)</h3>
+                <ul>
+STM32F205/215
+STM32F207/217
+STM32F401
+STM32F405/415
+STM32F407/417
+STM32F410
+STM32F411
+STM32F412
+STM32F413/423
+STM32F427/437
+STM32F429/439
+STM32F446
+STM32F469/479
+STM32F7x0
+STM32F7x2
+STM32F7x3
+STM32F7x5
+STM32F7x6
+STM32F7x7
+STM32F7x9
+STM32H503
+STM32H562
+STM32H563/573
+STM32H723/733
+STM32H725/735
+STM32H730
+STM32H742
+STM32H743/753
+STM32H745/755
+STM32H747/757
+STM32H750
+STM32H7A3/7B3
+STM32H7B0
+STM32C0x1
+STM32F0x0
+STM32F0x1
+STM32F0x2
+STM32F0x8
+STM32F100
+STM32F101
+STM32F102
+STM32F103
+STM32F105/107
+STM32F301
+STM32F302
+STM32F303
+STM32F334
+STM32F373
+STM32F3x8
+STM32G0x0
+STM32G0x1
+STM32G4x1
+STM32G4x3
+STM32G4x4
+STM32L0x0
+STM32L0x1
+STM32L0x2
+STM32L0x3
+STM32L100
+STM32L151/152
+STM32L162
+STM32L4x1
+STM32L4x2
+STM32L4x3
+STM32L4x5
+STM32L4x6
+STM32L4P5/Q5
+STM32L4R5/S5
+STM32L4R7/S7
+STM32L4R9/S9
+STM32U535/545
+STM32U575/585
+STM32U595/5A5
+STM32U599/5A9
+STM32U5F7/5G7
+STM32U5F9/5G9
+STM32MP131
+STM32MP133
+STM32MP135
+STM32MP151
+STM32MP153
+STM32MP157
+                </ul>
+                <h3>STM8 (8비트)</h3>
+                <ul> STM8AF52
+STM8AF62
+STM8AF63
+STM8AL31
+STM8AL3L
+STM8L
+STM8L101
+STM8L151/152
+STM8L162
+STM8S103/105
+STM8S207/208
+STM8TL52/L53
+
+ 
+                </ul>
+
+                <h2>STM 보안 기능</h2>
+                <p>STMicroelectronics는 펌웨어에 다단계 보호를 구현하고 있습니다. STM32 신뢰 프레임워크는 통합 보안 솔루션을 제공하며, 보안 부팅, 안전한 펌웨어 업데이트, 암호화 가속을 포함합니다. 장치에는 인증을 위한 96비트 고유 UID가 탑재되며, RDP(읽기 보호) 메커니즘으로 플래시 메모리를 읽기로부터 보호할 수 있습니다. RDP 레벨 0, 1, 2는 단계적 보호를 제공하며, 레벨 2는 디버그 접근을 영구히 비활성화하여 SWD를 통한 메모리 읽기를 불가능하게 합니다. 하지만 정교한 공격자는 결함 주입으로 이러한 보호를 우회하려 시도할 수 있으며, 부채널 분석을 통해 암호화 연산 중 키를 복원할 수 있습니다. 당사 팀은 글리치 공격을 이용하여 STM32F103에서 펌웨어를 추출하는 데 성공했고, 부트로더를 조작하여 RDP 레벨 1을 우회했습니다. 침습적 식각과 현미경 접촉은 플래시를 직접 읽을 수 있게 하며, STM8은 보호가 더 약하여 간단한 글리치로 메모리를 쉽게 읽습니다. 당사는 전원 회로에 전압 글리치를 주입하여 STM32 장치를 개방하는 기법을 개발했으며, 이를 통해 RDP를 일시적으로 비활성화하고 메모리 덤프를 확보할 수 있습니다. 또한 전자기 분석을 적용하여 비밀 데이터를 추출합니다. STM의 보호는 신뢰할 수 있지만 완벽한 시스템은 존재하지 않으며, 구형 장치 교체를 위해 신규 장치에 펌웨어를 완전 복제하는 서비스를 제공합니다. 또한 추출된 코드의 디스어셈블리와 분석도 제공합니다. STM의 지속적인 보안 업데이트는 당사가 최신 정보를 유지해야 함을 요구하며, MikaTech는 신규 보호 수단을 우회하기 위한 연구에 투자하고 있습니다. 전 세계 많은 고객이 당사 서비스를 신뢰합니다. 보유하신 STM 장치에 대한 상세 평가를 원하시면 문의해 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

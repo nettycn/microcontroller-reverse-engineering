@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDT MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>MDT MCU 리버스 엔지니어링</h1>
+                <p>경제형 8051 호환 MCU 및 OTP MCU 전문</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>MDT 소개</h2>
+                <p>MDT(Microchip Design Technology)는 저비용 MCU의 대만 제조사로, 대부분 8051 호환 코어입니다. 기기는 소비자 전자제품, 완구, 가전제품에 널리 사용되며, MDT는 OTP(일회성 프로그램 가능) 및 flash 옵션을 모두 제공합니다. 대량 생산과 경쟁력 있는 가격으로 잘 알려져 있으며, MDT MCU에는 내장 RC 발진기와 저전압 감지기가 자주 포함됩니다. 제품군에는 범용 칩과 특화 칩이 모두 포함되며, MCU용 개발 도구와 프로그래머를 공급합니다. 아시아의 예산 제약 프로젝트에서 인기 있는 선택이며, MDT MCU는 많은 표준 8051 제품과 핀 호환됩니다. SOP부터 QFN까지 다양한 패키지를 제공합니다. MDT OTP 제품은 업데이트가 필요 없는 고정 기능 펌웨어에 적합하며, flash 옵션은 인서킷 프로그래밍으로 유연성을 제공합니다. 파라미터 저장용 EEPROM 탑재 MCU도 생산하며, 칩은 리모컨, 충전기, 소형 모터에 사용됩니다. MDT는 응용 노트와 설계 레퍼런스를 제공하고, 단순성과 통합 용이성에 중점을 둡니다. MDT 기기는 넓은 온도 범위에서 동작하며 노이즈 환경에서도 신뢰성 평판을 얻고 있습니다. 맞춤형 펌웨어 개발 서비스도 제공하고, MCU는 서드파티 C 컴파일러와 어셈블러를 지원합니다. MDT는 새로운 저전력 슬립 모드로 지속 혁신하며, 워치독 타이머와 비교기 같은 기능을 추가하고 있습니다. 품질에 대한 MDT의 헌신은 긴 수명 주기를 보장하며, 많은 레거시 제품이 MDT 칩에 의존하여 리버스 엔지니어링 수요가 발생합니다. 기기는 대형 가전과 스마트홈 제품에 자주 사용되며, MDT는 아시아 반도체 시장의 주요 업체로 대형 브랜드의 경제적 대안입니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>MDT 8051 OTP 시리즈</h3>
+                <ul>
+                    <li>MDT2051</li><li>MDT2052</li><li>MDT2053</li><li>MDT2054</li><li>MDT2055</li>
+                    <li>MDT2056</li><li>MDT2057</li><li>MDT2058</li><li>MDT2059</li><li>MDT2060</li>
+                    <li>MDT2061</li><li>MDT2062</li><li>MDT2063</li>
+                </ul>
+                <h3>MDT Flash 시리즈</h3>
+                <ul>
+                    <li>MDT10F51</li><li>MDT10F52</li><li>MDT10F54</li><li>MDT10F58</li><li>MDT10F60</li>
+                    <li>MDT10F61</li><li>MDT10F62</li><li>MDT10F63</li><li>MDT10F64</li>
+                </ul>
+                <h3>MDT 저전력 시리즈</h3>
+                <ul>
+                    <li>MDT10L51</li><li>MDT10L52</li><li>MDT10L54</li><li>MDT10L58</li><li>MDT10L60</li>
+                    <li>MDT10L61</li>
+                </ul>
+
+                <h2>MDT 보안 기능</h2>
+                <p>MDT는 경제형 8051 설계에 흔한 기본 보호 기능을 적용합니다. 주요 보호 기능은 프로그래밍 시 명령 메모리 판독을 방지하는 보호 퓨즈이며, 이 퓨즈는 설정 레지스터의 단일 비트입니다. 설정 후에는 병렬 프로그래밍 인터페이스로 기기를 읽을 수 없지만, VPP 핀에 글리치를 인가하여 이 록을 우회할 수 있습니다. 많은 MDT OTP 제품에는 추가 보호가 없어 비교적 쉬운 침입 대상입니다. 펌웨어 추출을 위해 전압 조작과 클록 타이밍 글리치를 조합하여 사용하는 경우가 많으며, 당사 연구소는 수천 대의 MDT 기기 덤프에 성공했습니다. 작업에는 보호를 개방하기 위한 특정 타이밍 교란이 포함되며, 개방 후 전체 메모리를 읽어 바이너리 파일로 저장할 수 있습니다. OTP의 경우 데이터가 영구적이므로 flash 칩 또는 기타 호환 칩에 복제해야 합니다. MDT는 일부 flash 기기에 비밀번호 보호 체계도 제공하며, 비밀번호는 전용 섹터에 저장되고 프로그래밍 접근 전 확인이 필요합니다. 이 비밀번호는 무차별 대입 또는 부채널 분석으로 추측할 수 있으며, 당사는 비밀번호 메커니즘을 공격하는 도구를 개발했습니다. MDT 보호는 최신 MCU에 비해 전반적으로 약합니다. 그러나 많은 레거시 시스템이 여전히 이 칩에 의존하고 있으며, 펌웨어를 분실하는 경우가 많습니다. 당사는 이러한 시스템이 계속 동작하도록 복구 및 복제 서비스를 제공합니다. 비파괴적 방법으로 손상을 최소화하고 칩을 보존하며, 손상되거나 부분 소거된 기기에서도 데이터를 복구할 수 있습니다. MDT의 단순성은 당사에 유리하여 추출이 직접적입니다. 추출된 코드를 HEX 및 ASM 형식으로 제공하며, 코드 분석으로 기능 이해도 가능합니다. MDT 리버스 엔지니어링 과제는 모두 MikaTech에 맡겨 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

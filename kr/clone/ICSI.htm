@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICSI MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>ICSI MCU 리버스 엔지니어링</h1>
+                <p>메모리 및 SoC에 특화된 MCU 전문성</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>ICSI 소개</h2>
+                <p>ICSI(Integrated Circuit Solutions, Inc.)는 메모리 집적에 특화된 MCU 전문 생산 기업입니다. 고밀도 flash, EEPROM, SRAM을 내장한 MCU를 생산하며, 스마트카드, SIM 카드, 보안 식별 토큰 등에 널리 사용됩니다. 또한 온칩 암호 보조 프로세서를 탑재한 SoC 솔루션을 제공합니다. ICSI 제품군은 ARM 아키텍처와 자체 설계를 모두 포함하며, 배터리 구동 기기에 적합한 저전력 설계로 잘 알려져 있습니다. ICSI는 보안 MCU를 위한 광범위한 암호화 라이브러리를 제공하며, 칩은 결제 단말기와 출입 통제 시스템에서 흔히 볼 수 있습니다. 또한 항공우주 응용을 위한 내방사선 버전을 생산합니다. 이 회사는 온칩 키 저장과 진정한 난수 생성(TRNG)에 특히 중점을 둡니다. 메모리 관리 및 오류 정정 분야에서 강력한 IP 포트폴리오를 보유하고 있으며, ICSI MCU는 높은 신뢰성과 장기 데이터 보존을 목표로 설계되었습니다. I2C, SPI, UART 등 다중 통신 인터페이스를 지원하며, 고객 요구에 맞춘 실리콘 개발 서비스도 제공합니다. 개발 도구에는 오류 추적 유닛과 트레이스 분석기가 포함됩니다. ICSI MCU는 의료용 이식 기기와 웨어러블 건강 모니터링 기기에도 자주 사용됩니다. 고급 파워 도메인 파워 다운과 동적 전압 스케일링을 적용하며, 보안 칩은 Common Criteria 인증을 보유합니다. 보안 IoT 응용을 위해 주요 OEM과 협력하고 있으며, ICSI 제품은 자동차 키와 엔진 시동 방지 장치에도 사용됩니다. 롤백 방지 기능이 있는 펌웨어 업데이트 메커니즘을 제공하며, 메모리 기술에는 NOR 및 NAND flash가 포함됩니다. MCU는 제로 웨이트 스테이트로 flash에서 직접 명령을 실행할 수 있으며, 병렬 처리를 위한 멀티코어 솔루션도 제공합니다. 보안 MCU 시장에서 성장 중인 업체로, NXP, STMicroelectronics 등 기존 강자와 경쟁합니다. ICSI의 로드맵에는 포스트퀀텀 암호화 지원이 포함되며, 부채널 공격에 대한 하드웨어 보호를 적극적으로 연구하고 있습니다. 혁신에 대한 ICSI의 헌신은 보안이 중요한 프로젝트에 핵심 파트너로 만들어 줍니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>보안 MCU 시리즈(ARM Cortex-M)</h3>
+                <ul>
+                    <li>ICSI‑SM32</li><li>ICSI‑SM64</li><li>ICSI‑SM128</li><li>ICSI‑SM256</li><li>ICSI‑SM512</li>
+                    <li>ICSI‑SM1K</li><li>ICSI‑SM2K</li><li>ICSI‑SM4K</li><li>ICSI‑SM8K</li><li>ICSI‑SM16K</li>
+                    <li>ICSI‑SM32P</li><li>ICSI‑SM64P</li><li>ICSI‑SM128P</li>
+                </ul>
+                <h3>Memory-plus 시리즈(대용량 EEPROM 내장)</h3>
+                <ul>
+                    <li>ICSI‑M16E</li><li>ICSI‑M32E</li><li>ICSI‑M64E</li><li>ICSI‑M128E</li><li>ICSI‑M256E</li>
+                    <li>ICSI‑M512E</li><li>ICSI‑M1K</li><li>ICSI‑M2K</li><li>ICSI‑M4K</li>
+                </ul>
+                <h3>내방사선 시리즈</h3>
+                <ul>
+                    <li>ICSI‑RH32</li><li>ICSI‑RH64</li><li>ICSI‑RH128</li><li>ICSI‑RH256</li><li>ICSI‑RH512</li>
+                </ul>
+
+                <h2>ICSI 보안 기능</h2>
+                <p>ICSI는 민감한 데이터를 보호하기 위해 실리콘 레벨의 신뢰할 수 있는 보호 기능을 내장합니다. 보안 MCU는 실행 중 명령을 복호화하는 전용 암호화 엔진을 탑재하고 있어, flash 내부에서 암호화된 상태를 유지하므로 펌웨어의 무단 읽기를 차단합니다. 키 자료는 침입 감지 시 즉시 소거되는 변조 감지 메모리에 저장됩니다. ICSI는 정밀 현미경 검사를 방해하기 위한 효과적인 칩 쉴딩도 적용하며, 실행 전 전자 서명을 검증하는 보안 부팅 절차를 포함합니다. 이를 통해 신뢰된 명령만 실행되도록 하여 시스템 침입을 어렵게 만듭니다. ICSI 기기는 퓨즈를 통해 조정 가능한 다단계 보안 레벨을 제공하며, 이 퓨즈는 제조 후 디버그 포트를 영구적으로 비활성화할 수 있습니다. 데이터 추출을 위해 오류 주입으로 포트를 개방하려는 시도가 있을 수 있으나, ICSI에는 전압 및 주파수 모니터와 같은 대응 조치가 있습니다. 이상 상태 발생 시 칩을 재시작하는 워치독 타이머도 포함됩니다. 이 회사는 암호화된 바이너리와 함께 안전한 업데이트 메커니즘을 제공하여, 공격자가 악성 페이로드를 주입하지 못하도록 합니다. ICSI의 TRNG는 암호화 연산에 엔트로피를 추가하며, 슬립 상태에서 데이터를 보호하기 위한 메모리 암호화도 지원합니다. 이러한 조치에도 불구하고, 고도화된 공격자는 패시베이션 층을 제거하고 ROM을 판독하여 칩을 복제할 수 있습니다. 부채널 전력 분석은 암호화 중 키를 노출할 수 있습니다. 당사 팀은 차동 전자기 분석을 사용하여 ICSI 기기에서 키를 복구하는 방법을 개발했으며, 부트로더 취약점을 이용한 펌웨어 덤프에도 성공했습니다. ICSI의 보호는 강력하지만 완벽한 시스템은 존재하지 않습니다. 당사는 레거시 시스템 부활과 같은 합법적 목적의 전문 추출 서비스를 제공합니다. 방법론에는 파괴적 분석과 FIB(집속 이온빔) 수정이 포함됩니다. 보호된 flash 및 EEPROM 내용을 판독할 수 있으며, OTP 옵션의 경우 UV 소거와 재프로그래밍을 사용하여 콘텐츠를 복제합니다. ICSI 칩은 높은 보안 모드로 사용되므로 당사는 매우 신중하게 취급합니다. 당사 연구소는 가장 강한 내성 기기도 다룰 수 있도록 장비되어 있으며, 추출된 펌웨어와 보호 분석에 대한 포괄적인 보고서를 제공합니다. ICSI의 신뢰할 수 있는 리버스 엔지니어링은 MikaTech에 맡겨 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

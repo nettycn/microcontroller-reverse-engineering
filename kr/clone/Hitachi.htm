@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitachi Semiconductor 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Hitachi Semiconductor 리버스 엔지니어링</h1>
+                <p>레거시 MCU 및 ASIC 리버스 엔지니어링 — H8, SH 등</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>브랜드 개요</h2>
+                <p>Hitachi는 현재 Renesas Electronics로 통합된 일본의 대형 반도체 공급업체였으며, H8, SH, HD 시리즈 등 폭넓은 MCU를 생산했습니다. H8 제품군은 자동차, 소비, 산업 분야에 널리 쓰인 반면, SuperH(SH) 아키텍처는 다양한 임베디드 시스템과 심지어 Sega 게임기에도 적용되었습니다. 또한 Hitachi는 다수의 일본 공급업체를 위한 맞춤형 ASIC 회로를 생산했으며, 여전히 많은 구형 시스템이 Hitachi 칩에 의존합니다. 특히 자동차 ECU에서는 부품을 구할 수 없는 경우가 많아 리버스 엔지니어링이 필수적입니다.</p>
+                <p>당사는 Hitachi MCU 및 ASIC을 다루는 폭넓은 경험이 있으며, 매스 ROM, flash, OTP 디바이스에서 펌웨어를 추출하고 잠기거나 비밀번호로 보호된 디바이스에서 데이터를 복원합니다. 당사의 전문성은 H8/300 및 H8/500 시리즈, SH-2, SH-3, SH-4, 음성·통신에 쓰이는 Hitachi 맞춤형 DSP 칩을 아우릅니다. 당사는 이 칩을 정밀하게 재현하는 복제 서비스를 제공하여 고객이 시스템 재설계 없이 생산을 계속할 수 있게 하며, 핵심 알고리즘을 이해하도록 펌웨어 분석도 제공합니다.</p>
+                <p>당사 서비스는 엄격한 NDA에 따라 기밀로 유지되며, 자동차·의료 분야 고객을 위해 비간섭적·간섭적 기법을 모두 사용해 Hitachi 칩 리버스 엔지니어링을 성공적으로 수행했습니다. 당사는 매우 오래된 디바이스에서도 높은 성공률을 보이며 Hitachi 코드를 최신 플랫폼으로 이관하는 것을 지원합니다. 당사 팀에는 1990년대부터 Hitachi와 함께해 온 전문가가 포함되어 명령어 집합과 주변장치 설계의 세부 사항을 이해합니다.</p>
+
+                <h2>MCU 시리즈 및 모델</h2>
+                <h3>H8/300 시리즈 (8/16비트)</h3>
+                <ul>
+                    <li>H8/3048</li>
+                    <li>H8/3052</li>
+                    <li>H8/3067</li>
+                    <li>H8/3069</li>
+                    <li>H8/3077</li>
+                    <li>H8/3087</li>
+                    <li>H8/3098</li>
+                    <li>H8/3224</li>
+                    <li>H8/3248</li>
+                    <li>H8/3256</li>
+                    <li>H8/3337</li>
+                    <li>H8/3349</li>
+                    <li>H8/3427</li>
+                    <li>H8/3454</li>
+                    <li>H8/3487</li>
+                </ul>
+                <h3>H8/500 시리즈 (16비트)</h3>
+                <ul>
+                    <li>H8/500</li>
+                    <li>H8/501</li>
+                    <li>H8/502</li>
+                    <li>H8/503</li>
+                    <li>H8/504</li>
+                    <li>H8/505</li>
+                    <li>H8/506</li>
+                    <li>H8/507</li>
+                    <li>H8/508</li>
+                    <li>H8/509</li>
+                    <li>H8/510</li>
+                    <li>H8/511</li>
+                    <li>H8/512</li>
+                    <li>H8/513</li>
+                    <li>H8/514</li>
+                </ul>
+                <h3>SuperH (SH-2, SH-3, SH-4)</h3>
+                <ul>
+                    <li>SH-2 (SH7604)</li>
+                    <li>SH-2A (SH7261)</li>
+                    <li>SH-3 (SH7705)</li>
+                    <li>SH-3E (SH7710)</li>
+                    <li>SH-4 (SH7750)</li>
+                    <li>SH-4A (SH7785)</li>
+                    <li>SH-5 (SH7779)</li>
+                    <li>SH-6 (SH7615)</li>
+                    <li>SH-7 (SH7727)</li>
+                    <li>SH-8 (SH7734)</li>
+                    <li>SH-9 (SH7751)</li>
+                    <li>SH-10 (SH7760)</li>
+                    <li>SH-11 (SH7763)</li>
+                    <li>SH-12 (SH7770)</li>
+                    <li>SH-13 (SH7780)</li>
+                </ul>
+                <h3>HD 시리즈 (맞춤형 ASIC 회로)</h3>
+                <ul>
+                    <li>HD647180</li>
+                    <li>HD64180</li>
+                    <li>HD647380</li>
+                    <li>HD641380</li>
+                    <li>HD647500</li>
+                    <li>HD641500</li>
+                    <li>HD647700</li>
+                    <li>HD641700</li>
+                    <li>HD647800</li>
+                    <li>HD641800</li>
+                    <li>HD647900</li>
+                    <li>HD641900</li>
+                    <li>HD6471000</li>
+                    <li>HD6411000</li>
+                    <li>HD6471100</li>
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 인사이트</h2>
+                <p>Hitachi MCU는 대개 ID 코드와 메모리 잠금 비트로 보호합니다. 디바이스에 접근하려면 프로그래밍 모드에서 올바른 ID를 제시해야 합니다. 당사는 이 ID가 무차별 대입이나 논리 분석으로 복원 가능한 경우가 많다는 것을 발견했습니다. 메모리 잠금 비트는 flash나 내부 ROM 판독을 막지만, 리셋 핀 글리치 공격으로 이 잠금을 우회할 수 있어 칩이 보안을 무시하는 테스트 모드로 진입한 뒤 특수 JTAG이나 직렬 인터페이스로 메모리를 덤프합니다.</p>
+                <p>매스 ROM 디바이스의 경우 표준 인터페이스로 코드를 읽을 방법이 없습니다. 당사는 디캡슐레이션과 정밀 현미경 검사로 ROM 내용을 직접 판독하며, 패키지를 제거하고 현미경으로 비트를 관찰합니다. 당사는 H8 및 SH의 매스 ROM에서 코드 추출에 성공했습니다. 일부 Hitachi 칩에는 중요 데이터용 하드웨어 암호화가 탑재됩니다. 부채널 분석으로 암호화 중 전력 소비를 측정해 키를 복원하는 방식으로 이 암호화를 공격할 수 있어 펌웨어와 보호된 데이터를 복호화합니다. 또한 고유 ID를 읽어 다른 디바이스에 프로그래밍하여 인증을 보장하는, 고유 ID를 갖춘 Hitachi 칩 복제 방법론을 개발했습니다.</p>
+                <p>당사의 전문성에는 접근 권한을 얻기 위해 역공학한 Hitachi 자체 디버그 인터페이스 다루기가 포함됩니다. 또한 OTP에서 정밀 대체품에 필요한 캘리브레이션 데이터와 조정 값을 추출할 수 있습니다. 당사는 함수, 변수, 알고리즘 식별을 포함한 추출된 펌웨어의 완전한 분석을 제공하며 C 소스 코드를 재구성할 수 있습니다. 당사의 작업은 구형 의료 장비와 자동차 ECU 유닛 유지보수에 매우 중요하며 Hitachi 부품에 대한 검증된 성공 명성을 보유하고 있습니다. 모든 프로젝트는 최고 수준의 기밀로 처리되며 요청 시 권장 사항을 제공할 수 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

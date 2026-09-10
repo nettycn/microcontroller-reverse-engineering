@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeling Technology 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Feeling Technology 리버스 엔지니어링</h1>
+                <p>Feeling 8비트 MCU 및 터치 컨트롤러 전문 서비스</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>브랜드 개요</h2>
+                <p>Feeling Technology는 대만의 팹리스 기업으로, 가전, 게임, 소형 가전, 리모컨, 타이머, LED 드라이버에 널리 쓰이는 경제형 8비트 MCU로 알려져 있습니다. 또한 정전식 터치 센서와 사용자 인터페이스 디바이스를 생산합니다. 자사 MCU는 8051 호환 코어 또는 자체 RISC 아키텍처를 기반으로 하며, OTP형과 flash형을 모두 제공하고 일부는 EEPROM을 내장합니다.</p>
+                <p>Feeling 디바이스는 양산에 경제적이지만 보호가 최소화된 경우가 많고 기본 잠금 비트만 있으므로 리버스 엔지니어링이 비교적 쉽습니다. 당사는 간단한 글리치 기법으로 다수의 Feeling MCU에서 펌웨어를 추출했습니다. 여전히 많은 구형 제품이 Feeling 칩을 사용하므로 리버스 엔지니어링은 수리와 복제에 필수적입니다. 당사 팀은 프로그래밍 프로토콜과 메모리 맵을 잘 알고 있으며, 칩을 훼손하지 않고 잠금을 해제하고 코드 전체를 읽을 수 있습니다.</p>
+                <p>터치 센서의 경우 캘리브레이션 데이터와 감도 파라미터를 복원하여 복제본에서 정밀한 센서 동작을 재현할 수 있습니다. 또한 기존 제품에 대한 맞춤 회로 설계 서비스를 제공합니다. 당사 서비스에는 펌웨어 완전 추출, 디스어셈블리, 분석, 숨겨진 기능이나 백도어 탐지가 포함됩니다. 당사의 지원으로 Feeling 기반의 구형 기기를 경제적 비용으로 계속 생산할 수 있습니다.</p>
+
+                <h2>MCU 시리즈 및 모델</h2>
+                <h3>FT 시리즈 (8비트 RISC)</h3>
+                <ul>
+                    <li>FT60F021</li>
+                    <li>FT60F022</li>
+                    <li>FT60F023</li>
+                    <li>FT60F024</li>
+                    <li>FT60F025</li>
+                    <li>FT60F026</li>
+                    <li>FT60F027</li>
+                    <li>FT60F028</li>
+                    <li>FT60F029</li>
+                    <li>FT61F021</li>
+                    <li>FT61F022</li>
+                    <li>FT61F023</li>
+                    <li>FT61F024</li>
+                    <li>FT61F025</li>
+                    <li>FT61F026</li>
+                </ul>
+                <h3>터치 컨트롤러 시리즈</h3>
+                <ul>
+                    <li>FT5202</li>
+                    <li>FT5306</li>
+                    <li>FT5406</li>
+                    <li>FT5506</li>
+                    <li>FT5606</li>
+                    <li>FT5706</li>
+                    <li>FT5806</li>
+                    <li>FT5906</li>
+                    <li>FT6106</li>
+                    <li>FT6206</li>
+                    <li>FT6306</li>
+                    <li>FT6406</li>
+                    <li>FT6506</li>
+                    <li>FT6606</li>
+                    <li>FT6706</li>
+                </ul>
+                <h3>OTP 모델</h3>
+                <ul>
+                    <li>FT60P021</li>
+                    <li>FT60P022</li>
+                    <li>FT60P023</li>
+                    <li>FT60P024</li>
+                    <li>FT60P025</li>
+                    <li>FT60P026</li>
+                    <li>FT60P027</li>
+                    <li>FT60P028</li>
+                    <li>FT60P029</li>
+                    <li>FT61P021</li>
+                    <li>FT61P022</li>
+                    <li>FT61P023</li>
+                    <li>FT61P024</li>
+                    <li>FT61P025</li>
+                    <li>FT61P026</li>
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 인사이트</h2>
+                <p>Feeling Technology는 코드 보호 퓨즈로 기본 보안 체계를 적용합니다. 소손되면 프로그래밍 인터페이스가 비활성화되어 판독을 막습니다. 하지만 전원 인가 중 전압 글리치로 이 보호를 쉽게 우회할 수 있습니다. 내부 리셋보다 빠르게 전원 전압을 상승시켜 칩을 비보호 상태로 진입시켜 메모리를 덤프합니다. OTP 모델의 보호는 영구적이지만, 디캡슐레이션과 각 메모리 셀의 전하를 광학적으로 판독하는 정밀 현미경 검사로 100% 정확도의 데이터 추출이 가능합니다.</p>
+                <p>일부 Feeling MCU에는 인증에 쓸 수 있는 고유 디바이스 ID가 포함됩니다. 이 ID를 읽어 다른 디바이스에 프로그래밍하여 칩 동작 전체를 복제할 수 있습니다. 또한 부채널 분석은 암호화 사용 시 비밀을 추출할 수 있습니다. Feeling 터치 컨트롤러는 대개 보호되지 않은 구성 레지스터를 갖고 있습니다. 이 레지스터를 읽고 수정하여 센서 감도를 바꿀 수 있으며, 이는 다른 성능 수준의 복제본을 만드는 데 유용합니다.</p>
+                <p>또한 다수의 Feeling 디바이스에 숨겨진 데이터나 캘리브레이션 값을 담고 있는 미사용 메모리 영역이 있다는 것을 발견했습니다. 당사는 항상 메모리를 전체 스캔하여 이용 가능한 모든 정보를 복원합니다. 당사 도구에는 자동 추출 스크립트가 포함되어 수행 시간을 크게 단축합니다. 당사는 함수 식별과 어셈블리에서 C 소스 코드 재구성을 포함한 완전한 펌웨어 분석을 제공합니다. 당사 서비스는 소스 코드를 분실한 기업에 값진 가치를 제공하며, 다수의 고객이 구형 제품을 부활시키는 데 도움을 주었습니다. 약 100%의 성공률과 경쟁력 있는 가격으로 MikaTech는 Feeling 리버스 엔지니어링의 선도적 파트너입니다.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

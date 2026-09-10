@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geehy MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Geehy MCU 리버스 엔지니어링</h1>
+                <p>APM32 시리즈(ARM Cortex-M) 및 Geehy 구형 MCU 전문</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Geehy 회사 개요</h2>
+                <p>Geehy(Geehy Semiconductor)는 ARM Cortex-M 아키텍처 기반 32비트 MCU를 전문으로 하는 중국 팹리스 반도체 기업입니다. 자사 APM32 시리즈는 STMicroelectronics의 STM32F 시리즈와 핀 호환되어 많은 응용에 대체 소스를 제공합니다. Geehy MCU는 산업 제어, 가전, 모터 드라이버, 자동차 애프터마켓에 쓰입니다. Cortex-M0 코어부터 M4까지 다양한 메모리 크기와 주변장치 조합으로 폭넓은 제품을 제공합니다. 또한 Geehy는 CAN, USB, Ethernet 인터페이스를 통합한 솔루션을 제공합니다. 동사는 고성능·저전력·경제적인 대체품을 제공하는 것을 목표로 합니다. 자사 디바이스는 중국 시장에서 널리 쓰이며 글로벌 제품에도 점차 등장하고 있습니다. Geehy는 flash 읽기 보호, 쓰기 방지, 고유 디바이스 ID 등 보안 기능을 포함합니다. 일부 디바이스에는 키 저장용 내변조 메모리가 탑재됩니다. 하지만 보안 구현이 STM32와 유사한 경우가 많으며 알려진 취약점이 있습니다. 당사 리버스 엔지니어링 팀은 Geehy APM32 디바이스를 다루는 폭넓은 경험이 있습니다. 당사는 디버그 포트 개방, 부채널 분석, 오류 주입 등의 기법을 이용해 다수의 잠긴 Geehy MCU에서 펌웨어 추출에 성공했습니다. 또한 펌웨어를 새 Geehy 칩에 복제하는 복제 서비스를 제공합니다. 당사 도구는 표준 SWD/JTAG 인터페이스와 호환되며 추출 자동화용 특수 스크립트를 개발했습니다. 보호 수준이 높은 디바이스에 대해서는 디캡슐레이션과 메모리 직접 판독을 사용합니다. 당사 고객에는 분실된 소스 코드 복원, 적합성 검증, 백업 제작이 필요한 기업이 포함됩니다. 당사는 빠른 일정과 높은 성공률을 제공합니다. 당사의 전문성을 바탕으로 Geehy MCU의 복호화, 판독, 해킹, 추출, 덤프, 복원, 복제를 안심하고 수행할 수 있습니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <ul>
+                    <li><strong>APM32F0 (Cortex-M0)</strong> – APM32F030, APM32F031, APM32F051, APM32F071, APM32F072, APM32F091, APM32F098, APM32F0A, APM32F0B, APM32F0C</li>
+                    <li><strong>APM32F1 (Cortex-M3)</strong> – APM32F101, APM32F102, APM32F103, APM32F105, APM32F107, APM32F108, APM32F109, APM32F110, APM32F111, APM32F112</li>
+                    <li><strong>APM32F3 (Cortex-M4)</strong> – APM32F301, APM32F302, APM32F303, APM32F304, APM32F305, APM32F307, APM32F308, APM32F309, APM32F310, APM32F311</li>
+                    <li><strong>APM32F4 (Cortex-M4)</strong> – APM32F405, APM32F407, APM32F415, APM32F417, APM32F427, APM32F429, APM32F437, APM32F439, APM32F446, APM32F469</li>
+                    <li><strong>APM32L0 (Low-power Cortex-M0)</strong> – APM32L050, APM32L051, APM32L052, APM32L053, APM32L054, APM32L055, APM32L056, APM32L057, APM32L058, APM32L059</li>
+                    <li><strong>APM32W (Wireless)</strong> – APM32W030, APM32W031, APM32W032, APM32W033, APM32W034, APM32W035, APM32W036, APM32W037, APM32W038, APM32W039</li>
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 방법론</h2>
+                <p>Geehy의 APM32 시리즈는 STM32와 유사한 보안 기능을 갖춥니다. 기본 보호는 읽기 보호 수준(RDP)입니다. RDP0(무보호), RDP1(읽기 보호 활성화, 디버그 접근 잠금), RDP2(완전 보호, 무접근)입니다. 이에 더해 flash의 실수 재기록을 막기 위해 특정 섹터에 쓰기 방지를 제공합니다. 일부 디바이스에는 특정 기능을 잠글 수 있는 보안 레지스터가 있는 예비 영역이 있습니다. 또한 Geehy에는 복제 방지를 위한 고유 디바이스 ID가 포함됩니다. 하지만 이 보호에는 알려진 약점이 있습니다. RDP1의 경우 flash를 소거하지 않고 디버그 인터페이스에 특수 시퀀스를 사용해 보호를 해제할 수 있으며, 당사가 정교화한 방법론입니다. 더 보호된 RDP2의 경우 전압 주입으로 보호 로직을 우회합니다. 당사는 로딩 중 전원 글리치를 발생시켜 RDP2 디바이스 잠금 해제에 성공했습니다. 잠금이 풀리면 flash에 완전히 접근하여 펌웨어를 읽을 수 있습니다. 또한 부채널 전력 분석으로 디바이스에 저장된 암호화 키를 추출합니다. 펌웨어 갱신을 지원하는 부트로더가 있는 디바이스의 경우 부트로더 프로토콜로 주 flash를 읽을 수 있습니다. 또한 RAM에 로드하여 백도어로 flash를 읽는 특수 펌웨어를 개발했습니다. 비간섭적 기법이 실패하면 디캡슐레이션과 정밀 현미경 검사로 flash 메모리를 직접 판독합니다. 이는 패키지를 제거하고 주사전자현미경으로 플로팅 게이트를 촬영하여 수행됩니다. 당사는 이러한 모든 접근으로 높은 성공률을 보입니다. 당사 연구실은 비간섭적·간섭적 공격 모두를 위한 첨단 장비를 갖추고 있습니다. 또한 복제 서비스를 제공하여 잠금 디바이스를 가져와 펌웨어를 추출하고 깨끗한 Geehy 칩을 프로그래밍합니다. 이는 원본 디바이스가 오래되었거나 더 이상 구할 수 없을 때 특히 유용합니다. 당사 팀은 Geehy의 최신 보안 업데이트를 추적하며 도구를 지속적으로 개발합니다. 당사는 다수의 APM32F 및 APM32L 디바이스 공격에 성공했습니다. 당사 서비스는 철저한 기밀과 NDA에 따라 수행됩니다. 당사는 복원된 바이너리와 함께 발견된 보안 키나 구성 데이터를 전달합니다. 당사 고객은 리버스 엔지니어링, 분실 코드 복원, 호환 대체품 제작에 당사 서비스를 활용했습니다. MikaTech와 함께라면 Geehy 리버스 엔지니어링 프로젝트가 안전한 손에 있다고 확신할 수 있습니다. 당사는 신뢰할 수 있고 효과적이며 전문적인 서비스를 제공하기 위해 노력합니다. 따라서 Geehy MCU의 복호화, 판독, 해킹, 추출, 덤프, 복원, 복제 등 어떤 요구든 당사가 수행할 전문성을 갖추고 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

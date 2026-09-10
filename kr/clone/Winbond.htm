@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winbond MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        저희는 임베디드 시스템을 정밀하게 분해, 분석하고 재구성합니다.
+                        펌웨어 덤프, 칩 분석 및 MCU 보안 평가에 관한 고급 전문성을
+                        제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Winbond MCU 리버스 엔지니어링</h1>
+                <p>W79, W83, W90 시리즈 내장 컨트롤러 전문</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Winbond 회사 소개</h2>
+                <p>Winbond Electronics는 메모리 제품과 MCU로 알려진 대만 반도체 기업입니다. MCU 포트폴리오에는 ARM 기반의 8비트, 16비트, 32비트 장치가 포함됩니다. Winbond MCU는 컴퓨터 액세서리, 소비자 전자제품, 산업용 제어에 널리 사용되며, 특히 키보드 컨트롤러, 팬 속도 제어, 전력 관리 분야에서 인기가 높습니다. Winbond의 W79 시리즈는 주변장치가 확장된 8051 호환 코어이며, W83 시리즈는 시스템 관리를 위한 추가 I/O와 아날로그 기능을 제공합니다. W90 시리즈는 네트워크 및 멀티미디어 애플리케이션을 위한 ARM9 기반 SoC입니다. 또한 Winbond는 플래시 메모리를 생산하며, 이는 종종 자사 MCU에 통합됩니다. DIP부터 QFP, BGA까지 다양한 패키지를 제공하고, Winbond 제품은 경제적 비용과 신뢰성 있는 동작으로 잘 알려져 있습니다. 중국과 대만을 중심으로 아시아 시장에서 강한 위치를 차지하고, 평가 보드와 프로그래머를 포함한 개발 환경을 제공합니다. 칩은 UART, SPI, I2C, USB 등 표준 인터페이스를 지원하며, 스마트카드와 지불 애플리케이션을 위한 보안 MCU도 제공합니다. 수십 년간 컴퓨터 및 노트북용 부품을 공급해 왔고, Winbond의 W90 시리즈는 임베디드 Linux 또는 RTOS 환경에서 구동될 수 있습니다. 첨단 제조 공정에 투자했으며, Winbond의 메모리 제품에는 DRAM, NOR Flash, NAND Flash가 포함됩니다. MCU에는 모션 제어용 고속 PWM 신호와 타이머가 자주 탑재되고, MCU 시리즈를 보완하는 음성 코덱과 전력 IC도 생산합니다. 신속한 기술 지원으로 평가받으며, 제품은 자동차 애플리케이션용 AEC-Q100 인증을 받았습니다. 대형 OEM과 협력하여 맞춤형 칩을 개발하고, Winbond의 보안 솔루션에는 변조 저항 아키텍처가 포함됩니다. 사물인터넷과 엣지 컴퓨팅 분야에서 입지를 넓히고 있으며, 구형 Winbond 칩은 여전히 많은 제품에 사용됩니다. 장기 공급 약속으로 공급 가능성을 보장하고, 외부 메모리 인터페이스를 통한 통합 솔루션도 제공하며, MCU는 성능과 전력 소모를 효과적으로 결합합니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>W79 시리즈 (8비트 8051 호환)</h3>
+                <ul>
+                    <li>W79E2051</li><li>W79E2251</li><li>W79E4051</li><li>W79E4251</li><li>W79E6051</li>
+                    <li>W79E6251</li><li>W79E8051</li><li>W79E8251</li><li>W79E9051</li><li>W79E9251</li>
+                    <li>W79E950</li><li>W79E960</li><li>W79E970</li><li>W79E980</li>
+                </ul>
+                <h3>W83 시리즈 (시스템 관리 / I/O)</h3>
+                <ul>
+                    <li>W83L950D</li><li>W83L951D</li><li>W83L952D</li><li>W83L953D</li><li>W83L954D</li>
+                    <li>W83L955D</li><li>W83L956D</li><li>W83L957D</li><li>W83L958D</li><li>W83L959D</li>
+                    <li>W83G860</li><li>W83G861</li><li>W83G862</li>
+                </ul>
+                <h3>W90 시리즈 (32비트 ARM9)</h3>
+                <ul>
+                    <li>W90P710</li><li>W90P720</li><li>W90P730</li><li>W90P740</li><li>W90P750</li>
+                    <li>W90P760</li><li>W90P770</li><li>W90P780</li><li>W90P790</li><li>W90N745</li>
+                    <li>W90N746</li><li>W90N747</li><li>W90N748</li>
+                </ul>
+
+                <h2>Winbond 보안 기능</h2>
+                <p>Winbond는 펌웨어와 데이터를 보호하기 위한 여러 조치를 구현하고 있습니다. W79 시리즈는 프로그램 메모리 읽기를 방지하는 락 비트를 제공하며, 이 비트가 활성화되면 디버그 인터페이스를 통해 내부 코드를 읽을 수 없습니다. 하지만 숙련된 공격자는 결함 주입으로 이 보호를 해제하려 시도할 수 있습니다. 일부 Winbond 장치에는 JTAG 접근용 보호 비밀번호가 포함되어 추가 방어선을 제공하며, 올바른 비밀번호 없이는 내장 디버그 리소스에 접근할 수 없습니다. W83 시리즈는 메모리 무작위 배치를 추가하여 덤프를 확보한 후에도 코드 이해를 방해합니다. 또한 Winbond는 암호화 키 저장을 위한 OTP(일회성 프로그래밍 가능) 영역을 제공하며, 이 키를 사용하여 플래시의 펌웨어를 복호화할 수 있습니다. ARM9 기반 W90 장치는 보안 부팅을 지원하여 실행 전 이미지 서명을 검증하므로 무단 코드 실행을 방지합니다. 이러한 수단에도 불구하고 많은 Winbond 칩에는 악용 가능한 알려진 취약점이 존재합니다. 예를 들어 부트로더를 재구동 모드로 속여 전체 내부 메모리를 읽을 수 있는 경우가 있으며, 당사는 전원 전압 글리치로 W79E2051에서 펌웨어 덤프를 확보하는 데 성공했습니다. 다른 방식으로는 로직 분석기를 사용하여 외부 버스에서 데이터를 캡처합니다. OTP 장치에 대해서는 자외선으로 보호 퓨즈를 지워 내용을 읽을 수 있으며, 구형 Winbond 장치는 강력한 암호화가 부족하여 복제가 쉽습니다. 펌웨어 전체를 신규 칩에 이식하여 구형 장치를 교체할 수 있고, 전력 소비 부채널 분석은 암호화 연산 중 비밀 키를 드러낼 수 있습니다. 당사는 비밀번호로 보호되는 JTAG 인터페이스를 공격하기 위한 전용 도구를 개발했으며, 전력 차분 분석을 수행하여 32비트 비밀번호를 복원합니다. 비밀번호를 알게 되면 전체 디버그 접근을 개방하고 바이너리 코드를 추출할 수 있습니다. 또한 당사 팀은 전자기 접촉을 사용하여 칩에서 직접 메모리 내용을 읽었습니다. Winbond의 보호는 많은 상용 제품에는 충분하지만 고보안 애플리케이션에는 적합하지 않으며, 당사는 비침습적 및 침습적 방식을 포함한 Winbond MCU 통합 복구 서비스를 제공합니다. 분실된 펌웨어를 복원하거나 구형 MCU를 이식해야 하는 경우 MikaTech가 도와드립니다. 또한 추출된 바이너리 코드를 분석하여 기능을 이해하는 작업도 가능합니다. Winbond 전문 리버스 엔지니어링은 당사를 신뢰해 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

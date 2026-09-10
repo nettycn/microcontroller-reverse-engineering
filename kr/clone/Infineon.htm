@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infineon MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Infineon MCU 리버스 엔지니어링</h1>
+                <p>XMC, AURIX 제품군 및 레거시 C500 시리즈 심층 분석</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Infineon 소개</h2>
+                <p>Infineon Technologies는 자동차, 산업, 보안 응용을 위한 고성능 MCU로 잘 알려진 세계적인 반도체 선도 기업입니다. 포트폴리오는 8비트에서 ARM 및 TriCore™ 기반 32비트 아키텍처를 아우릅니다. 2020년 Cypress Semiconductor를 인수하여 PSoC 및 Wi-Fi/Bluetooth 솔루션을 제품군에 추가했습니다. AURIX 제품군은 ADAS 시스템과 엔진 제어 유닛에 널리 사용되며, XMC 시리즈는 모터 제어 및 전력 변환에 특화되어 있습니다. 레거시 C500 및 C166 제품군은 여전히 많은 산업 시스템에서 발견됩니다. Infineon은 기능 안전(ISO 26262)과 사이버 보안(EVITA)에 중점을 두고 있으며, OPTIGA 보안 요소는 하드웨어 신뢰 루트를 제공합니다. 많은 Infineon MCU에 하드웨어 암호화 가속기가 내장되어 있으며, 폭넓은 개발 도구와 소프트웨어 라이브러리를 제공합니다. Infineon 제품은 가혹한 환경에서의 내구성으로 잘 알려져 있으며, 전기차 구동 인버터 분야에서 강한 입지를 보입니다. MCU는 고정밀 ADC, 타이머 등 아날로그 주변기기를 자주 통합합니다. 베어 메탈 및 RTOS 기반 개발을 모두 지원하며, Zephyr 같은 오픈소스 이니셔티브에 적극 참여합니다. 28nm 및 40nm 첨단 공정을 사용하며, 배터리 구동 응용을 위한 저전력 모드를 제공합니다. 보안은 핵심 초점으로, 보안 부팅과 OTP 메모리 같은 기능을 갖춥니다. Infineon은 안정적인 공급을 통한 수명 주기 관리를 제공하며, 제품은 국제 안전 표준을 준수하고, 취약점 대응 전담 팀을 운영합니다. Infineon MCU는 중요 인프라와 의료 기기에 자주 사용되며, 고신뢰성 설계로 장기 공급을 보장합니다. 에코시스템에는 서드파티 도구 파트너 네트워크가 포함되며, 포괄적인 문서와 응용 노트를 제공합니다. 차세대 자동차 칩을 위한 R&D에 대규모 투자를 하고 있으며, Cypress 인수로 IoT 및 연결성 포트폴리오가 확대되었습니다. 메모리 제품에는 NOR Flash와 SRAM이 포함되며, Infineon은 세계 반도체 시장의 주요 공급업체입니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>AURIX™(TriCore™, 32비트)</h3>
+                <ul>
+                    <li>TC234L</li><li>TC275T</li><li>TC397XP</li><li>TC389QP</li><li>TC212L</li>
+                    <li>TC222S</li><li>TC264D</li><li>TC334L</li><li>TC356</li><li>TC365</li>
+                    <li>TC277</li><li>TC1782</li><li>TC1796</li><li>TC1197</li><li>TC1387</li>
+                </ul>
+                <h3>XMC™(ARM Cortex-M)</h3>
+                <ul>
+                    <li>XMC4500</li><li>XMC4700</li><li>XMC4800</li><li>XMC4100</li><li>XMC4200</li>
+                    <li>XMC1300</li><li>XMC1400</li><li>XMC1200</li><li>XMC1100</li><li>XMC1000</li>
+                    <li>XMC4400</li><li>XMC4300</li><li>XMC4800‑F144</li><li>XMC4500‑F144</li><li>XMC4104</li>
+                </ul>
+                <h3>C500 / C166(레거시, 16비트)</h3>
+                <ul>
+                    <li>SAF‑C509</li><li>SAF‑C515</li><li>SAF‑C516</li><li>SAF‑C517</li><li>SAF‑C541</li>
+                    <li>SAF‑C161</li><li>SAF‑C163</li><li>SAF‑C164</li><li>SAF‑C167</li><li>SAF‑C168</li>
+                    <li>SAF‑C505</li><li>SAF‑C513</li><li>SAF‑C514</li>
+                </ul>
+
+                <h2>Infineon 보안 기능</h2>
+                <p>Infineon은 리버스 엔지니어링과 펌웨어 절도에 대비해 다단계 보호 레벨을 적용합니다. AURIX 제품군에는 전용 암호화 코어를 갖춘 하드웨어 보안 모듈(HSM)이 포함되며, 이 모듈은 부팅 시 암호화된 펌웨어를 복호화하여 무단 판독을 방지합니다. 보안 부팅은 신뢰된 명령만 실행되도록 하여 부트로더 추출이나 침입을 어렵게 만듭니다. 많은 기기에는 디버그 인터페이스를 영구 잠그는 OTP 퓨즈가 있어, 퓨즈를 태우면 JTAG 또는 SWD로 메모리를 읽을 수 없게 됩니다. 그러나 고도화된 공격자는 글리치 공격으로 일시적으로 개방하려 시도할 수 있습니다. Infineon은 중요 명령 영역을 분리하기 위해 메모리 보호 유닛(MPU)도 제공합니다. XMC 시리즈는 고유 기기 식별자와 비밀번호 보호 flash 섹터를 특징으로 하며, 이 섹터를 판독/기록 잠금할 수 있으나 전문 도구는 부채널 분석으로 데이터를 복구할 수 있습니다. 레거시 C166 기기에는 숙련된 엔지니어가 오류 주입으로 전체 펌웨어를 덤프할 수 있는 취약점이 발견되었습니다. 이에 대응하여 Infineon은 펌웨어 업데이트 시 암호화 서명 검증을 도입했으며, 불휘발성 메모리에 침입 감지 기능이 있는 안전한 키 저장소를 제공합니다. 이러한 조치에도 불구하고, 결단력 있는 연구자들은 칩을 개봉하고 직접 검사하여 개별 Infineon 칩을 복제했습니다. Infineon은 새로운 공격 벡터에 대응하기 위해 보안 권고를 지속 갱신하며, 중요 응용에는 외부 보안 요소 사용을 권장합니다. 또한 실행 중 flash 내용을 암호화하는 안전한 부트로더를 제공합니다. 일부 AURIX 옵션에는 이상 동작 시 기기를 재시작하는 워치독이 포함되어 악성 명령 주입 시도를 어렵게 합니다. 추가로 Infineon은 메모리 손상을 감지하기 위해 ECC를 통합하여 오류 주입 공격을 더욱 어렵게 만듭니다. 최신 제품에는 고유 칩 지문을 위한 PUF(물리적 복제 방지 기능)를 사용하여 모조품 제작을 원천 차단합니다. 잠긴 기기에서 데이터를 복구하려면 FIB 수정과 같은 파괴적 방법과 비파괴적 전력 분석을 조합해야 하는 경우가 많습니다. 당사 연구소는 전원 전압 글리치 민감성을 이용하여 XMC 칩에서 펌웨어 추출에 성공했으며, 부팅 시퀀스를 조작하여 보호 영역을 판독하는 방법도 개발했습니다. Infineon의 보호는 신뢰할 수 있지만 완벽히 요새화된 시스템은 존재하지 않습니다. 당사 팀은 전자기 방사와 열 화상을 포함한 새로운 공격 표면을 개척하는 데 앞장서고 있습니다. 당사는 원본 펌웨어를 분실한 레거시 Infineon 제어 장치를 개방하는 작업을 지원해 왔으며, 정밀 분석을 통해 판독 보호가 활성화된 상태에서도 flash 및 EEPROM 내용을 덤프할 수 있습니다. 산업 고객을 위해서는 새로운 플랫폼으로 이전하기 위해 전체 펌웨어 이미지를 복제하는 경우가 많습니다. 당사 서비스는 최고 성공률을 보장하기 위해 파괴적 및 비파괴적 방법을 모두 아우릅니다. Infineon 보호의 지속적인 진화는 당사 도구의 끊임없는 개발을 요구하지만, MikaTech는 어떤 도전에도 대비하고 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

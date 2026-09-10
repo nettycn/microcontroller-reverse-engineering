@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Maxim MCU 리버스 엔지니어링</h1>
+                <p>MAXQ, ARM 기반 솔루션 및 보안 MCU에 대한 깊은 전문성</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Maxim 소개</h2>
+                <p>Maxim Integrated(현재 Analog Devices의 일부)는 MCU를 포함한 아날로그 및 mixed-signal 회로의 선도 제조사입니다. MAXQ 제품군은 광범위한 주변기기를 갖춘 고성능 RISC 코어를 제공하며, IoT 및 보안 응용을 위한 ARM 기반 MCU도 생산합니다. 기기는 초저전력과 소형 패키지로 잘 알려져 있으며, Maxim MCU는 웨어러블, 의료 모니터링, 산업 센서에 널리 사용됩니다. 고정밀 ADC와 온도 센서 같은 고급 아날로그 블록을 통합하며, Maxim 보안 MCU는 스마트 미터, 뱅킹 카드, 인증 토큰에 사용됩니다. 이 회사는 디버거와 컴파일러를 갖춘 완전한 개발 환경을 제공하며, DeepCover® 기술은 고급 침입 감지로 보호를 강화합니다. MCU에는 AES, DES, SHA용 하드웨어 암호화 엔진이 자주 포함되며, 휴대용 전자 기기용 배터리 관리 MCU도 제공합니다. AEC-Q100 수준 제품으로 자동차 분야에서 강한 입지를 보입니다. Maxim 기기는 I2C, SPI, USB, CAN 등 다중 통신 인터페이스를 지원하며, 배터리 구동 및 네트워크 기기를 대상으로 설계되었습니다. Maxim의 아날로그 전문성은 센서 통합과 신호 컨디셔닝을 원활하게 하며, 폭넓은 기술 지원과 응용 노트를 제공합니다. Maxim은 Dallas Semiconductor를 인수하여 1-Wire® 버스와 iButton® 제품을 계승했습니다. 보안 인증 장치는 IP 보호와 기기 페어링에 사용되며, Maxim MCU는 높은 신뢰성과 정밀도로 자주 선택됩니다. mixed-signal 설계에서 오랜 혁신 역사를 가지고 있으며, 포트폴리오에는 범용 및 특화 MCU가 모두 포함됩니다. Industry 4.0과 엣지 컴퓨팅을 위한 새 솔루션을 지속 개발하고 있으며, 보안 지향은 Maxim을 결제 시스템의 선호 선택으로 만들었습니다. 기기는 부채널 및 주입 공격에 대응하도록 설계되었으며, 보안 부팅과 암호화 펌웨어 업데이트도 제공합니다. 칩은 전력망 제어 장치 같은 중요 인프라에 사용되며, 품질에 대한 헌신은 ISO 9001 및 13485 인증으로 드러납니다. 미국과 아시아에 생산 능력을 보유하고 있으며, 레거시 Maxim 제품은 장기 응용을 위해 계속 지원됩니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>MAXQ(16비트 RISC)</h3>
+                <ul>
+                    <li>MAXQ610</li><li>MAXQ612</li><li>MAXQ613</li><li>MAXQ614</li><li>MAXQ615</li>
+                    <li>MAXQ618</li><li>MAXQ620</li><li>MAXQ622</li><li>MAXQ625</li><li>MAXQ628</li>
+                    <li>MAXQ630</li><li>MAXQ632</li><li>MAXQ635</li>
+                </ul>
+                <h3>ARM Cortex-M(MAX32xxx)</h3>
+                <ul>
+                    <li>MAX32600</li><li>MAX32620</li><li>MAX32630</li><li>MAX32640</li><li>MAX32650</li>
+                    <li>MAX32660</li><li>MAX32670</li><li>MAX32680</li><li>MAX32690</li><li>MAX32625</li>
+                    <li>MAX32635</li><li>MAX32645</li><li>MAX32655</li>
+                </ul>
+                <h3>DeepCover 보안 MCU</h3>
+                <ul>
+                    <li>MAXQ1050</li><li>MAXQ1061</li><li>MAXQ1062</li><li>MAXQ1063</li><li>MAXQ1065</li>
+                    <li>MAXQ1080</li><li>MAXQ1081</li><li>MAXQ1082</li><li>MAXQ1085</li>
+                </ul>
+
+                <h2>Maxim 보안 기능</h2>
+                <p>Maxim은 보안에 강한 중점을 두며 다단계 보호 레벨을 적용합니다. DeepCover 기기에는 침해 시 즉시 데이터를 소거하는 효과적인 침입 감지 네트워크가 포함되어 칩에 대한 물리적 공격을 매우 어렵게 만듭니다. 또한 Maxim은 내부 데이터 전송 감청을 방지하기 위해 암호화된 메모리 버스를 사용하며, 보안 MCU는 하드웨어 난수 생성기와 고유 기기 식별자를 갖춥니다. 부트 ROM은 실행 전 펌웨어 서명을 검증하여 무단 명령을 차단하며, 디버그 포트는 영구 잠금 가능한 비밀번호로 보호됩니다. 비밀번호 없이는 메모리를 읽거나 쓸 수 없습니다. Maxim 암호화 엔진은 AES-256 및 RSA-2048을 지원하여 안전한 통신을 제공하며, 전력 분석 공격을 저지하기 위한 부채널 대응 조치도 적용합니다. 이러한 신뢰할 수 있는 기능에도 불구하고 레거시 MAXQ 제품에서 글리치 공격으로 디버그 인터페이스를 개방할 수 있는 취약점이 발견되었습니다. 당사 팀은 시간 부채널을 이용하여 MAXQ610에서 펌웨어 복구에 성공했으며, 전자기 분석을 사용하여 DeepCover 칩에서 키를 추출했습니다. 작업에는 암호화 연산 중 전력 모니터링이 포함됩니다. Maxim 기기를 복제하려면 고유 식별자와 키 자료를 복제해야 하며, 이는 매우 어려운 일입니다. 그러나 원본 펌웨어를 분실한 레거시 시스템의 경우 flash 및 EEPROM 판독을 제공합니다. 비파괴적 오류 주입과 고급 검사 방법을 조합하여 사용하며, 일부 경우 내부 핀 접근을 위해 개봉이 필요합니다. Maxim의 보호는 지속 개선 중이지만 100% 안전한 시스템은 존재하지 않습니다. 당사는 서명 검증을 방해하여 보안 부팅 프로세스를 무력화하는 방법을 개발했으며, 당사 연구소는 부분 손상 기기에서도 데이터를 복구할 수 있습니다. Maxim 펌웨어의 완전한 추출 및 분석을 제공하며, 분실된 코드 복구가 필요하든 테스트용 기기 복제가 필요하든 MikaTech가 가능합니다. 당사는 최신 보안 패치를 추적하고 있으며, Maxim MCU의 정밀 평가를 위해 문의해 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

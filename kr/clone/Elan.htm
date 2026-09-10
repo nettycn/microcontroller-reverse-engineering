@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elan Microelectronics 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Elan Microelectronics 리버스 엔지니어링</h1>
+                <p>Elan 8·32비트 MCU 및 터치 컨트롤러 전문 서비스</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>브랜드 개요</h2>
+                <p>Elan Microelectronics는 1994년에 설립된 대만의 팹리스 반도체 기업으로, 주로 가전에 쓰이는 경제형 8비트 MCU로 잘 알려져 있습니다. 자사 EM78 시리즈는 Microchip의 PIC 아키텍처와 호환되지만 차이가 있으며, ARM 기반 32비트 MCU와 정전식 터치 컨트롤러도 생산합니다. Elan 칩은 리모컨, 소형 가전, 게임, 컴퓨터 주변기기, 스마트홈 기기에 등장하며 중국 및 동남아 시장에서 강력한 위치를 차지합니다.</p>
+                <p>다수의 Elan 디바이스에는 EEPROM과 flash가 잠금 비트와 함께 내장되어 있지만, 구현이 단순한 경우가 많고 단순한 잠금 비트에 의존하므로 고급 제품에 비해 리버스 엔지니어링이 비교적 쉽습니다. 그럼에도 자체 암호화 알고리즘을 갖춘 디바이스를 다루었습니다. 또한 Elan은 양산용 OTP(일회성 프로그래밍) 모델을 제공하는데, 재프로그래밍이 불가능하므로 특수한 판독 기법이 필요합니다. 당사 팀은 정밀 현미경 검사로 OTP형 Elan 칩에서 코드를 추출하는 방법을 개발했으며, 다수의 산업 고객을 위해 Elan MCU 복제에 성공했습니다.</p>
+                <p>당사는 Elan의 자체 프로그래밍 인터페이스와 디버그 프로토콜을 잘 알고 있으며, 보호 잠금을 우회하여 펌웨어 전체를 읽을 수 있습니다. 당사 서비스는 flash 및 OTP형 Elan 디바이스를 모두 아우르며, 펌웨어 추출, 디스어셈블리, 기능 분석, 구형 칩 교체 솔루션을 포함합니다. Elan 관련 100건 이상의 성공 프로젝트를 보유한 당사는 Elan 기반 제품에 대한 제어권을 회복하도록 돕는 전문성을 갖추고 있습니다.</p>
+
+                <h2>MCU 시리즈 및 모델</h2>
+                <h3>EM78 시리즈 (8비트, PIC 유사)</h3>
+                <ul>
+                    <li>EM78P153</li>
+                    <li>EM78P156</li>
+                    <li>EM78P258</li>
+                    <li>EM78P259</li>
+                    <li>EM78P260</li>
+                    <li>EM78P417</li>
+                    <li>EM78P418</li>
+                    <li>EM78P447</li>
+                    <li>EM78P451</li>
+                    <li>EM78P468</li>
+                    <li>EM78P469</li>
+                    <li>EM78P508</li>
+                    <li>EM78P509</li>
+                    <li>EM78P520</li>
+                    <li>EM78P810</li>
+                </ul>
+                <h3>ePort 시리즈 (32비트 ARM Cortex-M)</h3>
+                <ul>
+                    <li>ePort-M0 (EM32M0)</li>
+                    <li>ePort-M3 (EM32M3)</li>
+                    <li>ePort-M4 (EM32M4)</li>
+                    <li>EM32F302</li>
+                    <li>EM32F303</li>
+                    <li>EM32F305</li>
+                    <li>EM32F307</li>
+                    <li>EM32F401</li>
+                    <li>EM32F405</li>
+                    <li>EM32F407</li>
+                    <li>EM32F411</li>
+                    <li>EM32F412</li>
+                    <li>EM32F413</li>
+                    <li>EM32F415</li>
+                    <li>EM32F417</li>
+                </ul>
+                <h3>터치 컨트롤러</h3>
+                <ul>
+                    <li>EMC1051</li>
+                    <li>EMC1052</li>
+                    <li>EMC1053</li>
+                    <li>EMC1055</li>
+                    <li>EMC1070</li>
+                    <li>EMC1080</li>
+                    <li>EMC1090</li>
+                    <li>EMC1100</li>
+                    <li>EMC1200</li>
+                    <li>EMC1300</li>
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 인사이트</h2>
+                <p>Elan MCU는 일반적으로 구성 비트에 기반한 단순한 보안 체계를 적용합니다. 코드 보호는 프로그래밍 인터페이스를 통한 프로그램 메모리 판독을 막지만, 전원 시퀀스 타이밍으로 이 잠금을 우회할 수 있는 경우가 많습니다. 판독 시퀀스 중 전원 글리치를 발생시켜 칩이 보안 검사를 건너뛰게 하고 메모리 전체를 덤프할 수 있습니다. OTP 모델의 잠금은 영구적이지만, 디캡슐레이션과 주사전자현미경으로 각 메모리 셀의 전하 상태를 읽는 간섭적 기법으로 비트를 추출할 수 있습니다. 당사는 이 방법으로 OTP형 Elan 칩에서 코드 전체를 복원했습니다.</p>
+                <p>flash 디바이스의 경우 대개 디버그 인터페이스(ICSP)로 내용을 읽을 수 있으며, 인터페이스가 비활성화되어 있어도 리셋 벡터 조작으로 다시 활성화할 수 있습니다. 또한 버퍼 오버플로를 이용해 flash 잠금을 여는 특수 부트로더를 개발하여, 원본 칩을 수정하지 않고 펌웨어를 추출합니다. ARM 기반 32비트 Elan 디바이스는 RDP(읽기 보호)를 포함한 더 신뢰할 수 있는 보호를 갖추고 있지만, 옵션 바이트 글리치 공격으로 RDP를 낮출 수 있다는 것을 발견했으며, 이후 표준 SWD로 flash를 읽을 수 있습니다. 또한 펌웨어 인증에 쓰이는 고유 ID 영역에 저장된 암호화 키를 복원하고 정밀하게 복제할 수 있습니다.</p>
+                <p>ARM 기반 Elan MCU에 대한 당사의 부채널 분석은 AES 절차에서 누출을 드러내 RDP가 최고 수준이더라도 비밀 키를 추출할 수 있게 했습니다. 터치 컨트롤러는 보호가 최소화되어 대개 구성을 직접 읽을 수 있습니다. 당사는 모방 제품에서 기능을 재현하도록 Elan의 터치 펌웨어를 복제했으며, 접근 방식은 고객 요구에 따라 비간섭적·간섭적 기법을 혼용합니다. 또한 터치 감지에 사용된 알고리즘을 복원하여 호환 대체품을 만들 수 있습니다. 일반적으로 Elan 보호는 경쟁사보다 약한 경우가 많지만, 당사는 그럼에도 100% 성공을 보장하도록 정밀한 기법을 적용합니다.</p>
+                <p>당사는 해킹 불가능하다고 여겨졌던 Elan 칩에서 펌웨어를 추출했으며, 당사 도구는 타이밍과 주변장치를 포함한 칩의 동작 전체를 재현하여 대상 시스템에서 원활히 작동하는 기능 복제본을 만듭니다. 또한 암호화 방식을 역공학하여 Elan MCU에 저장된 암호화 데이터를 복호화하는 서비스를 제공합니다. 당사 팀은 새로운 공격을 연구하고 업데이트에 앞서며, 추출 과정에 대한 상세 문서를 기록으로 제공합니다. MikaTech와 함께라면 Elan 관련 어떤 보안 과제도 넘을 수 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

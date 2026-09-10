@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cypress 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Cypress(Infineon) MCU 리버스 엔지니어링</h1>
+                <p>PSoC, FM0, FM3, FM4 및 Traveo 제품군 전문</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Cypress(현재 Infineon) 회사 개요</h2>
+                <p>현재 Infineon Technologies의 일부가 된 Cypress Semiconductor는 첨단 임베디드 솔루션의 선도적 공급업체였습니다. 동사는 MCU와 프로그래머블 아날로그·디지털 블록을 결합한 프로그래머블 온칩 시스템(PSoC)으로 유명합니다. 또한 Cypress는 자동차·산업 응용용 ARM Cortex-M 코어 기반 FM 시리즈와 차체 전자장치 및 계기판용 Traveo 제품군을 개발했습니다. 자사 USB 제어기와 Bluetooth 솔루션도 널리 쓰입니다. Cypress 디바이스는 가전, 자동차, 산업 제어, 사물인터넷에 등장합니다. PSoC 시리즈는 개발자가 맞춤형 주변장치를 구성할 수 있는 유연성으로 특히 인기가 높습니다. Cypress는 시큐어 부팅, flash 암호화, 간섭 감지 등 신뢰할 수 있는 보안 기능을 적용했습니다. 또한 고유 디바이스 ID와 암호화 가속기를 제공했습니다. 하지만 모든 MCU와 마찬가지로 리버스 엔지니어링 공격에 취약합니다. 당사 팀은 PSoC 1, 3, 4, 5LP, 6과 FM0, FM3, FM4, Traveo 제품군을 포함한 Cypress 디바이스 다루는 폭넓은 경험이 있습니다. 당사는 이들 고유의 프로그래밍 인터페이스(SWD, JTAG 및 전용 프로토콜)를 다루는 특수 도구를 개발했습니다. 당사는 부트로더 취약점과 전력 분석을 이용해 잠긴 PSoC 디바이스에서 펌웨어 추출에 성공했습니다. FM 시리즈에 대해서는 전압 글리치와 전자기 오류 주입을 포함한 유사한 기법을 적용합니다. 또한 가장 견고한 디바이스에 대한 디캡슐레이션 서비스를 제공합니다. 당사 고객은 분실된 소스 코드 복원, 직렬 디바이스 복제, 경쟁 제품 분석에 당사 서비스를 활용했습니다. 당사는 추출된 펌웨어에 대한 완전한 문서를 제공하고 추가 분석을 지원합니다. 당사의 전문성을 바탕으로 Cypress MCU의 복호화, 판독, 해킹, 추출, 덤프, 복원, 복제를 효율적으로 수행할 수 있습니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <ul>
+                    <li><strong>PSoC 1 (8-bit M8C)</strong> – CY8C20x34, CY8C21x34, CY8C22x45, CY8C24x33, CY8C24x94, CY8C25x45, CY8C26x45, CY8C27x43, CY8C28x45, CY8C29x66</li>
+                    <li><strong>PSoC 3 (8051)</strong> – CY8C30x, CY8C31x, CY8C32x, CY8C33x, CY8C34x, CY8C35x, CY8C36x, CY8C38x, CY8C39x, CY8C3A</li>
+                    <li><strong>PSoC 4 (ARM Cortex-M0)</strong> – CY8C40xx, CY8C41xx, CY8C42xx, CY8C43xx, CY8C44xx, CY8C45xx, CY8C46xx, CY8C47xx, CY8C48xx, CY8C49xx</li>
+                    <li><strong>PSoC 5LP (Cortex-M3)</strong> – CY8C52xx, CY8C53xx, CY8C54xx, CY8C55xx, CY8C56xx, CY8C57xx, CY8C58xx, CY8C59xx, CY8C5A, CY8C5B</li>
+                    <li><strong>PSoC 6 (Cortex-M4 + M0)</strong> – CY8C61xx, CY8C62xx, CY8C63xx, CY8C64xx, CY8C65xx, CY8C66xx, CY8C67xx, CY8C68xx, CY8C69xx, CY8C6A</li>
+                    <li><strong>FM0 (Cortex-M0)</strong> – S6E1A1, S6E1A2, S6E1A3, S6E1A4, S6E1B, S6E1C, S6E1D, S6E1E, S6E1F, S6E1G</li>
+                    <li><strong>FM3 (Cortex-M3)</strong> – MB9B100, MB9B200, MB9B300, MB9B400, MB9B500, MB9B600, MB9B700, MB9B800, MB9B900, MB9BA00</li>
+                    <li><strong>FM4 (Cortex-M4)</strong> – MB9F500, MB9F600, MB9F700, MB9F800, MB9F900, MB9FA00, MB9FB00, MB9FC00, MB9FD00, MB9FE00</li>
+                    <li><strong>Traveo (Automotive)</strong> – S6J3000, S6J3100, S6J3200, S6J3300, S6J3400, S6J3500, S6J3600, S6J3700, S6J3800, S6J3900</li>
+                </ul>
+
+                <h2>보안 기능과 공격 전략</h2>
+                <p>Cypress 디바이스는 포괄적인 보안 구조를 갖춥니다. PSoC 시리즈는 flash 보안 비트를 제공하며, 설정 시 디버그 인터페이스를 통한 외부 판독을 잠급니다. 또한 소프트웨어 보호에 쓸 수 있는 고유 실리콘 ID를 갖추고 있습니다. FM 및 Traveo 제품군에 대해 Infineon은 시큐어 부팅, 암호화 flash 등 추가 기능과 함께 유사한 읽기 보호를 제공합니다. 일부 디바이스는 디버깅을 영구적으로 비활성화하는 "보호 잠금"을 지원합니다. 또한 Cypress는 암호화 및 인증용 암호화 모듈을 제공합니다. 이러한 강력한 조치에도 불구하고 당사는 이를 우회하는 다수의 방법을 개발했습니다. PSoC 디바이스의 경우 부트로더 취약점을 이용해 보안 비트를 우회할 수 있다는 것을 발견했습니다. 특수 명령으로 디바이스를 테스트 모드로 전환하여 flash 전체를 읽을 수 있습니다. FM 시리즈에 대해서는 시큐어 부팅에 사용된 암호화 키를 추출하도록 전력 분석을 사용합니다. 키를 확보하면 펌웨어를 복호화할 수 있습니다. 또한 로딩 중 보안 검사를 건너뛰도록 오류 주입을 사용하여 완전한 접근을 얻습니다. 알려진 익스플로잇이 없는 디바이스에 대해서는 디캡슐레이션과 flash 직접 판독을 수행합니다. 여기에는 다이 제거와 현미경으로 각 메모리 셀의 전하 상태를 읽는 것이 포함됩니다. 이는 비용이 많이 들지만 효과적입니다. 당사 팀은 모든 주요 Cypress 제품군에서 펌웨어 추출에 성공했습니다. 또한 복제 서비스를 제공하여 잠금 디바이스를 가져와 작동하는 복제본을 만듭니다. 이는 더 이상 구할 수 없는 구형 자동차 부품에 특히 유용합니다. 당사 연구실은 비간섭적·간섭적 공격 모두를 위한 전문 장비를 갖추고 있습니다. 당사는 엄격한 기밀 정책을 준수하며 발견 사항에 대한 상세한 보고서를 제공합니다. 당사 고객은 다양한 분야에서 당사 서비스를 활용했습니다. MikaTech와 함께라면 높은 성공률과 전문적인 처리를 신뢰할 수 있습니다. 당사는 앞서 나가기 위해 새로운 취약점을 지속적으로 연구합니다. 따라서 Cypress MCU의 복호화, 판독, 해킹, 추출, 덤프, 복원, 복제 등 어떤 요구든 당사는 필요한 지식과 도구를 갖추고 있습니다. 구체적인 요구 사항 논의를 위해 문의해 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

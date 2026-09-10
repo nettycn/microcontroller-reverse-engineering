@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altera 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Altera FPGA 및 CPLD 리버스 엔지니어링</h1>
+                <p>Cyclone, Stratix, Arria, MAX 제품군에 대한 깊은 전문성</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Altera 회사 개요</h2>
+                <p>현재 Intel(Intel 프로그래머블 솔루션 그룹)의 자회사가 된 Altera Corporation은 프로그래머블 로직 디바이스의 선도적 공급업체입니다. Altera는 1983년에 설립되었으며, CMOS 기술로 프로그래머블 로직 어레이를 최초로 적용하고 이후 재프로그래밍 가능한 최초의 CPLD와 FPGA를 선보였습니다. 자사 디바이스는 가전부터 통신·자동차·군사 장비·데이터센터에 이르기까지 광범위한 응용에 쓰입니다. Altera 제품군에는 고성능 Stratix 시리즈, 미드레인지 Arria 시리즈, 경제형 Cyclone 제품군, 그리고 CPLD MAX 시리즈가 포함됩니다. 2015년 Intel은 Altera를 인수해 FPGA를 자사 프로세서와 결합, 새로운 이기종 컴퓨팅 플랫폼을 구축했습니다. Altera FPGA는 SRAM 기반이므로 전원이 끊기면 구성을 잃고 외부 구성 메모리(대개 직렬 flash 또는 EEPROM)를 필요로 합니다. 이 구성 bitstream은 지적재산 보호를 위해 AES-256으로 암호화할 수 있습니다. Altera는 또한 JTAG 인증, 간섭 방지 등 보안 디바이스 기능도 제공합니다. Quartus Prime 개발 환경은 다양한 IP 코어와 설계 방법론을 지원합니다. Altera 디바이스는 높은 성능과 집적도, 고급 트랜시버 기능으로 유명합니다. 또한 ARM Cortex-A9 및 A53 부트 코어를 SoC-FPGA에 통합하여 소프트웨어 프로그래밍과 하드웨어 가속을 결합했습니다. Altera FPGA는 5G 인프라, 산업 자동화, 우주 산업에 널리 쓰입니다. 동사는 품질과 신뢰성을 중시하여 많은 디바이스가 자동차(AEC-Q100) 및 군사 규격 인증을 획득했습니다. Altera는 시큐어 부팅, PUF(물리적 복제 불능 함수), 부채널 공격 대응 등 포괄적인 보호 조치도 제공합니다. 이러한 보호에도 불구하고 Altera 디바이스 리버스 엔지니어링은 레거시 시스템 복원, IP 검증, 경쟁 분석 시 반복적으로 요청되는 작업입니다. 당사 팀은 휘발성 SRAM과 외부 구성 메모리 모두에서 구성 bitstream을 추출한 풍부한 경험이 있습니다. 당사는 암호화가 활성화된 디바이스를 포함한 수백 종의 Altera FPGA에서 설계를 복원했습니다. 이 과정에는 구성 프로토콜 이해, 구성 인터페이스 취약점 활용, 또는 외부 메모리 직접 판독이 포함됩니다. 판독이 비활성화된 디바이스에 대해서는 전원 인가 중 구성 핀 검사 등 간섭적 기법을 적용합니다. Altera의 보안 기능은 시간에 따라 발전해 왔지만 당사는 최신 공격 벡터를 추적합니다. 또한 구성 데이터를 새 디바이스에 복사하는 Altera FPGA 복제 서비스를 제공합니다. 당사 연구실은 고속 로직 분석기, FPGA 디버그 보드, 추출 자동화용 자체 소프트웨어를 갖추고 있습니다. 당사는 구형 MAX 7000 시리즈부터 최신 Stratix 10에 이르기까지 모두 공격에 성공했습니다. Altera의 bitstream 암호화는 신뢰할 수 있지만 당사는 부채널 분석, 특히 복호화 중 전원 모니터링으로 키를 복원하는 방법을 개발했습니다. 또한 오류 주입으로 구성 오류를 유발하고 보호 잠금을 우회합니다. 당사의 목표는 원본 파일을 분실해도 가치 있는 설계 데이터를 복원할 수 있도록 신뢰할 수 있고 효과적인 서비스를 제공하는 것입니다. 당사의 전문성을 바탕으로 Altera FPGA의 복호화, 판독, 덤프, 나아가 높은 성공률의 복제까지 가능합니다. 당사는 경제형 Cyclone IV부터 고성능 Arria 10까지 각 제품군의 세부 사항을 이해합니다. 당사의 접근은 전기적 특성 분석, 타이밍 분석, 물리적 검사를 결합해 어떤 장벽이든 넘습니다. 또한 당사는 원시 bitstream에서 넷리스트를 재구성하는 자체 알고리즘을 개발하여 내부 로직을 파악할 수 있게 합니다. 분실된 구성의 복원, 직렬 디바이스 복제, 경쟁 제품 분석 등 어떤 요구든 MikaTech가 Altera 리버스 엔지니어링의 신뢰할 수 있는 파트너입니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <ul>
+                    <li><strong>Cyclone</strong> – EP1C3, EP1C6, EP1C12, EP1C20, EP2C5, EP2C8, EP2C20, EP2C35, EP2C50, EP2C70, EP3C5, EP3C10, EP3C16, EP3C25, EP3C40</li>
+                    <li><strong>Cyclone V</strong> – 5CEBA2, 5CEBA4, 5CEBA5, 5CEBA7, 5CEBA9, 5CEFA2, 5CEFA4, 5CEFA5, 5CEFA7, 5CEFA9</li>
+                    <li><strong>Arria</strong> – EP2AGX45, EP2AGX65, EP2AGX95, EP2AGX125, EP2AGX190, EP2AGX260, EP2AGX350, EP2AGX400, EP2AGX500, EP2AGX600</li>
+                    <li><strong>Arria 10</strong> – 10AX016, 10AX022, 10AX027, 10AX032, 10AX045, 10AX057, 10AX066, 10AX085, 10AX090, 10AX115</li>
+                    <li><strong>Stratix</strong> – EP1S10, EP1S20, EP1S25, EP1S30, EP1S40, EP1S60, EP1S80, EP2S15, EP2S30, EP2S60, EP2S90, EP2S130, EP2S180, EP3S50, EP3S110</li>
+                    <li><strong>Stratix V</strong> – 5SGXEA3, 5SGXEA5, 5SGXEA7, 5SGXEA9, 5SGSMD3, 5SGSMD5, 5SGSMD8, 5SGSMD4, 5SGSMD6, 5SGSMD2</li>
+                    <li><strong>MAX</strong> – EPM7032, EPM7064, EPM7128, EPM7160, EPM7256, EPM7512, EPM1270, EPM2210, EPM240, EPM570</li>
+                    <li><strong>MAX II</strong> – EPM2210, EPM240, EPM570, EPM1270, EPM3064, EPM3128, EPM3256, EPM3512, EPM570T, EPM1270T</li>
+                    <li><strong>SoC FPGA (Cyclone V, Arria V)</strong> – 5CSEMA2, 5CSEMA4, 5CSEMA5, 5CSEMA6, 5CSXFC2, 5CSXFC4, 5CSXFC6, 5CSXFC5, 5CSXFC7, 5CSTFD5</li>
+                </ul>
+
+                <h2>보안 기능과 공격 벡터</h2>
+                <p>Altera FPGA에는 구성 bitstream을 무단 접근으로부터 보호하기 위한 일련의 보안 기능이 있습니다. 가장 중요한 것은 AES-256으로 구성 데이터를 암호화하는 것으로, 이는 외부 메모리 디바이스에 저장될 수 있습니다. 암호화 키는 FPGA 내부 비휘발성 메모리(eFuse 또는 배터리 지원 RAM)에 저장되며 외부로 노출되지 않습니다. Altera는 또한 보호된 구성 모드를 지원하여 FPGA가 HMAC(메시지 인증 코드)로 bitstream의 유효성을 검증합니다. 이는 인가된 구성만 로드되도록 보장하여 악의적 주입을 차단합니다. 이에 더해 JTAG 인터페이스는 보안 퓨즈 소손으로 영구 비활성화되어 판독이나 재프로그래밍 시도를 잠글 수 있습니다. 일부 디바이스에는 과전압 감지 기능도 있어 글리치 감지 시 구성을 지웁니다. 최신 Altera 제품군에는 고유 디바이스 지문을 생성하여 안전한 키 생성에 쓰이는 PUF가 포함됩니다. 그럼에도 공격에 완전히 안전한 시스템은 없습니다. 당사 리버스 엔지니어링 팀은 이 보호를 우회하는 효과적인 방법을 개발했습니다. 예를 들어 디바이스가 키와 데이터에 따라 다른 전력을 소비하므로 부채널 전력 분석으로 복호화 중 AES 키를 추출할 수 있습니다. 다수의 파형을 포착하고 차분 전력 분석(DPA)을 적용하면 내부 저장소에 접근하지 않고도 키를 복원합니다. 또 다른 방법은 전원이나 클록 신호에 글리치를 발생시켜 보안 상태머신을 마비시키고 JTAG 인터페이스를 짧은 시간 여는 것입니다. 이를 통해 SRAM 셀에서 구성 데이터를 직접 읽을 수 있습니다. 판독이 비활성화된 디바이스의 경우, 구성이 외부 flash에서 로드되므로 전원 인가 중 구성 핀(DATA, DCLK, nCONFIG)을 도청하여 bitstream을 복원할 수 있습니다. 암호화를 사용하지 않은 경우 이 방법으로 완전한 bitstream 포착에 성공했습니다. 암호화가 활성화되어 있으면 디바이스를 디캡슐레이션하고 FIB로 내부 데이터 버스를 검사합니다. 이는 정밀함을 요하는 첨단 기법이지만 Stratix 및 Arria 디바이스에서 암호화된 키 복원에 성공했습니다. 또한 전자기(EM) 분석을 사용해 구성 중 생성되는 방사를 포착하여 bitstream 내용을 드러낼 수 있습니다. 당사 팀은 구성 클록 주파수에 동기화하고 데이터 라인을 정밀 샘플링하는 특수 장비를 개발했습니다. EEPROM이나 flash를 사용하는 MAX CPLD와 같은 구형 디바이스의 경우, 보안 퓨즈가 소손되지 않았다면 표준 프로그래머로 메모리 내용을 간단히 읽을 수 있습니다. 이 경우 자외선 조사나 전압 인가로 퓨즈를 리셋하며, EEPROM 기반 CPLD 다수에 적용했습니다. 당사 연구실은 고급 오실로스코프, 로직 분석기, Altera 디바이스 전용 프로그래머를 비롯한 다양한 도구를 갖추고 있습니다. 또한 원시 bitstream을 분석·해석하여 읽을 수 있는 넷리스트나 완전한 기능 복제본으로 변환하는 소프트웨어 도구를 개발했습니다. 이를 통해 고객은 설계를 복원하고 구형 제품을 갱신하거나 경쟁 분석을 수행할 수 있습니다. Altera 디바이스에 대한 당사의 성공률은 매우 높으며 14nm 및 20nm 최신 제품군까지 공격했습니다. 당사는 FPGA 보안 연구의 최전선에 서서 귀사의 리버스 엔지니어링 과제에 항상 해결책을 제공할 수 있도록 노력합니다. Altera FPGA의 복호화, 판독, 해킹, 추출, 덤프, 복원, 복제, 복제본 제작 등 어떤 요구든 MikaTech가 필요한 전문성과 도구를 갖추고 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigaDevice Semiconductor 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>GigaDevice Semiconductor 리버스 엔지니어링</h1>
+                <p>GigaDevice GD32 ARM Cortex-M MCU 및 SPI NOR Flash 전문 서비스</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>브랜드 개요</h2>
+                <p>GigaDevice는 2005년에 설립된 중국 팹리스 반도체 기업으로, ARM Cortex-M 기반 32비트 MCU인 GD32 시리즈와 폭넓은 SPI NOR flash 메모리로 알려져 있습니다. GD32 MCU는 STM32와 핀 호환되어 경제적인 대안을 제공하며, 가전, 사물인터넷, 산업 제어, 모터 제어, HMI, 음향 분야에서 인기를 얻었습니다. 또한 GD32V 시리즈에서 RISC-V 기반 MCU를 제공하며, 초기 양산되는 RISC-V 디바이스 중 하나입니다.</p>
+                <p>자사 flash 메모리에는 쓰기 보호, 고유 ID 등 보안 기능이 포함되지만, 많은 중국 공급업체와 마찬가지로 보안 구현이 일정하지 않을 수 있습니다. 당사는 레거시 시스템 지원이 필요한 고객을 위해 다수의 GD32 칩을 역공학하여, 잠긴 GD32 MCU에서 첨단 기법으로 펌웨어를 추출했습니다. 또한 GigaDevice SPI flash 칩에서 데이터를 복원하며, 당사 서비스는 완전한 펌웨어 추출, 분석, 복제, 고유 ID 교체를 포함하여 인증에 의존하는 시스템 재현에 유용합니다.</p>
+                <p>당사는 펌웨어 역공학을 통해 고객이 STM32에서 GD32로 마이그레이션하도록 지원했으며, 당사의 전문성은 F1부터 F4 이상까지 모든 GD32 제품군을 아우릅니다. 또한 GD32 보안 평가 교육을 제공하며, MikaTech와 함께라면 복제된 GD32 칩을 사용해 공급망 문제를 해결하고 높은 품질과 빠른 일정을 보장받을 수 있습니다.</p>
+
+                <h2>MCU 시리즈 및 모델</h2>
+                <h3>GD32F1 시리즈 (ARM Cortex-M3)</h3>
+                <ul>
+                    <li>GD32F103C8</li>
+                    <li>GD32F103CB</li>
+                    <li>GD32F103R8</li>
+                    <li>GD32F103RB</li>
+                    <li>GD32F103V8</li>
+                    <li>GD32F103VB</li>
+                    <li>GD32F103ZE</li>
+                    <li>GD32F103ZD</li>
+                    <li>GD32F105RC</li>
+                    <li>GD32F107RC</li>
+                    <li>GD32F107VC</li>
+                    <li>GD32F130C8</li>
+                    <li>GD32F130R8</li>
+                    <li>GD32F150C8</li>
+                    <li>GD32F150R8</li>
+                </ul>
+                <h3>GD32F2 시리즈 (ARM Cortex-M3)</h3>
+                <ul>
+                    <li>GD32F205RC</li>
+                    <li>GD32F205VC</li>
+                    <li>GD32F205ZE</li>
+                    <li>GD32F207RC</li>
+                    <li>GD32F207VC</li>
+                    <li>GD32F207ZE</li>
+                    <li>GD32F207ZG</li>
+                    <li>GD32F215RC</li>
+                    <li>GD32F215VC</li>
+                    <li>GD32F215ZE</li>
+                    <li>GD32F220RC</li>
+                    <li>GD32F220VC</li>
+                    <li>GD32F220ZE</li>
+                    <li>GD32F230C8</li>
+                    <li>GD32F230R8</li>
+                </ul>
+                <h3>GD32F3 시리즈 (ARM Cortex-M4)</h3>
+                <ul>
+                    <li>GD32F303CC</li>
+                    <li>GD32F303RC</li>
+                    <li>GD32F303VC</li>
+                    <li>GD32F303ZE</li>
+                    <li>GD32F305RC</li>
+                    <li>GD32F305VC</li>
+                    <li>GD32F307RC</li>
+                    <li>GD32F307VC</li>
+                    <li>GD32F310C8</li>
+                    <li>GD32F310R8</li>
+                    <li>GD32F330C8</li>
+                    <li>GD32F330R8</li>
+                    <li>GD32F350C8</li>
+                    <li>GD32F350R8</li>
+                    <li>GD32F370C8</li>
+                </ul>
+                <h3>GD32V 시리즈 (RISC-V)</h3>
+                <ul>
+                    <li>GD32VF103C8</li>
+                    <li>GD32VF103CB</li>
+                    <li>GD32VF103R8</li>
+                    <li>GD32VF103RB</li>
+                    <li>GD32VF103V8</li>
+                    <li>GD32VF103VB</li>
+                    <li>GD32VF103ZE</li>
+                    <li>GD32VF103ZD</li>
+                    <li>GD32VF103ZG</li>
+                    <li>GD32VF105RC</li>
+                    <li>GD32VF105VC</li>
+                    <li>GD32VF107RC</li>
+                    <li>GD32VF107VC</li>
+                    <li>GD32VF130C8</li>
+                    <li>GD32VF130R8</li>
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 인사이트</h2>
+                <p>GigaDevice MCU는 STM32와 유사한 보안 기능(읽기 보호 RDP 포함)을 적용합니다. RDP 1 수준은 디버그 인터페이스를 통한 flash 판독을 막으며, 수준 2는 디버깅을 영구 비활성화합니다. 당사는 글리치 공격으로 GD32 칩의 RDP를 우회하는 방법을 개발했습니다. 리셋 중 전원 전압을 조작하면 칩이 보호 검사를 건너뛰어 flash 내용 전체를 읽을 수 있습니다. 또한 옵션 바이트 조작으로 디바이스 잠금을 해제할 수 있으며, GD32F1, F2, F3 및 V 시리즈에서 펌웨어 추출에 성공했습니다.</p>
+                <p>flash 메모리는 무단 수정을 막기 위한 쓰기 보호도 갖추고 있습니다. 이는 유사한 글리치로 일시적으로 비활성화하여 우회할 수 있습니다. GD32V의 RISC-V 칩의 경우 보안 모델은 유사하지만 부팅 시퀀스가 다릅니다. 당사는 부팅 ROM을 역공학하여 보안 결정을 이해하고, 이를 통해 GD32 디바이스용 범용 잠금 해제 도구를 만들었습니다. 또한 부채널 분석은 시큐어 부팅에 사용되는 암호화 키를 복원할 수 있으며, 인증된 디바이스를 재현하도록 고유 디바이스 ID를 복제할 수 있습니다. 이는 펌웨어를 특정 칩에 묶는 시스템에 매우 중요합니다.</p>
+                <p>GigaDevice SPI flash 메모리의 경우 보호 비트가 설정되어도 소프트웨어 및 하드웨어 기법을 모두 사용해 내용을 읽을 수 있습니다. 또한 부분적으로 손상된 flash 칩에서 데이터를 복원할 수 있습니다. 당사의 전문성은 다수의 세대와 다양한 패키지 유형을 아우르며, 빠른 접근을 위한 알려진 취약점 라이브러리를 개발하여 프로젝트 시간을 단축합니다. 당사는 추출 과정에 대한 상세 문서를 제공하며, 펌웨어를 재엔지니어링하여 다른 플랫폼으로 이식할 수 있습니다. 당사 팀은 ARM 및 RISC-V 어셈블리에 정통하며 알고리즘, 상수, 구성 데이터를 식별·추출할 수 있습니다. 높은 성공률과 경제적인 서비스로 MikaTech는 GD32 리버스 엔지니어링의 신뢰할 수 있는 파트너입니다.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

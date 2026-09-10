@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT MCU 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        우리는 임베디드 시스템을 개봉하고 분석하며 높은 정밀도로 재구성합니다.
+                        펌웨어 추출, 실리콘 구조 분석 분야의 전문 서비스를 제공합니다
+                        및 MCU 보안 평가를 수행합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="회사 사무실" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 펌웨어 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>ICT MCU 리버스 엔지니어링</h1>
+                <p>8051 호환 레거시 MCU 및 OTP MCU 전문</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>ICT 소개</h2>
+                <p>ICT(Integrated Circuit Technology)는 덜 알려져 있지만 주목할 만한 MCU 제조사로, 주로 8051 호환 코어에 집중합니다. 소비 기기와 공구를 위한 경제적인 OTP(일회성 프로그램 가능) MCU를 공급하며, ICT 기기는 리모컨, 완구, 소형 가전에서 흔히 발견됩니다. 제품군에는 mask ROM과 flash 옵션이 모두 포함됩니다. ICT MCU는 저전력과 소형 패키지로 잘 알려져 있으며, DIP부터 QFN까지 다양한 패키지를 제공합니다. 또한 칩용 개발 도구와 프로그래머를 공급하며, 대량 생산 및 저비용 응용 분야에 주력합니다. 8051 코어는 Intel 표준 명령어 집합과 완전 호환되며, PWM과 비교기 같은 부가 기능으로 설계를 보완합니다. 노이즈 환경에서도 신뢰성 평판을 얻고 있으며, 업데이트가 필요 없는 고정 기능 펌웨어에 OTP 기기가 인기가 높습니다. 또한 파라미터 저장용 EEPROM 탑재 MCU도 생산합니다. 포트폴리오에는 범용 칩과 특화 칩이 모두 포함되며, 전원 공급 장치, 충전기, 모터 드라이버에 자주 사용됩니다. ICT는 응용 노트와 표준 작업용 코드 예제를 제공하며, 단순화를 지향하는 이 회사의 접근 방식은 기기 통합을 간소화합니다. 맞춤형 펌웨어 개발 서비스도 제공하며, 산업용 온도 범위에서 칩을 사용할 수 있습니다. ICT 가격은 경쟁력이 있어 예산 제약이 있는 프로젝트에 적합합니다. 낮은 인지도에도 불구하고 ICT MCU는 아시아 시장에 널리 보급되어 있으며, 중국과 동남아시아에서 강력한 유통망을 보유하고 있습니다. 어셈블리어와 C 언어를 모두 지원하며, 핀 호환성이 있어 다른 8051 옵션과 쉽게 대체할 수 있습니다. 새로운 저전력 슬립 모드로 지속 혁신하고 있으며, 워치독 타이머와 전압 강하 감지기도 추가하고 있습니다. 품질에 대한 ICT의 헌신은 제품의 긴 수명 주기를 보장하며, 많은 레거시 제품이 ICT 칩에 의존하고 있어 리버스 엔지니어링 수요가 발생합니다.</p>
+
+                <h2>제품군 및 모델</h2>
+                <h3>ICT 8051 OTP 시리즈</h3>
+                <ul>
+                    <li>ICT‑8051‑04</li><li>ICT‑8051‑08</li><li>ICT‑8051‑16</li><li>ICT‑8051‑20</li><li>ICT‑8051‑32</li>
+                    <li>ICT‑8051‑64</li><li>ICT‑8051‑128</li><li>ICT‑89C51</li><li>ICT‑89C52</li><li>ICT‑89C55</li>
+                    <li>ICT‑87C51</li><li>ICT‑87C52</li><li>ICT‑87C54</li><li>ICT‑87C58</li><li>ICT‑89C60</li>
+                </ul>
+                <h3>ICT Flash 시리즈</h3>
+                <ul>
+                    <li>ICT‑F51</li><li>ICT‑F52</li><li>ICT‑F54</li><li>ICT‑F58</li><li>ICT‑F60</li>
+                    <li>ICT‑F61</li><li>ICT‑F62</li><li>ICT‑F63</li><li>ICT‑F64</li>
+                </ul>
+                <h3>ICT 저전력 시리즈</h3>
+                <ul>
+                    <li>ICT‑L51</li><li>ICT‑L52</li><li>ICT‑L54</li><li>ICT‑L58</li><li>ICT‑L60</li>
+                </ul>
+
+                <h2>ICT 보안 기능</h2>
+                <p>ICT는 프로그램 메모리를 보호하기 위해 표준 8051 록 비트를 적용합니다. 이 비트를 설정하면 명령어 판독이 차단되지만, 다양한 방법으로 우회할 수 있습니다. OTP 제품의 경우 프로그래밍 후 데이터가 영구 변경 불가능하여 악성 소프트웨어 주입에는 내성적이지만, 분실 시 복구도 어렵습니다. ICT는 외부 판독 명령을 비활성화하는 보호 퓨즈도 제공합니다. 펌웨어 추출을 위해서는 칩을 개봉하고 메모리 셀을 검사해야 하는 경우가 많습니다. 일부 ICT 칩에는 개봉 시 내용을 소거하는 보호 메커니즘이 탑재되어 있으나, 당사는 UV 조사로 비트 상태를 변경하여 OTP 기기 덤프에 성공했습니다. ICT flash 옵션에는 민감 영역 쓰기를 방지하는 섹터 록 기능이 포함되나, 글리치 공격으로 일시적으로 섹터가 열리는 경우가 있습니다. 일부 모델의 JTAG 접근에는 간단한 비밀번호 체계를 사용하며, 이 비밀번호는 무차별 대입이나 부채널 분석으로 추측할 수 있습니다. ICT 보호는 최신 MCU에 비해 전반적으로 약하여 침입이 쉽습니다. 메모리 판독 타이밍을 이용하여 전체 명령 덤프를 복구할 수 있으며, OTP의 경우 케미컬 에칭과 정밀 현미경 검사를 조합하여 개별 비트를 판독합니다. 이를 통해 기기를 새 flash 칩에 복제할 수 있습니다. 암호화된 데이터 전송 옵션도 제공되지만 거의 사용되지 않습니다. 많은 ICT 칩에는 고유 식별자가 없어 모조품 탐지가 불가능하며, 이는 레거시 시스템 교체를 위한 복제를 쉽게 만듭니다. 당사 연구소는 보호 메커니즘을 공격하는 효과적인 방법을 개발했으며, 오류 주입으로 수 시간 내에 칩을 개봉할 수 있습니다. 또한 전력 분석으로 암호화 키가 있는 경우 식별합니다. ICT의 보안 기능은 최소 수준이므로 추출이 직접적입니다. 당사는 100대 이상의 ICT 기기에서 펌웨어를 복구했으며, 디버그 인터페이스가 록되지 않은 경우 판독 명령을 사용하고, 록된 경우 파괴적 방식으로 전환합니다. 손상된 OTP 셀에서도 데이터 복구를 제공하며, 당사의 경험이 높은 성공률을 보장합니다. ICT에서 전환하려는 고객을 위해 펌웨어를 최신 MCU에 복제할 수 있으며, 완전한 어셈블리 디스어셈블리 코드와 문서도 제공합니다. ICT 리버스 엔지니어링 과제는 모두 MikaTech에 맡겨 주십시오.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dallas Semiconductor 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Dallas Semiconductor 리버스 엔지니어링</h1>
+                <p>1-Wire® 디바이스, 보호 메모리 및 임베디드 MCU 전문 서비스</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>브랜드 개요</h2>
+                <p>현재 Maxim Integrated(또한 Analog Devices의 일부)의 일부가 된 Dallas Semiconductor는 혁신적인 1-Wire® 통신 프로토콜과 보호 메모리 디바이스로 알려졌습니다. 동사는 실리콘 시리얼 번호와 내변조 인증 칩 개념을 최초로 적용했으며, 다수의 Dallas 칩이 네트워크 인증, 접근 제어, 소모품 식별(예: 프린터 카트리지)에 쓰입니다. 또한 DS5000 시리즈는 암호화 메모리와 자체 파괴 기능을 갖춘 보호 MCU를 선보였으며, 실시간 시계, 온도 센서, 전원 관리 회로도 생산했습니다.</p>
+                <p>1-Wire 버스는 접지를 포함한 단일 선으로 여러 디바이스를 주소 지정할 수 있어 배선을 간소화합니다. Dallas 디바이스에는 레이저 프로그래밍 방식의 고유 ROM ID가 탑재되는 경우가 많아 변경할 수 없으며 많은 시스템에서 암호 키로 쓰입니다. DS2432, DS28E01 등 자사 보호 메모리 칩에는 SHA-1 인증이 포함되는 반면, DS5000과 같은 MCU에는 펌웨어 보호용 자체 암호화 모듈이 탑재됩니다. 또한 배터리 지원 SRAM에 온칩 간섭 감지를 제공하여, 이제는 교체가 어려운 구형 산업·의료 기기에 필수적이므로 체계적인 유지보수를 위한 당사의 리버스 엔지니어링 서비스가 필요합니다.</p>
+                <p>당사 팀은 Dallas의 펌웨어와 보안 데이터 추출 및 분석에 폭넓은 경험이 있습니다. 당사는 생산 연속성을 보장하기 위해 Dallas 보호 메모리 디바이스 복제에 성공했으며, DS5000 시리즈부터 DS80C의 고속 8051 호환 MCU에 이르기까지 Dallas의 표준 및 특수 모델을 모두 지원합니다. 깊은 지식을 바탕으로 Dallas 디바이스의 동작을 에뮬레이션하여 구형 유닛을 교체하고, Dallas 기반 시스템에 대한 완전한 제어 복원을 보장합니다.</p>
+
+                <h2>MCU 시리즈 및 모델</h2>
+                <h3>DS5000 보호 MCU 제품군</h3>
+                <ul>
+                    <li>DS5000FP</li>
+                    <li>DS5000T</li>
+                    <li>DS5001FP</li>
+                    <li>DS5002FP</li>
+                    <li>DS5003</li>
+                    <li>DS2250</li>
+                    <li>DS2251</li>
+                    <li>DS2252</li>
+                    <li>DS80C320</li>
+                    <li>DS80C390</li>
+                </ul>
+                <h3>보호 1-Wire 메모리 / 인증 소자</h3>
+                <ul>
+                    <li>DS2432 (1-Wire SHA-1)</li>
+                    <li>DS28E01 (1-Wire SHA-1)</li>
+                    <li>DS28E25 (1-Wire SHA-256)</li>
+                    <li>DS28EL22 (1-Wire SHA-256)</li>
+                    <li>DS2401 (Silicon Serial Number)</li>
+                    <li>DS2411 (Silicon Serial Number)</li>
+                    <li>DS1990 (iButton)</li>
+                    <li>DS1992 (iButton Memory)</li>
+                    <li>DS1993 (iButton Memory)</li>
+                    <li>DS1995 (iButton)</li>
+                    <li>DS1996 (iButton)</li>
+                    <li>DS1963S (iButton SHA-1)</li>
+                </ul>
+                <h3>DS80C 고속 8051 호환 MCU</h3>
+                <ul>
+                    <li>DS80C310</li>
+                    <li>DS80C320</li>
+                    <li>DS80C323</li>
+                    <li>DS80C390</li>
+                    <li>DS80C400</li>
+                    <li>DS80C410</li>
+                    <li>DS80C411</li>
+                    <li>DS80C520</li>
+                    <li>DS80C530</li>
+                    <li>DS80C550</li>
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 인사이트</h2>
+                <p>Dallas Semiconductor는 무단 접근을 막기 위해 다양한 보호 메커니즘을 적용했습니다. DS5000과 같은 MCU의 경우 구동 중 데이터를 뒤섞는 암호화 메모리 버스를 사용했으며, 암호화 키는 배터리 지원 RAM에 저장되어 간섭 감지 시 지워졌습니다. 자체 파괴 기능은 화학적 공격이나 전압 글리치 감지 시 활성화될 수 있습니다. 코드 판독을 막기 위해 DS5000 시리즈는 내부 메모리 맵에 대한 외부 접근을 차단합니다. 그럼에도 당사는 오류 주입으로 이 보호를 뚫는 방법을 개발했습니다. 정밀한 전압 스파이크를 인가하면 프로세서에 결함을 일으켜 보안 검사를 건너뛰도록 강제하여, 암호화된 메모리 내용이 지워지기 전에 덤프할 수 있습니다. 이후 배터리 지원 RAM에서 복원한 키로 추출된 데이터를 복호화합니다.</p>
+                <p>1-Wire 인증 소자의 경우 SHA-1 또는 SHA-256 알고리즘이 내부에서 실행되며, 비밀 키는 직접 읽을 수 없는 OTP(일회성 프로그래밍) 메모리에 저장됩니다. 하지만 전력 소비에 대한 부채널 분석으로 이 디바이스를 공격할 수 있는데, SHA 연산 중 전력 파형을 측정하여 통계적으로 비밀 키를 복원합니다. 당사는 다수의 Dallas iButton 잠금을 해제하고 신원을 복제하는 데 성공했으며, 이는 산업 장비에 사용되는 자체 인증 코드 재현에 매우 중요합니다. 또한 Dallas는 PCB 위의 도전성 경로망 같은 물리적 간섭 센서를 사용했으며, 망이 끊기면 디바이스가 키 메모리를 지웁니다. 하지만 센서를 비활성화하거나 구성을 읽고 에뮬레이터를 프로그래밍하여 디바이스 전체를 복제함으로써 이를 우회할 수 있습니다.</p>
+                <p>DS80C 시리즈의 경우 보호는 메모리 외부 판독을 비활성화하는 보호 비트(잠금 비트)에 있습니다. 하지만 레이저 컷터로 이 잠금 비트를 우회하도록 소손하고 내부 flash를 읽을 수 있습니다. 또한 명령 버스를 감시하여 펌웨어를 복원하는 방법을 개발했는데, 내부 ROM에서 명령어를 추출할 수 있으므로 보호 비트가 설정되어도 동작합니다. 외부 버스가 없는 디바이스에 대해서는 메모리 셀을 직접 판독하는 정밀 현미경 검사를 수행하여 전체 펌웨어 비트스트림을 추출합니다. 이후 디스어셈블러를 사용해 C 소스 코드를 재구성할 수 있습니다. 당사의 전문성은 10년 이상에 걸쳐 모든 주요 제품 라인을 아우르며, 자체 뒤섞기 알고리즘을 갖춘 맞춤형 Dallas 칩을 다루어 역공학 후 호환 복제본을 제작했습니다.</p>
+                <p>또한 희귀하거나 가치 있는 샘플에 대해서는 패키지를 열지 않고 키를 복원하는 전자기 부채널 등 비파괴적 기법을 제공합니다. 당사 팀은 비트 단위 수준의 1-Wire 프로토콜을 숙지하고 있어 어떤 Dallas 디바이스든 에뮬레이션하고, 호스트와 Dallas 슬레이브 간 통신을 도청한 뒤 재전송하여 인증을 모의할 수 있습니다. 이는 새로운 논스를 사용하지 않는 시스템에 유용한 재전송 공격입니다. 또한 Dallas의 암호화 절차에서 타이밍 취약점을 활용하여 실행 시간 변이를 측정해 비밀값을 비트 단위로 추론했습니다. 당사의 첨단 테스트 플랫폼과 연계하면 추출 전 과정을 자동화할 수 있습니다. 당사의 결과물에는 완전한 펌웨어 덤프, 키 자료, 상세 분석 보고서가 포함되며, 향후 공격에 대비해 Dallas 기반 설계를 강화하는 권장 사항도 제공합니다. MikaTech와 함께라면 가장 보호된 Dallas 디바이스조차 당사 전문성을 넘는 장벽이 되지 않습니다.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>

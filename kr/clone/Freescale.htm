@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freescale Semiconductor 리버스 엔지니어링 – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">홈</a></li>
+                    <li><a href="../about.htm">회사 소개</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">MCU 해킹</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">PCB 복제</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">연락처</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../ar/index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> 고급 MCU 연구소
+                    </div>
+                    <h1>
+                        MCU <br />
+                        <span class="highlight">리버스 엔지니어링</span>
+                    </h1>
+                    <p>
+                        당사는 임베디드 시스템을 분해하고 분석하여 정밀하게 재구성합니다.
+                        전문적인 펌웨어 추출, 칩 분석 및
+                        MCU 보안 평가 서비스를 제공합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> 왜 MikaTech인가
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> 문의하기
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28년</h4>
+                            <p>1998년부터 운영</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>분석된 MCU 제품군</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>추출된 펌웨어</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="오피스" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="MCU 덤프">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> 보안 우회</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> 펌웨어 덤프</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> 해킹</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Freescale Semiconductor 리버스 엔지니어링</h1>
+                <p>S08, S12, ColdFire, Kinetis MCU 종합 서비스 — 현재 NXP의 일부</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>브랜드 개요</h2>
+                <p>Freescale Semiconductor는 Motorola 반도체 사업부에서 분리되었으며 이후 NXP가 인수했습니다. 동사는 S12 및 MPC 제품군을 포함한 신뢰성 있는 자동차용 MCU, 그리고 고급 보안 기능을 갖춘 ColdFire(68k 기반 32비트) 및 Kinetis(ARM Cortex-M) 시리즈로 유명합니다. Freescale 칩은 자동차 전자제어유닛(ECU), 산업 제어, 항공 전자, 네트워크, 사물인터넷에 널리 쓰이며 높은 신뢰성과 긴 제품 수명 주기로 명성이 높습니다.</p>
+                <p>자사 MCU 포트폴리오는 8비트(S08), 16비트(S12/X), 32비트(ColdFire, Kinetis, i.MX) 아키텍처를 아우릅니다. 다수의 Freescale 디바이스에는 하드웨어 암호화와 시큐어 부팅이 포함되어 flash 보호, 보호된 디버깅, 간섭 감지를 제공합니다. 여전히 많은 구형 시스템이 Freescale 부품에 의존하므로 리버스 엔지니어링은 유지보수와 갱신에 매우 중요합니다. 당사는 맞춤형 IC(ASIC)를 포함한 모든 Freescale 제품군에서 폭넓은 경험이 있으며, 잠긴 S12 및 S08 디바이스에서 펌웨어를 추출하고 보호된 Kinetis 유닛에서 암호화된 데이터를 복원할 수 있습니다.</p>
+                <p>당사 팀은 자동차·의료 분야 고객을 위해 Freescale MCU 복제에 성공했으며, 간섭적·비간섭적 기법을 모두 커버합니다. 당사는 구형 시스템 유지보수와 Freescale 코드를 최신 플랫폼으로 이관하기 위한 재엔지니어링의 완전한 솔루션을 제공하며, 프로젝트 전 과정에서 기밀을 보장합니다. 당사의 기록에는 300건 이상의 Freescale 기반 제품이 있고 95%를 넘는 성공률을 보유했으므로, Freescale 리버스 엔지니어링의 신뢰할 수 있는 파트너입니다.</p>
+
+                <h2>MCU 시리즈 및 모델</h2>
+                <h3>S08 시리즈 (8비트)</h3>
+                <ul>
+                    <li>MC9S08QG8</li>
+                    <li>MC9S08QG16</li>
+                    <li>MC9S08GB60</li>
+                    <li>MC9S08GT60</li>
+                    <li>MC9S08JM60</li>
+                    <li>MC9S08AW60</li>
+                    <li>MC9S08AC128</li>
+                    <li>MC9S08DZ128</li>
+                    <li>MC9S08EL32</li>
+                    <li>MC9S08SH32</li>
+                    <li>MC9S08SL64</li>
+                    <li>MC9S08SV32</li>
+                    <li>MC9S08MP16</li>
+                    <li>MC9S08PT60</li>
+                    <li>MC9S08PA64</li>
+                </ul>
+                <h3>S12(X) 시리즈 (16비트)</h3>
+                <ul>
+                    <li>MC9S12XS128</li>
+                    <li>MC9S12XEP100</li>
+                    <li>MC9S12XDP512</li>
+                    <li>MC9S12XEQ512</li>
+                    <li>MC9S12XF512</li>
+                    <li>MC9S12XE128</li>
+                    <li>MC9S12XDG128</li>
+                    <li>MC9S12HZ256</li>
+                    <li>MC9S12GC64</li>
+                    <li>MC9S12G128</li>
+                    <li>MC9S12P64</li>
+                    <li>MC9S12ZVML128</li>
+                    <li>MC9S12ZVMC128</li>
+                    <li>MC9S12ZVL64</li>
+                    <li>MC9S12ZVC64</li>
+                </ul>
+                <h3>ColdFire (32비트)</h3>
+                <ul>
+                    <li>MCF52233</li>
+                    <li>MCF52255</li>
+                    <li>MCF52277</li>
+                    <li>MCF5270</li>
+                    <li>MCF5271</li>
+                    <li>MCF5272</li>
+                    <li>MCF5282</li>
+                    <li>MCF5307</li>
+                    <li>MCF5329</li>
+                    <li>MCF5373</li>
+                    <li>MCF54418</li>
+                    <li>MCF54455</li>
+                    <li>MCF5474</li>
+                    <li>MCF5485</li>
+                    <li>MCF5634</li>
+                </ul>
+                <h3>Kinetis (ARM Cortex-M)</h3>
+                <ul>
+                    <li>MK20DX128</li>
+                    <li>MK20DX256</li>
+                    <li>MK21DX256</li>
+                    <li>MK22FX512</li>
+                    <li>MK24FN1M0</li>
+                    <li>MK26FN2M0</li>
+                    <li>MK64FN1M0</li>
+                    <li>MK65FN2M0</li>
+                    <li>MK70FN1M0</li>
+                    <li>MK71FN1M0</li>
+                    <li>MK80FN256</li>
+                    <li>MK81FN256</li>
+                    <li>MK82FN256</li>
+                    <li>MKE02Z64</li>
+                    <li>MKE04Z128</li>
+                </ul>
+
+                <h2>보안 기능과 리버스 엔지니어링 인사이트</h2>
+                <p>Freescale MCU는 펌웨어와 데이터를 보호하기 위해 다층의 보호 수준을 갖춥니다. flash 메모리는 FPROT 레지스터로 보호되어 판독이나 쓰기를 막으며, 다수의 디바이스에는 보안 바이트가 있어 설정 시 백그라운드 디버그 모듈(BDM)을 통한 외부 접근을 비활성화합니다. 그럼에도 당사는 글리치 공격으로 이 보호를 우회하는 방법을 개발했습니다. 전압이나 클록 주파수를 조작하면 MCU가 보안 검사를 건너뛰도록 강제하여 비밀번호 없이 flash 내용 전체를 읽을 수 있습니다. S12 디바이스의 경우 리셋 중 비보호 모드를 사용해 메모리를 덤프할 수 있으며, 보안 바이트를 왜곡해 디바이스 잠금을 여는 오류 주입을 적용했습니다.</p>
+                <p>ColdFire MCU에는 JTAG를 통한 flash 판독을 막는 보호 잠금이 있습니다. 이에 대해 칩을 디캡슐레이션하고 정밀 현미경 검사로 flash를 직접 판독하여 공격합니다. ARM 기반 Kinetis MCU의 경우 NXP가 RDP(읽기 보호) 수준 0, 1, 2의 신뢰할 수 있는 체계를 제공하지만 완전히 보호되는 수준은 없습니다. 당사는 부채널 분석으로 암호화 키를 복원하고 flash 이미지를 복호화하여 RDP 2 수준의 Kinetis 디바이스에서 펌웨어 추출에 성공했습니다. 또한 FlexNVM 및 EEPROM 영역에서 보호된 데이터를 복원하며, 공개 키를 자체 키로 교체하여 시큐어 부팅 메커니즘을 우회하고 잠긴 디바이스에 자체 펌웨어를 로드했습니다.</p>
+                <p>OTP에 저장된 캘리브레이션 데이터와 고유 조정 값을 포함한 모든 메모리 영역을 읽어 디바이스 전체를 복제할 수 있습니다. 당사 팀은 Freescale이 사용하는 자체 디버그 프로토콜을 역공학하여 소프트웨어적으로 비활성화된 디버그도 다시 활성화할 수 있습니다. 자동차 ECU의 경우 종종 CAN 버스 암호화를 마주치며, MCU에서 암호화 키를 추출하여 ECU를 복제할 수 있습니다. 당사는 애프터마켓용으로 다수의 Freescale 기반 ECU 유닛 복제에 성공하여 펌웨어 추출과 전체 시스템 분석을 제공했습니다.</p>
+                <p>당사 서비스는 발견된 모든 보안 취약점에 대한 상세 보고를 포함하며, 보호 강화 권장 사항을 제공합니다. 당사의 전문성은 8~32비트 전 세대를 아우르며, 추출 자동화용 특수 도구를 개발해 시간과 비용을 크게 단축합니다. 자동차 산업에서 검증된 명성과 철저한 기밀을 바탕으로 MikaTech는 Freescale 관련 어떤 과제든 해결할 준비가 되어 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. 모든 권리 보유. | 리버스 엔지니어링 전문성.</p>
+        </div>
+    </footer>
+</body>
+</html>
