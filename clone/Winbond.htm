@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров Winbond – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Раскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы выполняем экспертный дамп прошивки, анализ кристалла и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг микроконтроллеров Winbond</h1>
+                <p>Экспертиза во встраиваемых контроллерах серий W79, W83 и W90</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании Winbond</h2>
+                <p>Winbond Electronics — тайваньская полупроводниковая компания, известная продукцией памяти и микроконтроллерами. Портфель МК включает 8‑, 16‑ и 32‑разрядные устройства на базе ARM. Микроконтроллеры Winbond широко применяются в периферии ПК, бытовой электронике и промышленном управлении. Они особенно популярны в контроллерах клавиатур, управлении скоростью вентиляторов и управлении питанием. Серия W79 от Winbond — это 8051-совместимые ядра с расширенной периферией. Серия W83 добавляет больше ввода-вывода и аналоговых функций для системного управления. Серия W90 — это SoC на базе ARM9 для сетевых и мультимедийных применений. Winbond также выпускает флеш-память, часто интегрируемую в её МК. Предлагается ряд корпусов — от DIP до QFP и BGA. Продукция Winbond известна экономичностью и надёжной работой. У компании сильные позиции на азиатском рынке, особенно в Китае и на Тайване. Winbond предоставляет средства разработки, включая оценочные платы и программаторы. Её чипы поддерживают стандартные интерфейсы, такие как UART, SPI, I2C и USB. Winbond также предлагает защищённые микроконтроллеры для смарт-карт и платёжных применений. Уже десятилетиями компания поставляет компоненты для ПК и ноутбуков. Серия W90 от Winbond может работать под управлением встраиваемого Linux или RTOS. Компания инвестировала в передовые производственные процессы. Память Winbond включает DRAM, NOR Flash и NAND Flash. Её МК часто оснащены высокоскоростными ШИМ и таймерами для управления приводами. Winbond также производит аудиокодеки и силовые ИС, дополняющие линейки МК. У компании репутация оперативной техподдержки. Продукция Winbond квалифицирована по AEC‑Q100 для автомобильного применения. Компания сотрудничает с крупными OEM при разработке заказных чипов. Решения Winbond в области безопасности включают устойчивые к вскрытию конструкции. Компания расширяет присутствие в IoT и периферийных вычислениях. Устаревшие чипы Winbond до сих пор встречаются во многих изделиях. Долгосрочные обязательства по поставкам обеспечивают доступность. Winbond также предлагает интегрированные решения с внешними интерфейсами памяти. Её микроконтроллеры эффективно сочетают производительность и энергопотребление.</p>
+
+                <h2>Линейки продукции и модели устройств</h2>
+                <h3>Серия W79 (8051-совместимые 8‑разрядные)</h3>
+                <ul>
+                    <li>W79E2051</li><li>W79E2251</li><li>W79E4051</li><li>W79E4251</li><li>W79E6051</li>
+                    <li>W79E6251</li><li>W79E8051</li><li>W79E8251</li><li>W79E9051</li><li>W79E9251</li>
+                    <li>W79E950</li><li>W79E960</li><li>W79E970</li><li>W79E980</li>
+                </ul>
+                <h3>Серия W83 (системное управление / ввод-вывод)</h3>
+                <ul>
+                    <li>W83L950D</li><li>W83L951D</li><li>W83L952D</li><li>W83L953D</li><li>W83L954D</li>
+                    <li>W83L955D</li><li>W83L956D</li><li>W83L957D</li><li>W83L958D</li><li>W83L959D</li>
+                    <li>W83G860</li><li>W83G861</li><li>W83G862</li>
+                </ul>
+                <h3>Серия W90 (ARM9 32‑разрядные)</h3>
+                <ul>
+                    <li>W90P710</li><li>W90P720</li><li>W90P730</li><li>W90P740</li><li>W90P750</li>
+                    <li>W90P760</li><li>W90P770</li><li>W90P780</li><li>W90P790</li><li>W90N745</li>
+                    <li>W90N746</li><li>W90N747</li><li>W90N748</li>
+                </ul>
+
+                <h2>Функции безопасности Winbond</h2>
+                <p>Winbond реализует несколько мер защиты прошивки и данных. Её серия W79 предлагает биты блокировки для предотвращения считывания программной памяти. При установке этих битов внутренний код нельзя прочитать через отладочный интерфейс. Тем не менее, опытные злоумышленники могут попытаться инъекцию сбоев для разблокировки этой защиты. Некоторые приборы Winbond включают защитный пароль для доступа к JTAG, добавляя дополнительный рубеж обороны. Без правильного пароля нельзя получить доступ к встроенным отладочным ресурсам. Серия W83 добавляет перемешивание памяти, затрудняя понимание кода даже при снятом дампе. Winbond также предоставляет области OTP (однократно программируемые) для хранения ключей шифрования. Эти ключи можно использовать для расшифровки прошивки в флеш. Приборы W90 на ARM9 поддерживают защищённую загрузку, проверяя подпись образа перед выполнением. Это предотвращает запуск несанкционированного кода. Несмотря на эти средства, у многих чипов Winbond есть известные уязвимости, которые можно эксплуатировать. Например, загрузчик иногда можно обманом заставить войти в режим восстановления, позволяющий прочитать всю внутреннюю память. Нам удалось снять дамп прошивки с W79E2051 глитчингом напряжения питания. Другой метод использует логический анализатор для захвата данных на внешней шине. Для OTP-приборов мы можем считать содержимое ультрафиолетом для стирания защитных фьюзов. Старые приборы Winbond лишены сильной криптографии, что облегчает клонирование. Мы можем продублировать всю прошивку на новый чип для замены устаревших. Боковой анализ энергопотребления также способен раскрыть секретные ключи во время криптографических операций. Мы разработали собственный инструмент для атаки на защищённый паролем интерфейс JTAG. Выполняя дифференциальный анализ мощности, мы восстанавливаем 32‑битный пароль. Как только пароль известен, мы можем разблокировать полный отладочный доступ и извлечь двоичный код. Наша команда также использовала электромагнитное зондирование для чтения содержимого памяти напрямую с кристалла. Защита Winbond достаточна для многих коммерческих изделий, но не для приложений высокой безопасности. Мы предлагаем комплексные услуги восстановления для МК Winbond, включая неинвазивные и инвазивные методы. Нужно ли вам восстановить потерянную прошивку или дублировать старый контроллер — MikaTech поможет. Мы также можем проанализировать извлечённый двоичный код, чтобы понять его функциональность. Доверьтесь нам в профессиональном обратном инжиниринге Winbond.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

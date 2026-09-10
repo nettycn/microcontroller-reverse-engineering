@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг MCU Atmel – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы предлагаем профессиональное извлечение прошивок, анализ кристаллов и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг MCU Atmel</h1>
+                <p>Специализированные услуги для AVR, AT91SAM и устаревших устройств на базе 8051</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании Atmel</h2>
+                <p>Atmel Corporation была пионерной полупроводниковой компанией, ныне входящей в состав Microchip Technology после приобретения в 2016 году. Atmel известна своими 8- и 32-битными микроконтроллерами AVR, широко используемыми в платах Arduino и бесчисленных встраиваемых проектах. Их серия AT91SAM — это 32-битные МК на базе ARM для более требовательных приложений. Atmel также производила 8051-совместимые устройства серии AT89. Продукция компании известна низким энергопотреблением, простотой использования и обширным набором периферии. Архитектура AVR от Atmel представляет собой модифицированную гарвардскую архитектуру с богатым набором команд. Они предлагают широкий диапазон объёмов памяти — от крошечных 1 КБ до 256 КБ flash. Микроконтроллеры Atmel используются в автомобилестроении, промышленности, бытовой электронике и IoT. Они также производят защищённые элементы, такие как серия ATECC для криптографической аутентификации. Atmel предоставляла инструменты разработки, включая Atmel Studio, ныне интегрированный в MPLAB X от Microchip. Их устройства поддерживают интерфейсы UART, SPI, I2C, USB, CAN и Ethernet. Технология picoPower от Atmel обеспечивает сверхнизкое энергопотребление. Они также предлагают решения для сенсорного и жестового управления. Библиотека QTouch от Atmel популярна для ёмкостных кнопок. У компании сильное сообщество энтузиастов и профессионалов. Документация Atmel обширна и высоко ценится. Их устройства часто используются в медицинских приборах и носимой электронике. Atmel также производила FPGA-продукты под семейством AT40K. Их защищённые МК включают аппаратные крипто-модули. Приобретение Atmel компанией Microchip значительно расширило объединённый портфель. Архитектура AVR активно развивается и поддерживается. Устаревшие продукты Atmel остаются в производстве для многих клиентов. Они имеют репутацию надёжной и стабильной работы. Atmel также предлагает радиационно-стойкие версии для аэрокосмической отрасли. Их продукты доступны во многих типах корпусов. Вклад Atmel в движение Maker огромен. Компания продолжает инновации под крылом Microchip.</p>
+
+                <h2>Серии продуктов и модели устройств</h2>
+                <h3>Tiny & Mega</h3>
+                <ul>
+ATtiny13
+ATtiny25
+ATtiny45
+ATtiny85
+ATtiny2313
+ATtiny24
+ATtiny44
+ATtiny84
+ATtiny261
+ATtiny461
+ATtiny861
+ATtiny4313
+ATtiny48
+ATtiny88
+ATtiny167
+ATtiny87
+ATtiny1634
+ATtiny828
+ATmega8
+ATmega16
+ATmega32
+ATmega64
+ATmega128
+ATmega162
+ATmega169
+ATmega165
+ATmega323
+ATmega325
+ATmega3250
+ATmega329
+ATmega3290
+ATmega640
+ATmega1280
+ATmega1281
+ATmega2560
+ATmega2561
+ATmega16U2
+ATmega8U2
+
+                </ul>
+                <h3>AT91SAM (ARM7/ARM9/Cortex-M)</h3>
+                <ul>
+AT91SAM7S
+AT91SAM7X
+AT91SAM7A
+AT91SAM7L
+AT91SAM7SE
+AT91SAM7S64
+AT91SAM7S128
+AT91SAM7S256
+AT91SAM7S32
+AT91SAM7S321
+AT91SAM7S64B
+AT91SAM7XC
+AT91SAM7X128
+AT91SAM7X256
+AT91SAM7X512
+AT91SAM9XE
+AT91SAM9N12
+AT91SAM9M10
+AT91SAM9RLEK
+AT91SAM9G45
+AT91SAM9M11
+AT91SAM9G20
+AT91SAM9G10
+AT91SAM9G45E
+AT91SAM9G15
+AT91SAM9X35
+AT91SAM9G25
+AT91SAM9X25
+AT91SAM9X55
+
+                </ul>
+                <h3>AT89 8051-совместимые</h3>
+                <ul>
+AT89C51
+AT89S52
+AT89C1051
+AT89C2051
+AT89C4051
+AT89LP51
+AT89LP52
+AT89C51CC02
+AT89C51CC03
+AT89C51RB2
+AT89C51RC
+AT89C51RD2
+AT89LP2051
+AT89LP2052
+AT89LP213
+AT89LP214
+AT89LP216
+AT89LP4051
+AT89LP4052
+AT89LP828
+AT89LP428
+AT89LS51
+AT89LS52
+AT89LV51
+AT89LS53
+AT89LS8252
+AT89LV52
+AT89LV55
+AT89S2051
+AT90S1200
+AT90S2313
+AT90S4433
+AT90S8515
+AT90S2333
+AT90S4434
+AT90S8535
+AT90S4414
+AT90CAN32
+AT90CAN64
+AT90CAN128
+AT90PWM2
+AT90PWM216
+AT90PWM2B
+AT90PWM3
+AT90PWM316
+AT90PWM3B
+
+                </ul>
+                <h3>Другие типы</h3>
+                <ul>
+ATtiny4/5/9/10
+ATtiny20/40
+ATtiny13A
+ATtiny2313/4313
+ATtiny261/461/861
+ATtiny24/44/84
+ATtiny26
+ATtiny261A/461A/861A
+ATtiny167
+ATmega2560
+ATmega32U4
+ATmega8515
+ATmega16M1/32M1
+ATmega64M1/128M1
+ATmega8/48/88/168/328
+ATmega16/164/324/644/1284
+ATmega16U2/32U2
+ATmega1284P
+AT90USB82/162
+AT90CAN32/64/128
+SAM3X6E
+SAM3X8E
+SAM3A4C
+SAM3A8C
+SAM3N0A
+SAM3N0B
+SAM3N0C
+SAM3S2A
+SAM3S2B
+SAM3S2C
+SAM3S4A
+SAM3S4B
+SAM3S4C
+SAM3U1E
+SAM3U2E
+SAM3U4E
+SAM3X4C
+SAM3X6C
+SAM3A1C
+SAM3A3C
+ATF15xx
+ATF16V8B
+ATF22V10C
+ATF22V10L
+ATF22V10Z
+ATF750LVC
+ATF750CLV
+ATF750CLL
+ATF750CV
+ATF750CLL
+
+                </ul>
+
+
+
+                <h2>Функции безопасности Atmel</h2>
+                <p>Atmel включает ряд функций безопасности во всех своих семействах продуктов для защиты прошивки и чувствительных данных. Устройства AVR имеют блокировочные биты, которые предотвращают считывание программной памяти. При установке этих битов flash и EEPROM не могут быть считаны через отладочный интерфейс. Однако обнаружено множество векторов атак для обхода этой блокировки. Для старых устройств, таких как ATmega328, блокировочные биты можно сбросить с помощью высоковольтного программирования, фактически разблокируя чип. Более продвинутые микроконтроллеры, такие как серия AT91SAM, реализуют защищённую загрузку с верификацией криптографической подписи. Это гарантирует выполнение только аутентифицированной прошивки. Некоторые устройства SAM поддерживают среду TrustZone® для защищённой обработки. Atmel также предоставляет аппаратные крипто-модули для AES, DES и SHA, позволяя хранить прошивку в зашифрованном виде. Ключи расшифровки хранятся в защищённой области памяти, недоступной для стандартных операций чтения. Несмотря на эти меры, исследователи продемонстрировали успешные атаки с использованием анализа мощности побочного канала для восстановления ключей шифрования. Атаки глитчами также могут нарушить процесс защищённой загрузки, позволяя злоумышленнику извлечь загрузчик. Мы успешно дампировали прошивку из чипов ATmega328P с помощью глитча на линии сброса. Для устройств AT91SAM мы применяли электромагнитный анализ для чтения внутренней flash. Другой метод включает использование логического анализатора для перехвата данных на внешней шине во время чтения памяти. После захвата данных мы реконструируем прошивку. OTP-устройства Atmel (однократно программируемые) можно читать через декапсуляцию чипа и использование микроскопа для прямого просмотра битовых ячеек. Это позволяет дублировать весь код на новом устройстве. Защищённые элементы ATECC более устойчивы, но даже они были взломаны с помощью дифференциального анализа мощности. Наша команда разработала специальные инструменты для атаки на механизмы безопасности Atmel. Мы восстанавливаем прошивку даже при включённых блокировочных битах. Для устаревших частей AT89 блокировочные биты часто слабы и могут быть обойдены простыми глитчами. Мы также использовали инъекцию сбоев для изменения хода выполнения программы и дампа памяти. Защита Atmel достаточна для многих приложений, но не для военного уровня. Мы предлагаем комплексные услуги извлечения и восстановления для всех МК Atmel. Нужно ли вам разблокировать устройство, восстановить утерянную прошивку или клонировать контроллер — MikaTech обладает экспертизой. Наши неинвазивные методы сохраняют функциональность чипа, где возможно. Мы также предоставляем детальный дизассемблер и анализ извлечённого бинарного файла. Доверьтесь нам в профессиональном обратном инжиниринге Atmel.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

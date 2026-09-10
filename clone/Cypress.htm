@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг Cypress Semiconductor – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы предлагаем профессиональное извлечение прошивок, анализ кристаллов и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг микроконтроллеров Cypress (Infineon)</h1>
+                <p>Специализация на семействах PSoC, FM0, FM3, FM4 и Traveo</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании Cypress (ныне Infineon)</h2>
+                <p>Cypress Semiconductor, ныне входящая в состав Infineon Technologies, была ведущим поставщиком продвинутых встраиваемых решений. Они известны своими программируемыми системами на кристалле (PSoC), которые объединяют микроконтроллер с программируемыми аналоговыми и цифровыми блоками. Cypress также разработала серию FM на базе ядер ARM Cortex-M для автомобильных и промышленных применений, а также семейство Traveo для кузовной электроники и приборных панелей. Их USB-контроллеры и решения Bluetooth также широко используются. Устройства Cypress встречаются в бытовой электронике, автомобилестроении, промышленном управлении и IoT. Серия PSoC особенно популярна благодаря гибкости, позволяя разработчикам создавать настраиваемую периферию. Cypress внедрила надёжные функции безопасности, включая защищённую загрузку, шифрование flash и обнаружение вмешательства. Они также предлагали уникальный идентификатор устройства и криптографические ускорители. Однако, как и все МК, они уязвимы для атак обратного инжиниринга. Наша команда имеет обширный опыт работы с устройствами Cypress, включая PSoC 1, 3, 4, 5LP и 6, а также семейства FM0, FM3, FM4 и Traveo. Мы разработали специализированные инструменты для связи с их интерфейсами программирования (SWD, JTAG и проприетарные протоколы). Мы успешно извлекали прошивку из заблокированных устройств PSoC, используя уязвимости загрузчика и анализ мощности. Для серии FM мы применяем аналогичные методы, включая глитчинг напряжения и электромагнитную инъекцию сбоев. Мы также предлагаем услуги декапсуляции для самых устойчивых устройств. Наши клиенты использовали наши услуги для восстановления утерянного исходного кода, клонирования серийных устройств и анализа продуктов конкурентов. Мы предоставляем полную документацию извлечённой прошивки и помогаем с дальнейшим анализом. Благодаря нашей экспертизе мы можем расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать и клонировать микроконтроллеры Cypress эффективно.</p>
+
+                <h2>Семейства и модели устройств</h2>
+                <ul>
+                    <li><strong>PSoC 1 (8-bit M8C)</strong> – CY8C20x34, CY8C21x34, CY8C22x45, CY8C24x33, CY8C24x94, CY8C25x45, CY8C26x45, CY8C27x43, CY8C28x45, CY8C29x66</li>
+                    <li><strong>PSoC 3 (8051)</strong> – CY8C30x, CY8C31x, CY8C32x, CY8C33x, CY8C34x, CY8C35x, CY8C36x, CY8C38x, CY8C39x, CY8C3A</li>
+                    <li><strong>PSoC 4 (ARM Cortex-M0)</strong> – CY8C40xx, CY8C41xx, CY8C42xx, CY8C43xx, CY8C44xx, CY8C45xx, CY8C46xx, CY8C47xx, CY8C48xx, CY8C49xx</li>
+                    <li><strong>PSoC 5LP (Cortex-M3)</strong> – CY8C52xx, CY8C53xx, CY8C54xx, CY8C55xx, CY8C56xx, CY8C57xx, CY8C58xx, CY8C59xx, CY8C5A, CY8C5B</li>
+                    <li><strong>PSoC 6 (Cortex-M4 + M0)</strong> – CY8C61xx, CY8C62xx, CY8C63xx, CY8C64xx, CY8C65xx, CY8C66xx, CY8C67xx, CY8C68xx, CY8C69xx, CY8C6A</li>
+                    <li><strong>FM0 (Cortex-M0)</strong> – S6E1A1, S6E1A2, S6E1A3, S6E1A4, S6E1B, S6E1C, S6E1D, S6E1E, S6E1F, S6E1G</li>
+                    <li><strong>FM3 (Cortex-M3)</strong> – MB9B100, MB9B200, MB9B300, MB9B400, MB9B500, MB9B600, MB9B700, MB9B800, MB9B900, MB9BA00</li>
+                    <li><strong>FM4 (Cortex-M4)</strong> – MB9F500, MB9F600, MB9F700, MB9F800, MB9F900, MB9FA00, MB9FB00, MB9FC00, MB9FD00, MB9FE00</li>
+                    <li><strong>Traveo (Automotive)</strong> – S6J3000, S6J3100, S6J3200, S6J3300, S6J3400, S6J3500, S6J3600, S6J3700, S6J3800, S6J3900</li>
+                </ul>
+
+                <h2>Функции безопасности и стратегии атак</h2>
+                <p>Устройства Cypress включают комплексную архитектуру безопасности. Серия PSoC предоставляет бит безопасности flash, который при установке блокирует внешнее чтение через отладочный интерфейс. У них также есть уникальный кремниевый ID, который можно использовать для защиты ПО. Для семейств FM и Traveo Infineon предоставляет аналогичную защиту от чтения с дополнительными функциями, такими как защищённая загрузка и зашифрованная flash. Некоторые устройства поддерживают «защищённую блокировку», которая навсегда отключает отладку. Cypress также предлагает криптографический модуль для шифрования и аутентификации. Несмотря на эти мощные меры, мы разработали множество методов их преодоления. Для устройств PSoC мы обнаружили, что бит безопасности можно обойти, используя уязвимость загрузчика. Мы можем отправлять специальные команды для перевода устройства в тестовый режим, позволяя читать всю flash. Для серии FM мы используем анализ мощности для извлечения ключа шифрования, используемого в защищённой загрузке. Получив ключ, мы можем расшифровать прошивку. Мы также используем инъекцию сбоев для пропуска проверки безопасности во время загрузки, предоставляя нам полный доступ. Для устройств без известных эксплойтов мы выполняем декапсуляцию и прямое чтение flash. Это включает удаление кристалла и использование микроскопа для чтения состояния заряда каждой ячейки памяти. Это дорогостоящий, но эффективный метод. Наша команда успешно извлекала прошивку из всех основных семейств Cypress. Мы также предлагаем клонирование, где мы берём заблокированное устройство и производим рабочий дубликат. Это особенно полезно для устаревших автомобильных компонентов, которые больше не доступны. Наша лаборатория оснащена профессиональным оборудованием как для неинвазивных, так и для инвазивных атак. Мы поддерживаем строгую политику конфиденциальности и предоставляем детальные отчёты о наших находках. Наши клиенты выиграли от наших услуг в различных отраслях. С MikaTech вы можете быть уверены в высоком проценте успеха и профессиональной обработке. Мы постоянно исследуем новые уязвимости, чтобы оставаться на шаг впереди. Так что, нужно ли вам расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать или клонировать микроконтроллеры Cypress — у нас есть знания и инструменты для выполнения. Свяжитесь с нами для обсуждения ваших конкретных требований.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p>
+        </div>
+    </footer>
+</body>
+</html>

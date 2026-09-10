@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров ISSI – MikaTech</title>
+     <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и заново применяем встраиваемые системы с высокой точностью.
+                        Мы предоставляем экспертное извлечение прошивок, анализ кремния и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп прошивки МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг МК ISSI</h1>
+                <p>Фокус на решениях с интегрированной памятью и SoC</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Об ISSI</h2>
+                <p>ISSI (Integrated Silicon Solution Inc.) — известный производитель высокопроизводительной памяти и микроконтроллеров. Они сочетают flash, SRAM и DRAM с ядрами CPU для создания SoC-решений. Микроконтроллеры ISSI широко применяются в автомобилестроении, промышленности и связи. Их портфель включает архитектуры 8-, 16- и 32-бит. ISSI известна своей высокоплотной flash и SRAM с низкими утечками. Они предлагают множество вариантов корпусов, включая BGA и QFN. МК ISSI часто интегрируют аналоговую периферию вроде АЦП, ЦАП и операционных усилителей. Они применяются в системах управления батареями и силовых инверторах. ISSI также выпускает радиационно-стойкие чипы для космических применений. Компания уделяет сильное внимание автомобильным изделиям класса AEC-Q100. Их микроконтроллеры поддерживают интерфейсы CAN, LIN и FlexRay. ISSI предоставляет комплексные инструменты разработки и библиотеки ПО. Они — ключевой поставщик многих автомобильных OEM первого уровня. Технологии памяти ISSI известны высокой выносливостью и сохранением данных. Они предлагают как последовательные, так и параллельные интерфейсы flash. ISSI также создаёт заказные ASIC под конкретные потребности клиентов. Их инвестиции в НИОКР включают продвинутое корпусное исполнение и 3D-интеграцию. Продукция ISSI спроектирована для суровых условий с широкими температурными диапазонами. У них репутация надёжного качества и длительных жизненных циклов. ISSI сотрудничает с ведущими фабриками для производства. Их защитные решения включают шифрование и аутентификацию. ISSI активно разрабатывает защищённые элементы для IoT. Они расширяют присутствие в области ИИ и ускорения машинного обучения. Ориентация ISSI на интеграцию памяти отличает их от универсальных вендоров МК. Они — доверенный партнёр для критически важных систем. Глобальное присутствие ISSI обеспечивает стабильность цепочки поставок. Они продолжают инновации как в памяти, так и в логике.</p>
+
+                <h2>Серии продуктов и модели устройств</h2>
+                <h3>ISSI 32-бит ARM Cortex-M</h3>
+                <ul>
+                    <li>IS32C‑M4</li><li>IS32C‑M3</li><li>IS32C‑M0</li><li>IS32C‑M7</li><li>IS32C‑M33</li>
+                    <li>IS32C‑M23</li><li>IS32C‑M4F</li><li>IS32C‑M7F</li><li>IS32C‑M4HD</li><li>IS32C‑M7HD</li>
+                    <li>IS32C‑M4T</li><li>IS32C‑M7T</li><li>IS32C‑M4S</li>
+                </ul>
+                <h3>Автомобильная серия ISSI</h3>
+                <ul>
+                    <li>IS32A‑M4</li><li>IS32A‑M3</li><li>IS32A‑M0</li><li>IS32A‑M7</li><li>IS32A‑M33</li>
+                    <li>IS32A‑M23</li><li>IS32A‑M4F</li><li>IS32A‑M7F</li><li>IS32A‑M4T</li>
+                </ul>
+                <h3>8-битная серия ISSI</h3>
+                <ul>
+                    <li>IS8‑51</li><li>IS8‑52</li><li>IS8‑54</li><li>IS8‑58</li><li>IS8‑60</li>
+                    <li>IS8‑61</li><li>IS8‑62</li><li>IS8‑63</li><li>IS8‑64</li>
+                </ul>
+
+                <h2>Функции безопасности ISSI</h2>
+                <p>ISSI включает множество механизмов защиты IP и данных. Их МК оснащены аппаратными движками шифрования для AES, DES и RSA. Это позволяет хранить прошивку зашифрованной, требуя ключ для расшифровки при загрузке. Ключи хранятся в защищённой области, недоступной для чтения через стандартные интерфейсы. ISSI также предоставляет уникальные идентификаторы устройств для аутентификации. Они реализуют безопасную загрузку с проверкой подписи, чтобы исполнялся только доверенный код. Модули защиты памяти (MPU) изолируют критические секции кода и данных. Отладочные порты можно навсегда заблокировать через OTP-предохранители, предотвращая внешнее чтение. Однако атаки инъекцией сбоев иногда могут разблокировать эти порты. ISSI включает выводы детекции вскрытия, которые инициируют стирание данных при вторжении. Устройства имеют защищённое хранилище ключей с возможностью обнуления. Для извлечения прошивки может потребоваться клонировать всю микросхему или обойти защиту. Боковой канальный анализ (потребление и электромагнитный) может раскрыть ключи во время криптографических операций. Наша команда успешно восстанавливала ключи из устройств ISSI, используя дифференциальный анализ потребления. Мы также использовали лазерную инъекцию сбоев для изменения потока выполнения и дампа памяти. Защита ISSI надёжна, но нет неуязвимых систем. Мы разработали методы атаки на загрузчик и извлечения прошивки. Для автомобильных вариантов мы можем прочитать конфигурационные и калибровочные данные. Интегрированные в память разработки ISSI делают их привлекательными для обратного инжиниринга. Мы можем восстановить прошивку и клонировать её на эквивалентные устройства. Наши услуги включают неинвазивные и инвазивные методы в зависимости от уровня защиты. Мы также можем предоставить полный дизассемблированный код и анализ. Постоянные обновления защиты ISSI означают, что мы должны быть в курсе новых противодействий. MikaTech инвестирует в НИОКР для преодоления новейших защит. Нам доверяют многочисленные клиенты в проектах обратного инжиниринга ISSI. Свяжитесь с нами, чтобы обсудить ваше конкретное устройство ISSI и требования.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

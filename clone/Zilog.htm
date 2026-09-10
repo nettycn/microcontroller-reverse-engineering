@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров Zilog – MikaTech</title>
+     <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Раскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы выполняем экспертный дамп прошивки, анализ кристалла и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг микроконтроллеров Zilog</h1>
+                <p>Владение семействами на базе Z80 и eZ80 для устаревших и встраиваемых систем</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании Zilog</h2>
+                <p>Zilog — легендарная полупроводниковая компания, известная 8‑разрядным CPU Z80, который работал во множестве домашних компьютеров и встраиваемых систем. Сегодня Zilog выпускает современные производные, такие как семейства eZ80 и Z8051. Их микроконтроллеры до сих пор широко применяются в промышленном управлении, бытовой электронике и ретро-вычислениях. eZ80 от Zilog — полностью совместимая конвейерная версия классического Z80. Также предлагаются МК на базе Z80 с интегрированной периферией, такой как UART, SPI и I2C. Семейство Z8051 от Zilog — это 8051-совместимое ядро с расширенными возможностями. Их продукция известна низким энергопотреблением и малым размером. Zilog предоставляет средства разработки, включая ассемблеры, компиляторы и симуляторы. Также предлагаются внутрисхемные программаторы и отладчики. Чипы Zilog часто встречаются в устаревшем оборудовании, которое всё ещё эксплуатируется. У компании сильное сообщество энтузиастов и инженеров. Zilog поддерживает языки ассемблера и C. Предоставляются технические заметки для типовых применений. Микроконтроллеры Zilog использовались в торговых автоматах, медицинских приборах и автомобильных модулях. Компания была приобретена IXYS, а затем Littelfuse, но бренд Zilog сохраняется. Zilog продолжает выпускать новые варианты с дополнительной памятью и периферией. Архитектура Z80 — одна из самых влиятельных в истории вычислений. Zilog также предлагает защищённые МК с возможностями шифрования. У компании широкий температурный диапазон для промышленных применений. Продукция Zilog экономична и проста в использовании. Обеспечивается долгосрочная доступность для устаревших разработок. Поддержка Zilog включает онлайн-форумы и технические документы. Их микроконтроллеры также используются в любительских проектах и ретро-играх. Приверженность Zilog обратной совместимости обеспечивает переносимость кода. Компания имеет репутацию надёжных и устойчивых решений. Zilog также производит контроллеры последовательной связи и другие периферийные чипы. Их продукция остаётся актуальной во множестве нишевых применений.</p>
+
+                <h2>Линейки продукции и модели устройств</h2>
+                <h3>eZ80 (24‑разрядный, совместим с Z80)</h3>
+                <ul>
+                    <li>eZ80F91</li><li>eZ80F92</li><li>eZ80F93</li><li>eZ80F94</li><li>eZ80F95</li>
+                    <li>eZ80L92</li><li>eZ80L93</li><li>eZ80L94</li><li>eZ80Acclaim! Plus</li><li>eZ80Acclaim! Flash</li>
+                    <li>eZ80Mini</li><li>eZ80Nano</li><li>eZ80Pico</li>
+                </ul>
+                <h3>Z8051 (8051-совместимые)</h3>
+                <ul>
+                    <li>Z8051F001</li><li>Z8051F002</li><li>Z8051F003</li><li>Z8051F004</li><li>Z8051F005</li>
+                    <li>Z8051F006</li><li>Z8051F007</li><li>Z8051F008</li><li>Z8051F009</li><li>Z8051F010</li>
+                    <li>Z8051F011</li><li>Z8051F012</li>
+                </ul>
+                <h3>Классический Z80 (только CPU)</h3>
+                <ul>
+                    <li>Z80</li><li>Z80A</li><li>Z80B</li><li>Z80H</li><li>Z80S</li>
+                    <li>Z80L</li><li>Z80C</li><li>Z80D</li><li>Z80E</li>
+                </ul>
+
+                <h2>Функции безопасности Zilog</h2>
+                <p>Zilog реализует скромные средства защиты, подходящие для многих встраиваемых применений. Её приборы eZ80 включают биты блокировки, предотвращающие считывание внутренней флеш. После блокировки программную память нельзя прочитать через отладочный интерфейс. Тем не менее, эти биты блокировки можно обойти глитч-атаками. Некоторые МК Zilog имеют аппаратный криптодвижок для расшифровки кода, хранящегося во внешней памяти. Это добавляет рубеж защиты, но ключ должен храниться в безопасности. Zilog также предоставляет уникальный серийный номер устройства для аутентификации, что может предотвратить клонирование. Тем не менее, без надлежащей валидации это может быть неэффективно. Старые приборы Z80 не имеют средств защиты вообще, что делает их тривиальными для чтения. Для таких мы можем просто использовать логический анализатор для захвата тактов шины. Для современных eZ80 мы разработали методы извлечения прошивки, эксплуатируя загрузчик. Загрузчик иногда можно обманом заставить снять дамп памяти. Боковой анализ энергопотребления способен раскрыть ключи во время шифрования. Нам удавалось взламывать приборы Zilog методом электромагнитного зондирования. Другой подход использует ультрафиолет для стирания блокировочных фьюзов на OTP-приборах. Как только блокировка снята, мы можем прочитать всю память. Для защищённых применений Zilog рекомендует внешние защитные ИС. Несмотря на эти ограничения, многие устаревшие системы полагаются на МК Zilog. Мы можем продублировать прошивку на чип-заменитель. Наша команда также восстанавливает прошивку из повреждённых устройств. Мы используем инвазивные методы, такие как декапсулирование, для прямого чтения кремния. Это позволяет восстанавливать код даже из заблокированных приборов. Защита Zilog не так продвинута, как у современных чипов ARM, но достаточна для многих промышленных применений. Для клиентов, которым нужно уйти от Zilog, мы можем извлечь код и перенести его. Также предоставляем дизассемблирование и анализ извлечённого двоичного кода. Наши услуги включают неинвазивные и инвазивные методы. У нас высокая доля успеха в восстановлении прошивок Zilog. Нужно ли вам разблокировать устройство или клонировать контроллер — у MikaTech есть решение. Мы также предлагаем считать конфигурационные и калибровочные данные. Свяжитесь с нами для детальной оценки вашего устройства Zilog.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

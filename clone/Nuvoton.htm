@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров Nuvoton – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и заново применяем встраиваемые системы с высокой точностью.
+                        Мы предоставляем экспертное извлечение прошивок, анализ кремния и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп прошивки МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг МК Nuvoton</h1>
+                <p>Экспертиза в микроконтроллерах на базе ARM Cortex-M и 8051</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О Nuvoton</h2>
+                <p>Nuvoton Technology Corporation — ведущая полупроводниковая компания, специализирующаяся на микроконтроллерах, аудио и компьютерных ИС. Компания выросла из Logic Business Group компании Winbond и превратилась в глобального поставщика. Nuvoton хорошо известна своим семейством NuMicro® на базе ARM Cortex-M и устаревшей серией 8051. Они предоставляют широкий спектр МК от низкопотребляющих до высокопроизводительных, ориентированных на промышленные, потребительские, автомобильные и IoT-применения. Продукция Nuvoton известна экономичностью, надёжной аналоговой интеграцией и обширной периферией. Они предлагают комплексные инструменты разработки, включая отладчик Nu-Link и обширные библиотеки ПО. Компания делает сильный акцент на НИОКР в области безопасности и связи, многие устройства оснащены аппаратными крипто-ускорителями и детекцией вскрытия. Nuvoton также выпускает аудиокодеки, ИС управления двигателями и устройства управления питанием. Их серия NuMicro® включает ядра M0, M4, M23, M33 и M7, охватывая широкий спектр производительности. Продукция Nuvoton на базе 8051 всё ещё широко применяется в устаревших системах и бюджетных приложениях. Они — ключевой поставщик многих азиатских производителей электроники. Nuvoton уделяет внимание долгосрочной доступности продукции и поддержке жизненного цикла. У них сертификации качества ISO 9001 и IATF 16949. Их МК часто включают продвинутые аналоговые функции вроде высокоточных АЦП, ЦАП и компараторов. Nuvoton также предоставляет механизмы безопасной загрузки и обновления прошивки. Компания активно участвует в open-source экосистеме с поддержкой ARM mbed и Zephyr. Продукция Nuvoton используется в устройствах умного дома, дронах, робототехнике и медицинском оборудовании. У них выделенная группа безопасности, регулярно публикующая бюллетени. Производство Nuvoton использует продвинутые процессы 40 нм и 55 нм для низкого энергопотребления. Они также предлагают решения с интегрированной памятью и большой flash и SRAM. Их клиентская база включает многие компании из Fortune 500. У Nuvoton глобальная сеть продаж и поддержки. Они продолжают инвестировать в новые технологии вроде RISC-V и ускорения ИИ. Их Nu-Link — популярный отладчик среди разработчиков. Они также предоставляют уникальный ID чипа для аутентификации. Nuvoton привержена экологической устойчивости с бессвинцовой и безгалогеновой упаковкой.</p>
+
+                <h2>Серии продуктов и модели устройств</h2>
+                <h3>NuMicro® M0 (Cortex-M0)</h3>
+                <ul>
+                    <li>M0516LBN</li><li>M052LAN</li><li>M058ZAN</li><li>M0518LD2</li><li>M0518SD2</li>
+                    <li>M0519LD3</li><li>M0519SD3</li><li>M052FAN</li><li>M054FAN</li><li>M058FAN</li>
+                    <li>M0516LDN</li><li>M0518LDN</li>
+                </ul>
+                <h3>NuMicro® M4 (Cortex-M4)</h3>
+                <ul>
+                    <li>M451RG6AE</li><li>M452RG6AE</li><li>M453VG6AE</li><li>M451RE6AE</li><li>M452RE6AE</li>
+                    <li>M453RE6AE</li><li>M451RC6AE</li><li>M452RC6AE</li><li>M453RC6AE</li><li>M451MLD3</li>
+                    <li>M452MLD3</li><li>M453MLD3</li><li>M451MD3AE</li>
+                </ul>
+                <h3>Серия 8051 (устаревшая)</h3>
+                <ul>
+                    <li>W78E516B</li><li>W78E58B</li><li>W78E52B</li><li>W78E54B</li><li>W78E62B</li>
+                    <li>W78C516B</li><li>W78C58B</li><li>W78C52B</li><li>W78C54B</li><li>W79E2051</li>
+                    <li>W79E825</li><li>W79E532</li><li>W79E533</li>
+                </ul>
+
+                <h2>Функции безопасности Nuvoton</h2>
+                <p>Nuvoton реализует множество уровней защиты кода и данных на своих МК. Многие устройства NuMicro включают аппаратный криптографический движок для AES, DES и SHA. Это позволяет шифровать прошивку, требуя ключ для расшифровки при загрузке. Ключи хранятся в защищённом регистре, недоступном для чтения обычными командами. Nuvoton также предлагает уникальный User ID для аутентификации. Они предоставляют настраиваемую защиту flash, разделяя память на области с разными правами чтения/записи/стирания. Защитный предохранитель может навсегда заблокировать отладочные интерфейсы, вроде JTAG и SWD, для предотвращения внешнего чтения. Однако целеустремлённые злоумышленники могут попытаться взломать предохранитель инъекцией сбоев. Nuvoton добавила выводы детекции вскрытия, которые инициируют немедленное стирание данных при обнаружении физического вторжения. Их безопасный загрузчик проверяет подпись прошивки перед исполнением, затрудняя внедрение вредоносного кода. Некоторые устройства включают генератор случайных чисел для криптографических операций. Для разблокировки защищённой микросхемы мы часто используем боковой канальный анализ для восстановления ключей. Вариации потребления и электромагнитных излучений во время шифрования могут раскрыть секретные данные. Наша команда успешно извлекала прошивку из устройств Nuvoton M4, используя дифференциальный анализ потребления. Мы также применяли глитч-атаки для обхода битов блокировки на старых изделиях 8051. Инвазивные методы вроде вскрытия позволяют напрямую зондировать память flash. Затем мы можем дампить всё содержимое и продублировать прошивку на новое устройство. Защита Nuvoton надёжна, но нет полностью невосприимчивых систем. Мы разработали собственные инструменты для восстановления данных из заблокированных чипов. Например, мы можем эксплуатировать различия во времени в загрузчике для извлечения защищённых байтов. Мы также используем сфокусированный ионный пучок (FIB) для перерезания соединений предохранителей. Наши услуги охватывают как инвазивные, так и неинвазивные подходы. Мы можем восстановить калибровочные данные и конфигурационные предохранители. Постоянное усиление защиты Nuvoton требует от нас непрерывного обновления методов. MikaTech остаётся на переднем крае обратного инжиниринга МК. Мы предоставляем полный отчёт об извлечении с дизассемблированным кодом. Нужно ли вам клонировать устаревший контроллер или восстановить утерянную прошивку — мы поможем. Свяжитесь с нами для детальной оценки вашего устройства Nuvoton.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров ChipON – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы предлагаем профессиональное извлечение прошивок, анализ кристаллов и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг микроконтроллеров ChipON</h1>
+                <p>Специализация на 8- и 32-битных МК ChipON для автомобильной и промышленной сферы</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании ChipON</h2>
+                <p>ChipON Microelectronics — китайская полупроводниковая компания, специализирующаяся на 8- и 32-битных микроконтроллерах на основе ядер 8051 и ARM Cortex-M. Они предлагают широкий спектр МК, адаптированных для автомобильной, промышленной, бытовой и IoT-сферы. ChipON известна своими высоконадёжными продуктами с улучшенной защитой от ESD и EMI, что делает их подходящими для суровых условий. Их 8-битная серия KF8 основана на архитектуре 8051, а 32-битная KF32 использует ядра ARM Cortex-M0, M0+, M3 и M4. ChipON также предоставляет интегрированные решения со встроенной EEPROM, аналоговой периферией и модулями управления двигателями. Компания укрепила позиции на внутреннем китайском рынке и расширяется глобально. Многие их устройства используются в автомобильной кузовной электронике, системах управления батареями и интеллектуальных счётчиках. МК ChipON часто включают функции безопасности, такие как защита flash от чтения, защита от записи и уникальный идентификатор устройства. Они также поддерживают зашифрованные загрузчики для предотвращения несанкционированных обновлений прошивки. Несмотря на относительную новизну, устройства ChipON всё чаще встречаются как в устаревших, так и в современных системах. Наша команда обратного инжиниринга имеет опыт работы как с серией KF8, так и с KF32. Мы разработали инструменты для взаимодействия с их портами программирования и отладки (SWD, JTAG или собственный ISP). Для заблокированных устройств мы применяем анализ побочных каналов, инъекцию сбоев и инвазивную декапсуляцию для восстановления прошивки. Защита ChipON часто менее сложна, чем у ведущих вендоров, но всё ещё предлагает полезную защиту. Тем не менее, мы успешно обходили их защиту многократно. Мы можем извлечь полную память flash, восстановить данные EEPROM и даже клонировать устройство на новый чип. Наш сервис ценен для клиентов, которым нужно восстановить утерянный исходный код, проанализировать продукты конкурентов или произвести резервные замены. Мы предоставляем детальную документацию восстановленной прошивки и помогаем с дизассемблированием и реинжинирингом. Благодаря нашей экспертизе мы можем расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать и клонировать микроконтроллеры ChipON эффективно.</p>
+
+                <h2>Семейства и модели устройств</h2>
+                <ul>
+                    <li><strong>KF8 (8-bit 8051)</strong> – KF8F200, KF8F201, KF8F202, KF8F203, KF8F204, KF8F205, KF8F206, KF8F207, KF8F208, KF8F209</li>
+                    <li><strong>KF8A (Automotive 8-bit)</strong> – KF8A100, KF8A101, KF8A102, KF8A103, KF8A104, KF8A105, KF8A106, KF8A107, KF8A108, KF8A109</li>
+                    <li><strong>KF8L (Low-power 8-bit)</strong> – KF8L200, KF8L201, KF8L202, KF8L203, KF8L204, KF8L205, KF8L206, KF8L207, KF8L208, KF8L209</li>
+                    <li><strong>KF32 (32-bit ARM Cortex-M)</strong> – KF32A, KF32F, KF32L, KF32M, KF32S, KF32W, KF32E, KF32C, KF32P, KF32N</li>
+                    <li><strong>KF32A (Automotive)</strong> – KF32A100, KF32A101, KF32A102, KF32A103, KF32A104, KF32A105, KF32A106, KF32A107, KF32A108, KF32A109</li>
+                    <li><strong>KF32F (High-performance)</strong> – KF32F200, KF32F201, KF32F202, KF32F203, KF32F204, KF32F205, KF32F206, KF32F207, KF32F208, KF32F209</li>
+                </ul>
+
+                <h2>Функции безопасности и наш подход к атаке</h2>
+                <p>Микроконтроллеры ChipON предлагают несколько механизмов защиты. Основная защита — это защита flash от считывания (ROP), предотвращающая чтение памяти через отладочный интерфейс. После включения доступ по SWD/JTAG ограничивается. ChipON также предоставляет защиту от записи, блокирующую стирание или программирование определённых секторов. Некоторые устройства имеют загрузчик, который можно защитить паролем или криптографическим вызовом. Кроме того, МК ChipON включают уникальный 96-битный идентификатор устройства, который можно использовать для верификации лицензий ПО. Однако эта защита не так надёжна, как у ведущих вендоров. Наша команда обратного инжиниринга обнаружила, что ROP часто можно обойти простой атакой по времени или глитчем напряжения во время загрузки. Искажая чтение блокировочных битов, мы можем заставить устройство предоставить полный доступ. Мы также использовали интерфейс SWD со специальными последовательностями для разблокировки устройства. Для 8-битной серии KF8 мы разработали собственный программатор, который может переопределить защиту с помощью глитча сброса. Для 32-битной KF32 мы применяли анализ мощности побочного канала для извлечения пароля, используемого в загрузчике. Кроме того, мы декапсулировали устройства для прямого чтения flash-памяти с помощью микроскопа и зондирования транзисторов с плавающим затвором. Это надёжный, но инвазивный метод. Мы также предлагаем услуги клонирования, где мы берём заблокированное устройство, извлекаем прошивку и программируем чистый МК ChipON тем же бинарным кодом. Это полезно для замены устаревших компонентов. Наша лаборатория оснащена необходимым оборудованием для работы как с 8-, так и с 32-битными устройствами ChipON. Мы глубоко понимаем их архитектуру и протоколы программирования. Мы также поддерживаем базу известных уязвимостей и эксплойтов для различных семейств ChipON. Наш процент успеха очень высок, и мы обычно доставляем извлечённую прошивку в течение нескольких дней. Мы предоставляем восстановленный бинарный файл, опционально дизассемблированный, и любые найденные ключи безопасности. Наши услуги полностью конфиденциальны и выполняются под NDA. Нужно ли вам восстановить утерянный проект, проанализировать продукт конкурента или произвести клон для поддержки устаревших систем — MikaTech ваш надёжный партнёр. Мы успешно атаковали множество устройств ChipON и уверены в наших возможностях. Благодаря нашей экспертизе мы можем расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать и клонировать микроконтроллеры ChipON быстро и точно.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p>
+        </div>
+    </footer>
+</body>
+</html>

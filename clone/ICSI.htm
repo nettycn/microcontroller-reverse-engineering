@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров ICSI – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и заново применяем встраиваемые системы с высокой точностью.
+                        Мы предоставляем экспертное извлечение прошивок, анализ кремния и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп прошивки МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг МК ICSI</h1>
+                <p>Экспертиза в области микроконтроллеров с акцентом на память и SoC</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Об ICSI</h2>
+                <p>ICSI (Integrated Circuit Solutions, Inc.) — нишевый производитель микроконтроллеров с фокусом на интеграцию памяти. Они выпускают МК, объединяющие flash, EEPROM и SRAM высокой плотности. Устройства ICSI широко применяются в смарт-картах, SIM-картах и защищённых идентификационных токенах. Также компания предлагает SoC-решения со встроенными крипто-копроцессорами. Линейка ICSI включает как архитектуру ARM, так и собственные разработки. Они известны низкопотребляющими проектами, подходящими для батарейных устройств. ICSI предоставляет обширные криптографические библиотеки для своих защищённых МК. Их микросхемы часто встречаются в платёжных терминалах и системах контроля доступа. ICSI также выпускает радиационно-стойкие версии для авиакосмических применений. Компания уделяет особое внимание внутрисхемному хранению ключей и истинной генерации случайных чисел. У них сильный портфель IP в области управления памятью и коррекции ошибок. Микроконтроллеры ICSI спроектированы на высокую надёжность и длительное сохранение данных. Они поддерживают множественные интерфейсы связи: I2C, SPI и UART. ICSI также предлагает услуги заказной кремниевой разработки под специальные требования. Их инструменты разработки включают отладчики и анализаторы трассировки. МК ICSI часто используются в медицинских имплантах и носимых мониторах здоровья. Они применяют продвинутое отключение питания блоков и динамическое масштабирование напряжения. Защищённые микросхемы ICSI имеют сертификацию Common Criteria. Компания сотрудничает с крупными OEM-производителями для защищённых IoT-приложений. Продукция ICSI также используется в автомобильных брелоках и иммобилайзерах. Они предоставляют механизмы обновления прошивки с защитой от отката. Технологии памяти ICSI включают как NOR, так и NAND flash. Их МК могут исполнять код прямо из flash с нулевыми тактами ожидания. ICSI также предлагает многоядерные решения для параллельной обработки. Они — растущий игрок на рынке защищённых микроконтроллеров. Их устройства конкурентоспособны по сравнению с признанными брендами вроде NXP и STMicroelectronics. Дорожная карта ICSI включает поддержку постквантовой криптографии. Они активно исследуют аппаратную защиту от боковых канальных атак. Приверженность ICSI инновациям делает их ключевым партнёром для критически важных проектов безопасности.</p>
+
+                <h2>Серии продуктов и модели устройств</h2>
+                <h3>Серия защищённых МК (ARM Cortex-M)</h3>
+                <ul>
+                    <li>ICSI‑SM32</li><li>ICSI‑SM64</li><li>ICSI‑SM128</li><li>ICSI‑SM256</li><li>ICSI‑SM512</li>
+                    <li>ICSI‑SM1K</li><li>ICSI‑SM2K</li><li>ICSI‑SM4K</li><li>ICSI‑SM8K</li><li>ICSI‑SM16K</li>
+                    <li>ICSI‑SM32P</li><li>ICSI‑SM64P</li><li>ICSI‑SM128P</li>
+                </ul>
+                <h3>Серия Memory-plus (с большой EEPROM)</h3>
+                <ul>
+                    <li>ICSI‑M16E</li><li>ICSI‑M32E</li><li>ICSI‑M64E</li><li>ICSI‑M128E</li><li>ICSI‑M256E</li>
+                    <li>ICSI‑M512E</li><li>ICSI‑M1K</li><li>ICSI‑M2K</li><li>ICSI‑M4K</li>
+                </ul>
+                <h3>Радиационно-стойкая серия</h3>
+                <ul>
+                    <li>ICSI‑RH32</li><li>ICSI‑RH64</li><li>ICSI‑RH128</li><li>ICSI‑RH256</li><li>ICSI‑RH512</li>
+                </ul>
+
+                <h2>Функции безопасности ICSI</h2>
+                <p>ICSI встраивает надёжную защиту на уровне кремния для защиты конфиденциальных данных. Их защищённые МК оснащены выделенным крипто-движком, который расшифровывает код на лету. Это предотвращает несанкционированное чтение прошивки, поскольку она остаётся зашифрованной во flash. Материал ключей хранится в памяти, чувствительной к вскрытию, которая обнуляется при обнаружении физической атаки. ICSI также реализует активное экранирование кристалла для затруднения микрозондирования. Они включают процесс безопасной загрузки, проверяющий цифровые подписи перед исполнением. Это гарантирует запуск только аутентифицированного кода, что затрудняет взлом системы. Устройства ICSI имеют несколько уровней безопасности, настраиваемых через предохранители. Эти предохранители могут навсегда отключить отладочные порты после производства. Для извлечения данных можно попытаться применить инъекцию сбоев для разблокировки этих портов. Однако у ICSI есть противодействия в виде мониторов напряжения и частоты. Они также включают сторожевой таймер, который сбрасывает микросхему при аномалиях. Компания предоставляет механизм безопасного обновления с зашифрованными бинарными файлами. Это мешает злоумышленникам внедрять вредоносные полезные нагрузки. TRNG ICSI (генератор истинно случайных чисел) добавляет энтропию для криптографических операций. Они также поддерживают шифрование памяти для защиты данных в покое. Несмотря на эти меры, продвинутые противники всё ещё могут клонировать микросхему, сняв пассивационный слой и считав ROM. Анализ потребления по боковому каналу может раскрыть ключи во время шифрования. Наша команда разработала методы восстановления ключей из устройств ICSI с использованием дифференциального электромагнитного анализа. Мы также успешно дампили прошивку, эксплуатируя уязвимость в загрузчике. Защита ICSI сильна, но нет совершенных систем. Мы предлагаем профессиональные услуги извлечения для легитимных целей, таких как восстановление устаревших систем. Наши методы включают инвазивное зондирование и редактирование сфокусированным ионным пучком. Мы можем прочитать содержимое защищённых flash и EEPROM. Для OTP-вариантов мы используем УФ-стирание и перепрограммирование для дублирования содержимого. Микросхемы ICSI применяются в режимах высокой безопасности, поэтому мы соблюдаем крайнюю осторожность. Наша лаборатория оснащена для работы даже с самыми устойчивыми устройствами. Мы предоставляем исчерпывающие отчёты по извлечённой прошивке и анализу защиты. Доверьте MikaTech надёжный обратный инжиниринг ICSI.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

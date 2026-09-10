@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров Lattice – MikaTech</title>
+      <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и заново применяем встраиваемые системы с высокой точностью.
+                        Мы предоставляем экспертное извлечение прошивок, анализ кремния и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп прошивки МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг МК Lattice</h1>
+                <p>Специализация на МК на основе FPGA и mixed-signal устройствах</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О Lattice</h2>
+                <p>Lattice Semiconductor известна своими низкопотребляющими FPGA, но они также выпускают встраиваемые микроконтроллеры и SoC. Их МК часто интегрируют программируемую логику с ядрами ARM. Семейства MachXO и iCE40 включают жёстко зашитые подсистемы МК. Они ориентированы на промышленный, автомобильный и потребительский рынки. Микроконтроллеры Lattice известны гибкостью и малым корпусом. Они предлагают как 8-битные, так и 32-битные варианты. Устройства Lattice поддерживают множество стандартов I/O и уровней напряжения. Они применяются в управлении двигателями, сенсорном слиянии и человеко-машинных интерфейсах. Lattice предоставляет полную экосистему разработки с проектированием логики методом drag-and-drop. Их микроконтроллеры часто включают аналоговые блоки вроде ФАПЧ и генераторов. Lattice приобрела SiliconBlue для усиления предложений низкопотребляющих FPGA/МК. Они также крупный поставщик контроллеров USB-C и power delivery. Семейство CrossLink спроектировано для применений видео-мостов. Их МК оснащены внутрисхемной flash и SRAM с коррекцией ошибок. Lattice уделяет внимание простоте использования и быстрому прототипированию. У них сильное присутствие в секторе промышленной автоматизации. Защитные решения Lattice включают безопасную загрузку и хранение ключей. Они также предлагают аутентификационные ИС для защиты IP. Lattice — ключевой партнёр многих OEM в Азии. Их устройства применяются в дронах, робототехнике и продуктах умного дома. Lattice продолжает инновации в низкопотребляющих и малогабаритных разработках. У них развито онлайн-сообщество и поддержка. Инструменты Lattice поддерживают как Verilog, так и язык C. Они предоставляют проектные эталоны для типовых применений. Ориентация Lattice на экономичность делает их конкурентоспособными. Их микроконтроллеры часто сочетаются с внешней памятью. Lattice также выпускает конфигурационную память для FPGA. Их продукция характеризуется высокой надёжностью и длительной доступностью. Lattice — доверенное имя в программируемой логике и встраиваемых системах.</p>
+
+                <h2>Серии продуктов и модели устройств</h2>
+                <h3>MachXO (со встроенным МК)</h3>
+                <ul>
+                    <li>MachXO2‑1200</li><li>MachXO2‑2000</li><li>MachXO2‑4000</li><li>MachXO2‑7000</li><li>MachXO3‑9400</li>
+                    <li>MachXO3‑LFE5U</li><li>MachXO3‑LFE5UM</li><li>MachXO3‑LFE5UM‑25</li><li>MachXO3‑LFE5UM‑45</li>
+                </ul>
+                <h3>iCE40 (ультранизкое потребление)</h3>
+                <ul>
+                    <li>iCE40UL1K</li><li>iCE40UL4K</li><li>iCE40UP5K</li><li>iCE40LP384</li><li>iCE40LP640</li>
+                    <li>iCE40LP1K</li><li>iCE40LP4K</li><li>iCE40LP8K</li><li>iCE40HX1K</li><li>iCE40HX4K</li>
+                    <li>iCE40HX8K</li><li>iCE40HX16K</li>
+                </ul>
+                <h3>CrossLink (видео-мосты)</h3>
+                <ul>
+                    <li>CrossLink‑LIF‑MD6000</li><li>CrossLink‑LIF‑MD8000</li><li>CrossLink‑LIF‑MD12000</li>
+                </ul>
+
+                <h2>Функции безопасности Lattice</h2>
+                <p>Lattice реализует функции защиты для защиты битпотоков и прошивки. Их FPGA включают уникальную DNA устройства, которую можно использовать для аутентификации. Эта DNA предотвращает клонирование, поскольку каждая микросхема имеет отличительный идентификатор. Lattice предлагает загрузку битпотока с AES-шифрованием для предотвращения чтения. Ключ расшифровки хранится в SRAM с батарейным питанием или eFuse. Без ключа невозможно расшифровать конфигурационные данные. Lattice также предоставляет режим безопасной загрузки для ядер МК. Это проверяет целостность образа ПО перед исполнением. Отладочные порты можно отключить защитными предохранителями. Однако физические атаки вроде зондирования всё ещё могут раскрыть битпоток. Защита Lattice усилена цепями, чувствительными к вскрытию, которые стирают ключи при вторжении. Они также поддерживают обнуление конфиденциальных данных. Для взлома устройства Lattice можно попытаться перехватить SPI flash во время загрузки. Боковые канальные атаки можно использовать для восстановления ключа шифрования. Наша команда успешно извлекала битпотоки из чипов iCE40, используя анализ потребления. Мы также использовали FIB для чтения внутренней конфигурационной памяти. Устройства Lattice менее защищены, чем некоторые конкуренты, но всё ещё предлагают приличную защиту. Для устаревших разработок мы можем продублировать всю конфигурацию на новую микросхему. Мы также предоставляем извлечение прошивки из встроенного МК. Процесс включает дамп flash и EEPROM. Защиты Lattice достаточно для многих коммерческих применений, но не для военного уровня. MikaTech предлагает комплексные услуги обратного инжиниринга для всей продукции Lattice. Мы можем восстановить проектные данные даже из заблокированных устройств. Наши методы включают инвазивные и неинвазивные подходы. Мы можем разблокировать интерфейс JTAG глитч-атаками. Мы также используем электромагнитный анализ для определения внутренних состояний. С нашей экспертизой мы можем клонировать разработки Lattice для замены устаревших систем. Свяжитесь с нами для детальной оценки вашего устройства Lattice.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

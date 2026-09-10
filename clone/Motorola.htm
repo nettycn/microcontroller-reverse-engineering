@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров Motorola – MikaTech</title>
+     <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и заново применяем встраиваемые системы с высокой точностью.
+                        Мы предоставляем экспертное извлечение прошивок, анализ кремния и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп прошивки МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг МК Motorola</h1>
+                <p>Специализация на устаревших контроллерах 68HC11, 68HC16 и на базе PowerPC</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О Motorola</h2>
+                <p>Motorola — легендарный полупроводниковый бренд, пионер многих архитектур микроконтроллеров. Их семейства 68HC11 и 68HC16 доминировали на автомобильном и промышленном рынках в 1980-х и 1990-х. Motorola также разработала серию 68000, на которой работали ранние Apple Macintosh и многие встраиваемые системы. Позднее компания выделила свое полупроводниковое подразделение в Freescale Semiconductor, которое позже было приобретено NXP. Несмотря на это, многие устаревшие МК Motorola всё ещё активно используются в критической инфраструктуре. Эти устройства известны надёжностью и длительными жизненными циклами. Микроконтроллеры Motorola часто включают внутрисхемную EEPROM и аналого-цифровые преобразователи. Они были среди первых, кто интегрировал интерфейсы CAN и SPI для автомобильных сетей. Семейство 68HC12 добавило расширенные режимы адресации и математические возможности. Motorola также выпускала серию 683xx, объединяющую ядра CPU32 с контроллерами памяти. Их процессоры на базе PowerPC применялись в высококлассных системах связи и авиакосмической технике. Проектная философия Motorola делала акцент на детерминированном реальном времени. Они предоставляли обширную поддержку разработки с оценочными платами и компиляторами. Документация компании была тщательной, что несколько облегчало обратный инжиниринг. Многие чипы Motorola всё ещё производятся сторонними поставщиками. Их наборы команд хорошо поняты и широко изучены. Микроконтроллеры Motorola часто оснащены множеством таймерных каналов и выходов ШИМ. Они применяются в блоках управления двигателем, медицинских устройствах и робототехнике. Семейство 68HC05 было популярно для недорогих потребительских применений. Motorola также выпускала радиационно-стойкие версии для космических миссий. Их функции защиты были базовыми, но эффективными для своей эпохи. Наследие компании продолжается через Freescale и NXP. Многие инженеры учились встраиваемому программированию на платформах Motorola. Их чипы известны высокой помехоустойчивостью и надёжной работой. Влияние Motorola на отрасль глубоко, и многие современные разработки до сих пор ссылаются на их архитектуры. Восстановление прошивки из этих устройств часто необходимо для модернизации систем или анализа отказов.</p>
+
+                <h2>Серии продуктов и модели устройств</h2>
+                <h3>68HC11 (8-бит)</h3>
+                <ul>
+                    <li>MC68HC11A8</li><li>MC68HC11E9</li><li>MC68HC11F1</li><li>MC68HC11K4</li><li>MC68HC11P2</li>
+                    <li>MC68HC11D3</li><li>MC68HC11G5</li><li>MC68HC11L6</li><li>MC68HC11M8</li><li>MC68HC11N4</li>
+                    <li>MC68HC11R3</li><li>MC68HC11S4</li><li>MC68HC11T2</li>
+                </ul>
+                <h3>68HC16 (16-бит)</h3>
+                <ul>
+                    <li>MC68HC16Z1</li><li>MC68HC16Z2</li><li>MC68HC16Z3</li><li>MC68HC16Y1</li><li>MC68HC16Y2</li>
+                    <li>MC68HC16Y3</li><li>MC68HC16X1</li><li>MC68HC16X2</li><li>MC68HC16X3</li><li>MC68HC16V1</li>
+                    <li>MC68HC16V2</li><li>MC68HC16V3</li>
+                </ul>
+                <h3>683xx (CPU32)</h3>
+                <ul>
+                    <li>MC68332</li><li>MC68331</li><li>MC68336</li><li>MC68340</li><li>MC68349</li>
+                    <li>MC68360</li><li>MC68322</li><li>MC68328</li><li>MC68338</li><li>MC68341</li>
+                    <li>MC68342</li><li>MC68343</li>
+                </ul>
+
+                <h2>Функции безопасности Motorola</h2>
+                <p>Motorola реализовывала защиту в основном через предохранительные механизмы блокировки. Серия 68HC11 имела защитный бит, который можно было запрограммировать для предотвращения чтения внутренних ROM и EEPROM. После его установки любая попытка чтения памяти через режим начальной загрузки блокировалась. Однако эту блокировку можно было снять, применив специфическую последовательность напряжений к выводам RESET и IRQ. Эта уязвимость позволяла хакерам легко извлекать прошивку. Поздние устройства вроде 68HC16 ввели более надёжную защиту, включая отладочный доступ с парольной защитой. Без правильного пароля нельзя читать или записывать память. Motorola также добавила шифрование для некоторых своих изделий PowerPC, что требовало расшифровки прошивки перед анализом. Несмотря на эти меры, боковые канальные атаки могут восстановить ключи во время крипто-операций. Наша команда успешно дампила прошивку из заблокированных чипов 68HC11, используя глитч-атаки на блок питания. Мы также восстанавливали данные из процессоров 683xx, эксплуатируя интерфейс JTAG. Старые изделия Motorola относительно легко клонировать, поскольку они лишены защиты на уровне кристалла. Мы можем продублировать всё содержимое памяти и создать работоспособную замену. Для автомобильных ECU мы часто восстанавливаем калибровочные таблицы и карты двигателя. В некоторых случаях нам нужно атаковать внешнюю EEPROM для получения полного набора данных. Защита Motorola слаба по современным меркам, но эти чипы всё ещё критичны. Мы предлагаем неинвазивные методы чтения содержимого без повреждения устройства. Инвазивное вскрытие также можно использовать для прямого зондирования. Наша лаборатория оснащена инструментами для восстановления данных даже при включённой блокировке. Мы можем декодировать набор команд и реконструировать оригинальный ассемблер. Устройства Motorola — прекрасная цель для обратного инжиниринга благодаря широкому применению. Мы предоставляем исчерпывающие отчёты, включая извлечённые бинарные файлы и карты памяти. Доверьте MikaTech надёжное восстановление МК Motorola.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

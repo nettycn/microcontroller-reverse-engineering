@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг Elan Microelectronics – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы предлагаем профессиональное извлечение прошивок, анализ кристаллов и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг Elan Microelectronics</h1>
+                <p>Специализированные услуги для 8- и 32-битных микроконтроллеров Elan и сенсорных контроллеров</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Обзор бренда</h2>
+                <p>Elan Microelectronics — тайваньская fabless-полупроводниковая компания, основанная в 1994 году, хорошо известная своими недорогими 8-битными микроконтроллерами, часто используемыми в бытовой электронике. Их серия EM78 совместима с архитектурой PIC от Microchip, но имеет отличия, и они также производят 32-битные МК на базе ARM и ёмкостные сенсорные контроллеры. Чипы Elan встречаются в пультах дистанционного управления, малой бытовой технике, игрушках, компьютерной периферии и устройствах умного дома, и они имеют сильные позиции на китайском и юго-восточном азиатском рынках.</p>
+                <p>Многие устройства Elan имеют встроенную EEPROM и flash-память с защитными битами, но реализация часто базовая, полагаясь на простые лок-биты, что делает их относительно более простыми для обратного инжиниринга по сравнению с высококлассными аналогами. Тем не менее, мы сталкивались с устройствами с проприетарными алгоритмами шифрования. Elan также предлагает OTP (однократно программируемые) версии для массового производства, которые требуют специальных методов чтения, поскольку не могут быть перепрограммированы. Наша команда разработала методы извлечения кода из OTP-чипов Elan с помощью микрозондирования, и мы успешно клонировали микроконтроллеры Elan для различных промышленных клиентов.</p>
+                <p>Мы знакомы с проприетарным интерфейсом программирования и отладочными протоколами Elan, и мы можем обойти защитные блокировки для считывания полной прошивки. Наши услуги охватывают как flash-, так и OTP-устройства Elan, включая извлечение прошивки, дизассемблирование, функциональный анализ и решения для замены устаревших чипов. Имея более 100 успешных проектов Elan, мы обладаем экспертизой, чтобы помочь вам восстановить контроль над продуктами на базе Elan.</p>
+
+                <h2>Серии микроконтроллеров и модели</h2>
+                <h3>Серия EM78 (8-бит, PIC-подобная)</h3>
+                <ul>
+                    <li>EM78P153</li>
+                    <li>EM78P156</li>
+                    <li>EM78P258</li>
+                    <li>EM78P259</li>
+                    <li>EM78P260</li>
+                    <li>EM78P417</li>
+                    <li>EM78P418</li>
+                    <li>EM78P447</li>
+                    <li>EM78P451</li>
+                    <li>EM78P468</li>
+                    <li>EM78P469</li>
+                    <li>EM78P508</li>
+                    <li>EM78P509</li>
+                    <li>EM78P520</li>
+                    <li>EM78P810</li>
+                </ul>
+                <h3>Серия ePort (32-бит ARM Cortex-M)</h3>
+                <ul>
+                    <li>ePort-M0 (EM32M0)</li>
+                    <li>ePort-M3 (EM32M3)</li>
+                    <li>ePort-M4 (EM32M4)</li>
+                    <li>EM32F302</li>
+                    <li>EM32F303</li>
+                    <li>EM32F305</li>
+                    <li>EM32F307</li>
+                    <li>EM32F401</li>
+                    <li>EM32F405</li>
+                    <li>EM32F407</li>
+                    <li>EM32F411</li>
+                    <li>EM32F412</li>
+                    <li>EM32F413</li>
+                    <li>EM32F415</li>
+                    <li>EM32F417</li>
+                </ul>
+                <h3>Сенсорные контроллеры</h3>
+                <ul>
+                    <li>EMC1051</li>
+                    <li>EMC1052</li>
+                    <li>EMC1053</li>
+                    <li>EMC1055</li>
+                    <li>EMC1070</li>
+                    <li>EMC1080</li>
+                    <li>EMC1090</li>
+                    <li>EMC1100</li>
+                    <li>EMC1200</li>
+                    <li>EMC1300</li>
+                </ul>
+
+                <h2>Функции безопасности и insights обратного инжиниринга</h2>
+                <p>Микроконтроллеры Elan обычно реализуют простую схему безопасности на основе конфигурационных битов. Защита кода предотвращает чтение программной памяти через интерфейс программирования, но эту блокировку часто можно обойти, используя тайминг включения питания. Мы можем взломать устройство, генерируя глитч питания во время последовательности чтения, что заставляет чип пропустить проверку безопасности и позволяет нам дампировать всю память. Для OTP-вариантов блокировка постоянна, но мы можем использовать инвазивные методы для извлечения битов через декапсуляцию кристалла и использование сканирующего электронного микроскопа для чтения состояния заряда каждой ячейки памяти. Мы успешно восстановили полный код из OTP-чипов Elan таким способом.</p>
+                <p>Для flash-устройств мы часто можем использовать отладочный интерфейс (ICSP) для считывания содержимого; даже когда интерфейс отключён, мы можем повторно включить его, манипулируя вектором сброса. Мы разработали собственный загрузчик, который использует переполнение буфера для разблокировки flash, позволяя извлекать прошивку без модификации исходного чипа. 32-битные ARM-устройства Elan имеют более надёжную защиту, включая защиту от чтения (RDP), но мы обнаружили, что RDP можно понизить через глитч-атаку на опционные байты, после чего мы можем читать flash стандартным SWD. Мы также можем восстановить ключи шифрования, хранящиеся в области уникального ID, которые часто используются для аутентификации прошивки, и точно их клонировать.</p>
+                <p>Наш анализ побочных каналов на ARM-МК Elan выявил утечку в процедуре AES, позволяя извлекать секретные ключи даже когда RDP находится на наивысшем уровне. Для сенсорных контроллеров защита минимальна, и мы часто можем читать конфигурацию напрямую. Мы клонировали сенсорную прошивку Elan для воспроизведения функций в контрафактной продукции, и наш подход включает как неинвазивные, так и инвазивные методы в зависимости от потребностей клиента. Мы можем восстановить алгоритм, используемый для сенсорного определения, для создания совместимых замен. В целом, защита Elan обычно слабее, чем у конкурентов, но мы всё равно применяем тщательные методы для гарантии 100% успеха.</p>
+                <p>Мы извлекали прошивку из чипов Elan, которые считались невзламываемыми, и наши инструменты позволяют дублировать всё поведение чипа, включая тайминги и периферию, для создания функционального клона, который бесшовно работает в целевой системе. Мы также предлагаем услуги дешифрования для любых зашифрованных данных, хранящихся в МК Elan, через обратный инжиниринг схемы шифрования. Наша команда постоянно исследует новые атаки и опережает обновления, предоставляя детальную документацию процесса извлечения для ваших записей. С MikaTech вы можете преодолеть любую задачу безопасности Elan.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p>
+        </div>
+    </footer>
+</body>
+</html>

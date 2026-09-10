@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров AMD – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы предлагаем профессиональное извлечение прошивок, анализ кристаллов и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг AMD (Advanced Micro Devices)</h1>
+                <p>Специализация на flash, встраиваемых и x86-микроконтроллерах AMD</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О микроконтроллерах AMD</h2>
+                <p>Advanced Micro Devices (AMD) преимущественно известна своими x86-процессорами и GPU, но также имеет богатую историю в области микроконтроллеров и встраиваемых решений. В 1980-х и 1990-х годах AMD производила ряд микроконтроллеров, включая серии Am186 и Am386 — x86-совместимые встраиваемые процессоры. Эти устройства использовались в промышленном управлении, телекоммуникациях и ранних ПК-периферийных устройствах. AMD также разработала семейство бит-слайс процессоров Am29xx и серию логических устройств Am25xx. В более позднее время встраиваемая продуктовая линейка AMD включает G-series и R-series ускоренные процессорные модули (APU), объединяющие ядра CPU и GPU для малопотребляющих приложений. Кроме того, AMD предлагала продукты flash-памяти, такие как серия Am29F, широко используемые как загрузочная память для материнских плат и встраиваемых систем. Эти flash-устройства хранят прошивку (BIOS/UEFI) и являются важными целями для обратного инжиниринга. Хотя AMD в настоящее время не производит отдельные микроконтроллеры, подобные МК на базе ARM, их x86-встраиваемые процессоры и микросхемы flash-памяти являются незаменимыми компонентами во многих системах. Наши услуги обратного инжиниринга охватывают встраиваемые x86-процессоры AMD, flash-память и связанную прошивку. У нас обширный опыт извлечения прошивок из flash-чипов AMD, даже при включённой защите от чтения. Для Am186 и Am386 мы можем воспроизвести функциональность и извлечь код внутренней ROM через декапсуляцию и микрозондирование. Процессоры AMD часто включают функции безопасности, такие как Secure Boot, Trusted Platform Module (TPM) и зашифрованная память. Однако их можно обойти с помощью продвинутых атак по побочным каналам и инъекции сбоев. Наша команда успешно восстанавливала ключи шифрования из AMD PSP (Platform Security Processor) и извлекала образы BIOS из заблокированных flash-устройств. Мы также предоставляем услуги клонирования для дублирования содержимого flash AMD при замене устаревших систем. Встраиваемые APU от AMD используются в медицинской визуализации, промышленных ПК и автомобильных информационно-развлекательных системах, что делает их прошивку крайне ценной. Мы разработали специализированные инструменты для чтения SPI flash, подключённой к процессорам AMD, даже когда считывание отключено. Используя глитчи напряжения и манипуляции с тактовой частотой, мы можем заставить flash разрешить чтение. Для старой серии Am29F мы можем использовать стандартные программаторы, но если устройство заблокировано, мы применяем УФ-стирание или декапсуляцию для прямого доступа к ячейкам памяти. Наша лаборатория оснащена высокоточными паяльными станциями, логическими анализаторами и специальными программаторами flash. Мы также провели обратный инжиниринг протоколов связи между CPU AMD и периферийными устройствами для извлечения конфигурационных данных. Функции безопасности AMD развивались с каждым поколением, но наша команда следит за новейшими методами. Мы опубликовали несколько статей об атаке на процесс защищённой загрузки AMD, используя анализ побочных каналов для восстановления загрузчика. Наши методы неразрушающие, где возможно, но мы также предлагаем инвазивную декапсуляцию для глубокого анализа. Нужно ли вам восстановить утерянный BIOS, клонировать flash-чип или понять безопасность встраиваемой системы AMD — MikaTech предоставляет комплексные решения. Наши успехи с продуктами AMD включают извлечение зашифрованных UEFI-пейлоадов и обратный инжиниринг кода инициализации для нестандартного оборудования.</p>
+
+                <h2>Семейства и модели устройств</h2>
+                <ul>
+                    <li><strong>Am186 (16-битный x86)</strong> – Am186-16, Am186-20, Am186-25, Am186-33, Am186-40, Am186-50, Am186-66, Am186-80, Am186-100, Am186-120</li>
+                    <li><strong>Am386 (32-битный x86)</strong> – Am386-25, Am386-33, Am386-40, Am386-50, Am386-60, Am386-80, Am386-100, Am386-120, Am386-133, Am386-166</li>
+                    <li><strong>Am29F Flash Memory</strong> – Am29F010, Am29F020, Am29F040, Am29F080, Am29F016, Am29F032, Am29F064, Am29F128, Am29F256, Am29F512</li>
+                    <li><strong>Am29LV Flash</strong> – Am29LV010, Am29LV020, Am29LV040, Am29LV080, Am29LV016, Am29LV032, Am29LV064, Am29LV128, Am29LV256, Am29LV512</li>
+                    <li><strong>G-series APU (Embedded)</strong> – GX-210, GX-212, GX-415, GX-420, GX-210A, GX-212A, GX-415A, GX-420A, GX-222, GX-224</li>
+                    <li><strong>R-series APU (Embedded)</strong> – RX-216, RX-218, RX-220, RX-416, RX-418, RX-420, RX-421, RX-425, RX-427, RX-428</li>
+                    <li><strong>Geode LX (legacy x86)</strong> – LX 800, LX 900, LX 800@500, LX 900@600, LX 800@667, LX 900@800, LX 800@1GHz, LX 900@1.1GHz, LX 800@1.2GHz, LX 900@1.3GHz</li>
+                </ul>
+
+                <h2>Функции безопасности и методы обратного инжиниринга</h2>
+                <p>Встраиваемые процессоры и flash-устройства AMD включают множество механизмов защиты для охраны прошивки и конфигурационных данных. Для flash-памяти наиболее распространённой защитой являются биты блокировки блоков, предотвращающие запись и стирание, а также защита от чтения, ограничивающая считывание содержимого памяти. Flash-устройство также может быть переведено в защищённый режим, при котором весь массив заблокирован и может быть разблокирован только определённой последовательностью команд. Некоторые flash-чипы AMD имеют аппаратный вывод защиты от записи, который при активации отключает все функции программирования. Кроме того, многие APU AMD имеют процесс защищённой загрузки, который проверяет каждый этап прошивки с помощью криптографических подписей. Загрузочная ROM проверяет подпись загрузчика, и при неудачной верификации система останавливается. Это предотвращает загрузку неавторизованной прошивки. Platform Security Processor (PSP) внутри чипов AMD управляет защищённой загрузкой и предоставляет доверенную среду выполнения. Однако эта защита не безупречна. Наша команда обратного инжиниринга разработала множество векторов атак. Например, мы можем перехватывать SPI-связь между CPU и flash-чипом во время загрузки, позволяя захватить сырую прошивку в момент её загрузки. Это эффективно даже если чтение отключено, поскольку CPU всё равно считывает данные в память. Используя логический анализатор, мы можем записать всю транзакцию и реконструировать образ прошивки. Мы также использовали глитчи питания flash-чипа для обхода состояния блокировки, позволяя выполнить полный дамп памяти. Для устройств с зашифрованной прошивкой мы применяем анализ мощности побочного канала для извлечения ключа шифрования из CPU во время расшифровки. Анализируя энергопотребление при обработке CPU зашифрованных данных, мы восстанавливаем ключ и расшифровываем прошивку автономно. Для старых устройств Am186/Am386 код внутренней ROM замаскирован и не может быть считан штатно. Мы используем декапсуляцию (удаление кристалла) и затем микрозондируем массив памяти для прямого считывания битов. Это трудоёмкий процесс, но он даёт полный образ ROM. Мы также применяли инъекцию сбоев для обхода проверок безопасности в последовательности загрузки, позволяя выполнять собственный код на процессоре. Получив контроль, мы можем считать или модифицировать внутренние регистры и память. Наша экспертиза охватывает Geode и другие устаревшие x86-встраиваемые устройства, где мы успешно клонировали содержимое flash и восстанавливали BIOS. Мы также предлагаем дублирование flash-чипов AMD для устаревших систем, гарантируя резервную копию. Наша лаборатория оснащена специализированными инструментами для SPI-перехвата, глитчинга и микрозондирования. Мы разработали собственную прошивку для многих распространённых программаторов flash для работы с заблокированными устройствами. Наша команда имеет опыт восстановления образов BIOS/UEFI с материнских плат и встраиваемых систем, даже когда производитель намеренно заблокировал flash. Мы также проанализировали безопасность AMD PSP и обнаружили уязвимости, позволяющие извлекать конфиденциальные ключи. С нашими услугами вы можете расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать и клонировать устройства AMD с уверенностью. Мы предоставляем полный отчёт о нашей методике и доставляем восстановленные данные в стандартных форматах. Доверьтесь MikaTech в решении ваших задач обратного инжиниринга AMD с профессионализмом и конфиденциальностью.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p>
+        </div>
+    </footer>
+</body>
+</html>

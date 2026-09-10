@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг Altera – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы предлагаем профессиональное извлечение прошивок, анализ кристаллов и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг FPGA и CPLD Altera</h1>
+                <p>Глубокая экспертиза в семействах Cyclone, Stratix, Arria и MAX</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании Altera</h2>
+                <p>Altera Corporation, ныне дочерняя компания Intel (Intel Programmable Solutions Group), — ведущий производитель программируемых логических устройств. Основанная в 1983 году, Altera впервые применила КМОП-программируемые логические матрицы и позже представила первые перепрограммируемые CPLD и FPGA. Их устройства используются в широком спектре приложений — от бытовой электроники до телекоммуникаций, автомобилестроения, военной техники и дата-центров. Линейки продуктов Altera включают высокопроизводительную серию Stratix, среднюю Arria и недорогие семейства Cyclone, а также серию CPLD MAX. В 2015 году Intel приобрела Altera для интеграции FPGA со своими процессорами, создав новые гетерогенные вычислительные платформы. FPGA Altera работают на основе SRAM, то есть теряют конфигурацию при выключении питания и требуют внешней конфигурационной памяти (часто последовательной flash или EEPROM). Этот конфигурационный битстрим может быть зашифрован AES-256 для защиты интеллектуальной собственности. Altera также предлагает функции защищённых устройств, такие как аутентификация JTAG и защита от вмешательства. Среда разработки Quartus Prime поддерживает широкий спектр IP-ядер и проектных методологий. Устройства Altera известны высокой производительностью, высокой плотностью и продвинутыми трансиверными возможностями. Компания также внедрила усиленные процессоры ARM Cortex-A9 и A53 в своих SoC-FPGA, сочетая программную программируемость с аппаратным ускорением. FPGA Altera широко применяются в инфраструктуре 5G, промышленной автоматизации и аэрокосмической отрасли. Компания уделяет большое внимание качеству и надёжности: многие устройства сертифицированы для автомобильной (AEC-Q100) и военной спецификации. Altera также предоставляет комплексный набор средств защиты, включая защищённую загрузку, физически неклонируемые функции (PUF) и противодействие атакам по побочным каналам. Несмотря на эту защиту, обратный инжиниринг устройств Altera является частой задачей при восстановлении устаревших систем, верификации IP и конкурентном анализе. Наша команда имеет обширный опыт извлечения конфигурационных битстримов как из энергозависимой SRAM, так и из внешней конфигурационной памяти. Мы успешно восстановили дизайны из сотен FPGA Altera, включая устройства с включённым шифрованием. Процесс включает понимание протокола конфигурации, использование уязвимостей в конфигурационном интерфейсе или прямое считывание внешней памяти. Для устройств с отключённым считыванием мы применяем инвазивные методы, такие как зондирование конфигурационных выводов во время включения питания. Функции безопасности Altera развивались со временем, но мы следим за новейшими векторами атак. Мы также предлагаем услуги по клонированию FPGA Altera путём копирования конфигурационных данных в новое устройство. Наша лаборатория оснащена высокоскоростными логическими анализаторами, отладочными платами FPGA и специальным программным обеспечением для автоматизации процесса извлечения. Мы успешно атаковали как старую серию MAX 7000, так и новейшие устройства Stratix 10. Шифрование битстрима Altera надёжно, но мы разработали методы восстановления ключа через анализ побочных каналов, в частности, отслеживая питание во время расшифровки. Мы также используем инъекцию сбоев для вызова ошибок конфигурации и обхода защитных блокировок. Наша цель — предоставить надёжный и эффективный сервис, гарантируя восстановление ценных проектных данных даже при утере исходных файлов. Благодаря нашей экспертизе вы можете расшифровать, считать, дампировать и даже клонировать FPGA Altera с высоким процентом успеха. Мы понимаем нюансы каждого семейства — от недорогого Cyclone IV до высокопроизводительного Arria 10. Наш подход сочетает электрическую характеристику, анализ синхронизации и физическую инспекцию для преодоления любых препятствий. Мы также разработали проприетарные алгоритмы реконструкции нетлиста из сырого битстрима, позволяя понять внутреннюю логику. Нужно ли вам восстановить утерянную конфигурацию, продублировать серийное устройство или проанализировать продукт конкурента — MikaTech ваш надёжный партнёр по обратному инжинирингу Altera.</p>
+
+                <h2>Семейства и модели устройств</h2>
+                <ul>
+                    <li><strong>Cyclone</strong> – EP1C3, EP1C6, EP1C12, EP1C20, EP2C5, EP2C8, EP2C20, EP2C35, EP2C50, EP2C70, EP3C5, EP3C10, EP3C16, EP3C25, EP3C40</li>
+                    <li><strong>Cyclone V</strong> – 5CEBA2, 5CEBA4, 5CEBA5, 5CEBA7, 5CEBA9, 5CEFA2, 5CEFA4, 5CEFA5, 5CEFA7, 5CEFA9</li>
+                    <li><strong>Arria</strong> – EP2AGX45, EP2AGX65, EP2AGX95, EP2AGX125, EP2AGX190, EP2AGX260, EP2AGX350, EP2AGX400, EP2AGX500, EP2AGX600</li>
+                    <li><strong>Arria 10</strong> – 10AX016, 10AX022, 10AX027, 10AX032, 10AX045, 10AX057, 10AX066, 10AX085, 10AX090, 10AX115</li>
+                    <li><strong>Stratix</strong> – EP1S10, EP1S20, EP1S25, EP1S30, EP1S40, EP1S60, EP1S80, EP2S15, EP2S30, EP2S60, EP2S90, EP2S130, EP2S180, EP3S50, EP3S110</li>
+                    <li><strong>Stratix V</strong> – 5SGXEA3, 5SGXEA5, 5SGXEA7, 5SGXEA9, 5SGSMD3, 5SGSMD5, 5SGSMD8, 5SGSMD4, 5SGSMD6, 5SGSMD2</li>
+                    <li><strong>MAX</strong> – EPM7032, EPM7064, EPM7128, EPM7160, EPM7256, EPM7512, EPM1270, EPM2210, EPM240, EPM570</li>
+                    <li><strong>MAX II</strong> – EPM2210, EPM240, EPM570, EPM1270, EPM3064, EPM3128, EPM3256, EPM3512, EPM570T, EPM1270T</li>
+                    <li><strong>SoC FPGA (Cyclone V, Arria V)</strong> – 5CSEMA2, 5CSEMA4, 5CSEMA5, 5CSEMA6, 5CSXFC2, 5CSXFC4, 5CSXFC6, 5CSXFC5, 5CSXFC7, 5CSTFD5</li>
+                </ul>
+
+                <h2>Функции безопасности и векторы атак</h2>
+                <p>FPGA Altera включают ряд функций безопасности для защиты конфигурационного битстрима от несанкционированного доступа. Наиболее важной является AES-256-шифрование конфигурационных данных, которые могут храниться во внешнем запоминающем устройстве. Ключ шифрования хранится во внутренней энергонезависимой памяти FPGA (eFuse или RAM с батарейным питанием) и никогда не раскрывается наружу. Altera также поддерживает защищённый режим конфигурации, при котором FPGA проверяет подлинность битстрима с помощью HMAC (хэш-кода аутентификации сообщений). Это гарантирует загрузку только авторизованных конфигураций, предотвращая вредоносное внедрение. Кроме того, интерфейс JTAG может быть навсегда отключён пережиганием защитного фьюза, блокируя любые попытки считывания или перепрограммирования. Некоторые устройства также имеют обнаружение скачков напряжения, которое стирает конфигурацию при обнаружении глитча. Новейшие семейства Altera включают физически неклонируемую функцию (PUF), генерирующую уникальный отпечаток устройства, используемый для защищённой генерации ключей. Однако ни одна система не полностью защищена от атак. Наша команда обратного инжиниринга разработала эффективные методы обхода этой защиты. Например, мы можем использовать анализ мощности побочного канала для извлечения AES-ключа во время расшифровки, поскольку устройство потребляет разное количество энергии в зависимости от ключа и данных. Захватывая множество трасс и применяя дифференциальный анализ мощности (DPA), мы восстанавливаем ключ без доступа к внутреннему хранилищу. Другой подход — генерация глитчей питания или тактового сигнала для нарушения работы защитного конечного автомата, что открывает интерфейс JTAG на короткое окно. Это позволяет нам считать конфигурационные данные непосредственно из ячеек SRAM. Для устройств с отключённым считыванием мы можем восстановить битстрим, перехватывая конфигурационные выводы (DATA, DCLK, nCONFIG) во время включения питания, поскольку конфигурация загружается из внешней flash. Мы успешно захватывали весь битстрим таким образом при условии, что шифрование не используется. Если шифрование активно, мы прибегаем к декапсуляции устройства и используем FIB для зондирования внутренних шин данных. Это продвинутая техника, требующая точности, но мы успешно восстанавливали зашифрованные ключи из устройств Stratix и Arria. Мы также используем электромагнитный (EM) анализ для захвата излучений, генерируемых во время конфигурации, что может раскрыть содержимое битстрима. Наша команда разработала специальное оборудование для синхронизации с тактовой частотой конфигурации и точной выборки линий данных. Для старых устройств, таких как MAX CPLD, использующих EEPROM или flash, мы можем просто считать содержимое памяти стандартными программаторами, если защитный фьюз не пережжён. В этом случае мы применяем напряжение или УФ-облучение для сброса фьюза, как мы делали со многими CPLD на основе EEPROM. Наша лаборатория оснащена широким спектром инструментов, включая высококлассные осциллографы, логические анализаторы и специализированные программаторы для устройств Altera. Мы также создали программные инструменты, которые могут анализировать и интерпретировать сырой битстрим, преобразуя его в человекочитаемый нетлист или даже полнофункциональный клон. Это позволяет нашим клиентам восстанавливать дизайны, обновлять устаревшие продукты или проводить конкурентный анализ. Наш процент успеха с устройствами Altera исключителен, и мы успешно атаковали даже новейшие семейства 14 нм и 20 нм. Мы стремимся оставаться на переднем крае исследований безопасности FPGA, гарантируя, что всегда можем предоставить решение для ваших задач обратного инжиниринга. Нужно ли вам расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать или клонировать FPGA Altera — MikaTech обладает экспертизой и инструментами для выполнения.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p>
+        </div>
+    </footer>
+</body>
+</html>

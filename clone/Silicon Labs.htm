@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров Silicon Labs – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">Обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Раскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы выполняем экспертный дамп прошивки, анализ кристалла и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг микроконтроллеров Silicon Labs</h1>
+                <p>Специализация на 8‑разрядных 8051 и 32‑разрядных ARM EFM32</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании Silicon Labs</h2>
+                <p>Silicon Labs — ведущий поставщик кремния, программного обеспечения и решений для рынков IoT, промышленности и потребительской электроники. Портфель микроконтроллеров включает 8‑разрядный EFM8 (на базе 8051) и 32‑разрядный EFM32 (ARM Cortex‑M). Они известны сверхнизкопотребляющими приборами, что делает их идеальными для батарейных применений. Silicon Labs также выпускает беспроводные SoC, объединяющие МК с радиомодулями Bluetooth, Zigbee и Thread. Их продукция широко применяется в умном доме, медицине и производственных датчиках. Silicon Labs делает акцент на простоте разработки благодаря IDE Simplicity Studio. Компания предлагает комплексный SDK с поддержкой множества протоколов. 8‑разрядная серия EFM8 — это современное воплощение классической архитектуры 8051. Семейство EFM32 Gecko славится энергоэффективностью. Silicon Labs также предоставляет решения безопасности, включая технологию Secure Vault. Эта аппаратная защита оберегает от физических и удалённых атак. Уделяется внимание связности и беспроводной интеграции. МК Silicon Labs часто включают развитую аналоговую периферию и ёмкостные датчики. Это ключевой поставщик многих потребительских IoT-устройств. Некоторые серии продукции Silicon Labs имеют автомобильный класс. Компания поставляет обширные технические заметки и эталонные проекты. Она привержена качеству и надёжности. МК Silicon Labs используются в умных счётчиках, регуляторах освещения и носимых устройствах. Предлагается широкий выбор памяти и корпусов. Приборы поддерживают множество режимов питания для эффективного управления энергией. Silicon Labs также выпускает тактовые генераторы и изоляторы. У компании глобальная сеть продаж и поддержки. Она находится на переднем крае периферийных вычислений с МК, поддерживающими ИИ. Средства защиты включают детекцию вскрытия и криптоускорение. Дорожная карта Silicon Labs включает поддержку Matter и других новых стандартов. Это надёжный партнёр многих компаний из списка Fortune 500.</p>
+
+                <h2>Линейки продукции и модели устройств</h2>
+                <h3>EFM8 (8‑разрядный 8051)</h3>
+                <ul>
+                    <li>EFM8BB1</li><li>EFM8BB2</li><li>EFM8BB3</li><li>EFM8LB1</li><li>EFM8UB1</li>
+                    <li>EFM8SB1</li><li>EFM8SB2</li><li>EFM8SB3</li><li>EFM8UB2</li><li>EFM8UB3</li>
+                    <li>EFM8SB10</li><li>EFM8LB10</li><li>EFM8BB10</li>
+                </ul>
+                <h3>EFM32 (ARM Cortex‑M)</h3>
+                <ul>
+                    <li>EFM32G210</li><li>EFM32G230</li><li>EFM32G280</li><li>EFM32LG330</li><li>EFM32LG360</li>
+                    <li>EFM32TG110</li><li>EFM32TG210</li><li>EFM32ZG210</li><li>EFM32ZG230</li><li>EFM32HG210</li>
+                    <li>EFM32PG12</li><li>EFM32PG22</li><li>EFM32JG13</li><li>EFM32JG14</li><li>EFM32MG12</li>
+                </ul>
+                <h3>Беспроводные SoC (с МК)</h3>
+                <ul>
+                    <li>EFR32BG21</li><li>EFR32BG22</li><li>EFR32MG21</li><li>EFR32MG22</li><li>EFR32FG23</li>
+                    <li>EFR32FG25</li><li>EFR32ZG13</li><li>EFR32ZG14</li>
+                </ul>
+
+                <h2>Функции безопасности Silicon Labs</h2>
+                <p>Silicon Labs интегрирует передовую защиту в свои МК, особенно технологию Secure Vault. Она включает аппаратный корень доверия, защищённое управление ключами и защиту от вскрытия. Приборы имеют уникальный серийный номер и поддержку защищённой загрузки. Флеш-память может блокироваться для предотвращения считывания. Отладочные интерфейсы могут отключаться паролем или OTP-фьюзами. Тем не менее, злоумышленники могут пытаться взломать устройство инъекцией сбоев. Боковой анализ энергопотребления способен раскрыть ключи во время шифрования. Нашей команде удалось извлечь прошивку из приборов EFM8 с помощью глитч-атак. Мы также применяли электромагнитный анализ для восстановления ключей из EFM32. Инвазивное декапсулирование позволяет напрямую зондировать массив флеш. Защита Silicon Labs надёжна, но у старых приборов есть известные уязвимости. Мы можем обойти биты блокировки, манипулируя напряжением питания. Также мы используем FIB для пережигания защитных фьюзов. Наша лаборатория может восстановить всю прошивку даже при включённой защите от считывания. Мы также предлагаем клонировать устройство для замены устаревших. Постоянные улучшения защиты требуют от нас непрерывного развития. MikaTech предоставляет комплексные услуги извлечения и анализа. Свяжитесь с нами для детальной оценки вашего устройства Silicon Labs.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p></div>
+    </footer>
+</body>
+</html>

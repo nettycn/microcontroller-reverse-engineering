@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратный инжиниринг микроконтроллеров Geehy – MikaTech</title>
+    <link rel="stylesheet" href="../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">Главная</a></li>
+                    <li><a href="../about.htm">О нас</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">Взлом МК</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">Клонирование плат</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">Контакты</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../ar/index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> Продвинутая лаборатория МК
+                    </div>
+                    <h1>
+                        Микроконтроллеры <br />
+                        <span class="highlight">обратный инжиниринг</span>
+                    </h1>
+                    <p>
+                        Вскрываем, анализируем и перепрофилируем встраиваемые системы с точностью.
+                        Мы предлагаем профессиональное извлечение прошивок, анализ кристаллов и
+                        оценку безопасности микроконтроллеров.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Почему MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> Связаться с нами
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 лет</h4>
+                            <p>Работаем с 1998 года</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>Проанализировано семейств МК</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>Извлечено прошивок</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="Офис" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="Дамп МК">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> Обход защиты</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> Дамп прошивки</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> Взлом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Обратный инжиниринг микроконтроллеров Geehy</h1>
+                <p>Эксперт по серии APM32 (ARM Cortex-M) и устаревшим МК Geehy</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>О компании Geehy</h2>
+                <p>Geehy (или Geehy Semiconductor) — китайская fabless-полупроводниковая компания, специализирующаяся на 32-битных микроконтроллерах на архитектуре ARM Cortex-M. Их серия APM32 совместима по выводам с серией STM32F от STMicroelectronics, предлагая альтернативный источник для многих применений. МК Geehy используются в промышленном управлении, бытовой электронике, приводах двигателей и автомобильном вторичном рынке. Они предлагают широкий спектр продуктов от ядер Cortex-M0 до M4, с различными объёмами памяти и наборами периферии. Geehy также предоставляет интегрированные решения со встроенными интерфейсами CAN, USB и Ethernet. Компания стремится предлагать высокопроизводительные, энергоэффективные и экономически выгодные альтернативы. Их устройства широко применяются на китайском рынке и всё чаще встречаются в глобальных продуктах. Geehy включает функции безопасности, такие как защита flash от чтения, защита от записи и уникальный идентификатор устройства. Некоторые устройства имеют защищённую от вмешательства память для хранения ключей. Однако их реализация безопасности часто аналогична STM32, с известными уязвимостями. Наша команда обратного инжиниринга имеет обширный опыт работы с устройствами Geehy APM32. Мы успешно извлекали прошивку из многих заблокированных МК Geehy, используя такие методы, как разблокировка отладочного порта, анализ побочных каналов и инъекция сбоев. Мы также предоставляем услуги клонирования для дублирования прошивки на новые чипы Geehy. Наши инструменты совместимы со стандартным интерфейсом SWD/JTAG, и мы разработали собственные скрипты для автоматизации процесса извлечения. Для высокозащищённых устройств мы прибегаем к декапсуляции и прямому чтению памяти. Наши клиенты включают компании, которым нужно восстановить утерянный исходный код, проверить соответствие или произвести резервные копии. Мы предлагаем быстрые сроки и высокий процент успеха. Благодаря нашей экспертизе мы можем расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать и клонировать микроконтроллеры Geehy с уверенностью.</p>
+
+                <h2>Семейства и модели устройств</h2>
+                <ul>
+                    <li><strong>APM32F0 (Cortex-M0)</strong> – APM32F030, APM32F031, APM32F051, APM32F071, APM32F072, APM32F091, APM32F098, APM32F0A, APM32F0B, APM32F0C</li>
+                    <li><strong>APM32F1 (Cortex-M3)</strong> – APM32F101, APM32F102, APM32F103, APM32F105, APM32F107, APM32F108, APM32F109, APM32F110, APM32F111, APM32F112</li>
+                    <li><strong>APM32F3 (Cortex-M4)</strong> – APM32F301, APM32F302, APM32F303, APM32F304, APM32F305, APM32F307, APM32F308, APM32F309, APM32F310, APM32F311</li>
+                    <li><strong>APM32F4 (Cortex-M4)</strong> – APM32F405, APM32F407, APM32F415, APM32F417, APM32F427, APM32F429, APM32F437, APM32F439, APM32F446, APM32F469</li>
+                    <li><strong>APM32L0 (Low-power Cortex-M0)</strong> – APM32L050, APM32L051, APM32L052, APM32L053, APM32L054, APM32L055, APM32L056, APM32L057, APM32L058, APM32L059</li>
+                    <li><strong>APM32W (Wireless)</strong> – APM32W030, APM32W031, APM32W032, APM32W033, APM32W034, APM32W035, APM32W036, APM32W037, APM32W038, APM32W039</li>
+                </ul>
+
+                <h2>Функции безопасности и методика обратного инжиниринга</h2>
+                <p>Серия APM32 от Geehy включает функции безопасности, аналогичные STM32. Основная защита — уровни защиты от чтения (RDP): RDP0 (без защиты), RDP1 (защита от чтения включена, отладочный доступ заблокирован) и RDP2 (полная защита, нет доступа). Кроме того, они предоставляют защиту от записи для определённых секторов flash для предотвращения случайной перезаписи. Некоторые устройства имеют резервную область с регистрами безопасности, которые могут блокировать определённые функции. Geehy также включает уникальный идентификатор устройства для защиты от клонирования. Однако эта защита имеет известные слабости. Для RDP1 мы можем использовать отладочный интерфейс со специальной последовательностью для снятия защиты без стирания flash — методика, которую мы отточили. Для RDP2, который более защищён, мы применяем инъекцию напряжения для обхода логики защиты. Мы успешно разблокировали устройства RDP2, генерируя глитч питания во время загрузки. После разблокировки мы получаем полный доступ к flash и можем считать прошивку. Мы также используем анализ мощности побочного канала для извлечения ключей шифрования, хранящихся в устройстве. Для устройств с загрузчиком, поддерживающим обновление прошивки, мы иногда можем использовать протокол загрузчика для чтения основной flash. Мы также разработали собственную прошивку, которую можно загрузить в RAM для чтения flash через бэкдор. Когда неинвазивные методы не срабатывают, мы прибегаем к декапсуляции и микрозондированию для прямого чтения flash-памяти. Это делается путём удаления корпуса и использования сканирующего электронного микроскопа для изображения плавающих затворов. У нас высокий процент успеха со всеми этими подходами. Наша лаборатория оснащена продвинутым оборудованием как для неинвазивных, так и для инвазивных атак. Мы также предоставляем услуги клонирования, где мы берём заблокированное устройство, извлекаем прошивку и программируем чистый чип Geehy. Это особенно полезно, когда исходное устройство устарело или больше не доступно. Наша команда следит за новейшими обновлениями безопасности от Geehy и постоянно совершенствует наши инструменты. Мы успешно атаковали многие устройства APM32F и APM32L. Наши услуги выполняются при строгой конфиденциальности и под NDA. Мы доставляем восстановленный бинарный файл, а также любые ключи безопасности или конфигурационные данные. Наши клиенты использовали наши услуги для обратного инжиниринга, восстановления утерянного кода и производства совместимых замен. С MikaTech вы можете быть уверены, что ваш проект обратного инжиниринга Geehy в надёжных руках. Мы стремимся предоставлять надёжные, эффективные и профессиональные услуги. Так что, нужно ли вам расшифровать, считать, взломать, извлечь, дампировать, восстановить, продублировать или клонировать микроконтроллеры Geehy — у нас есть экспертиза для выполнения.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. Все права защищены. | Мастерство в обратном инжиниринге.</p>
+        </div>
+    </footer>
+</body>
+</html>
