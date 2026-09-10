@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات ISSI – MikaTech</title>
+     <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نفتح الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة عالية.
+                        نقدّم خدمات خبرة في استخراج البرامج الثابتة وتحليل البنية السيليكونية
+                        وتقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عاماً</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب الشركة" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ البرنامج الثابت للمتحكم الدقيق">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية للمتحكمات الدقيقة ISSI</h1>
+                <p>التركيز على الحلول ذات الذاكرة المدمجة وSoC</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>عن ISSI</h2>
+                <p>تُعد ISSI (Integrated Silicon Solution Inc.) مُصنِّعاً معروفاً للذاكرة عالية الأداء والمتحكمات الدقيقة. وهي تدمج flash وSRAM وDRAM مع أنوية CPU لبناء حلول SoC. وتُستخدم متحكمات ISSI على نطاق واسع في صناعة السيارات والصناعة والاتصالات. وتشمل حافظتها بنى 8 و16 و32 بت. وتشتهر ISSI بذاكرة flash عالية الكثافة وSRAM منخفضة التسريب. وهي تقدّم خيارات عديدة من العبوات تشمل BGA وQFN. وغالباً ما تدمج متحكمات ISSI وظائف طرفية تناظرية مثل محولات تناظرية-رقمية ومحولات رقمية-تناظرية ومضخمات عملياتية. وتُستخدم في أنظمة إدارة البطاريات والعواكس الكهربائية. كما تُنتج ISSI شرائح مقاومة للإشعاع لتطبيقات الفضاء. وتولي الشركة اهتماماً قوياً للمنتجات السياراتية بمستوى AEC-Q100. وتدعم متحكماتها واجهات CAN وLIN وFlexRay. وتوفّر ISSI أدوات تطوير شاملة ومكتبات برمجية. وهي مورّد رئيسي للعديد من مصنعي المعدات الأصلية من الفئة الأولى في السيارات. وتشتهر تقنيات الذاكرة لدى ISSI بتحمّل عالٍ وحفظ البيانات. وهي تقدّم كلاً من واجهات flash التسلسلية والمتوازية. كما تطوّر ISSI دوائر ASIC مخصّصة حسب احتياجات العملاء. وتشمل استثماراتها في البحث والتطوير تنفيذ عبوات متقدم وتكاملاً ثلاثي الأبعاد. وقد صُممت منتجات ISSI للظروف القاسية ونطاقات درجات حرارة واسعة. وتتمتع بسمعة الجودة الموثوقة ودورات الحياة الطويلة. وتتعاون ISSI مع كبريات المصانع للإنتاج. وتشمل حلولها الأمنية التشفير والمصادقة. وتطوّر ISSI بنشاط عناصر آمنة لإنترنت الأشياء. وهي توسّع حضورها في مجالات الذكاء الاصطناعي وتسريع التعلّم الآلي. ويميّز توجّه ISSI نحو تكامل الذاكرة بينها وبين مورّدي المتحكمات العامين. وهي شريك موثوق للأنظمة ذات الأهمية الحرجة. ويضمن حضور ISSI العالمي استقرار سلسلة التوريد. وهي تواصل الابتكار في مجالي الذاكرة والمنطق على حد سواء.</p>
+
+                <h2>سلاسل المنتجات وموديلات الأجهزة</h2>
+                <h3>ISSI 32 بت ARM Cortex-M</h3>
+                <ul>
+                    <li>IS32C‑M4</li><li>IS32C‑M3</li><li>IS32C‑M0</li><li>IS32C‑M7</li><li>IS32C‑M33</li>
+                    <li>IS32C‑M23</li><li>IS32C‑M4F</li><li>IS32C‑M7F</li><li>IS32C‑M4HD</li><li>IS32C‑M7HD</li>
+                    <li>IS32C‑M4T</li><li>IS32C‑M7T</li><li>IS32C‑M4S</li>
+                </ul>
+                <h3>السلسلة السياراتية ISSI</h3>
+                <ul>
+                    <li>IS32A‑M4</li><li>IS32A‑M3</li><li>IS32A‑M0</li><li>IS32A‑M7</li><li>IS32A‑M33</li>
+                    <li>IS32A‑M23</li><li>IS32A‑M4F</li><li>IS32A‑M7F</li><li>IS32A‑M4T</li>
+                </ul>
+                <h3>سلسلة ISSI ذات 8 بت</h3>
+                <ul>
+                    <li>IS8‑51</li><li>IS8‑52</li><li>IS8‑54</li><li>IS8‑58</li><li>IS8‑60</li>
+                    <li>IS8‑61</li><li>IS8‑62</li><li>IS8‑63</li><li>IS8‑64</li>
+                </ul>
+
+                <h2>ميزات الأمان في ISSI</h2>
+                <p>تتضمن ISSI آليات متعددة لحماية الملكية الفكرية والبيانات. وتُجهَّز متحكماتها بمحركات تشفير أجهزية لخوارزميات AES وDES وRSA. وهذا يتيح تخزين البرنامج الثابت مشفّراً، بحيث يلزم مفتاح لفك التشفير عند الإقلاع. وتُخزن المفاتيح في منطقة محمية لا يمكن قراءتها عبر الواجهات القياسية. كما تقدّم ISSI معرّفات أجهزة فريدة للمصادقة. وهي تطبّق إقلاعاً آمناً مع التحقق من التوقيع بحيث لا يُنفَّذ سوى التعليمات الموثوقة. وتعزل وحدات حماية الذاكرة (MPU) الأقسام الحرجة من التعليمات والبيانات. ويمكن قفل منافذ التصحيح نهائياً عبر منصهرات OTP، مما يمنع القراءة الخارجية. غير أن هجمات حقن الأخطاء قد تفتح هذه المنافذ في بعض الأحيان. وتتضمن ISSI دبابيس كشف العبث التي تبادر إلى محو البيانات عند الاختراق. وتمتلك الأجهزة تخزيناً آمناً للمفاتيح مع إمكانية التصفير. ولاستخراج البرنامج الثابت قد يلزم استنساخ الرقاقة كاملة أو تجاوز الحماية. ويمكن لتحليل القناة الجانبية (الاستهلاك والكهرومغناطيسية) كشف المفاتيح أثناء العمليات التشفيرية. وقد نجح فريقنا في استعادة مفاتيح من أجهزة ISSI باستخدام التحليل التفاضلي للاستهلاك. كما استخدمنا حقن الأخطاء بالليزر لتغيير مسار التنفيذ وتفريغ الذاكرة. حماية ISSI موثوقة، لكن لا توجد أنظمة محصّنة. وقد طوّرنا طرقاً للهجوم على المحمّل الإقلاعي واستخراج البرنامج الثابت. وبالنسبة للخيارات السياراتية يمكننا قراءة بيانات الضبط والمعايرة. إن تصاميم ISSI المدمجة مع الذاكرة تجعلها هدفاً جذاباً للهندسة العكسية. ويمكننا استعادة البرنامج الثابت واستنساخه على أجهزة مكافئة. وتشمل خدماتنا الأساليب غير الجائرة والجائرة حسب مستوى الحماية. كما يمكننا تقديم الكود المفكوك التجميعي الكامل والتحليل. إن التحديثات المستمرة لحماية ISSI تعني وجوب مواكبتنا لأحدث الإجراءات المضادة. وتستثمر MikaTech في البحث والتطوير للتغلب على أحدث وسائل الحماية. ونحظى بثقة عملاء العديدين في مشاريع الهندسة العكسية لـ ISSI. اتصل بنا لمناقشة جهاز ISSI الخاص بك ومتطلباتك.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p></div>
+    </footer>
+</body>
+</html>

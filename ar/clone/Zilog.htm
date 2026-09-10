@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات Zilog الدقيقة – MikaTech</title>
+     <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نكشف الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة عالية.
+                        نُقدّم خبرة متقدمة في تفريغ البرنامج الثابت وتحليل الرقاقة
+                        وتقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ المتحكم الدقيق">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية لمتحكمات Zilog الدقيقة</h1>
+                <p>إتقان عائلات Z80 وeZ80 للأنظمة القديمة والمدمجة</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>نبذة عن شركة Zilog</h2>
+                <p>تُعد Zilog شركة أسطورية لأشباه الموصلات، عُرفت بالمعالج المركزي Z80 الثماني، الذي عمل في عدد كبير من الحواسيب المنزلية والأنظمة المدمجة. واليوم تنتج Zilog مشتقات حديثة مثل عائلتي eZ80 وZ8051. ولا تزال متحكماتها الدقيقة تُستخدم على نطاق واسع في التحكم الصناعي والإلكترونيات الاستهلاكية والحوسبة التراثية. ويمثل eZ80 من Zilog نسخة خطية متوافقة تماماً مع Z80 الكلاسيكي. كما تُقدم متحكمات دقيقة مبنية على Z80 بأطراف مدمجة مثل UART وSPI وI2C. وعائلة Z8051 من Zilog عبارة عن نواة متوافقة مع 8051 بإمكانات موسعة. وتشتهر منتجاتها باستهلاك منخفض للطاقة وحجم صغير. وتوفر Zilog بيئات تطوير تشمل المترجمات التجميعية والمترجمات والمحاكيات. كما تُقدم مبرمجات وأدوات تصحيح داخل الدائرة. وكثيراً ما توجد رقائق Zilog في المعدات القديمة التي لا تزال في الخدمة. ولدى الشركة مجتمع نشط من الهواة والمهندسين. وتدعم Zilog لغتي التجميع وC. وتُوفر ملاحظات فنية للتطبيقات النمطية. وقد استُخدمت متحكمات Zilog الدقيقة في آلات البيع الذاتي والأجهزة الطبية والوحدات السياراتية. وقد استحوذت على الشركة IXYS ثم Littelfuse، ولكن علامة Zilog لا تزال قائمة. وتواصل Zilog إنتاج خيارات جديدة بذاكرة وأطراف إضافية. وتعد بنية Z80 من أكثر المعماريات تأثيراً في تاريخ الحوسبة. كما تقدم Zilog متحكمات دقيقة محمية بإمكانات تشفير. ولدى الشركة نطاق حراري واسع للتطبيقات الصناعية. ومنتجات Zilog اقتصادية وسهلة الاستخدام. ويُضمن التوافر طويل الأمد للتصاميم القديمة. ويشمل دعم Zilog المنتديات عبر الإنترنت والوثائق الفنية. وتُستخدم متحكماتها الدقيقة أيضاً في المشاريع الهواة والألعاب التراثية. والتزام Zilog بالتوافق الخلفي يضمن قابلية نقل الكود. وتتمتع الشركة بسمعة الحلول الموثوقة والصامدة. كما تنتج Zilog وحدات تحكم بالتسلسل ورقائق طرفية أخرى. ولا تزال منتجاتها مناسبة في كثير من التطبيقات المتخصصة.</p>
+
+                <h2>سلاسل المنتجات وموديلات الأجهزة</h2>
+                <h3>eZ80 (24 بت، متوافق مع Z80)</h3>
+                <ul>
+                    <li>eZ80F91</li><li>eZ80F92</li><li>eZ80F93</li><li>eZ80F94</li><li>eZ80F95</li>
+                    <li>eZ80L92</li><li>eZ80L93</li><li>eZ80L94</li><li>eZ80Acclaim! Plus</li><li>eZ80Acclaim! Flash</li>
+                    <li>eZ80Mini</li><li>eZ80Nano</li><li>eZ80Pico</li>
+                </ul>
+                <h3>Z8051 (متوافقة مع 8051)</h3>
+                <ul>
+                    <li>Z8051F001</li><li>Z8051F002</li><li>Z8051F003</li><li>Z8051F004</li><li>Z8051F005</li>
+                    <li>Z8051F006</li><li>Z8051F007</li><li>Z8051F008</li><li>Z8051F009</li><li>Z8051F010</li>
+                    <li>Z8051F011</li><li>Z8051F012</li>
+                </ul>
+                <h3>Z80 الكلاسيكي (وحدة معالجة مركزة فقط)</h3>
+                <ul>
+                    <li>Z80</li><li>Z80A</li><li>Z80B</li><li>Z80H</li><li>Z80S</li>
+                    <li>Z80L</li><li>Z80C</li><li>Z80D</li><li>Z80E</li>
+                </ul>
+
+                <h2>ميزات الأمان في Zilog</h2>
+                <p>تنفذ Zilog وسائل حماية متواضعة، مناسبة لكثير من التطبيقات المدمجة. وتتضمن أجهزتها eZ80 بتات قفل تمنع قراءة الفلاش الداخلي. وبعد القفل لا يمكن قراءة ذاكرة البرنامج عبر واجهة التصحيح. ومع ذلك، يمكن تجاوز بتات القفل هذه بهجمات غلتش. وبعض متحكمات Zilog الدقيقة تحمل محرك تشفير عتادياً لفك تشفير الكود المخزن في الذاكرة الخارجية. وهذا يضيف خط حماية، ولكن يجب تخزين المفتاح بأمان. كما توفر Zilog رقماً تسلسلياً فريداً للجهاز للمصادقة، مما قد يمنع الاستنساخ. ومع ذلك، قد يكون ذلك غير فعال بدون التحقق المناسب. والأجهزة القديمة Z80 تفتقر إلى وسائل الحماية أصلاً، مما يجعل قراءتها أمراً تافهاً. ولمثل هذه الأجهزة يمكننا ببساطة استخدام محلل منطقي لالتقاط توقيتات الناقل. وبالنسبة لأجهزة eZ80 الحديثة طورنا طرق استخراج البرنامج الثابت باستغلال محمل الإقلاع. ويمكن أحياناً خداع محمل الإقلاع لسحب تفريغ الذاكرة. ويمكن للتحليل الجانبي لاستهلاك الطاقة أن يكشف المفاتيح أثناء التشفير. وقد نجحنا في اختراق أجهزة Zilog بالملامسة الكهرومغناطيسية. وتستخدم طريقة أخرى الأشعة فوق البنفسجية لمسح فيوزات القفل على أجهزة OTP. وبمجرد رفع القفل، يمكننا قراءة كامل الذاكرة. وللتطبيقات المحمية توصي Zilog بدوائر حماية خارجية. وعلى الرغم من هذه القيود، فإن كثيراً من الأنظمة القديمة تعتمد على متحكمات Zilog الدقيقة. ويمكننا تكرار البرنامج الثابت على رقاقة بديلة. كما يستعيد فريقنا البرنامج الثابت من الأجهزة التالفة. ونستخدم طرقاً غازية، مثل التجريد من الغلاف، للقراءة المباشرة للسيليكون. وهذا يتيح استعادة الكود حتى من الأجهزة المقفلة. حماية Zilog ليست متقدمة مثل رقائق ARM الحديثة، ولكنها كافية لكثير من التطبيقات الصناعية. وللعملاء الراغبين في الابتعاد عن Zilog، يمكننا استخراج الكود ونقله. كما نوفر فك التجميع وتحليل الكود الثنائي المستخرج. وتشمل خدماتنا طرقاً غير غازية وغازية. ولدينا نسبة نجاح عالية في استعادة برامج Zilog الثابتة. سواء أكنت بحاجة إلى فتح الجهاز أم استنساخ المتحكم — فإن لدى MikaTech الحل. كما نقدم قراءة بيانات الإعداد والمعايرة. تواصل معنا لإجراء تقييم مفصل لجهاز Zilog لديك.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p></div>
+    </footer>
+</body>
+</html>

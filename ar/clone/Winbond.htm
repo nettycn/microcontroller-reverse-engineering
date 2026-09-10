@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات Winbond الدقيقة – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نكشف الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة عالية.
+                        نُقدّم خبرة متقدمة في تفريغ البرنامج الثابت وتحليل الرقاقة
+                        وتقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ المتحكم الدقيق">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية لمتحكمات Winbond الدقيقة</h1>
+                <p>خبرة في وحدات التحكم المدمجة من سلاسل W79 وW83 وW90</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>نبذة عن شركة Winbond</h2>
+                <p>تُعد Winbond Electronics شركة تايوانية لأشباه الموصلات، عُرفت بمنتجات الذاكرة والمتحكمات الدقيقة. وتشمل محفظة المتحكمات الدقيقة أجهزة بعمق 8 و16 و32 بت مبنية على ARM. وتُستخدم متحكمات Winbond الدقيقة على نطاق واسع في إكسسوارات الحواسيب والإلكترونيات الاستهلاكية والتحكم الصناعي. وهي تحظى بشعبية خاصة في وحدات تحكم لوحات المفاتيح والتحكم بسرعة المراوح وإدارة الطاقة. وسلسلة W79 من Winbond عبارة عن نوى متوافقة مع 8051 بأطراف موسعة. وتضيف سلسلة W83 المزيد من الإدخال/الإخراج ووظائف تناظرية لإدارة النظام. وسلسلة W90 عبارة عن منظومات SoC مبنية على ARM9 للتطبيقات الشبكية والوسائط المتعددة. كما تنتج Winbond ذاكرة فلاش، تُدمج غالباً في متحكماتها الدقيقة. وتتوفر مجموعة من المغلفات — من DIP إلى QFP وBGA. وتشتهر منتجات Winbond بالتكلفة الاقتصادية والعمل الموثوق. ولدى الشركة مكانة قوية في السوق الآسيوية، لا سيما في الصين وتايوان. وتوفر Winbond بيئات تطوير تشمل لوحات التقييم والمبرمجات. وتدعم رقائقها واجهات قياسية مثل UART وSPI وI2C وUSB. كما تقدم Winbond متحكمات دقيقة محمية للبطاقات الذكية والتطبيقات الدفعية. ومنذ عقود تورد الشركة مكونات للحواسيب والحواسيب المحمولة. ويمكن لسلسلة W90 من Winbond العمل تحت إدارة Linux مدمج أو RTOS. وقد استثمرت الشركة في عمليات التصنيع المتطورة. وتشمل ذاكرة Winbond DRAM وNOR Flash وNAND Flash. وكثيراً ما تزود متحكماتها الدقيقة بإشارات PWM عالية السرعة ومؤقتات للتحكم بالحركة. كما تنتج Winbond برامج ترميز صوتية ودوائر قدرة تكمل سلاسل المتحكمات الدقيقة. وتتمتع الشركة بسمعة الدعم الفني السريع. ومنتجات Winbond مؤهلة وفق AEC‑Q100 للتطبيقات السياراتية. وتتعاون الشركة مع مصنعي المعدات الأصلية الكبار في تطوير الرقائق المخصصة. وتشمل حلول الأمان في Winbond بنى مقاومة للعبث. وتوسع الشركة حضورها في إنترنت الأشياء والحوسبة الطرفية. ولا تزال رقائق Winbond القديمة موجودة في كثير من المنتجات. وتضمن التزامات التوريد طويلة الأمد التوافر. كما تقدم Winbond حلولاً متكاملة مع واجهات الذاكرة الخارجية. وتجمع متحكماتها الدقيقة بفعالية بين الأداء واستهلاك الطاقة.</p>
+
+                <h2>سلاسل المنتجات وموديلات الأجهزة</h2>
+                <h3>سلسلة W79 (8051 ثمانية متوافقة)</h3>
+                <ul>
+                    <li>W79E2051</li><li>W79E2251</li><li>W79E4051</li><li>W79E4251</li><li>W79E6051</li>
+                    <li>W79E6251</li><li>W79E8051</li><li>W79E8251</li><li>W79E9051</li><li>W79E9251</li>
+                    <li>W79E950</li><li>W79E960</li><li>W79E970</li><li>W79E980</li>
+                </ul>
+                <h3>سلسلة W83 (إدارة النظام / الإدخال والإخراج)</h3>
+                <ul>
+                    <li>W83L950D</li><li>W83L951D</li><li>W83L952D</li><li>W83L953D</li><li>W83L954D</li>
+                    <li>W83L955D</li><li>W83L956D</li><li>W83L957D</li><li>W83L958D</li><li>W83L959D</li>
+                    <li>W83G860</li><li>W83G861</li><li>W83G862</li>
+                </ul>
+                <h3>سلسلة W90 (ARM9 بعمق 32 بت)</h3>
+                <ul>
+                    <li>W90P710</li><li>W90P720</li><li>W90P730</li><li>W90P740</li><li>W90P750</li>
+                    <li>W90P760</li><li>W90P770</li><li>W90P780</li><li>W90P790</li><li>W90N745</li>
+                    <li>W90N746</li><li>W90N747</li><li>W90N748</li>
+                </ul>
+
+                <h2>ميزات الأمان في Winbond</h2>
+                <p>تنفذ Winbond عدة تدابير لحماية البرنامج الثابت والبيانات. وتقدم سلسلة W79 بتات قفل لمنع قراءة ذاكرة البرنامج. وعند تفعيل هذه البتات لا يمكن قراءة الكود الداخلي عبر واجهة التصحيح. ومع ذلك، قد يحاول المهاجمون المتمرسون الحقن بالخلل لسحب هذه الحماية. وبعض أجهزة Winbond تتضمن كلمة مرور حماية للوصول إلى JTAG، مما يضيف خط دفاع إضافياً. وبدون كلمة المرور الصحيحة لا يمكن الوصول إلى موارد التصحيح المدمجة. وتضيف سلسلة W83 ترتيب الذاكرة بشكل عشوائي، مما يعرقل فهم الكود حتى بعد سحب التفريغ. كما توفر Winbond مناطق OTP (القابلة للبرمجة مرة واحدة) لتخزين مفاتيح التشفير. ويمكن استخدام هذه المفاتيح لفك تشفير البرنامج الثابت في الفلاش. وتدعم أجهزة W90 المبنية على ARM9 الإقلاع الآمن، حيث تتحقق من توقيع الصورة قبل التنفيذ. وهذا يمنع تشغيل الكود غير المصرح به. وعلى الرغم من هذه الوسائل، فإن كثيراً من رقائق Winbond بها ثغرات معروفة يمكن استغلالها. فمثلاً، يمكن أحياناً خداع محمل الإقلاع للدخول في وضع الاستعادة، مما يتيح قراءة كامل الذاكرة الداخلية. وقد نجحنا في سحب تفريغ البرنامج الثابت من W79E2051 بغلتش جهد التغذية. وتستخدم طريقة أخرى محللاً منطقياً لالتقاط البيانات على الناقل الخارجي. وبالنسبة لأجهزة OTP يمكننا قراءة المحتوى بالأشعة فوق البنفسجية لمسح فيوزات الحماية. والأجهزة القديمة من Winbond تفتقر إلى تشفير قوي، مما يسهل الاستنساخ. ويمكننا تكرار البرنامج الثابت بالكامل على رقاقة جديدة لاستبدال القديم. كما يمكن للتحليل الجانبي لاستهلاك الطاقة أن يكشف المفاتيح السرية أثناء العمليات التشفيرية. وقد طورنا أداة خاصة للهجوم على واجهة JTAG المحمية بكلمة مرور. وبإجراء التحليل التفاضلي للقدرة، نستعيد كلمة المرور بعمق 32 بت. وبمجرد معرفة كلمة المرور، يمكننا فتح وصول التصحيح الكامل واستخراج الكود الثنائي. كما استخدم فريقنا الملامسة الكهرومغناطيسية لقراءة محتوى الذاكرة مباشرة من الرقاقة. حماية Winbond كافية لكثير من المنتجات التجارية، ولكن ليس للتطبيقات عالية الأمان. ونقدم خدمات استعادة متكاملة لمتحكمات Winbond الدقيقة، تشمل طرقاً غير غازية وغازية. سواء أكنت بحاجة إلى استعادة برنامج ثابت مفقود أم تكرار متحكم قديم — فستساعدك MikaTech. كما يمكننا تحليل الكود الثنائي المستخرج لفهم وظائفه. ثق بنا في الهندسة العكسية الاحترافية لـ Winbond.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p></div>
+    </footer>
+</body>
+</html>

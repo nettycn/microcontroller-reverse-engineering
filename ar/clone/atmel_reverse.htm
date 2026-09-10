@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات Atmel الدقيقة – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نفتح الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة.
+                        نقدم استخراجًا احترافيًا للبرامج الثابتة وتحليل الرقائق و
+                        تقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عامًا</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ المتحكمات الدقيقة">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية لمتحكمات Atmel الدقيقة</h1>
+                <p>خدمات متخصصة لـ AVR وAT91SAM والأجهزة القديمة القائمة على 8051</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>نبذة عن شركة Atmel</h2>
+                <p>كانت Atmel Corporation شركةً رائدةً في أشباه الموصلات، أصبحت الآن جزءًا من Microchip Technology بعد استحواذها عام 2016. وتُعرف Atmel بمتحكماتها الدقيقة AVR ذات 8 و32 بت، التي تُستخدم على نطاق واسع في لوحات Arduino وعدد لا يُحصى من المشاريع المدمجة. أما سلسلة AT91SAM فهي متحكمات دقيقة 32 بت قائمة على ARM للتطبيقات الأكثر تطلبًا. كما أنتجت Atmel أجهزة متوافقة مع 8051 من سلسلة AT89. وتُعرف منتجات الشركة باستهلاكها المنخفض للطاقة وسهولة الاستخدام ومجموعة واسعة من الأجهزة الطرفية. وبنية AVR لدى Atmel هي بنية هارفارد معدّلة مع مجموعة تعليمات غنية. وهي تقدّم نطاقًا واسعًا من أحجام الذاكرة — من 1 كيلوبايت ضئيلة حتى 256 كيلوبايت flash. وتُستخدم متحكمات Atmel الدقيقة في صناعة السيارات والصناعة والإلكترونيات الاستهلاكية وإنترنت الأشياء. كما أنتجت عناصر أمنية، مثل سلسلة ATECC للمصادقة التشفيرية. وقدّمت Atmel أدوات تطوير، تشمل Atmel Studio، المدمج الآن في MPLAB X من Microchip. وتدعم أجهزتها واجهات UART وSPI وI2C وUSB وCAN وEthernet. وتوفر تقنية picoPower من Atmel استهلاًا فائق الانخفاض للطاقة. كما تقدّم حلولًا للتحكم باللمس والإيماءات. وتحظى مكتبة QTouch من Atmel بشعبية للأزرار السعوية. ولدى الشركة مجتمع قوي من الهواة والمحترفين. ووثائق Atmel واسعة وتحظى بتقدير كبير. وتُستخدم أجهزتها غالبًا في الأجهزة الطبية والإلكترونيات القابلة للارتداء. كما أنتجت Atmel منتجات FPGA ضمن عائلة AT40K. وتتضمن متحكماتها الدقيقة المحمية وحدات تشفير أجهزية. وقد وسّع استحواذ Microchip على Atmel المحفظة المجمّعة بشكل كبير. وتواصل بنية AVR التطور والدعم. ولا تزال منتجات Atmel القديمة قيد الإنتاج لدى العديد من العملاء. وتتمتع بسمعة في العمل الموثوق والمستقر. كما تقدّم Atmel نسخًا مقاومة للإشعاع لصناعة الفضاء. ومنتجاتها متاحة بأنواع تغليف عديدة. إن إسهام Atmel في حركة Maker هائل. وتواصل الشركة الابتكار تحت مظلة Microchip.</p>
+
+                <h2>سلاسل المنتجات وموديلات الأجهزة</h2>
+                <h3>Tiny & Mega</h3>
+                <ul>
+ATtiny13
+ATtiny25
+ATtiny45
+ATtiny85
+ATtiny2313
+ATtiny24
+ATtiny44
+ATtiny84
+ATtiny261
+ATtiny461
+ATtiny861
+ATtiny4313
+ATtiny48
+ATtiny88
+ATtiny167
+ATtiny87
+ATtiny1634
+ATtiny828
+ATmega8
+ATmega16
+ATmega32
+ATmega64
+ATmega128
+ATmega162
+ATmega169
+ATmega165
+ATmega323
+ATmega325
+ATmega3250
+ATmega329
+ATmega3290
+ATmega640
+ATmega1280
+ATmega1281
+ATmega2560
+ATmega2561
+ATmega16U2
+ATmega8U2
+
+                </ul>
+                <h3>AT91SAM (ARM7/ARM9/Cortex-M)</h3>
+                <ul>
+AT91SAM7S
+AT91SAM7X
+AT91SAM7A
+AT91SAM7L
+AT91SAM7SE
+AT91SAM7S64
+AT91SAM7S128
+AT91SAM7S256
+AT91SAM7S32
+AT91SAM7S321
+AT91SAM7S64B
+AT91SAM7XC
+AT91SAM7X128
+AT91SAM7X256
+AT91SAM7X512
+AT91SAM9XE
+AT91SAM9N12
+AT91SAM9M10
+AT91SAM9RLEK
+AT91SAM9G45
+AT91SAM9M11
+AT91SAM9G20
+AT91SAM9G10
+AT91SAM9G45E
+AT91SAM9G15
+AT91SAM9X35
+AT91SAM9G25
+AT91SAM9X25
+AT91SAM9X55
+
+                </ul>
+                <h3>AT89 المتوافقة مع 8051</h3>
+                <ul>
+AT89C51
+AT89S52
+AT89C1051
+AT89C2051
+AT89C4051
+AT89LP51
+AT89LP52
+AT89C51CC02
+AT89C51CC03
+AT89C51RB2
+AT89C51RC
+AT89C51RD2
+AT89LP2051
+AT89LP2052
+AT89LP213
+AT89LP214
+AT89LP216
+AT89LP4051
+AT89LP4052
+AT89LP828
+AT89LP428
+AT89LS51
+AT89LS52
+AT89LV51
+AT89LS53
+AT89LS8252
+AT89LV52
+AT89LV55
+AT89S2051
+AT90S1200
+AT90S2313
+AT90S4433
+AT90S8515
+AT90S2333
+AT90S4434
+AT90S8535
+AT90S4414
+AT90CAN32
+AT90CAN64
+AT90CAN128
+AT90PWM2
+AT90PWM216
+AT90PWM2B
+AT90PWM3
+AT90PWM316
+AT90PWM3B
+
+                </ul>
+                <h3>أنواع أخرى</h3>
+                <ul>
+ATtiny4/5/9/10
+ATtiny20/40
+ATtiny13A
+ATtiny2313/4313
+ATtiny261/461/861
+ATtiny24/44/84
+ATtiny26
+ATtiny261A/461A/861A
+ATtiny167
+ATmega2560
+ATmega32U4
+ATmega8515
+ATmega16M1/32M1
+ATmega64M1/128M1
+ATmega8/48/88/168/328
+ATmega16/164/324/644/1284
+ATmega16U2/32U2
+ATmega1284P
+AT90USB82/162
+AT90CAN32/64/128
+SAM3X6E
+SAM3X8E
+SAM3A4C
+SAM3A8C
+SAM3N0A
+SAM3N0B
+SAM3N0C
+SAM3S2A
+SAM3S2B
+SAM3S2C
+SAM3S4A
+SAM3S4B
+SAM3S4C
+SAM3U1E
+SAM3U2E
+SAM3U4E
+SAM3X4C
+SAM3X6C
+SAM3A1C
+SAM3A3C
+ATF15xx
+ATF16V8B
+ATF22V10C
+ATF22V10L
+ATF22V10Z
+ATF750LVC
+ATF750CLV
+ATF750CLL
+ATF750CV
+ATF750CLL
+
+                </ul>
+
+
+
+                <h2>وظائف الأمان في Atmel</h2>
+                <p>تتضمن Atmel مجموعة من وظائف الأمان في جميع عائلات منتجاتها لحماية البرنامج الثابت والبيانات الحساسة. وتحمل أجهزة AVR بتات قفل تمنع قراءة ذاكرة البرنامج. وعند ضبط هذه البتات، لا يمكن قراءة flash وEEPROM عبر واجهة التصحيح. ومع ذلك، تم اكتشاف العديد من متجهات الهجوم لتجاوز هذا القفل. وبالنسبة للأجهزة القديمة مثل ATmega328، يمكن إعادة ضبط بتات القفل عبر البرمجة عالية الجهد، مما يفتح الشريحة فعليًا. أما المتحكمات الأكثر تقدمًا مثل سلسلة AT91SAM، فتطبّق إقلاعًا آمنًا مع التحقق من التوقيع التشفيري. وهذا يضمن تنفيذ البرنامج الثابت المُصادَق عليه فقط. وبعض أجهزة SAM تدعم بيئة TrustZone® للمعالجة المحمية. وتوفّر Atmel أيضًا وحدات تشفير أجهزية لـ AES وDES وSHA، مما يتيح تخزين البرنامج الثابت بشكل مشفّر. وتُخزَّن مفاتيح فك التشفير في منطقة ذاكرة محمية، يتعذّر الوصول إليها بعمليات القراءة القياسية. ورغم هذه الإجراءات، أظهر الباحثون هجمات ناجحة باستخدام تحليل القدرة عبر القناة الجانبية لاستعادة مفاتيح التشفير. كما يمكن لهجمات glitch أن تعطّل عملية الإقلاع الآمن، مما يتيح للمهاجم استخراج أداة الإقلاع. لقد نجحنا في تفريغ البرنامج الثابت من رقائق ATmega328P باستخدام glitch على خط إعادة الضبط. وبالنسبة لأجهزة AT91SAM، طبّقنا التحليل الكهرومغناطيسي لقراءة flash الداخلية. ويتضمّن أسلوب آخر استخدام محلّل منطق لاعتراض البيانات على الناقل الخارجي أثناء قراءة الذاكرة. وبعد التقاط البيانات، نعيد بناء البرنامج الثابت. ويمكن قراءة أجهزة Atmel من نوع OTP (القابلة للبرمجة مرة واحدة) عبر نزع تغليف الشريحة واستخدام المجهر للمعاينة المباشرة لخلايا البتات. وهذا يتيح تكرار الكود كاملًا على جهاز جديد. أما العناصر الأمنية ATECC فأكثر مناعة، لكنها حتى هي تعرّضت للاختراق عبر التحليل التفاضلي للقدرة. وقد طوّر فريقنا أدوات خاصة لمهاجمة آليات أمان Atmel. ونحن نستعيد البرنامج الثابت حتى مع تفعيل بتات القفل. وبالنسبة لقطع AT89 القديمة، فإن بتات القفل غالبًا ضعيفة ويمكن تجاوزها بglitches بسيطة. كما استخدمنا حقن الأخطاء لتغيير مسار تنفيذ البرنامج وتفريغ الذاكرة. إن حماية Atmel كافية للعديد من التطبيقات، لكنها ليست بالمستوى العسكري. ونحن نقدّم خدمات استخراج واستعادة شاملة لجميع متحكمات Atmel. سواء أكنت بحاجة إلى فتح قفل جهاز، أم استعادة برنامج ثابت مفقود، أم استنساخ متحكم — فإن MikaTech تمتلك الخبرة. وتحافظ أساليبنا غير التدخلية على وظائف الشريحة حيثما أمكن. كما نقدّم تفكيكًا مفصّلًا وتحليلًا للملف الثنائي المستخرَج. ثق بنا في الهندسة العكسية الاحترافية لـ Atmel.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p></div>
+    </footer>
+</body>
+</html>

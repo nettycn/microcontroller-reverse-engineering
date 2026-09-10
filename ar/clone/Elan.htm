@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لـ Elan Microelectronics – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نفتح الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة.
+                        نقدم استخراجًا احترافيًا للبرامج الثابتة وتحليل الرقائق و
+                        تقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عامًا</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ المتحكمات الدقيقة">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية لـ Elan Microelectronics</h1>
+                <p>خدمات متخصصة لمتحكمات Elan الدقيقة ذات 8 و32 بِتة ولوحدات التحكم باللمس</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>نبذة عن العلامة التجارية</h2>
+                <p>تُعدّ Elan Microelectronics شركةً تايوانيةً لأشباه الموصلات بلا مصانع (fabless)، تأسست عام 1994، وتُعرف جيدًا بمتحكماتها الدقيقة ذات 8 بت الاقتصادية، التي تُستخدم غالبًا في الإلكترونيات الاستهلاكية. وسلسلة EM78 الخاصة بها متوافقة مع بنية PIC من Microchip لكن مع اختلافات، كما تنتج متحكمات دقيقة 32 بت قائمة على ARM ووحدات تحكم باللمس سعوية. وتظهر رقائق Elan في أجهزة التحكم عن بُعد والأجهزة المنزلية الصغيرة والألعاب والأجهزة الطرفية للحواسيب وأجهزة المنزل الذكي، ولها مواقع قوية في الأسواق الصينية وجنوب شرق آسيا.</p>
+                <p>تحتوي العديد من أجهزة Elan على EEPROM وflash مدمجتين مع بتات حماية، لكن التنفيذ غالبًا أساسي، ويعتمد على بتات قفل بسيطة، مما يجعلها أسهل نسبيًا في الهندسة العكسية مقارنة بالنظائر الراقية. ورغم ذلك، فقد تعاملنا مع أجهزة ذات خوارزميات تشفير مملوكة. كما تقدّم Elan نسخًا من نوع OTP (قابلة للبرمجة مرة واحدة) للإنتاج الضخم، التي تتطلّب أساليب قراءة خاصة، نظرًا لتعذّر إعادة برمجتها. وقد طوّر فريقنا أساليب استخراج الكود من رقائق Elan من نوع OTP عبر الفحص المجهري الدقيق، ونجحنا في استنساخ متحكمات Elan الدقيقة لعدة عملاء صناعيين.</p>
+                <p>نحن على دراية بواجهة البرمجة المملوكة وبروتوكولات التصحيح الخاصة بـ Elan، ويمكننا تجاوز أقفال الحماية لقراءة البرنامج الثابت كاملًا. وتغطّي خدماتنا أجهزة Elan من نوع flash وOTP على حد سواء، تشمل استخراج البرنامج الثابت والتفكيك والتحليل الوظيفي وحلول استبدال الرقائق القديمة. ومع أكثر من 100 مشروع ناجح لصالح Elan، فإننا نمتلك الخبرة لمساعدتك على استعادة السيطرة على المنتجات القائمة على Elan.</p>
+
+                <h2>سلاسل المتحكمات الدقيقة وموديلاتها</h2>
+                <h3>سلسلة EM78 (8 بت، شبيهة بـ PIC)</h3>
+                <ul>
+                    <li>EM78P153</li>
+                    <li>EM78P156</li>
+                    <li>EM78P258</li>
+                    <li>EM78P259</li>
+                    <li>EM78P260</li>
+                    <li>EM78P417</li>
+                    <li>EM78P418</li>
+                    <li>EM78P447</li>
+                    <li>EM78P451</li>
+                    <li>EM78P468</li>
+                    <li>EM78P469</li>
+                    <li>EM78P508</li>
+                    <li>EM78P509</li>
+                    <li>EM78P520</li>
+                    <li>EM78P810</li>
+                </ul>
+                <h3>سلسلة ePort (32 بت ARM Cortex-M)</h3>
+                <ul>
+                    <li>ePort-M0 (EM32M0)</li>
+                    <li>ePort-M3 (EM32M3)</li>
+                    <li>ePort-M4 (EM32M4)</li>
+                    <li>EM32F302</li>
+                    <li>EM32F303</li>
+                    <li>EM32F305</li>
+                    <li>EM32F307</li>
+                    <li>EM32F401</li>
+                    <li>EM32F405</li>
+                    <li>EM32F407</li>
+                    <li>EM32F411</li>
+                    <li>EM32F412</li>
+                    <li>EM32F413</li>
+                    <li>EM32F415</li>
+                    <li>EM32F417</li>
+                </ul>
+                <h3>وحدات التحكم باللمس</h3>
+                <ul>
+                    <li>EMC1051</li>
+                    <li>EMC1052</li>
+                    <li>EMC1053</li>
+                    <li>EMC1055</li>
+                    <li>EMC1070</li>
+                    <li>EMC1080</li>
+                    <li>EMC1090</li>
+                    <li>EMC1100</li>
+                    <li>EMC1200</li>
+                    <li>EMC1300</li>
+                </ul>
+
+                <h2>وظائف الأمان ورؤى الهندسة العكسية</h2>
+                <p>تطبّق متحكمات Elan الدقيقة عادةً مخطط أمان بسيطًا قائمًا على بتات التهيئة. وتمنع حماية الكود قراءة ذاكرة البرنامج عبر واجهة البرمجة، لكن يمكن غالبًا تجاوز هذا القفل باستخدام توقيت تشغيل التغذية. ويمكننا اختراق الجهاز عبر توليد glitch تغذية أثناء تسلسل القراءة، مما يجعل الشريحة تتخطّى فحص الأمان ويتيح لنا تفريغ الذاكرة كاملة. أما نسخ OTP فالقفل فيها دائم، لكن يمكننا استخدام أساليب تدخلية لاستخراج البتات عبر نزع تغليف الرقاقة واستخدام المجهر الإلكتروني الماسح لقراءة حالة شحنة كل خلية ذاكرة. لقد استعدنا الكود كاملًا من رقائق Elan من نوع OTP بهذا الأسلوب.</p>
+                <p>بالنسبة لأجهزة flash، يمكننا غالبًا استخدام واجهة التصحيح (ICSP) لقراءة المحتوى؛ وحتى عند تعطيل الواجهة، يمكننا إعادة تفعيلها عبر التلاعب بمتجه إعادة الضبط. وقد طوّرنا أداة إقلاع خاصة تستخدم تجاوز سعة المخزن المؤقت لفتح قفل flash، مما يتيح استخراج البرنامج الثابت دون تعديل الشريحة الأصلية. وتتمتع أجهزة Elan ذات 32 بت القائمة على ARM بحماية أكثر موثوقية، تشمل الحماية من القراءة (RDP)، لكننا اكتشفنا أنه يمكن خفض RDP عبر هجوم glitch على بايتات الخيارات، وبعدها يمكننا قراءة flash عبر SWD القياسي. كما يمكننا استعادة مفاتيح التشفير المخزّنة في منطقة المعرّف الفريد، التي تُستخدم غالبًا لمصادقة البرنامج الثابت، واستنساخها بدقة.</p>
+                <p>كشف تحليلنا للقنوات الجانبية على متحكمات Elan القائمة على ARM عن تسريب في إجراء AES، مما يتيح استخراج المفاتيح السرّية حتى عند وجود RDP في أعلى مستوياته. أما وحدات التحكم باللمس فحمايتها دنيا، وغالبًا ما يمكننا قراءة التهيئة مباشرة. لقد استنسخنا البرنامج الثابت لللمس الخاص بـ Elan لإعادة إنتاج الوظائف في المنتجات المقلّدة، ويتضمّن نهجنا أساليب غير تدخلية وتدخلية بحسب احتياج العميل. ويمكننا استعادة الخوارزمية المستخدمة لكشف اللمس لإنشاء بدائل متوافقة. وبشكل عام، تكون حماية Elan أضعف عادةً من المنافسين، لكننا مع ذلك نطبّق أساليب دقيقة لضمان نجاح بنسبة 100%.</p>
+                <p>لقد استخرجنا البرنامج الثابت من رقائق Elan التي كانت تُعدّ غير قابلة للاختراق، وأدواتنا تتيح تكرار سلوك الشريحة بأكمله، بما في ذلك التوقيتات والأجهزة الطرفية، لإنشاء نسخة وظيفية تعمل بسلاسة في النظام الهدف. كما نقدّم خدمات فك التشفير لأي بيانات مشفّرة مخزّنة في متحكمات Elan الدقيقة، عبر الهندسة العكسية لمخطط التشفير. ويواصل فريقنا بحث الهجمات الجديدة وسبق التحديثات، مزوّدًا وثائق مفصّلة لعملية الاستخراج لسجلاتك. ومع MikaTech، يمكنك تجاوز أي مهمة أمان خاصة بـ Elan.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p>
+        </div>
+    </footer>
+</body>
+</html>

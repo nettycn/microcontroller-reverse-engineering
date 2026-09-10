@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات National Semiconductor – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نفتح الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة عالية.
+                        نقدّم خدمات خبرة في استخراج البرامج الثابتة وتحليل البنية السيليكونية
+                        وتقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عاماً</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب الشركة" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ البرنامج الثابت للمتحكم الدقيق">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية للمتحكمات الدقيقة National Semiconductor</h1>
+                <p>خبرة في المتحكمات المدمجة COP8 وSC/MP والقائمة على ARM</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>عن National Semiconductor</h2>
+                <p>كانت National Semiconductor شركة أشباه موصلات رائدة، وتشتهر بمنتجاتها التناظرية والمتحكمات الدقيقة. وكانت عائلة متحكمات COP8 ذات 8 بت تُستخدم على نطاق واسع في التطبيقات السياراتية والصناعية. كما أنتجت National معالج SC/MP (Simple Cost-effective MicroProcessor) في سبعينيات القرن الماضي. ثم قدّمت لاحقاً معالجات قائمة على ARM للأنظمة المدمجة. وكانت متحكمات National تشتهر بانخفاض الاستهلاك والموثوقية العالية. واستُخدمت في التحكم بالمحركات والمراقبة الطبية والإلكترونيات الاستهلاكية. كما قدّمت National تشكيلة من أدوات التطوير وapplication notes. وكانت منتجاتها تُصنع بعمليات CMOS متقدمة. وتميّزت سلسلة COP8 بـEEPROM مدمجة ووظائف طرفية تناظرية. ودعمت بروتوكولات اتصال متعددة (SPI وI2C وUART). وفي عام 2011 استحوذت Texas Instruments على National، لكن العديد من الشرائح القديمة لا تزال في الخدمة. وكانت بنية SC/MP من أوائل المعالجات الدقيقة ذات منافذ إدخال/إخراج مدمجة. كما أنتجت National سلسلة 32000 من المعالجات الدقيقة ذات 32 بت. وغالباً ما تضمنت متحكماتها مؤقتات مراقِبة وكواشف هبوط الجهد. وقد صُممت أجهزة National للظروف القاسية. ولها مكانة قوية في صناعة السيارات. وقدّمت National دعماً فنياً واسعاً ومراجع تصميمية. ولا تزال أجهزة COP8 لديها تُصادَف في الأتمتة الصناعية. كما قدّمت National نسخاً مقاومة للإشعاع لتطبيقات الفضاء. وغالباً ما تكون منتجاتها القديمة هدفاً للهندسة العكسية بغرض الصيانة والتحديث. ووثائق National دقيقة ومتاحة. ومتحكماتها مدروسة جيداً، مما يجعل الاستخراج ممكناً. لا يزال تأثير National في الصناعة ملموساً حتى اليوم. وتدرّب العديد من المهندسين على منصات National. وتشتهر رقائقها بتوفرها طويل الأمد. وقد جعل توجّه National نحو التكامل التناظري منها شركة فريدة. وكانت مورّداً رئيسياً لكبار مصنعي المعدات الأصلية. ولا تزال منتجات National مدعومة من مورّدين من جهات ثالثة.</p>
+
+                <h2>سلاسل المنتجات وموديلات الأجهزة</h2>
+                <h3>COP8 (8 بت)</h3>
+                <ul>
+                    <li>COP8SAA</li><li>COP8SAB</li><li>COP8SAC</li><li>COP8SAD</li><li>COP8SAE</li>
+                    <li>COP8SAF</li><li>COP8SAG</li><li>COP8SAH</li><li>COP8SAI</li><li>COP8SAJ</li>
+                    <li>COP8SAK</li><li>COP8SAL</li><li>COP8SAM</li>
+                </ul>
+                <h3>SC/MP (8 بت، طراز قديم)</h3>
+                <ul>
+                    <li>SC/MP I</li><li>SC/MP II</li><li>SC/MP III</li>
+                </ul>
+                <h3>القائمة على ARM (بعد الاستحواذ)</h3>
+                <ul>
+                    <li>NS‑ARM‑M0</li><li>NS‑ARM‑M3</li><li>NS‑ARM‑M4</li><li>NS‑ARM‑M7</li><li>NS‑ARM‑M23</li>
+                    <li>NS‑ARM‑M33</li>
+                </ul>
+
+                <h2>ميزات الأمان في National Semiconductor</h2>
+                <p>" كانت National تطبّق ميزات الحماية الأساسية في سلسلة COP8 لديها. ومنها بت حماية يمنع قراءة ROM وEEPROM. وعند ضبطه لا يمكن قراءة الرقاقة عبر واجهة البرمجة التسلسلية. غير أن هذا القفل يمكن تجاوزه بتطبيق جهد عالٍ على دبوس الاختبار. ويمكن لهجمات الغليتش على الإشارة الساعية أيضاً فتح الجهاز. وقد نجح مختبرنا في تفريغ برنامج COP8 الثابت باستخدام هذه الأساليب. ولم يكن SC/MP يتمتع بأي حماية، مما جعل القراءة أمراً تافهاً. وقد تبنّت المنتجات المتأخرة القائمة على ARM حماية أكثر تقدماً، تشمل الإقلاع الآمن والتشفير. وكانت حمايات National كافية في عصرها، لكنها ضعيفة بالمعايير الحديثة. والعديد من الأنظمة القديمة تعتمد على هذه الشرائح، وغالباً ما يُفقد برنامجها الثابت. ونستعيد بانتظام البيانات من أجهزة National. وتشمل العملية مزيجاً من التلاعبات بالجهد وتحليل التوقيتات. وبعد الفتح يمكننا قراءة كامل الذاكرة واستنساخها على جهاز حديث. أجهزة National سهلة التكرار. ونقدّم الكود المُستخرَج بالصيغتين الثنائية ولغة التجميع. وأساليبنا غير جائرة، محافظةً على الشريحة الأصلية. ولمنتجات COP8 من OTP نستخدم الفتح لقراءة حالات المنصهرات. ويمكننا استعادة البيانات حتى من الشرائح المتضررة جزئياً. حماية National ليست مصمَّمة لمواجهة مهاجمين مصمّمين. وقد طوّرنا أدوات آلية للاستخراج بالجملة. وفريقنا قادر على التعامل مع المشاريع الكبيرة. كما نقدّم تحليلاً للكود المستعاد لفهم منطقه. ووثائق National تساعد في تفسير الكود الآلي. ثِق بـ MikaTech في الهندسة العكسية الموثوقة لـ National Semiconductor.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p></div>
+    </footer>
+</body>
+</html>

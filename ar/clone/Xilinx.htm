@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات Xilinx الدقيقة – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نكشف الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة عالية.
+                        نُقدّم خبرة متقدمة في تفريغ البرنامج الثابت وتحليل الرقاقة
+                        وتقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28yrs</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ المتحكم الدقيق">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية لمتحكمات Xilinx الدقيقة</h1>
+                <p>تخصص في برامج منظومات Zynq SoC والنواة المرنة MicroBlaze</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>نبذة عن شركة Xilinx</h2>
+                <p>تُعد Xilinx شركة عالمية رائدة في تقنيات FPGA ومنظومات SoC التكيفية، وقد استحوذت عليها AMD عام 2022. وتدمج سلسلة Zynq لديها نوى ARM Cortex‑A مع المنطق القابل للبرمجة. وهذه الأجهزة ليست متحكمات دقيقة تقليدية، ولكنها أنظمة مدمجة عالية الأداء. كما تقدم Xilinx المعالج المرن MicroBlaze، الذي يمكن تنفيذه داخل مصفوفة FPGA. وتُستخدم على نطاق واسع في قطاع الفضاء والدفاع وصناعة السيارات والحوسبة عالية الأداء. وتعد Zynq‑7000 وZynq UltraScale+ العائلتين الرائدتين. وتوفر Xilinx مكدس برمجيات كاملاً يشمل أدوات PetaLinux وVitis. وتدعم أجهزتها عدة أنظمة تشغيل مثل Linux وFreeRTOS والعمل بدون نظام تشغيل. ويتيح منطق Xilinx القابل للبرمجة إنشاء مسرّعات عتادية مخصصة. وهي تحظى بشعبية في معالجة الصور والبنية التحتية 5G والتحكم بالحركة. كما توفر Xilinx الإقلاع الآمن بمصادقة RSA. وتُدمج فيها محركات تشفير للتشفير وفك التشفير. وتتضمن رقائق Xilinx ذاكرة RAM تغذيها بطارية لتخزين المفاتيح. وتحمل أجهزتها معرّفاً فريداً للمصادقة. وتقدم Xilinx تشفير تدفق البتات لحماية الملكية الفكرية. ولدى الشركة منظومة قوية من نوى الملكية الفكرية الخارجية. وتُستخدم FPGA من Xilinx في التصوير الطبي وأنظمة الرادار. كما تدعم واجهات عالية السرعة مثل PCIe وEthernet وUSB. وتشمل بيئات تطوير Xilinx المحاكاة والتصحيح. وتُوفر وثائق واسعة ومواد تدريبية. وقد وسّع استحواذ AMD على Xilinx محفظتها الحوسبية. وتشتهر معالجاتها بالأداء العالي والكمون المنخفض. كما تقدم Xilinx إصدارات مقاومة للإشعاع للفضاء. ولدى الشركة شبكة دعم عالمية. وتُستخدم أجهزة Xilinx غالباً في النمذجة الأولية والإنتاج. وتتيح مرونتها التكرار السريع للتصميم. ويتجلى التزام Xilinx بالأمن في الإقلاع الآمن وإدارة المفاتيح. وهي لاعب رئيسي في سوق الحوسبة المدمجة والحوسبة الذكية على الحافة. وتواصل Xilinx تبني منصات Versal التكيفية لتسريع الحوسبة.</p>
+
+                <h2>سلاسل المنتجات وموديلات الأجهزة</h2>
+                <h3>Zynq‑7000 (ARM Cortex‑A9 + FPGA)</h3>
+                <ul>
+                    <li>XC7Z010</li><li>XC7Z015</li><li>XC7Z020</li><li>XC7Z030</li><li>XC7Z035</li>
+                    <li>XC7Z045</li><li>XC7Z100</li><li>XC7Z120</li><li>XC7Z125</li><li>XC7Z130</li>
+                    <li>XC7Z140</li><li>XC7Z150</li><li>XC7Z160</li>
+                </ul>
+                <h3>Zynq UltraScale+ (ARM Cortex‑A53 + Cortex‑R5 + FPGA)</h3>
+                <ul>
+                    <li>ZU2CG</li><li>ZU3CG</li><li>ZU4CG</li><li>ZU5CG</li><li>ZU6CG</li>
+                    <li>ZU7CG</li><li>ZU8CG</li><li>ZU9CG</li><li>ZU10CG</li><li>ZU11CG</li>
+                    <li>ZU12CG</li><li>ZU13CG</li><li>ZU14CG</li><li>ZU15CG</li>
+                </ul>
+                <h3>النواة المرنة MicroBlaze (قابلة للتكييف على أي FPGA)</h3>
+                <ul>
+                    <li>MicroBlaze (RISC بعمق 32 بت)</li><li>MicroBlaze V</li><li>MicroBlaze مع MMU</li>
+                    <li>MicroBlaze مع FPU</li><li>MicroBlaze مع واجهة AXI</li>
+                </ul>
+
+                <h2>ميزات الأمان في Xilinx</h2>
+                <p>تنفذ Xilinx آليات حماية موثوقة لكل من تدفق بتات FPGA والبرنامج الثابت ARM. وتتضمن سلسلة Zynq عملية إقلاع آمن تستخدم توقيعات RSA لمصادقة محمل الإقلاع من المستوى الأول. وإذا كان التوقيع غير صالح، يرفض الجهاز الإقلاع، مما يمنع تنفيذ الكود غير المصرح به. ويمكن تشفير تدفق البتات بـ AES‑256، مما يستحيل معه قراءته بدون المفتاح. ويُخزن مفتاح فك التشفير في RAM تغذيها بطارية أو في eFuse، وهو ما يتمتع بحماية فيزيائية. كما توفر Xilinx بيئة TrustZone لنوى ARM، لعزل البرمجيات الآمنة وغير الآمنة. ويمكن تهيئة المنطق القابل للبرمجة على قفل الوصول إلى JTAG بعد البرمجة. ومع ذلك، قد يحاول المهاجمون المتقدمون هجمات غلتش لتجاوز هذه الحماية. والحقن بالخلل قد يعطل أحياناً فحص الإقلاع الآمن، مما يتيح للمهاجم اختراق النظام. ويمكن استخدام التحليل الجانبي لاستهلاك الطاقة لاستعادة مفتاح التشفير عند الإقلاع. وقد نجحنا في استخراج المفاتيح من أجهزة Zynq بالتحليل التفاضلي للقدرة. وتتضمن طريقة أخرى ملامسة واجهة الإعداد أثناء تشغيل الطاقة. وتحمل أجهزة Xilinx حمضها النووي الفريد DNA الذي يمكن استخدامه للمصادقة، مما يعرقل الاستنساخ. وعلى الرغم من هذه التدابير، فقد طورنا طرق سحب تفريغ تدفق البتات من فلاش الإعداد الخارجي. وبمجرد استعادة تدفق البتات، يمكننا تكرار التصميم على FPGA أخرى. وبالنسبة للبرنامج الثابت ARM يمكننا قراءة فلاش QSPI واستخراج البرمجيات. وإذا كانت فيوزات الحماية محروقة، يمكن استخدام طرق غازية مثل FIB لإعادة تمكين التصحيح. كما طبقنا التحليل الكهرومغناطيسي لاستنباط الحالات الداخلية أثناء العمليات التشفيرية. حماية Xilinx قوية، ولكنها ليست مطلقة. وقد استعدنا البرنامج الثابت من أجهزة Zynq المقفلة لصالح عملاء. كما يمكن لفريقنا فتح واجهة JTAG عبر غلتش الجهد. وبعد الفتح يمكننا قراءة كامل محتوى OCM وDDR. ونوفر خدمات هندسة عكسية متكاملة لجميع منظومات Xilinx SoC. سواء أكنت بحاجة إلى استعادة تصميم مفقود أم التحقق من سلامة الملكية الفكرية — فستساعدك MikaTech. كما نقدم استنساخ النظام بأكمله على جهاز جديد. وتغطي خبرتنا الجوانب العتادية والبرمجية. ثق بنا في الهندسة العكسية الاحترافية لـ Xilinx.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p></div>
+    </footer>
+</body>
+</html>

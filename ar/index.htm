@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الهندسة العكسية للمتحكمات الدقيقة</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="../style1.css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.htm">الرئيسية</a></li>
+                    <li><a href="about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="clone/atmel_reverse.htm">Atmel / Analog</a></li>
+<li><a href="clone/Actel.htm">Actel</a></li>
+<li><a href="clone/Altera.htm">Altera</a></li>
+<li><a href="clone/AMD.htm">AMD</a></li>
+<li><a href="clone/Cygnal.htm">Cygnal</a></li>
+<li><a href="clone/ChipON.htm">ChipON</a></li>
+<li><a href="clone/Geehy.htm">Geehy</a></li>
+<li><a href="clone/Cypress.htm">Cypress</a></li>
+<li><a href="clone/Dallas.htm">Dallas</a></li>
+<li><a href="clone/Elan.htm">Elan</a></li>
+<li><a href="clone/Freescale.htm">Freescale</a></li>
+<li><a href="clone/Feeling.htm">Feeling</a></li>
+<li><a href="clone/Giga Device.htm">Giga Device</a></li>
+<li><a href="clone/Hitachi.htm">Hitachi</a></li>
+<li><a href="clone/Holtek.htm">Holtek</a></li>
+<li><a href="clone/Infineon.htm">Infineon</a></li>
+<li><a href="clone/Intel.htm">Intel</a></li>
+<li><a href="clone/ICT.htm">ICT</a></li>
+<li><a href="clone/ICSI.htm">ICSI</a></li>
+<li><a href="clone/ISSI.htm">ISSI</a></li>
+<li><a href="clone/Lattice.htm">Lattice</a></li>
+<li><a href="clone/Microchip.htm">Microchip</a></li>
+<li><a href="clone/Motorola.htm">Motorola</a></li>
+<li><a href="clone/Maxim.htm">Maxim</a></li>
+<li><a href="clone/MDT.htm">MDT</a></li>
+<li><a href="clone/Megawin.htm">Megawin</a></li>
+<li><a href="clone/Myson.htm">Myson</a></li>
+<li><a href="clone/National Semi.htm">National Semi</a></li>
+<li><a href="clone/NTK.htm">NTK</a></li>
+<li><a href="clone/Nuvoton.htm">Nuvoton</a></li>
+<li><a href="clone/NXP.htm">NXP</a></li>
+<li><a href="clone/Philips.htm">Philips</a></li>
+<li><a href="clone/Renesas.htm">Renesas</a></li>
+<li><a href="clone/STM.htm">STM</a></li>
+<li><a href="clone/Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="clone/Samsung.htm">Samsung</a></li>
+<li><a href="clone/SST.htm">SST</a></li>
+<li><a href="clone/Sinowealth.htm">Sinowealth</a></li>
+<li><a href="clone/SyncMOS.htm">SyncMOS</a></li>
+<li><a href="clone/STC.htm">STC</a></li>
+<li><a href="clone/STK.htm">STK</a></li>
+<li><a href="clone/Texas Instr.htm">Texas Instr</a></li>
+<li><a href="clone/Winbond.htm">Winbond</a></li>
+<li><a href="clone/Xilinx.htm">Xilinx</a></li>
+<li><a href="clone/Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="index.htm"><img src="../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../index.htm"><img src="../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../kr/index.htm"><img src="../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        للمتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        أطلق العنان للأنظمة المدمجة وحلّلها وأعد توظيفها بدقة. نحن نقدم
+                        استخراجًا خبيرًا للبرامج الثابتة، وتحليلًا للسيليكون، وتقييمًا
+                        لأمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عامًا</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../image/office.jpg" alt="المكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('video.htm', '_blank')" title="تفريغ المتحكم الدقيق">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- ===== SERVICES ===== -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">ماذا نعمل</span>
+                <h2 class="section-title">
+                    خدمات <span class="highlight">الهندسة العكسية</span> الرئيسية
+                </h2>
+                <p class="section-sub mx-auto">
+                    من تجاوز حماية القراءة إلى إعادة بناء النظام بالكامل —
+                    نقدم خبرة تقنية معمّقة للأنظمة المدمجة.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 现有 6 张卡片 -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-unlock"></i></div>
+                    <h3>تجاوز الحماية</h3>
+                    <p>
+                        تجاوز حماية القراءة (RDP)، وأقفال JTAG/SWD، وغيرها من
+                        آليات الأمان عبر مجموعة واسعة من المتحكمات الدقيقة.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-file-code"></i></div>
+                    <h3>استخراج البرنامج الثابت</h3>
+                    <p>
+                        قراءة الذاكرة الداخلية flash وEEPROM وOTP باستخدام
+                        هجمات الجليتش، أو القنوات الجانبية، أو الأساليب التدخلية.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-arrows-rotate"></i></div>
+                    <h3>تحليل الكود الثنائي</h3>
+                    <p>
+                        تفكيك، وفك تجميع، وتحليل الكود الآلي لفهم
+                        الوظائف والخوارزميات ونقاط الضعف.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-sitemap"></i></div>
+                    <h3>الهندسة العكسية للسيليكون</h3>
+                    <p>
+                        الحفر الطبقي، والتصوير البصري، واستخراج صافي التوصيل
+                        لفهم المستوى العتادي واكتشاف النسخ المطابقة.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-shield"></i></div>
+                    <h3>تدقيق الأمان</h3>
+                    <p>
+                        تقييم شامل لأمان الأجهزة المدمجة،
+                        يشمل مقاومة حقن الأخطاء والقنوات الجانبية.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-rotate-right"></i></div>
+                    <h3>إحياء الأنظمة القديمة</h3>
+                    <p>
+                        استعادة وإعادة بناء البرنامج الثابت للمتحكمات الدقيقة
+                        القديمة أو غير الموثّقة، بهدف إطالة عمر المنتج.
+                    </p>
+                </div>
+
+                <!-- ===== 新增 2 张卡片 ===== -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-microscope"></i></div>
+                    <h3>نزع غلاف المتحكم الدقيق</h3>
+                    <p>
+                        إزالة دقيقة للغلاف الإيبوكسي أو السيراميكي لكشف
+                        القالب، بغرض الفحص البصري وتحليل الأعطال
+                        والقياس المباشر للعقد الداخلية.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-id-card"></i></div>
+                    <h3>تحديد هوية الرقائق</h3>
+                    <p>
+                        تحديد هوية الرقائق المجهولة أو غير المُوسومة أو المخصصة،
+                        بالاستناد إلى علامات القالب وتحليل الدبابيس والخصائص الكهربائية
+                        والمطابقة مع قواعد البيانات المعروفة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PCB CLONE (新风格) ===== -->
+    <section class="section" id="pcb-clone">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">استنساخ الأجهزة</span>
+                <h2 class="section-title">
+                    استنساخ اللوحات <span class="highlight-pcb">&amp; الهندسة العكسية</span>
+                </h2>
+                <p class="section-sub mx-auto">
+                    إعادة بناء واستنساخ وتحسين اللوحات المطبوعة بالاستناد إلى
+                    عينات فعلية — مع استخراج كامل للمخطط وتوليد قائمة BOM.
+                </p>
+            </div>
+
+            <div class="pcb-grid">
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-microscope"></i></div>
+                    <h3>الهندسة العكسية للوحات</h3>
+                    <p>استخراج صافي التوصيل، وتوزيع المكونات، والبنية الطبقية من لوحات فارغة أو مجمّعة بدقة عالية.</p>
+                </div>
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-draw-polygon"></i></div>
+                    <h3>استعادة المخططات</h3>
+                    <p>استعادة مخططات كهربائية كاملة من لوحات فعلية، تشمل دوائر القدرة، وتتبع الإشارات، والحافلات الحرجة.</p>
+                </div>
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-list-check"></i></div>
+                    <h3>توليد قائمة BOM</h3>
+                    <p>تحديد وسرد جميع المكونات مع أرقام القطع والشركات المصنعة والبدائل لضمان استمرارية الإمداد.</p>
+                </div>
+                <div class="pcb-card">
+                    <div class="icon-circle"><i class="fas fa-copy"></i></div>
+                    <h3>استنساخ اللوحات</h3>
+                    <p>توليد ملفات Gerber جاهزة للإنتاج، وبيانات الثقب، ورسومات التركيب، لإنتاج نسخ دقيقة أو محسّنة من اللوحات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-label">عن ReversIC</span>
+                    <h2 class="section-title">
+                        خبرة معمّقة في مجال <span class="highlight">الأنظمة المدمجة</span>
+                    </h2>
+                    <p>
+                        نحن فريق من مهندسي أمن الأجهزة ومهندسي الهندسة العكسية،
+                        نمتلك أكثر من عقد من الخبرة التراكمية في تحليل
+                        المتحكمات الدقيقة. تجمع طرقنا بين العتاد
+                        والبرمجيات، لتقديم رؤى عملية للأمان،
+                        والامتثال التنظيمي، والابتكار في المنتجات.
+                    </p>
+                    <p>
+                        من ARM Cortex إلى RISC-V، ومن المعماريات ذات 8 بت إلى
+                        32 بت — نحن نتحدث لغة السيليكون.
+                    </p>
+                    <ul class="features">
+                        <li><i class="fas fa-check-circle"></i> 180+ عائلة من المتحكمات الدقيقة</li>
+                        <li><i class="fas fa-check-circle"></i> مختبرنا الخاص وأدواتنا</li>
+                        <li><i class="fas fa-check-circle"></i> سرّية تامة و NDA</li>
+                        <li><i class="fas fa-check-circle"></i> عملاء حول العالم</li>
+                    </ul>
+                </div>
+                <!-- ===== ABOUT-IMAGE now shows hero-chip ===== -->
+                <div class="about-image">
+                    <div class="hero2-chip">
+                        <div class="chip-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="chip-label">ARM Cortex-M · 32 بت</div>
+                        <div class="chip-dots">
+                            <span class="active"></span><span></span><span></span>
+                            <span></span><span class="active"></span><span></span>
+                            <span></span><span></span><span class="active"></span>
+                            <span></span><span></span><span></span>
+                            <span class="active"></span><span></span><span></span>
+                            <span></span><span></span><span class="active"></span>
+                        </div>
+                        <!-- floating badges -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> استخراج البرنامج الثابت</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> اختراق</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i>هجوم</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">كيف نعمل</span>
+                <h2 class="section-title">
+                    عمليتنا في <span class="highlight">الهندسة العكسية</span>
+                </h2>
+                <p class="section-sub mx-auto">
+                    عملية منظمة وشفافة، من التحليل الأولي حتى
+                    النتيجة النهائية.
+                </p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <span class="num">01</span>
+                    <h4>الاستطلاع</h4>
+                    <p>تحديد المتحكم الدقيق، والغلاف، ووظائف الأمان.</p>
+                </div>
+                <div class="step">
+                    <span class="num">02</span>
+                    <h4>الوصول</h4>
+                    <p>تجاوز الحمايات وإنشاء قنوات التصحيح.</p>
+                </div>
+                <div class="step">
+                    <span class="num">03</span>
+                    <h4>الاستخراج</h4>
+                    <p>قراءة البرنامج الثابت، والإعدادات، وبيانات OTP.</p>
+                </div>
+                <div class="step">
+                    <span class="num">04</span>
+                    <h4>التحليل</h4>
+                    <p>تفكيك، وتتبع، وتوثيق الوظائف.</p>
+                </div>
+                <div class="step">
+                    <span class="num">05</span>
+                    <h4>التقرير</h4>
+                    <p>تقديم النتائج والكود والتوصيات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CASE STUDIES ===== -->
+    <section class="section" id="cases">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">قصص نجاح</span>
+                <h2 class="section-title">
+                    نماذج <span class="highlight">أعمال مختارة</span>
+                </h2>
+                <p class="section-sub mx-auto">
+                    مشاريع حقيقية كشفنا فيها عن بيانات أساسية.
+                </p>
+            </div>
+
+            <div class="cases-grid">
+                <div class="case-card">
+                    <p class="quote">
+                        «كنت أبرمج المعالج اليوم. ومع ذلك لم أتمكن من برمجته باستخدام المبرمج Chipprog-48 (مبرمج روسي). ولكن باستخدام SAM-ICE نجح كل شيء على أكمل وجه! كالمعتاد، شكرًا جزيلاً!!!»
+                    </p>
+                    <div class="author">
+                        <div class="avatar">EG</div>
+                        <div class="info">
+                            <h5>G Egwa
+</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <p class="quote">
+                        «ملف hex يعمل بشكل مثالي. وبيانات EEPROM مشمولة أيضًا.
+
+شكرًا جزيلاً مني :-)»
+                    </p>
+                    <div class="author">
+                        <div class="avatar">AK</div>
+                        <div class="info">
+                            <h5>Anna K.</h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <p class="quote">
+                        «شكرًا، سأختبر ملف hex وأرسل ملاحظاتي إلى مكتبكم،
+آملًا أن يكون
+بحالته الأصلية، شكرًا لخدمتكم الممتازة، وإلى مشاريع
+قريبة.»
+                    </p>
+                    <div class="author">
+                        <div class="avatar">MR</div>
+                        <div class="info">
+                            <h5>Michael R.</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== MCU REVERSE ENGINEERING RANGE  ===== -->
+    <section class="section" id="mcu-range">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label">المعماريات المدعومة</span>
+                <h2 class="section-title">
+                    نطاق <span class="highlight">الهندسة العكسية</span> للمتحكمات الدقيقة
+                </h2>
+                <p class="section-sub mx-auto">
+                    نظرة شاملة على عائلات المتحكمات الدقيقة وأجهزة
+                    الذاكرة المحمية التي نتعامل معها.
+                </p>  <br><br>
+            </div>
+
+             <div class="container">
+                <div class="faq-item">
+
+                    <h3>اختراق المتحكمات الدقيقة ذات 8 بت</h3>
+                    <p>- نواة 8051
+STC: STC89C52, STC15W408AS, STC8A8K64S4A12
+Microchip (Atmel): AT89C51, AT89C52
+WCH: CH552, CH554, CH559
+- نواة AVR (Microchip)
+ATmega: ATmega328P, ATmega8, ATmega128, ATmega2560
+ATTiny: ATTiny13A, ATTiny85, ATTiny1614
+- Microchip PIC ذات 8 بت
+PIC12: PIC12F629, PIC12F675
+PIC16: PIC16F877A, PIC16F18345, PIC16LF1503
+- Renesas
+78K0, 78K0S
+- NXP (Freescale)
+HCS08: MC9S08AW60, MC9S08QE128</p>
+                </div>
+                <div class="faq-item">
+                    <h3>فتح قفل المتحكمات الدقيقة ذات 16 بت</h3>
+                    <p>-Texas Instruments
+MSP430: MSP430F5529, MSP430FR5994, MSP430G2553
+- Microchip
+PIC24: PIC24FJ64GA310, PIC24FV32KA304
+dsPIC (معزز بـ DSP): dsPIC33FJ128MC802, dsPIC33CK256MP508
+- Renesas
+RL78: RL78/G13, RL78/G22, RL78/G23
+- NXP
+S12: MC9S12XS128</p>
+                </div>
+                <div class="faq-item">
+                    <h3>الهجوم على المتحكمات الدقيقة ذات 32 بت</h3>
+                    <p>- STMicroelectronics: STM32F103, STM32F407, STM32H743, STM32L476, STM32U585
+- GigaDevice: GD32F103, GD32F407, GD32L233
+- WCH: CH32F103, CH32F203
+- NXP: LPC1768, LPC55S69, Kinetis K60, KV58
+- Nordic Semiconductor: nRF51822, nRF52840, nRF5340
+- MindMotion: MM32F103, MM32L073</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>المنطق المصفوف القابل للبرمجة (PAL)</h3>
+                    <p>- Lattice Semiconductor
+PAL16L8, PAL16R4, PAL16R6, PAL16R8, PAL20L8, PAL20R8
+- AMD / Vantis
+PAL12H6, PAL14H4, PAL16C1, PAL18P8, PAL22V10
+- Microchip (Atmel)
+ATF16V8B, ATF22V10C
+- National Semiconductor
+NS PAL16 series</p>
+                </div>
+                <div class="faq-item">
+                    <h3>تفريغ ذاكرة ROM المشفّرة</h3>
+                    <p>Atmel (Microchip) – AT88SC, ATSHA, ATECC
+NXP – MIFARE, SmartMX, SE050
+Infineon – SLE, OPTIGA
+ST – STSAFE
+Maxim – DS28 (DeepCover)
+Renesas – متحكمات دقيقة آمنة مع تشفير
+Microchip – ذواكر EEPROM آمنة</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- ===== CONTACT / CTA ===== -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="cta-box">
+                <h2>هل أنت مستعد <span class="highlight">لهندسة عكسية</span> لمتحكمك الدقيق؟</h2>
+                <p>
+                    تواصل معنا للحصول على استشارة سرّية. نحن نعمل
+                    وفق اتفاقية NDA ونكيّف نهجنا وفقًا لاحتياجاتك المحددة.
+                </p>
+                <div class="btn-group">
+
+
+                        <a href="about.htm" class="btn btn-dark">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-primary">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="font-size:1.1rem;">
+                        <span class="highlight"><i class="fas fa-microchip"></i>
+                       MikaTech</span>
+                    </a>
+                    <p>
+                        هندسة عكسية متخصصة للمتحكمات الدقيقة، لأغراض
+                        الأمان، والطب الشرعي الرقمي، واستعادة الأنظمة القديمة.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>الشركة</h5>
+
+                    <a href="about.htm">من نحن</a>
+                    <a href="mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                    <a href="pcb_clone">استنساخ اللوحات</a>
+                    <a href="faq.htm">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h5>الموقع الرسمي</h5>
+ <a href="https://www.break-ic.com"><img src="../image/link.png" alt="الموقع" class="chip-image" /></a>
+                </div>
+
+
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 MikaTech — الهندسة العكسية للمتحكمات الدقيقة</span>
+                <div class="footer-socials">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close nav on link click (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Language switch placeholder
+        document.querySelectorAll('.lang-switch a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = link.getAttribute('data-lang');
+                if (lang === 'ru') {
+                    alert('Русская версия сайта в разработке. / Russian version is under development.');
+                } else {
+                    document.querySelectorAll('.lang-switch a').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Smooth anchor scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add active class to nav links on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-links > a').forEach(link => {
+                link.style.color = link.getAttribute('href') === '#' + current ? '#e8edf5' : '#a0aab8';
+            });
+        });
+
+        // Header blur on scroll
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.background = 'rgba(11,13,16,0.92)';
+            } else {
+                header.style.background = 'rgba(11,13,16,0.85)';
+            }
+        });
+    </script>
+
+</body>
+</html>

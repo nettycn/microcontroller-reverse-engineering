@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لـ Altera – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نفتح الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة.
+                        نقدم استخراجًا احترافيًا للبرامج الثابتة وتحليل الرقائق و
+                        تقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عامًا</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ المتحكمات الدقيقة">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية لـ FPGA و CPLD من Altera</h1>
+                <p>خبرة عميقة في عائلات Cyclone وStratix وArria وMAX</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>نبذة عن شركة Altera</h2>
+                <p>تُعدّ Altera Corporation، التي أصبحت الآن شركة تابعة لـ Intel (مجموعة Intel للحلول القابلة للبرمجة)، مورّدًا رائدًا للأجهزة المنطقية القابلة للبرمجة. وقد تأسست Altera عام 1983، وكانت أول من طبّق المصفوفات المنطقية القابلة للبرمجة بتقنية CMOS، ثم قدّمت لاحقًا أول CPLD وFPGA قابلة لإعادة البرمجة. وتُستخدم أجهزتها في طيف واسع من التطبيقات — من الإلكترونيات الاستهلاكية إلى الاتصالات والسيارات والمعدات العسكرية ومراكز البيانات. وتشمل تشكيلة منتجات Altera سلسلة Stratix عالية الأداء، وسلسلة Arria متوسطة الأداء، وعائلات Cyclone الاقتصادية، إضافةً إلى سلسلة CPLD MAX. وفي عام 2015، استحوذت Intel على Altera لدمج FPGA مع معالجاتها، مُنشئةً منصّات حوسبة غير متجانسة جديدة. وتعمل FPGA من Altera بناءً على SRAM، أي أنها تفقد تهيئتها عند انقطاع التغذية وتتطلّب ذاكرة تهيئة خارجية (غالبًا flash تسلسلية أو EEPROM). ويمكن تشفير bitstream التهيئة هذا بمعيار AES-256 لحماية الملكية الفكرية. وتقدّم Altera أيضًا وظائف للأجهزة المحمية، مثل مصادقة JTAG والحماية من التدخّل. وتدعم بيئة التطوير Quartus Prime طيفًا واسعًا من أنوية IP ومنهجيات التصميم. وتُعرف أجهزة Altera بأدائها العالي وكثافتها وقدرات الإرسال/الاستقبال المتقدمة. كما دمجت الشركة معالجات ARM Cortex-A9 وA53 المعزّزة في SoC-FPGA الخاصة بها، مازجةً بين البرمجة البرمجية والتسريع الأجهزي. وتُستخدم FPGA من Altera على نطاق واسع في البنية التحتية لـ 5G والأتمتة الصناعية وصناعة الفضاء. وتولي الشركة اهتمامًا كبيرًا للجودة والموثوقية: فالعديد من الأجهزة مُعتمدة للمواصفات السيارات (AEC-Q100) والعسكرية. وتقدّم Altera أيضًا مجموعة شاملة من إجراءات الحماية، تشمل الإقلاع الآمن والدوال الفيزيائية المستنسخة (PUF) ومواجهة هجمات القنوات الجانبية. ورغم هذه الحماية، تُعدّ الهندسة العكسية لأجهزة Altera مهمةً متكررة عند استعادة الأنظمة القديمة والتحقق من IP والتحليل التنافسي. ويمتلك فريقنا خبرة واسعة في استخراج bitstreams التهيئة من SRAM المتطايرة ومن ذاكرة التهيئة الخارجية على حد سواء. لقد استعدنا تصاميم من مئات FPGA من Altera، بما في ذلك الأجهزة المفعّل فيها التشفير. وتشمل العملية فهم بروتوكول التهيئة، واستغلال الثغرات في واجهة التهيئة، أو القراءة المباشرة للذاكرة الخارجية. وبالنسبة للأجهزة المعطّلة فيها القراءة، نطبّق أساليب تدخلية مثل فحص دبابيس التهيئة أثناء تشغيل التغذية. وقد تطوّرت وظائف الأمان لدى Altera عبر الزمن، لكننا نتابع أحدث متجهات الهجوم. كما نقدّم خدمات استنساخ FPGA من Altera عبر نسخ بيانات التهيئة إلى جهاز جديد. ومختبرنا مجهّز بمحلّلات منطق عالية السرعة ولوحات تصحيح FPGA وبرمجيات خاصة لأتمتة عملية الاستخراج. لقد هاجمنا بنجاح كلًا من سلسلة MAX 7000 القديمة وأحدث أجهزة Stratix 10. إن تشفير bitstream لدى Altera موثوق، لكننا طوّرنا أساليب استعادة المفتاح عبر تحليل القنوات الجانبية، ولا سيما مراقبة التغذية أثناء فك التشفير. كما نستخدم حقن الأخطاء لإحداث أخطاء في التهيئة وتجاوز أقفال الحماية. وهدفنا تقديم خدمة موثوقة وفعّالة، مع ضمان استعادة بيانات التصميم القيّمة حتى عند فقدان الملفات الأصلية. وبفضل خبرتنا، يمكنك فك تشفير FPGA من Altera وقراءتها وتفريغها بل حتى استنساخها بنسبة نجاح عالية. ونحن نفهم دقائق كل عائلة — من Cyclone IV الاقتصادي حتى Arria 10 عالي الأداء. ويجمع نهجنا بين التوصيف الكهربائي وتحليل المزامنة والفحص الفيزيائي لتجاوز أي عقبة. كما طوّرنا خوارزميات مملوكة لإعادة بناء شبكة الربط من bitstream الخام، مما يتيح فهم المنطق الداخلي. سواء أكنت بحاجة إلى استعادة تهيئة مفقودة، أم تكرار جهاز تسلسلي، أم تحليل منتج منافس — فإن MikaTech شريكك الموثوق في الهندسة العكسية لـ Altera.</p>
+
+                <h2>العائلات وموديلات الأجهزة</h2>
+                <ul>
+                    <li><strong>Cyclone</strong> – EP1C3, EP1C6, EP1C12, EP1C20, EP2C5, EP2C8, EP2C20, EP2C35, EP2C50, EP2C70, EP3C5, EP3C10, EP3C16, EP3C25, EP3C40</li>
+                    <li><strong>Cyclone V</strong> – 5CEBA2, 5CEBA4, 5CEBA5, 5CEBA7, 5CEBA9, 5CEFA2, 5CEFA4, 5CEFA5, 5CEFA7, 5CEFA9</li>
+                    <li><strong>Arria</strong> – EP2AGX45, EP2AGX65, EP2AGX95, EP2AGX125, EP2AGX190, EP2AGX260, EP2AGX350, EP2AGX400, EP2AGX500, EP2AGX600</li>
+                    <li><strong>Arria 10</strong> – 10AX016, 10AX022, 10AX027, 10AX032, 10AX045, 10AX057, 10AX066, 10AX085, 10AX090, 10AX115</li>
+                    <li><strong>Stratix</strong> – EP1S10, EP1S20, EP1S25, EP1S30, EP1S40, EP1S60, EP1S80, EP2S15, EP2S30, EP2S60, EP2S90, EP2S130, EP2S180, EP3S50, EP3S110</li>
+                    <li><strong>Stratix V</strong> – 5SGXEA3, 5SGXEA5, 5SGXEA7, 5SGXEA9, 5SGSMD3, 5SGSMD5, 5SGSMD8, 5SGSMD4, 5SGSMD6, 5SGSMD2</li>
+                    <li><strong>MAX</strong> – EPM7032, EPM7064, EPM7128, EPM7160, EPM7256, EPM7512, EPM1270, EPM2210, EPM240, EPM570</li>
+                    <li><strong>MAX II</strong> – EPM2210, EPM240, EPM570, EPM1270, EPM3064, EPM3128, EPM3256, EPM3512, EPM570T, EPM1270T</li>
+                    <li><strong>SoC FPGA (Cyclone V, Arria V)</strong> – 5CSEMA2, 5CSEMA4, 5CSEMA5, 5CSEMA6, 5CSXFC2, 5CSXFC4, 5CSXFC6, 5CSXFC5, 5CSXFC7, 5CSTFD5</li>
+                </ul>
+
+                <h2>وظائف الأمان ومتجهات الهجوم</h2>
+                <p>تتضمن FPGA من Altera مجموعة من وظائف الأمان لحماية bitstream التهيئة من الوصول غير المصرّح به. وأهمها تشفير بيانات التهيئة بمعيار AES-256، والتي قد تُخزَّن في جهاز ذاكرة خارجي. ويُخزَّن مفتاح التشفير في ذاكرة FPGA الداخلية غير المتطايرة (eFuse أو RAM مدعومة ببطارية) ولا يُكشَف للخارج أبدًا. وتدعم Altera أيضًا وضع تهيئة محميًا، حيث تتحقق FPGA من صحّة bitstream عبر HMAC (رمز مصادقة الرسالة). وهذا يضمن تحميل التهيئات المصرّح بها فقط، مانعًا الحقن الخبيث. إضافةً إلى ذلك، يمكن تعطيل واجهة JTAG نهائيًا بحرق فيوز الحماية، مما يقفل أي محاولات للقراءة أو إعادة البرمجة. وبعض الأجهزة مزودة أيضًا بالكشف عن ارتفاع الجهد، مما يمحو التهيئة عند رصد glitch. وتتضمن أحدث عائلات Altera الدالة الفيزيائية المستنسخة (PUF) التي تولد بصمة جهاز فريدة، تُستخدم للتوليد المحمي للمفاتيح. ومع ذلك، لا يوجد نظام محمي بالكامل من الهجمات. وقد طوّر فريق الهندسة العكسية لدينا أساليب فعّالة لتجاوز هذه الحماية. مثلًا، يمكننا استخدام تحليل القدرة عبر القناة الجانبية لاستخراج مفتاح AES أثناء فك التشفير، نظرًا لأن الجهاز يستهلك قدرًا مختلفًا من الطاقة بحسب المفتاح والبيانات. وبالتقاط مسارات عديدة وتطبيق التحليل التفاضلي للقدرة (DPA)، نستعيد المفتاح دون الوصول إلى التخزين الداخلي. والنهج الآخر هو توليد glitches في التغذية أو إشارة الساعة لتعطيل عمل آلة الحالة للحماية، مما يفتح واجهة JTAG لنافذة قصيرة. وهذا يتيح لنا قراءة بيانات التهيئة مباشرة من خلايا SRAM. أما الأجهزة المعطّلة فيها القراءة، فيمكننا استعادة bitstream عبر اعتراض دبابيس التهيئة (DATA وDCLK وnCONFIG) أثناء تشغيل التغذية، نظرًا لأن التهيئة تُحمَّل من flash الخارجية. لقد نجحنا في التقاط bitstream كاملًا بهذه الطريقة شريطة عدم استخدام التشفير. وإذا كان التشفير نشطًا، نلجأ إلى نزع تغليف الجهاز ونستخدم FIB لفحص نواقل البيانات الداخلية. وهذا أسلوب متقدّم يتطلّب الدقة، لكننا نجحنا في استعادة المفاتيح المشفّرة من أجهزة Stratix وArria. كما نستخدم التحليل الكهرومغناطيسي (EM) لالتقاط الإشعاعات المتولدة أثناء التهيئة، مما قد يكشف محتوى bitstream. وقد طوّر فريقنا معدّات خاصة للتزامن مع تردد ساعة التهيئة وأخذ العيّنات بدقة من خطوط البيانات. وبالنسبة للأجهزة القديمة مثل MAX CPLD التي تستخدم EEPROM أو flash، يمكننا ببساطة قراءة محتوى الذاكرة بمبرمجات قياسية إذا لم يُحرَق فيوز الحماية. وفي هذه الحالة نطبّق الجهد أو التشعيع بالأشعة فوق البنفسجية لإعادة ضبط الفيوز، كما فعلنا مع العديد من CPLD القائمة على EEPROM. ومختبرنا مجهّز بطيف واسع من الأدوات، يشمل راسمات إشارة فاخرة ومحلّلات منطق ومبرمجات متخصصة لأجهزة Altera. كما أنشأنا أدوات برمجية قادرة على تحليل bitstream الخام وتفسيره، وتحويله إلى شبكة ربط مقروءة أو حتى نسخة وظيفية كاملة. وهذا يمكّن عملاءنا من استعادة التصاميم وتحديث المنتجات القديمة أو إجراء التحليل التنافسي. إن نسبة نجاحنا مع أجهزة Altera استثنائية، وقد هاجمنا حتى أحدث عائلات 14 نانومتر و20 نانومتر. ونحن حريصون على البقاء في طليعة أبحاث أمان FPGA، مع ضمان قدرتنا الدائمة على تقديم حل لمهام الهندسة العكسية الخاصة بك. سواء أكنت بحاجة إلى فك التشفير أم القراءة أم الاختراق أم الاستخراج أم التفريغ أم الاستعادة أم التكرار أم الاستنساخ لـ FPGA من Altera — فإن MikaTech تمتلك الخبرة والأدوات اللازمة للتنفيذ.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p>
+        </div>
+    </footer>
+</body>
+</html>

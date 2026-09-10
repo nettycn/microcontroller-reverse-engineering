@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات Geehy الدقيقة – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نفتح الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة.
+                        نقدم استخراجًا احترافيًا للبرامج الثابتة وتحليل الرقائق و
+                        تقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عامًا</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ المتحكمات الدقيقة">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية لمتحكمات Geehy الدقيقة</h1>
+                <p>خبير في سلسلة APM32 (ARM Cortex-M) والمتحكمات القديمة من Geehy</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>نبذة عن شركة Geehy</h2>
+                <p>Geehy (أو Geehy Semiconductor) هي شركة صينية لأشباه الموصلات بلا مصانع (fabless)، متخصصة في المتحكمات الدقيقة ذات 32 بت القائمة على بنية ARM Cortex-M. وسلسلة APM32 الخاصة بها متوافقة بالدبابيس مع سلسلة STM32F من STMicroelectronics، مقدّمةً مصدرًا بديلاً للعديد من التطبيقات. وتُستخدم متحكمات Geehy الدقيقة في التحكم الصناعي والإلكترونيات الاستهلاكية ومشغلات المحركات وسوق ما بعد البيع للسيارات. وهي تقدّم طيفًا واسعًا من المنتجات من أنوية Cortex-M0 حتى M4، بأحجام ذاكرة ومجموعات أجهزة طرفية مختلفة. كما تقدّم Geehy حلولًا متكاملة مع واجهات CAN وUSB وEthernet مدمجة. وتسعى الشركة إلى تقديم بدائل عالية الأداء وموفّرة للطاقة واقتصادية. وتُستخدم أجهزتها على نطاق واسع في السوق الصينية وتظهر بشكل متزايد في المنتجات العالمية. وتتضمن Geehy وظائف أمان، مثل حماية flash من القراءة والحماية من الكتابة ومعرّف جهاز فريد. وبعض الأجهزة تحمل ذاكرة مقاومة للعبث لتخزين المفاتيح. ومع ذلك، فإن تنفيذ الأمان لديها غالبًا مماثل لـ STM32، مع ثغرات معروفة. ويمتلك فريقنا في الهندسة العكسية خبرة واسعة في التعامل مع أجهزة Geehy APM32. لقد نجحنا في استخراج البرنامج الثابت من العديد من متحكمات Geehy الدقيقة المقفلة، باستخدام أساليب مثل فتح منفذ التصحيح وتحليل القنوات الجانبية وحقن الأخطاء. كما نقدّم خدمات الاستنساخ لتكرار البرنامج الثابت على رقائق Geehy جديدة. وأدواتنا متوافقة مع الواجهة القياسية SWD/JTAG، وقد طوّرنا سكربتات خاصة لأتمتة عملية الاستخراج. وبالنسبة للأجهزة عالية الحماية، نلجأ إلى نزع التغليف والقراءة المباشرة للذاكرة. ويشمل عملاؤنا شركات تحتاج إلى استعادة كود مصدري مفقود، أم التحقق من المطابقة، أم إجراء نسخ احتياطية. ونحن نقدّم مواعيد سريعة ونسبة نجاح عالية. وبفضل خبرتنا، يمكننا فك التشفير والقراءة والاختراق والاستخراج والتفريغ والاستعادة والتكرار والاستنساخ لمتحكمات Geehy الدقيقة بكل ثقة.</p>
+
+                <h2>العائلات وموديلات الأجهزة</h2>
+                <ul>
+                    <li><strong>APM32F0 (Cortex-M0)</strong> – APM32F030, APM32F031, APM32F051, APM32F071, APM32F072, APM32F091, APM32F098, APM32F0A, APM32F0B, APM32F0C</li>
+                    <li><strong>APM32F1 (Cortex-M3)</strong> – APM32F101, APM32F102, APM32F103, APM32F105, APM32F107, APM32F108, APM32F109, APM32F110, APM32F111, APM32F112</li>
+                    <li><strong>APM32F3 (Cortex-M4)</strong> – APM32F301, APM32F302, APM32F303, APM32F304, APM32F305, APM32F307, APM32F308, APM32F309, APM32F310, APM32F311</li>
+                    <li><strong>APM32F4 (Cortex-M4)</strong> – APM32F405, APM32F407, APM32F415, APM32F417, APM32F427, APM32F429, APM32F437, APM32F439, APM32F446, APM32F469</li>
+                    <li><strong>APM32L0 (Low-power Cortex-M0)</strong> – APM32L050, APM32L051, APM32L052, APM32L053, APM32L054, APM32L055, APM32L056, APM32L057, APM32L058, APM32L059</li>
+                    <li><strong>APM32W (Wireless)</strong> – APM32W030, APM32W031, APM32W032, APM32W033, APM32W034, APM32W035, APM32W036, APM32W037, APM32W038, APM32W039</li>
+                </ul>
+
+                <h2>وظائف الأمان ومنهجية الهندسة العكسية</h2>
+                <p>تتضمن سلسلة APM32 من Geehy وظائف أمان مماثلة لـ STM32. والحماية الأساسية هي مستويات الحماية من القراءة (RDP): RDP0 (بدون حماية)، RDP1 (الحماية من القراءة مفعّلة، ووصول التصحيح مقفل) وRDP2 (حماية كاملة، لا وصول). إضافةً إلى ذلك، توفّر حماية من الكتابة لقطاعات flash معيّنة لمنع إعادة الكتابة العرضية. وبعض الأجهزة تحمل منطقة احتياطية بسجلات أمان، يمكنها قفل وظائف معيّنة. كما تتضمن Geehy معرّف جهاز فريدًا للحماية من الاستنساخ. ومع ذلك، فإن لهذه الحماية نقاط ضعف معروفة. وبالنسبة لـ RDP1، يمكننا استخدام واجهة التصحيح بتسلسل خاص لرفع الحماية دون مسح flash — وهي منهجية صقلناها. وبالنسبة لـ RDP2 الأكثر حماية، نطبّق حقن الجهد لتجاوز منطق الحماية. لقد نجحنا في فتح قفل أجهزة RDP2 بتوليد glitch تغذية أثناء التحميل. وبعد فتح القفل، نحصل على وصول كامل إلى flash ويمكننا قراءة البرنامج الثابت. كما نستخدم تحليل القدرة عبر القناة الجانبية لاستخراج مفاتيح التشفير المخزّنة في الجهاز. وبالنسبة للأجهزة ذات أداة إقلاع تدعم تحديث البرنامج الثابت، يمكننا أحيانًا استخدام بروتوكول أداة الإقلاع لقراءة flash الرئيسية. كما طوّرنا برنامجًا ثابتًا خاصًا يمكن تحميله في RAM لقراءة flash عبر باب خلفي. وحين لا تنجح الأساليب غير التدخلية، نلجأ إلى نزع التغليف والفحص المجهري الدقيق للقراءة المباشرة لذاكرة flash. ويتم ذلك بإزالة الغلاف واستخدام المجهر الإلكتروني الماسح لتصوير البوابات العائمة. ولدينا نسبة نجاح عالية مع كل هذه المناهج. ومختبرنا مجهّز بمعدّات متقدّمة للهجمات غير التدخلية والتدخلية على حد سواء. كما نقدّم خدمات الاستنساخ، حيث نأخذ جهازًا مقفولًا ونستخرج البرنامج الثابت ونبرمج شريحة Geehy نقية. وهذا مفيد بشكل خاص عندما يكون الجهاز الأصلي قديمًا أو لم يعد متاحًا. ويتابع فريقنا أحدث تحديثات الأمان من Geehy ويطوّر أدواتنا باستمرار. لقد هاجمنا بنجاح العديد من أجهزة APM32F وAPM32L. وتُنفَّذ خدماتنا بسرّية صارمة ووفق اتفاقية NDA. ونحن نسلّم الملف الثنائي المُستعاد، إضافةً إلى أي مفاتيح أمان أو بيانات تهيئة. وقد استخدم عملاؤنا خدماتنا في الهندسة العكسية واستعادة الكود المفقود وإنتاج بدائل متوافقة. ومع MikaTech، يمكنك أن تكون واثقًا من أن مشروع الهندسة العكسية لـ Geehy بين أيادٍ أمينة. ونحن نسعى إلى تقديم خدمات موثوقة وفعّالة واحترافية. لذا، سواء أكنت بحاجة إلى فك التشفير أم القراءة أم الاختراق أم الاستخراج أم التفريغ أم الاستعادة أم التكرار أم الاستنساخ لمتحكمات Geehy الدقيقة — فلدينا الخبرة للتنفيذ.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p>
+        </div>
+    </footer>
+</body>
+</html>

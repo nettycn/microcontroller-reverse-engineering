@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهندسة العكسية لمتحكمات Nuvoton – MikaTech</title>
+    <link rel="stylesheet" href="../../style1.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0157c6b2dab71c20fc7c9ef73e92cfa8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.htm"><span class="highlight">Mika</span>Tech</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.htm">الرئيسية</a></li>
+                    <li><a href="../about.htm">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="../mcu_hack.htm">اختراق المتحكمات الدقيقة</a>
+                        <ul class="dropdown-content">
+                            <li><a href="atmel_reverse.htm">Atmel / Analog</a></li>
+  <li><a href="Actel.htm">Actel</a></li>
+<li><a href="Altera.htm">Altera</a></li>
+<li><a href="AMD.htm">AMD</a></li>
+<li><a href="Cygnal.htm">Cygnal</a></li>
+<li><a href="ChipON.htm">ChipON</a></li>
+<li><a href="Geehy.htm">Geehy</a></li>
+<li><a href="Cypress.htm">Cypress</a></li>
+<li><a href="Dallas.htm">Dallas</a></li>
+<li><a href="Elan.htm">Elan</a></li>
+<li><a href="Freescale.htm">Freescale</a></li>
+<li><a href="Feeling.htm">Feeling</a></li>
+<li><a href="Giga Device.htm">Giga Device</a></li>
+<li><a href="Hitachi.htm">Hitachi</a></li>
+<li><a href="Holtek.htm">Holtek</a></li>
+<li><a href="Infineon.htm">Infineon</a></li>
+<li><a href="Intel.htm">Intel</a></li>
+<li><a href="ICT.htm">ICT</a></li>
+<li><a href="ICSI.htm">ICSI</a></li>
+<li><a href="ISSI.htm">ISSI</a></li>
+<li><a href="Lattice.htm">Lattice</a></li>
+<li><a href="Microchip.htm">Microchip</a></li>
+<li><a href="Motorola.htm">Motorola</a></li>
+<li><a href="Maxim.htm">Maxim</a></li>
+<li><a href="MDT.htm">MDT</a></li>
+<li><a href="Megawin.htm">Megawin</a></li>
+<li><a href="Myson.htm">Myson</a></li>
+<li><a href="National Semi.htm">National Semi</a></li>
+<li><a href="NTK.htm">NTK</a></li>
+<li><a href="Nuvoton.htm">Nuvoton</a></li>
+<li><a href="NXP.htm">NXP</a></li>
+<li><a href="Philips.htm">Philips</a></li>
+<li><a href="Renesas.htm">Renesas</a></li>
+<li><a href="STM.htm">STM</a></li>
+<li><a href="Silicon Labs.htm">Silicon Labs</a></li>
+<li><a href="Samsung.htm">Samsung</a></li>
+<li><a href="SST.htm">SST</a></li>
+<li><a href="Sinowealth.htm">Sinowealth</a></li>
+<li><a href="SyncMOS.htm">SyncMOS</a></li>
+<li><a href="STC.htm">STC</a></li>
+<li><a href="STK.htm">STK</a></li>
+<li><a href="Texas Instr.htm">Texas Instr</a></li>
+<li><a href="Winbond.htm">Winbond</a></li>
+<li><a href="Xilinx.htm">Xilinx</a></li>
+<li><a href="Zilog.htm">Zilog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../pcb_clone.htm">استنساخ اللوحات</a></li>
+                    <li><a href="../faq.htm">FAQ</a></li>
+                    <li><a href="https://www.break-ic.com/mail/contact_mika.asp">اتصل بنا</a></li>
+                                        <li class="lang-dropdown">
+                        <a href="#"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR ▾</a>
+                        <ul class="lang-dropdown-content">
+                            <li><a href="../index.htm"><img src="../../image/ar.png" alt="AR" class="flag-icon"> AR</a></li>
+                            <li><a href="../../index.htm"><img src="../../image/ru.png" alt="RU" class="flag-icon"> RU</a></li>
+                            <li><a href="../../kr/index.htm"><img src="../../image/kr.png" alt="KR" class="flag-icon"> KR</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+       
+        <div class="watermark">MikaTech</div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i> مختبر متقدم للمتحكمات الدقيقة
+                    </div>
+                    <h1>
+                        المتحكمات الدقيقة <br />
+                        <span class="highlight">الهندسة العكسية</span>
+                    </h1>
+                    <p>
+                        نفتح الأنظمة المدمجة ونحللها ونعيد توظيفها بدقة عالية.
+                        نقدّم خدمات خبرة في استخراج البرامج الثابتة وتحليل البنية السيليكونية
+                        وتقييم أمان المتحكمات الدقيقة.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="../about.htm" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> لماذا MikaTech
+                        </a>
+    <a href="https://www.break-ic.com/mail/contact_mika.asp" class="btn btn-dark">
+        <i class="fas fa-phone"></i> تواصل معنا
+    </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h4>28 عاماً</h4>
+                            <p>نعمل منذ عام 1998</p>
+                        </div>
+                        <div class="stat">
+                            <h4>180+</h4>
+                            <p>تم تحليل عائلات المتحكمات</p>
+                        </div>
+                        <div class="stat">
+                            <h4>60k+</h4>
+                            <p>تم استخراج البرامج الثابتة</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- ===== hero-chip  ===== -->
+                    <div class="hero-chip">
+                        <!-- graph -->
+                        <img src="../../image/office.jpg" alt="مكتب الشركة" class="chip-image" />
+
+                        <!-- play video -->
+                        <div class="play-btn" onclick="window.open('../video.htm', '_blank')" title="تفريغ البرنامج الثابت للمتحكم الدقيق">
+                            <i class="fas fa-circle-play"></i>
+                        </div>
+
+                        <!-- float -->
+                        <div class="float-el f1"><i class="fas fa-lock"></i> تجاوز الحماية</div>
+                        <div class="float-el f2"><i class="fas fa-code"></i> تفريغ البرنامج الثابت</div>
+                        <div class="float-el f3"><i class="fas fa-microscope"></i> اختراق</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>الهندسة العكسية للمتحكمات الدقيقة Nuvoton</h1>
+                <p>خبرة في المتحكمات القائمة على ARM Cortex-M و8051</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>عن Nuvoton</h2>
+                <p>تُعد Nuvoton Technology Corporation شركة أشباه موصلات رائدة متخصصة في المتحكمات الدقيقة والدوائر الصوتية والحاسوبية. وقد انبثقت الشركة من مجموعة الأعمال المنطقية في Winbond وتطوّرت لتصبح مورّداً عالمياً. وتشتهر Nuvoton بعائلتها NuMicro® القائمة على ARM Cortex-M وسلسلة 8051 القديمة. وهي تقدّم طيفاً واسعاً من المتحكمات منخفضة الاستهلاك إلى عالية الأداء، الموجّهة نحو التطبيقات الصناعية والاستهلاكية والسياراتية وإنترنت الأشياء. وتشتهر منتجات Nuvoton بالاقتصاد في التكلفة والتكامل التناظري الموثوق والوظائف الطرفية الواسعة. وهي تقدّم أدوات تطوير شاملة، تشمل وحدات التصحيح Nu-Link ومكتبات برمجية واسعة. وتولى الشركة اهتماماً قوياً للبحث والتطوير في مجالي الأمن والاتصال، وتُجهَّز العديد من الأجهزة بمُسرِّعات تشفير أجهزية وكشف عبث. كما تُنتج Nuvoton برامج ترميز صوتي ودوائر التحكم بالمحركات ووحدات إدارة الطاقة. وتغطّي طيفاً واسعاً من الأداء ولا تزال منتجات Nuvoton القائمة على 8051 تُستخدم على نطاق واسع في الأنظمة القديمة والتطبيقات ذات الميزانية المحدودة. وهي مورّد رئيسي للعديد من مصنعي الإلكترونيات الآسيويين. وتولي Nuvoton اهتماماً لتوفر المنتج طويل الأمد ودعم دورة الحياة. ولديها شهادات الجودة ISO 9001 وIATF 16949. وغالباً ما تتضمن متحكماتها وظائف تناظرية متقدمة مثل محولات تناظرية-رقمية عالية الدقة ومحولات رقمية-تناظرية ومقارِنات. كما تقدّم Nuvoton آليات الإقلاع الآمن وتحديث البرنامج الثابت. وتشارك الشركة بنشاط في منظومة المصادر المفتوحة بدعم ARM mbed وZephyr. وتُستخدم منتجات Nuvoton في منتجات المنازل الذكية والطائرات المسيرة والروبوتات والمعدات الطبية. ولديها فريق أمن مخصّص يصدر نشرات دورية. ويستخدم إنتاج Nuvoton عمليات متقدمة بحجم 40 نانومتراً و55 نانومتراً لخفض الاستهلاك. كما تقدّم حلولاً ذات ذاكرة مدمجة وflash وSRAM كبيرة. وتشمل قاعدة عملائها العديد من شركات Fortune 500. ولدى Nuvoton شبكة مبيعات ودعم عالمية. وهي تواصل الاستثمار في تقنيات جديدة مثل RISC-V وتسريع الذكاء الاصطناعي. ويُعد Nu-Link أداة التصحيح المفضّلة لدى المطورين. كما تقدّم معرّداً فريداً للرقاقة للمصادقة. وتلتزم Nuvoton بالاستدامة البيئية بتغليف خالٍ من الرصاص والهالوجين.</p>
+
+                <h2>سلاسل المنتجات وموديلات الأجهزة</h2>
+                <h3>NuMicro® M0 (Cortex-M0)</h3>
+                <ul>
+                    <li>M0516LBN</li><li>M052LAN</li><li>M058ZAN</li><li>M0518LD2</li><li>M0518SD2</li>
+                    <li>M0519LD3</li><li>M0519SD3</li><li>M052FAN</li><li>M054FAN</li><li>M058FAN</li>
+                    <li>M0516LDN</li><li>M0518LDN</li>
+                </ul>
+                <h3>NuMicro® M4 (Cortex-M4)</h3>
+                <ul>
+                    <li>M451RG6AE</li><li>M452RG6AE</li><li>M453VG6AE</li><li>M451RE6AE</li><li>M452RE6AE</li>
+                    <li>M453RE6AE</li><li>M451RC6AE</li><li>M452RC6AE</li><li>M453RC6AE</li><li>M451MLD3</li>
+                    <li>M452MLD3</li><li>M453MLD3</li><li>M451MD3AE</li>
+                </ul>
+                <h3>سلسلة 8051 (قديمة)</h3>
+                <ul>
+                    <li>W78E516B</li><li>W78E58B</li><li>W78E52B</li><li>W78E54B</li><li>W78E62B</li>
+                    <li>W78C516B</li><li>W78C58B</li><li>W78C52B</li><li>W78C54B</li><li>W79E2051</li>
+                    <li>W79E825</li><li>W79E532</li><li>W79E533</li>
+                </ul>
+
+                <h2>ميزات الأمان في Nuvoton</h2>
+                <p>تطبّق Nuvoton مستويات حماية متعددة للتعليمات والبيانات على متحكماتها. وتتضمن العديد من أجهزة NuMicro محرك تشفير أجهزياً لخوارزميات AES وDES وSHA. وهذا يتيح تشفير البرنامج الثابت، بحيث يلزم مفتاح لفك التشفير عند الإقلاع. وتُخزن المفاتيح في سجل محمي لا يمكن قراءته بالأوامر العادية. كما تقدّم Nuvoton معرّد مستخدم فريداً للمصادقة. وهي توفّر حماية flash قابلة للضبط، بتقسيم الذاكرة إلى مناطق ذات صلاحيات قراءة/كتابة/مسح مختلفة. ويمكن لمنصهر الحماية قفل واجهات التصحيح نهائياً، مثل JTAG وSWD، لمنع القراءة الخارجية. غير أن مهاجمين مصمّمين قد يحاولون اختراق المنصهر بحقن الأخطاء. وأضافت Nuvoton دبابيس كشف العبث التي تبادر إلى محو البيانات فوراً عند اكتشاف تدخل فيزيائي. ويتحقق محمّلها الإقلاعي الآمن من توقيع البرنامج الثابت قبل التنفيذ، مما يصعّب حقن التعليمات الخبيثة. وتتضمن بعض الأجهزة مولّد أرقام عشوائية للعمليات التشفيرية. ولفتح رقاقة محمية غالباً ما نستخدم تحليل القناة الجانبية لاستعادة المفاتيح. ويمكن لتباينات الاستهلاك والإشعاعات الكهرومغناطيسية أثناء التشفير كشف بيانات سرية. وقد نجح فريقنا في استخراج برنامج ثابت من أجهزة Nuvoton M4 باستخدام التحليل التفاضلي للاستهلاك. كما طبّقنا هجمات الغليتش لتجاوز بتات القفل في منتجات 8051 القديمة. وتتيح الأساليب الجائرة مثل الفتح فحص ذاكرة flash مباشرة. ثم يمكننا تفريغ كامل المحتوى وتكرار البرنامج الثابت على جهاز جديد. حماية Nuvoton موثوقة، لكن لا توجد أنظمة محصّنة تماماً. وقد طوّرنا أدوات خاصة لاستعادة البيانات من الشرائح المقفلة. فمثلاً يمكننا استغلال الفوارق الزمنية في المحمّل الإقلاعي لاستخراج البايتات المحمية. كما نستخدم حزمة الأيونات المركزة (FIB) لقطع توصيلات المنصهرات. وتغطي خدماتنا المناهج الجائرة وغير الجائرة. ويمكننا استعادة بيانات المعايرة ومنصهرات الضبط. إن التعزيز المستمر لحماية Nuvoton يتطلب تحديثاً دائماً لأساليبنا. وتظل MikaTech في طليعة الهندسة العكسية للمتحكمات الدقيقة. ونقدّم تقريراً كاملاً عن الاستخراج مع الكود المفكوك التجميعي. سواء أكنت بحاجة إلى استنساخ وحدة تحكم قديمة أم استعادة برنامج ثابت مفقود، فإننا على جاهزية للمساعدة. اتصل بنا لإجراء تقييم مفصّل لجهاز Nuvoton الخاص بك.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><p>&copy; 2026 MikaTech. جميع الحقوق محفوظة. | خبرة في الهندسة العكسية.</p></div>
+    </footer>
+</body>
+</html>
